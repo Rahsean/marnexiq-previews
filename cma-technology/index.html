@@ -80,6 +80,17 @@ h1,h2,h3{font-family:'Inter',sans-serif;font-weight:700;color:#fff;letter-spacin
 .tm .role{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.14em;
  text-transform:uppercase;color:var(--red);opacity:.9}
 .tm p{font-size:.84rem;color:var(--muted);margin-top:10px}
+.teamwrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center;margin-top:52px}
+.teamphoto{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--bd)}
+.teamphoto img{width:100%;height:100%;object-fit:cover;display:block}
+.tpcap{position:absolute;left:0;right:0;bottom:0;padding:26px 24px;
+ background:linear-gradient(transparent,rgba(7,11,19,.92))}
+.tpcap p{color:#fff;font-weight:600;margin-top:6px}
+.teamroles .rl{display:flex;gap:20px;padding:18px 0;border-top:1px solid var(--bd);align-items:flex-start}
+.teamroles .rn{font-family:'JetBrains Mono',monospace;color:var(--red);font-size:.8rem;padding-top:4px;opacity:.85}
+.teamroles h4{font-size:1.05rem;margin-bottom:3px}
+.teamroles p{color:var(--muted);font-size:.9rem}
+@media(max-width:900px){.teamwrap{grid-template-columns:1fr;gap:34px}}
 section{padding:110px 0}
 .cta{text-align:center;background:radial-gradient(ellipse at 50% 50%,rgba(224,37,27,.12),transparent 62%),var(--bg)}
 .cta h2{font-size:clamp(2rem,4.6vw,3.4rem);margin:18px 0 18px}
@@ -101,7 +112,7 @@ footer a,footer p{color:var(--muted);font-size:.92rem}footer a:hover{color:var(-
 <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.6) 100%);"></div>
 <div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);pointer-events:none;"></div>
 </div><div class="wrap" style="position: relative; z-index: 1; "><div class="bar">
-<a class="wm" href="#">CMA<i>.</i></a>
+<a class="wm" href="#"><img alt="CMA Technology" src="https://mycma.com/wp-content/uploads/2022/07/HeaderLogo.png" style="height:38px;width:auto"/></a>
 <nav class="nl"><a href="#services">Services</a><a href="#why">Why CMA</a><a href="#team">Team</a>
 <a class="bs" href="#contact" style="padding:10px 22px">Partner With Us</a></nav>
 </div></div></header>
@@ -139,21 +150,25 @@ That's why we're the leader in managed IT across the southeast.</p>
 </div>
 <section id="team"><div class="wrap"><div class="mono">The CMA Way</div>
 <h2 style="font-size:clamp(2rem,4.4vw,3.2rem);margin-top:14px">You get a team of experts</h2>
-<div class="tg">
-<div class="tm"><div class="av">MS</div><h4>Managed Services</h4><div class="role">Service Delivery</div><p>Support, tickets and on-site across the CSRA.</p></div>
-<div class="tm"><div class="av">SE</div><h4>Security</h4><div class="role">Cybersecurity</div><p>Endpoint protection, monitoring, compliance.</p></div>
-<div class="tm"><div class="av">CL</div><h4>Cloud Practice</h4><div class="role">M365 &amp; Azure</div><p>Migrations and hybrid architecture.</p></div>
-<div class="tm"><div class="av">HD</div><h4>Help Desk</h4><div class="role">Client Support</div><p>The people who answer when you call.</p></div>
-</div>
-<p style="color:var(--muted);font-size:.84rem;margin-top:28px">Your real team photos and bios drop straight into this section.</p>
-</div></section>
+<div class="teamwrap">
+<div class="teamphoto"><img alt="The CMA Technology team" src="https://mycma.com/wp-content/uploads/2024/05/AboutPage_onpageimage-745x1024.png"/>
+<div class="tpcap"><span class="mono">Augusta, Georgia</span><p>The people who pick up the phone.</p></div></div>
+<div class="teamroles">
+<p style="color:var(--muted);margin-bottom:26px">Certified specialists across service delivery, security and
+the cloud — headquartered in Augusta and covering the southeast.</p>
+<div class="rl"><span class="rn">01</span><div><h4>Technical Services Engineer</h4><p>Infrastructure, migrations and the deep problems.</p></div></div>
+<div class="rl"><span class="rn">02</span><div><h4>Field Technician</h4><p>On-site installation and support at your premises.</p></div></div>
+<div class="rl"><span class="rn">03</span><div><h4>Technical Support Representative</h4><p>The help desk voice when something breaks.</p></div></div>
+<div class="rl"><span class="rn">04</span><div><h4>Customer Success</h4><p>Owns the relationship, not just the ticket.</p></div></div>
+<div class="rl"><span class="rn">05</span><div><h4>Territory Sales</h4><p>Scoping the right plan for your business.</p></div></div>
+</div></div></div></section>
 <section class="cta" id="contact"><div class="wrap"><div class="mono">Get Started</div>
 <h2>Consider IT handled.</h2>
 <p style="color:var(--muted);max-width:600px;margin:0 auto 34px">117 Commercial Blvd, Augusta GA 30907 —
 we'll show you exactly where your risk and cost sit today.</p>
 <a class="bs" href="tel:7068601997">Call 706-860-1997</a></div></section>
 <footer><div class="wrap"><div class="fg">
-<div><div class="wm" style="margin-bottom:12px">CMA<i>.</i></div><p>Managed IT for the southeast · Augusta, Georgia</p></div>
+<div><img alt="CMA Technology" src="https://mycma.com/wp-content/uploads/2022/07/HeaderLogo.png" style="height:34px;width:auto;margin-bottom:14px"/><p>Managed IT for the southeast · Augusta, Georgia</p></div>
 <div><a href="tel:7068601997">706-860-1997</a><br/><a href="mailto:info@mycma.com">info@mycma.com</a><br/><span style="color:var(--muted);font-size:.92rem">117 Commercial Blvd</span></div>
 </div><div class="cp">© 2026 CMA Technology. All rights reserved.  ·  Preview redesign concept by MARNEXIQ.</div>
 </div></footer>
