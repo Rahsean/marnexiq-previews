@@ -3,7 +3,7 @@
 <html lang="en"><head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="noindex" name="robots"/>
-<title>Rhoden CPA Firm — Augusta CPA</title>
+<title>Rhoden CPA Firm — Augusta GA CPA</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&amp;family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
 <style>
 :root{--bg-deep:#0a0f1a;--bg-card:#111827;--bg-elevated:#1a2236;--accent:#7456f1;
@@ -96,6 +96,44 @@ footer a:hover{color:var(--accent)}
 .copy{border-top:1px solid var(--border);padding-top:24px;text-align:center;font-size:.8rem;color:var(--text-muted)}
 @media(max-width:900px){.nl{display:none}.nf{grid-template-columns:1fr;gap:32px}
  .fg{grid-template-columns:1fr;gap:28px}section{padding:72px 0}.stat-divider{display:none}.stat{flex:0 0 42%}}
+
+/* team-grid */
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.tm{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;
+ padding:28px 22px;text-align:center;transition:transform .3s cubic-bezier(.25,.46,.45,.94),
+ border-color .3s ease,box-shadow .3s ease}
+.tm:hover{transform:translateY(-5px);border-color:var(--accent);box-shadow:0 16px 44px rgba(0,0,0,.32)}
+.tm .av{width:78px;height:78px;margin:0 auto 16px;border-radius:50%;display:grid;place-items:center;
+ font-family:var(--font-heading);font-size:1.5rem;letter-spacing:.04em;color:var(--accent);
+ background:linear-gradient(140deg,rgba(255,255,255,.07),rgba(255,255,255,.02));
+ border:1px solid var(--border-strong)}
+.tm .nm{font-family:var(--font-heading);font-size:1.05rem;color:var(--text-heading);margin-bottom:4px}
+.tm .rl{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);opacity:.85}
+.tm .bio{font-size:.85rem;color:var(--text-muted);margin-top:12px;line-height:1.55}
+.team-note{margin-top:28px;font-size:.85rem;color:var(--text-muted);text-align:center;opacity:.75}
+@media(max-width:1024px){.team-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.team-grid{grid-template-columns:1fr}}
+
+/* testimonial-cards */
+.tst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.tst{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:30px;
+ position:relative;transition:.3s}
+.tst:hover{border-color:var(--accent);transform:translateY(-4px)}
+.tst::before{content:"\201C";position:absolute;top:6px;left:20px;font-family:var(--font-heading);
+ font-size:4.5rem;color:var(--accent);opacity:.22;line-height:1}
+.tst p{position:relative;color:var(--text);font-size:.96rem;line-height:1.7;margin-bottom:18px}
+.tst .who{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.tst .stars{color:var(--gold);letter-spacing:3px;margin-bottom:14px;font-size:.9rem}
+@media(max-width:900px){.tst-grid{grid-template-columns:1fr}}
+
+/* service-matrix — deep service lists a single card row can't hold */
+.svc-matrix{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.svc-col{border-top:1px solid var(--border-strong);padding-top:22px}
+.svc-col h3{font-size:1.15rem;margin-bottom:14px;color:var(--text-heading)}
+.svc-col ul{list-style:none}
+.svc-col li{font-size:.9rem;color:var(--text-muted);padding:6px 0 6px 18px;position:relative}
+.svc-col li::before{content:"";position:absolute;left:0;top:14px;width:7px;height:1px;background:var(--accent)}
+@media(max-width:900px){.svc-matrix{grid-template-columns:1fr}}
 </style>
 <style>
 .anim-fade-in-up {
@@ -134,40 +172,41 @@ footer a:hover{color:var(--accent)}
 <div style="width:1px;height:32px;background:linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);animation:pulse 2s infinite;"></div>
 </div></header>
 <section class="hero hero-fin anim-fade-in-up" style="transition-delay: 0.0s; "><div class="wrap inner">
-<div class="mono">Certified Public Accountants · Augusta</div>
+<div class="mono">Certified Public Accountants · Augusta, GA</div>
 <h1>Clarity in Every <span class="gtext">Number</span></h1>
-<p class="sub">Rhoden CPA Firm brings decades of disciplined accounting to individuals and businesses across the CSRA — proactive planning, precise filings, and straight answers all year, not just in April.</p>
+<p class="sub">Rhoden CPA Firm handles the full picture — individual and business accounting, proactive tax planning,
+and IRS representation when things go sideways. Straight answers, all year, from people you can actually reach.</p>
 <div class="cta-row"><a class="btn-solid" href="#contact">Book a Consultation</a>
 <a class="btn-ghost" href="#services">Our Services</a></div>
 </div></section>
 <hr class="gline"/>
-<section class="stats-bar anim-fade-in-up" style="position: relative; overflow: hidden; transition-delay: 0.1s; "><canvas id="anim-dots-rhombus" style="position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0.15;"></canvas><div class="stat" style="position: relative; z-index: 1; "><span class="stat-number" data-target="400">0</span><span class="stat-suffix">+</span><span class="stat-label">Clients Served</span></div><div class="stat-divider" style="position: relative; z-index: 1; "></div><div class="stat" style="position: relative; z-index: 1; "><span class="stat-number" data-target="25">0</span><span class="stat-label">Years Practising</span></div><div class="stat-divider" style="position: relative; z-index: 1; "></div><div class="stat" style="position: relative; z-index: 1; "><span class="stat-number" data-target="100">0</span><span class="stat-suffix">%</span><span class="stat-label">On-Time Filing</span></div><div class="stat-divider" style="position: relative; z-index: 1; "></div><div class="stat" style="position: relative; z-index: 1; "><span class="stat-number" data-target="4.9">0</span><span class="stat-label">Client Rating</span></div></section>
+<section class="stats-bar anim-fade-in-up" style="position: relative; overflow: hidden; transition-delay: 0.1s; "><canvas id="anim-dots-rhombus" style="position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0.15;"></canvas><div class="stat" style="position: relative; z-index: 1; "><span class="stat-number" data-target="400">0</span><span class="stat-suffix">+</span><span class="stat-label">Clients Served</span></div><div class="stat-divider" style="position: relative; z-index: 1; "></div><div class="stat" style="position: relative; z-index: 1; "><span class="stat-number" data-target="25">0</span><span class="stat-label">Years Practising</span></div><div class="stat-divider" style="position: relative; z-index: 1; "></div><div class="stat" style="position: relative; z-index: 1; "><span class="stat-number" data-target="7">0</span><span class="stat-label">Industries Served</span></div><div class="stat-divider" style="position: relative; z-index: 1; "></div><div class="stat" style="position: relative; z-index: 1; "><span class="stat-number" data-target="100">0</span><span class="stat-suffix">%</span><span class="stat-label">On-Time Filing</span></div></section>
 <section class="anim-fade-in-up" id="services" style="transition-delay: 0.2s; "><div class="wrap">
-<div class="sec-head"><div class="mono">What We Do</div><h2>Beyond Tax Season</h2>
-<p>Accounting that anticipates rather than reacts — so decisions get made with the numbers in front of you.</p></div>
-<div class="g3">
-<div class="glass"><h3>Tax Preparation &amp; Planning</h3><p>Individual and business returns filed accurately, paired with year-round planning that lowers next year's liability before the deadline arrives.</p><a class="alink" href="#contact">Learn more →</a></div>
-<div class="glass"><h3>Bookkeeping &amp; Reporting</h3><p>Clean monthly books, reconciled accounts and reporting you can actually read — so you always know exactly where the business stands.</p><a class="alink" href="#contact">Learn more →</a></div>
-<div class="glass"><h3>Business Advisory</h3><p>Entity structure, payroll, and cash-flow guidance as you grow, from a firm that has seen what works across hundreds of local businesses.</p><a class="alink" href="#contact">Learn more →</a></div>
-</div></div></section>
+<div class="sec-head"><div class="mono">What We Do</div><h2>Full-Service, Not Just Tax Season</h2>
+<p>Individuals, businesses and IRS problems — handled under one roof, with QuickBooks support throughout.</p></div>
+<div class="svc-matrix"><div class="svc-col"><h3>For Individuals</h3><ul><li>Personal Financial Planning</li><li>Retirement Planning</li><li>Estate Planning</li><li>Elder Care</li><li>Wealth Management</li><li>Individual Tax Preparation</li></ul></div><div class="svc-col"><h3>For Businesses</h3><ul><li>Small Business Accounting</li><li>Bookkeeping &amp; Payroll</li><li>Part-Time CFO Services</li><li>Audits, Reviews &amp; Compilations</li><li>Business Valuation</li><li>Succession Planning</li></ul></div><div class="svc-col"><h3>Tax Relief &amp; IRS</h3><ul><li>IRS Audit Representation</li><li>Back Taxes Owed</li><li>IRS Liens &amp; Levies</li><li>Wage Garnishment Relief</li><li>Offer In Compromise</li><li>Innocent Spouse Relief</li></ul></div></div>
+<p style="margin-top:34px;color:var(--text-muted);font-size:.92rem">
+Serving construction, dentists, healthcare, hospitality, law firms, manufacturers and real estate.</p>
+</div></section>
 <hr class="gline"/>
-<section class="anim-fade-in-up" id="approach" style="transition-delay: 0.3s; "><div class="wrap">
-<div class="sec-head"><div class="mono">Our Approach</div><h2>Measured, Personal, Accountable</h2></div>
-<div class="nf">
-<div><div class="n">01</div><h3>We Listen First</h3><p>Every engagement starts with understanding your situation — not handing you a checklist.</p></div>
-<div><div class="n">02</div><h3>We Plan Ahead</h3><p>Tax outcomes are decided months before filing. We work the calendar, not the deadline.</p></div>
-<div><div class="n">03</div><h3>We Stay Reachable</h3><p>Call and speak to the person who knows your file. No queues, no handoffs.</p></div>
-</div></div></section>
-<section class="anim-fade-in-up" id="contact" style="transition-delay: 0.4s; background:var(--bg-card);text-align:center">
-<div class="wrap"><div class="mono">Get Started</div>
+<section class="anim-fade-in-up" id="team" style="transition-delay: 0.3s; "><div class="wrap">
+<div class="sec-head"><div class="mono">Our Staff</div><h2>The People Behind the Numbers</h2>
+<p>A small firm means the person who prepares your return is the person who answers the phone.</p></div>
+<div class="team-grid"><div class="tm"><div class="av">AR</div><div class="nm">Firm Leadership</div><div class="rl">Partner / CPA</div><div class="bio">Signing authority on returns and the person you actually meet with.</div></div><div class="tm"><div class="av">TX</div><div class="nm">Tax Practice</div><div class="rl">Tax &amp; IRS Relief</div><div class="bio">Preparation, planning and representation before the IRS.</div></div><div class="tm"><div class="av">BK</div><div class="nm">Client Accounting</div><div class="rl">Bookkeeping &amp; Payroll</div><div class="bio">Monthly close, payroll and QuickBooks support.</div></div><div class="tm"><div class="av">AD</div><div class="nm">Advisory</div><div class="rl">CFO &amp; Valuation</div><div class="bio">Part-time CFO work, valuations and succession planning.</div></div></div><div class="team-note">Your real staff photos and credentials drop straight into this section.</div></div></section>
+<section class="anim-fade-in-up" id="proof" style="transition-delay: 0.4s; background:var(--bg-card)"><div class="wrap">
+<div class="sec-head"><div class="mono">Client Reviews</div><h2>Trusted Across the CSRA</h2></div>
+<div class="tst-grid"><div class="tst"><div class="stars">★★★★★</div><p>Your existing Client Reviews page already has these — a redesign puts them on the homepage where they influence the decision.</p><div class="who">Client Name · Augusta, GA</div></div><div class="tst"><div class="stars">★★★★★</div><p>A second review, ideally one naming an outcome: an audit resolved, a lien released, a clean first year of books.</p><div class="who">Client Name · Evans, GA</div></div><div class="tst"><div class="stars">★★★★★</div><p>A third, short and human. Trust is the whole sale for an accounting firm.</p><div class="who">Client Name · Martinez, GA</div></div></div></div></section>
+<section class="anim-fade-in-up" id="contact" style="transition-delay: 0.5s; text-align:center"><div class="wrap">
+<div class="mono">Get Started</div>
 <h2 style="margin:16px 0 14px">Let's Get Your Books Right</h2>
-<p style="color:var(--text-muted);max-width:560px;margin:0 auto 32px">Schedule a consultation and we'll show you exactly where you stand — and what to do next.</p>
+<p style="color:var(--text-muted);max-width:560px;margin:0 auto 32px">Schedule a consultation and we'll show you
+exactly where you stand — and what to do next.</p>
 <a class="btn-solid" href="tel:7067247979">Call 706-724-7979</a></div></section>
 <footer><div class="wrap"><div class="fg">
 <div><div class="logo" style="margin-bottom:14px">RHODEN <b>CPA</b></div>
 <p>Proudly serving Augusta and the greater CSRA.</p></div>
 <div class="fcol"><h4>Explore</h4><a href="#services">Services</a><a href="#approach">Approach</a><a href="#contact">Contact</a></div>
-<div class="fcol"><h4>Contact</h4><a href="tel:7067247979">706-724-7979</a><span style="color:var(--text-muted);font-size:.95rem">Augusta, GA</span></div>
+<div class="fcol"><h4>Contact</h4><a href="tel:7067247979">706-724-7979</a><a href="mailto:angela@rhodencpa.com">angela@rhodencpa.com</a><span style="color:var(--text-muted);font-size:.95rem">Augusta, GA</span></div>
 </div><div class="copy">© 2026 Rhoden CPA Firm. All rights reserved.  ·  Preview redesign concept by MARNEXIQ.</div>
 </div></footer>
 <script>
