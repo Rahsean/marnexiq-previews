@@ -113,6 +113,44 @@ footer a:hover{color:var(--accent)}
 .copy{border-top:1px solid var(--border);padding-top:24px;text-align:center;font-size:.8rem;color:var(--text-muted)}
 @media(max-width:900px){.nl{display:none}.nf{grid-template-columns:1fr;gap:32px}
  .fg{grid-template-columns:1fr;gap:28px}section{padding:72px 0}.stat-divider{display:none}.stat{flex:0 0 42%}}
+
+/* team-grid */
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.tm{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;
+ padding:28px 22px;text-align:center;transition:transform .3s cubic-bezier(.25,.46,.45,.94),
+ border-color .3s ease,box-shadow .3s ease}
+.tm:hover{transform:translateY(-5px);border-color:var(--accent);box-shadow:0 16px 44px rgba(0,0,0,.32)}
+.tm .av{width:78px;height:78px;margin:0 auto 16px;border-radius:50%;display:grid;place-items:center;
+ font-family:var(--font-heading);font-size:1.5rem;letter-spacing:.04em;color:var(--accent);
+ background:linear-gradient(140deg,rgba(255,255,255,.07),rgba(255,255,255,.02));
+ border:1px solid var(--border-strong)}
+.tm .nm{font-family:var(--font-heading);font-size:1.05rem;color:var(--text-heading);margin-bottom:4px}
+.tm .rl{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);opacity:.85}
+.tm .bio{font-size:.85rem;color:var(--text-muted);margin-top:12px;line-height:1.55}
+.team-note{margin-top:28px;font-size:.85rem;color:var(--text-muted);text-align:center;opacity:.75}
+@media(max-width:1024px){.team-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.team-grid{grid-template-columns:1fr}}
+
+/* testimonial-cards */
+.tst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.tst{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:30px;
+ position:relative;transition:.3s}
+.tst:hover{border-color:var(--accent);transform:translateY(-4px)}
+.tst::before{content:"\201C";position:absolute;top:6px;left:20px;font-family:var(--font-heading);
+ font-size:4.5rem;color:var(--accent);opacity:.22;line-height:1}
+.tst p{position:relative;color:var(--text);font-size:.96rem;line-height:1.7;margin-bottom:18px}
+.tst .who{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.tst .stars{color:var(--gold);letter-spacing:3px;margin-bottom:14px;font-size:.9rem}
+@media(max-width:900px){.tst-grid{grid-template-columns:1fr}}
+
+/* service-matrix — deep service lists a single card row can't hold */
+.svc-matrix{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.svc-col{border-top:1px solid var(--border-strong);padding-top:22px}
+.svc-col h3{font-size:1.15rem;margin-bottom:14px;color:var(--text-heading)}
+.svc-col ul{list-style:none}
+.svc-col li{font-size:.9rem;color:var(--text-muted);padding:6px 0 6px 18px;position:relative}
+.svc-col li::before{content:"";position:absolute;left:0;top:14px;width:7px;height:1px;background:var(--accent)}
+@media(max-width:900px){.svc-matrix{grid-template-columns:1fr}}
 </style>
 <style>
 .anim-fade-in-up {
@@ -184,7 +222,14 @@ footer a:hover{color:var(--accent)}
 <div><div class="n">02</div><h3>Market It Properly</h3><p>Professional photography, staging guidance and full digital syndication on every home.</p></div>
 <div><div class="n">03</div><h3>Close It Cleanly</h3><p>Inspections, appraisals and lenders coordinated so closing day holds no surprises.</p></div>
 </div></div></section>
-<section class="anim-fade-in-up" id="contact" style="transition-delay: 0.4s; background:var(--bg-card);text-align:center">
+<section class="anim-fade-in-up" id="team" style="transition-delay: 0.4s; background:var(--bg-card)"><div class="wrap">
+<div class="sec-head"><div class="mono">Our People</div><h2>Specialists, Not Generalists</h2>
+<p>Every move is different — you get matched to the agent who does that kind of move every week.</p></div>
+<div class="team-grid"><div class="tm"><div class="av">RS</div><div class="nm">Residential Sales</div><div class="rl">Listing &amp; Buyer Agents</div><div class="bio">The agents who actually walk your neighbourhood.</div></div><div class="tm"><div class="av">NC</div><div class="nm">New Construction</div><div class="rl">Builder Specialists</div><div class="bio">Contracts, upgrades and timelines handled.</div></div><div class="tm"><div class="av">PM</div><div class="nm">Property Management</div><div class="rl">Owner Services</div><div class="bio">Tenant placement, maintenance and reporting.</div></div><div class="tm"><div class="av">RL</div><div class="nm">Relocation</div><div class="rl">Fort Eisenhower &amp; Corporate</div><div class="bio">Dedicated support for families moving in.</div></div></div><div class="team-note">Your 300+ agent roster and headshots drop straight into this section.</div></div></section>
+<section class="anim-fade-in-up" id="proof" style="transition-delay: 0.5s; "><div class="wrap">
+<div class="sec-head"><div class="mono">Client Reviews</div><h2>Generations of CSRA Families</h2></div>
+<div class="tst-grid"><div class="tst"><div class="stars">★★★★★</div><p>Placeholder for a real client review — the kind already sitting on your agent pages.</p><div class="who">Seller · Evans, GA</div></div><div class="tst"><div class="stars">★★★★★</div><p>A second, naming the outcome: days on market, over-asking, a smooth relocation.</p><div class="who">Buyer · Augusta, GA</div></div><div class="tst"><div class="stars">★★★★★</div><p>A third, short and human.</p><div class="who">Investor · Martinez, GA</div></div></div></div></section>
+<section class="anim-fade-in-up" id="contact" style="transition-delay: 0.0s; background:var(--bg-card);text-align:center">
 <div class="wrap"><div class="mono">Get in Touch</div>
 <h2 style="margin:16px 0 14px">Ready to Make Your Move?</h2>
 <p style="color:var(--text-muted);max-width:560px;margin:0 auto 32px">Tell us where you are headed and we will match you with the right agent for it.</p>
