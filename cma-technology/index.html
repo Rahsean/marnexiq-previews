@@ -1,204 +1,236 @@
-<!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="noindex" name="robots"/>
-<title>CMA Technology — Managed IT, Augusta GA</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
-<style>*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>CMA Technology — Keeping IT Groovy Since 1979</title>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito+Sans:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
 img{max-width:100%;display:block}a{text-decoration:none;color:inherit}
-.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
-:root{--bg:#0a0f1a;--card:#111827;--elev:#1e293b;--red:#E0251B;--red2:#ff5a4d;
---glow:rgba(224,37,27,.20);--text:#E7EBEE;--muted:#94a3b8;--bd:rgba(224,37,27,.16)}
-body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.7}
-h1,h2,h3{font-family:'Inter',sans-serif;font-weight:700;color:#fff;letter-spacing:-.02em}
-.mono{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--red)}
-#nav{position:fixed;inset:0 0 auto;z-index:60;transition:.35s}
-#nav.solid{background:rgba(10,15,26,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--bd)}
-#nav .bar{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
-.wm{font-weight:800;font-size:1.3rem;letter-spacing:-.02em;color:#fff}.wm i{color:var(--red);font-style:normal}
-.nl{display:flex;gap:32px;align-items:center}
-.nl a{font-size:.78rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 26px}
+:root{--red:#E0251B;--orange:#F7A81B;--yellow:#FFC90B;--green:#8CBF3F;--green2:#7BAE30;
+--ink:#333136;--ink2:#5c5a60;--paper:#fff;--cream:#fdf9f0}
+body{background:var(--paper);color:var(--ink);line-height:1.72;
+ font-family:'Nunito Sans',-apple-system,'Segoe UI',sans-serif;font-weight:400}
+h1,h2,h3{font-family:'Bungee','Nunito Sans',sans-serif;font-weight:400;color:var(--ink);
+ letter-spacing:.01em;line-height:1.08}
+.sub{font-family:'Nunito Sans',sans-serif}
+/* rainbow rule — their signature arc colours */
+.rain{height:7px;display:flex;width:100%}
+.rain i{flex:1}.rain i:nth-child(1){background:var(--red)}.rain i:nth-child(2){background:var(--orange)}
+.rain i:nth-child(3){background:var(--yellow)}.rain i:nth-child(4){background:var(--green)}
+.rain i:nth-child(5){background:var(--ink)}
+/* NAV */
+#nav{position:fixed;inset:0 0 auto;z-index:70;background:rgba(255,255,255,.97);
+ box-shadow:0 2px 18px rgba(0,0,0,.07);transition:.3s}
+#nav .bar{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:24px}
+#nav img{height:52px;width:auto}
+.nl{display:flex;gap:30px;align-items:center}
+.nl a{font-weight:700;font-size:.84rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
 .nl a:hover{color:var(--red)}
-.bs{display:inline-block;padding:14px 30px;background:var(--red);color:#fff;border-radius:8px;
- font-weight:600;font-size:.86rem;transition:.3s}.bs:hover{background:var(--red2);box-shadow:0 0 28px var(--glow)}
-.bgh{display:inline-block;padding:14px 30px;border:1px solid var(--red);color:var(--red);border-radius:8px;
- font-weight:500;font-size:.86rem;transition:.3s}.bgh:hover{background:var(--glow)}
-/* HERO — centered, tech badge, gradient headline */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;
- text-align:center;overflow:hidden;
- background:radial-gradient(ellipse at 30% 18%,rgba(224,37,27,.15),transparent 62%),
- radial-gradient(ellipse at 74% 82%,rgba(120,90,255,.09),transparent 55%),var(--bg)}
-.hero .in{position:relative;z-index:2;max-width:880px;padding:130px 24px 90px}
-.badge{display:inline-block;background:var(--elev);border:1px solid var(--bd);border-radius:6px;
- padding:6px 14px;font-family:'JetBrains Mono',monospace;font-size:.74rem;color:var(--red)}
-.hero h1{font-size:clamp(2.6rem,7vw,5.2rem);line-height:1.03;margin:26px 0 22px;font-weight:800}
-.gt{background:linear-gradient(120deg,var(--red),#ff9a6a);-webkit-background-clip:text;
- -webkit-text-fill-color:transparent;background-clip:text}
-.hero p{color:var(--muted);font-size:1.14rem;max-width:620px;margin:0 auto 36px}
-.row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:15px 34px;border-radius:40px;font-family:'Bungee',sans-serif;
+ font-size:.82rem;letter-spacing:.05em;transition:.28s}
+.btn-g{background:var(--green);color:#fff}.btn-g:hover{background:var(--green2);transform:translateY(-2px)}
+.btn-r{background:var(--red);color:#fff}.btn-r:hover{filter:brightness(1.08);transform:translateY(-2px)}
+.btn-o{background:transparent;border:2px solid #fff;color:#fff}.btn-o:hover{background:#fff;color:var(--ink)}
+/* HERO — their real 11-person team photo */
+.hero{position:relative;min-height:96vh;display:flex;align-items:flex-end;overflow:hidden;background:#c8221b}
+.hero .ph{position:absolute;inset:0;z-index:0}
+.hero .ph img{width:100%;height:100%;object-fit:cover;object-position:center 30%;
+ animation:kb 30s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.11)}}
+.hero .sh{position:absolute;inset:0;z-index:1;
+ background:linear-gradient(transparent 42%,rgba(30,10,8,.5) 72%,rgba(25,8,6,.88) 100%)}
+.hero .in{position:relative;z-index:2;padding:0 0 84px;width:100%}
+.hero h1{color:#fff;font-size:clamp(2.1rem,5.4vw,4.4rem);text-shadow:0 4px 26px rgba(0,0,0,.4)}
+.hero p{color:rgba(255,255,255,.94);font-size:1.12rem;max-width:600px;margin:18px 0 30px;font-weight:600}
+.row{display:flex;gap:14px;flex-wrap:wrap}
+.wave{display:block;width:100%;height:80px}
+.wave path{fill:currentColor}
 /* MARQUEE */
-.mq{overflow:hidden;border-block:1px solid var(--bd);background:var(--card);padding:16px 0}
-.mqt{display:flex;gap:54px;white-space:nowrap;animation:mv 30s linear infinite;width:max-content}
-.mqt span{font-family:'JetBrains Mono',monospace;font-size:.76rem;letter-spacing:.2em;
- text-transform:uppercase;color:var(--muted)}
-.mqt span::after{content:"◆";color:var(--red);margin-left:54px;opacity:.55}
+.mq{overflow:hidden;background:var(--ink);padding:15px 0}
+.mqt{display:flex;gap:52px;white-space:nowrap;animation:mv 34s linear infinite;width:max-content}
+.mqt span{font-family:'Bungee',sans-serif;font-size:.82rem;letter-spacing:.08em;color:#fff}
+.mqt span::after{content:"●";color:var(--yellow);margin-left:52px}
 @keyframes mv{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-/* SERVICES on canvas grid */
-.svc{position:relative;padding:120px 0;overflow:hidden}
-#grid{position:absolute;inset:0;z-index:0;opacity:.5}
-.svc .wrap{position:relative;z-index:1}
-.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px}
-.glass{background:rgba(17,24,39,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
- border:1px solid var(--bd);border-radius:16px;padding:2.2rem;transition:.35s}
-.glass:hover{transform:translateY(-6px);border-color:var(--red);box-shadow:0 0 42px var(--glow)}
-.glass h3{font-size:1.25rem;margin-bottom:10px}.glass p{color:var(--muted);font-size:.94rem}
-.glass .ic{font-family:'JetBrains Mono',monospace;color:var(--red);font-size:.78rem;margin-bottom:14px;display:block}
-/* PARTICLE TORUS SECTION — driveby signature, nothing else has this */
-.torus{position:relative;min-height:86vh;display:flex;align-items:center;justify-content:center;
- text-align:center;overflow:hidden;background:#070b13}
-#torus-c{position:absolute;inset:0;z-index:0}
-.torus .in{position:relative;z-index:2;max-width:680px;padding:80px 24px}
-.torus h2{font-size:clamp(2rem,4.6vw,3.4rem);margin:18px 0 18px}
-.torus p{color:var(--muted);font-size:1.06rem}
-/* STATS */
-.sb{display:flex;justify-content:center;gap:70px;padding:88px 24px;flex-wrap:wrap;background:var(--card);
- border-block:1px solid var(--bd)}
-.st{text-align:center}
-.stat-number{font-size:3.4rem;font-weight:800;line-height:1;
- background:linear-gradient(120deg,var(--red),#ff9a6a);-webkit-background-clip:text;
- -webkit-text-fill-color:transparent;background-clip:text}
-.sfx{font-size:1.4rem;color:var(--red);font-weight:700}
-.slab{display:block;margin-top:10px;font-family:'JetBrains Mono',monospace;font-size:.66rem;
- letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-/* TEAM — glass tiles */
-.tg{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:50px}
-.tm{background:rgba(17,24,39,.6);border:1px solid var(--bd);border-radius:14px;padding:26px 20px;
- text-align:center;transition:.3s}
-.tm:hover{transform:translateY(-5px);border-color:var(--red);box-shadow:0 0 34px var(--glow)}
-.tm .av{width:66px;height:66px;margin:0 auto 14px;border-radius:14px;display:grid;place-items:center;
- font-family:'JetBrains Mono',monospace;font-size:1.1rem;color:var(--red);background:var(--elev);border:1px solid var(--bd)}
-.tm h4{font-size:1rem;margin-bottom:4px}
-.tm .role{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.14em;
- text-transform:uppercase;color:var(--red);opacity:.9}
-.tm p{font-size:.84rem;color:var(--muted);margin-top:10px}
-.teamwrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center;margin-top:52px}
-.teamphoto{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--bd)}
-.teamphoto img{width:100%;height:100%;object-fit:cover;display:block}
-.tpcap{position:absolute;left:0;right:0;bottom:0;padding:26px 24px;
- background:linear-gradient(transparent,rgba(7,11,19,.92))}
-.tpcap p{color:#fff;font-weight:600;margin-top:6px}
-.teamroles .rl{display:flex;gap:20px;padding:18px 0;border-top:1px solid var(--bd);align-items:flex-start}
-.teamroles .rn{font-family:'JetBrains Mono',monospace;color:var(--red);font-size:.8rem;padding-top:4px;opacity:.85}
-.teamroles h4{font-size:1.05rem;margin-bottom:3px}
-.teamroles p{color:var(--muted);font-size:.9rem}
-@media(max-width:900px){.teamwrap{grid-template-columns:1fr;gap:34px}}
-section{padding:110px 0}
-.cta{text-align:center;background:radial-gradient(ellipse at 50% 50%,rgba(224,37,27,.12),transparent 62%),var(--bg)}
-.cta h2{font-size:clamp(2rem,4.6vw,3.4rem);margin:18px 0 18px}
-footer{background:#05080f;padding:70px 0 32px;border-top:1px solid var(--bd)}
-.fg{display:flex;justify-content:space-between;gap:38px;flex-wrap:wrap;margin-bottom:38px}
-footer a,footer p{color:var(--muted);font-size:.92rem}footer a:hover{color:var(--red)}
-.cp{text-align:center;font-size:.74rem;color:#46505f;border-top:1px solid rgba(255,255,255,.06);padding-top:24px}
-@media(max-width:900px){.nl{display:none}.g3,.tg{grid-template-columns:1fr}.sb{gap:36px}section{padding:74px 0}}
-</style></head><body><svg aria-hidden="true" style="position:absolute;width:0;height:0;">
-<filter id="anim-brand-tint">
-<fecolormatrix type="matrix" values="0.88 0 0 0 0.12 0.15 0 0 0 0.85 0.11 0 0 0 0.89 0 0 0 1 0"></fecolormatrix>
-</filter>
-</svg>
-<header id="nav" style="position: relative; overflow: hidden; "><div style="position:absolute;inset:0;z-index:0;overflow:hidden;">
-<video autoplay="" loop="" muted="" playsinline="" poster="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1920" style="width:100%;height:100%;object-fit:cover;filter:url(#anim-brand-tint) saturate(0.8) brightness(0.6);">
-<source src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_25fps.mp4" type="video/mp4"/>
-</video>
-<div style="position:absolute;inset:0;background:rgba(0,0,0,0.55);"></div>
-<div style="position:absolute;inset:0;background:radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.6) 100%);"></div>
-<div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);pointer-events:none;"></div>
-</div><div class="wrap" style="position: relative; z-index: 1; "><div class="bar">
-<a class="wm" href="#"><img alt="CMA Technology" src="https://mycma.com/wp-content/uploads/2022/07/HeaderLogo.png" style="height:38px;width:auto"/></a>
-<nav class="nl"><a href="#services">Services</a><a href="#why">Why CMA</a><a href="#team">Team</a>
-<a class="bs" href="#contact" style="padding:10px 22px">Partner With Us</a></nav>
+/* SPLIT STORY blocks — mirrors their real layout */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.split.rev .txt{order:2}
+.split h2{font-size:clamp(1.7rem,3.4vw,2.7rem);margin-bottom:8px}
+.split .bar{width:52px;height:4px;border-radius:3px;margin:14px 0 20px}
+.split p{color:var(--ink2);font-size:1.04rem;margin-bottom:14px}
+.split .pic{border-radius:22px;overflow:hidden;box-shadow:0 22px 60px rgba(0,0,0,.14)}
+.split .pic img{width:100%;height:100%;object-fit:cover}
+section{padding:104px 0}
+.swirlL{position:relative;overflow:hidden}
+.swirlL::before{content:"";position:absolute;left:-140px;top:-60px;width:420px;height:420px;
+ background:url('https://mycma.com/wp-content/uploads/2024/05/Homepage_swirlbackground_01.png') left top/contain no-repeat;opacity:.5;pointer-events:none}
+.swirlR{position:relative;overflow:hidden}
+.swirlR::before{content:"";position:absolute;right:-150px;bottom:-90px;width:460px;height:460px;
+ background:url('https://mycma.com/wp-content/uploads/2024/05/Homepage_swirlbackground_03.png') right bottom/contain no-repeat;opacity:.45;pointer-events:none}
+.swirlL .wrap,.swirlR .wrap{position:relative;z-index:1}
+/* SERVICES — their own 3 icons */
+.band{background:var(--red);color:#fff;text-align:center;padding:0}
+.band .inner{padding:76px 0 84px}
+.band h2{color:#fff;font-size:clamp(1.7rem,3.6vw,2.8rem)}
+.band .lead{max-width:620px;margin:16px auto 0;font-size:1.06rem;color:rgba(255,255,255,.95)}
+.ic3{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:56px}
+.ic{background:#fff;border-radius:24px;padding:42px 30px 36px;color:var(--ink);
+ box-shadow:0 18px 44px rgba(0,0,0,.18);transition:.32s}
+.ic:hover{transform:translateY(-9px)}
+.ic img{height:88px;width:auto;margin:0 auto 20px}
+.ic h3{font-size:1.12rem;margin-bottom:10px}
+.ic p{color:var(--ink2);font-size:.94rem}
+/* STATS on cream */
+.sb{background:var(--cream);display:flex;justify-content:center;flex-wrap:wrap}
+.st{text-align:center;padding:56px 54px;flex:1;min-width:190px}
+.stat-number{font-family:'Bungee',sans-serif;font-size:3rem;line-height:1}
+.st:nth-child(1) .stat-number,.st:nth-child(1) .sfx{color:var(--red)}
+.st:nth-child(2) .stat-number{color:var(--orange)}
+.st:nth-child(3) .stat-number,.st:nth-child(3) .sfx{color:var(--green)}
+.sfx{font-family:'Bungee',sans-serif;font-size:1.5rem}
+.slab{display:block;margin-top:10px;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
+ color:var(--ink2);font-weight:700}
+/* TEAM band */
+.team{background:var(--yellow);color:var(--ink);text-align:center;padding:0}
+.team .inner{padding:78px 0 86px}
+.team h2{font-size:clamp(1.7rem,3.6vw,2.8rem)}
+.tphoto{margin:44px auto 0;max-width:1000px;border-radius:26px;overflow:hidden;
+ box-shadow:0 26px 70px rgba(0,0,0,.24)}
+.roles{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:44px}
+.rl{background:rgba(255,255,255,.72);border-radius:16px;padding:20px 14px;transition:.3s}
+.rl:hover{background:#fff;transform:translateY(-5px)}
+.rl b{display:block;font-family:'Bungee',sans-serif;font-size:.78rem;margin-bottom:5px}
+.rl span{font-size:.8rem;color:var(--ink2)}
+/* CTA */
+.cta{background:var(--green);color:#fff;text-align:center;padding:0}
+.cta .inner{padding:86px 0 94px}
+.cta h2{color:#fff;font-size:clamp(1.9rem,4.2vw,3.2rem)}
+.cta p{max-width:560px;margin:16px auto 30px;font-size:1.06rem;color:rgba(255,255,255,.96)}
+footer{background:var(--ink);color:#fff;padding:60px 0 30px}
+.fg{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-bottom:34px}
+footer img{height:52px;width:auto;margin-bottom:14px;filter:brightness(0) invert(1)}
+footer a,footer p{color:rgba(255,255,255,.76);font-size:.94rem}footer a:hover{color:var(--yellow)}
+.cp{border-top:1px solid rgba(255,255,255,.14);padding-top:22px;text-align:center;font-size:.78rem;
+ color:rgba(255,255,255,.5)}
+.rev{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.rev.on{opacity:1;transform:none}
+@media(max-width:960px){.nl{display:none}.split{grid-template-columns:1fr;gap:34px}
+ .split.rev .txt{order:0}.ic3{grid-template-columns:1fr}.roles{grid-template-columns:repeat(2,1fr)}
+ section{padding:70px 0}.hero .in{padding-bottom:56px}}
+</style></head><body>
+
+<header id="nav"><div class="wrap"><div class="bar">
+<a href="#"><img src="https://mycma.com/wp-content/uploads/2022/07/HeaderLogo.png" alt="CMA Technology"></a>
+<nav class="nl"><a href="#about">About</a><a href="#services">Services</a><a href="#team">Team</a>
+<a href="#contact">Connect</a><a class="btn btn-g" href="#contact" style="padding:11px 24px">Let's Get Started</a></nav>
 </div></div></header>
-<section class="hero"><div class="in">
-<span class="badge">KEEPING IT GROOVY SINCE 1979</span>
-<h1>LET CMA<br/><span class="gt">HANDLE IT.</span></h1>
-<p>Partner with CMA and you get more than an IT guy — a team of certified experts protecting your most
-sensitive data and keeping your business running. Timely, responsive, proactive.</p>
-<div class="row"><a class="bs" href="#contact">Partner With Us</a><a class="bgh" href="#services">View Service Plans</a></div>
+<div class="rain" style="position:fixed;top:80px;left:0;right:0;z-index:69"><i></i><i></i><i></i><i></i><i></i></div>
+
+<section class="hero">
+<div class="ph"><img src="https://mycma.com/wp-content/uploads/2026/04/Homepage_headerimage_withtext_edit2026_2.png" alt="The CMA Technology team"></div><div class="sh"></div>
+<div class="wrap in">
+<h1>KEEPING IT GROOVY<br>SINCE 1979</h1>
+<p class="sub">Providing IT solutions since the information superhighway was a single-lane dirt road.
+We've seen IT all — and we're ready for the future.</p>
+<div class="row"><a class="btn btn-g" href="#contact">Let's Get Started</a>
+<a class="btn btn-o" href="#services">View Service Plans</a></div>
 </div></section>
-<div class="mq"><div class="mqt"><span>Managed IT</span><span>Data Backup</span><span>Endpoint Security</span><span>Microsoft 365</span><span>Cloud Migration</span><span>Preventative Maintenance</span><span>Help Desk</span><span>Cybersecurity</span><span>24/7 Monitoring</span><span>Managed IT</span><span>Data Backup</span><span>Endpoint Security</span><span>Microsoft 365</span><span>Cloud Migration</span><span>Preventative Maintenance</span><span>Help Desk</span><span>Cybersecurity</span><span>24/7 Monitoring</span></div></div>
-<section class="svc" id="services"><canvas id="grid"></canvas><div class="wrap">
-<div class="mono">What We Do</div>
-<h2 style="font-size:clamp(2rem,4.4vw,3.2rem);margin-top:14px">Maintenance-based management</h2>
-<p style="color:var(--muted);max-width:620px;margin-top:14px">Built around the priorities that actually
-prevent outages — not a menu of add-ons.</p>
-<div class="g3">
-<div class="glass"><span class="ic">01 / BACKUP</span><h3>Data Backup</h3>
-<p>On-premises servers or your Microsoft 365 tenant — a secure second copy is what stands between an incident and a shutdown.</p></div>
-<div class="glass"><span class="ic">02 / MAINTENANCE</span><h3>Preventative Maintenance</h3>
-<p>Scheduled patching keeps cybersecurity protections intact and stops costly, disruptive interruptions before they start.</p></div>
-<div class="glass"><span class="ic">03 / SECURITY</span><h3>Endpoint Security</h3>
-<p>With staff working from anywhere, your security boundary expands to cover every device — monitored and actively defended.</p></div>
-</div></div></section>
-<section class="torus" id="why"><canvas id="torus-c"></canvas><div class="in">
-<div class="mono">Certified Microsoft Cloud Solution Provider</div>
-<h2>From floppy discs<br/>to the cloud.</h2>
-<p>Forty-five years evolving alongside technology — and learning to anticipate what breaks next.
-That's why we're the leader in managed IT across the southeast.</p>
+
+<div class="mq"><div class="mqt">
+<span>Managed IT</span><span>Data Backup</span><span>Endpoint Security</span><span>Microsoft 365</span>
+<span>Cloud Migration</span><span>Help Desk</span><span>24/7 Monitoring</span>
+<span>Managed IT</span><span>Data Backup</span><span>Endpoint Security</span><span>Microsoft 365</span>
+<span>Cloud Migration</span><span>Help Desk</span><span>24/7 Monitoring</span>
+</div></div>
+
+<section id="about" class="swirlL"><div class="wrap split rev">
+<div class="txt"><h2>LET US HANDLE IT.</h2><div class="bar" style="background:var(--red)"></div>
+<p>Good things are built to last — so it's no coincidence we've been around for decades. After
+<strong>45 years in business</strong> we've witnessed the drastic advances in technology firsthand, evolved
+alongside them, and learned to anticipate what breaks next.</p>
+<p><strong>Simply put, we get IT.</strong> And as small business owners know all too well, IT is entwined in
+every aspect of your business. Partner with CMA and you'll have peace of mind knowing your team can work
+as efficiently and securely as possible.</p>
+<a class="btn btn-g" href="#contact" style="margin-top:12px">Let's Get Started</a></div>
+<div class="pic"><img src="https://mycma.com/wp-content/uploads/2026/04/Homepage_NewOnpageimage_nobkd_1.png" alt="A CMA technician at work"></div>
 </div></section>
+
+<div style="color:var(--red)"><svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0,54 C240,4 480,84 720,54 C960,24 1200,4 1440,44 L1440,0 L0,0 Z"/></svg></div>
+<section class="band"><div class="inner"><div class="wrap">
+<h2>WHAT WE DO</h2>
+<p class="lead">Three priorities that actually prevent outages — not a menu of add-ons.</p>
+<div class="ic3">
+<div class="ic rev"><img src="https://mycma.com/wp-content/uploads/2024/05/Icon_AssessChallenges.png" alt=""><h3>ASSESS CHALLENGES</h3>
+<p>We audit your environment and show you exactly where the risk and the cost are sitting today.</p></div>
+<div class="ic rev"><img src="https://mycma.com/wp-content/uploads/2024/05/Icon_ImplementSolutions.png" alt=""><h3>IMPLEMENT SOLUTIONS</h3>
+<p>Backup, migration and preventative maintenance — delivered and documented, not just recommended.</p></div>
+<div class="ic rev"><img src="https://mycma.com/wp-content/uploads/2024/05/Icon_ImproveSecurity.png" alt=""><h3>IMPROVE SECURITY</h3>
+<p>Endpoint protection and monitoring that expands your security boundary to wherever your staff work.</p></div>
+</div></div></div></section>
+<div style="color:var(--red)"><svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0,36 C240,86 480,6 720,36 C960,66 1200,86 1440,46 L1440,90 L0,90 Z"/></svg></div>
+
+<section id="services" class="swirlR"><div class="wrap split rev">
+<div class="pic"><img src="https://mycma.com/wp-content/uploads/2024/05/Homepage_Onpageimage_nobkd_2.png" alt="CMA Technology owners"></div>
+<div class="txt"><h2>THE CMA WAY.</h2><div class="bar" style="background:var(--orange)"></div>
+<p>CMA Technology provides top-tier IT service and support to clients throughout the southeast. Our team of
+experts offers the best possible customer service while ensuring your data is protected.</p>
+<p>We value <strong>courtesy, respect, honesty and fairness</strong> above all else. Your business is our
+business, and we're committed to consistently positive experiences for every client.</p>
+<a class="btn btn-r" href="#services" style="margin-top:12px">View Service Plans</a></div>
+</div></section>
+
 <div class="sb">
 <div class="st"><span class="stat-number" data-target="45">0</span><span class="sfx">yrs</span><span class="slab">In Business</span></div>
-<div class="st"><span class="stat-number" data-target="1979">0</span><span class="slab">Founded</span></div>
+<div class="st"><span class="stat-number" data-target="1979">0</span><span class="slab">Founded in Augusta</span></div>
 <div class="st"><span class="stat-number" data-target="24">0</span><span class="sfx">/7</span><span class="slab">Monitoring</span></div>
 </div>
-<section id="team"><div class="wrap"><div class="mono">The CMA Way</div>
-<h2 style="font-size:clamp(2rem,4.4vw,3.2rem);margin-top:14px">You get a team of experts</h2>
-<div class="teamwrap">
-<div class="teamphoto"><img alt="The CMA Technology team" src="https://mycma.com/wp-content/uploads/2024/05/AboutPage_onpageimage-745x1024.png"/>
-<div class="tpcap"><span class="mono">Augusta, Georgia</span><p>The people who pick up the phone.</p></div></div>
-<div class="teamroles">
-<p style="color:var(--muted);margin-bottom:26px">Certified specialists across service delivery, security and
-the cloud — headquartered in Augusta and covering the southeast.</p>
-<div class="rl"><span class="rn">01</span><div><h4>Technical Services Engineer</h4><p>Infrastructure, migrations and the deep problems.</p></div></div>
-<div class="rl"><span class="rn">02</span><div><h4>Field Technician</h4><p>On-site installation and support at your premises.</p></div></div>
-<div class="rl"><span class="rn">03</span><div><h4>Technical Support Representative</h4><p>The help desk voice when something breaks.</p></div></div>
-<div class="rl"><span class="rn">04</span><div><h4>Customer Success</h4><p>Owns the relationship, not just the ticket.</p></div></div>
-<div class="rl"><span class="rn">05</span><div><h4>Territory Sales</h4><p>Scoping the right plan for your business.</p></div></div>
+
+<section class="team" id="team"><div class="inner"><div class="wrap">
+<h2>YOU GET A TEAM OF EXPERTS</h2>
+<p class="sub" style="max-width:620px;margin:16px auto 0;font-weight:600">When you partner with CMA you get
+more than an IT guy — you get certified people who have your back, headquartered right here in Augusta.</p>
+<div class="tphoto"><img src="https://mycma.com/wp-content/uploads/2026/04/Homepage_headerimage_withtext_edit2026_2.png" alt="The CMA Technology team"></div>
+<div class="roles">
+<div class="rl"><b>Technical Services</b><span>Engineering &amp; migrations</span></div>
+<div class="rl"><b>Field Technician</b><span>On-site at your premises</span></div>
+<div class="rl"><b>Tech Support</b><span>The help desk voice</span></div>
+<div class="rl"><b>Customer Success</b><span>Owns the relationship</span></div>
+<div class="rl"><b>Territory Sales</b><span>Scoping the right plan</span></div>
 </div></div></div></section>
-<section class="cta" id="contact"><div class="wrap"><div class="mono">Get Started</div>
-<h2>Consider IT handled.</h2>
-<p style="color:var(--muted);max-width:600px;margin:0 auto 34px">117 Commercial Blvd, Augusta GA 30907 —
-we'll show you exactly where your risk and cost sit today.</p>
-<a class="bs" href="tel:7068601997">Call 706-860-1997</a></div></section>
+
+<section class="swirlL"><div class="wrap split rev">
+<div class="txt"><h2>CMA IS THE WAY.</h2><div class="bar" style="background:var(--green)"></div>
+<p>CMA Technology is your trusted partner for all things tech. As the regional leader in tech support and
+services, we're equipped to handle whatever comes our way.</p>
+<p><strong>From complex cloud security solutions to general tech support — consider IT handled.</strong></p>
+<p style="font-size:.92rem">Certified Microsoft Cloud Solution Provider · 117 Commercial Blvd, Augusta, GA 30907</p>
+</div>
+<div class="pic"><img src="https://mycma.com/wp-content/uploads/2024/05/Homepage_Onpageimage_nobkd_3.png" alt="A CMA technician at work"></div>
+</div></section>
+
+<div style="color:var(--green)"><svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0,54 C240,4 480,84 720,54 C960,24 1200,4 1440,44 L1440,0 L0,0 Z"/></svg></div>
+<section class="cta" id="contact"><div class="inner"><div class="wrap">
+<h2>CONSIDER IT HANDLED.</h2>
+<p class="sub">Tell us what's slowing your team down and we'll show you exactly where your risk and cost sit today.</p>
+<a class="btn btn-r" href="tel:7068601997">Call 706-860-1997</a></div></div></section>
+
 <footer><div class="wrap"><div class="fg">
-<div><img alt="CMA Technology" src="https://mycma.com/wp-content/uploads/2022/07/HeaderLogo.png" style="height:34px;width:auto;margin-bottom:14px"/><p>Managed IT for the southeast · Augusta, Georgia</p></div>
-<div><a href="tel:7068601997">706-860-1997</a><br/><a href="mailto:info@mycma.com">info@mycma.com</a><br/><span style="color:var(--muted);font-size:.92rem">117 Commercial Blvd</span></div>
-</div><div class="cp">© 2026 CMA Technology. All rights reserved.  ·  Preview redesign concept by MARNEXIQ.</div>
+<div><img src="https://mycma.com/wp-content/uploads/2022/07/HeaderLogo.png" alt="CMA Technology"><p>Managed IT for the southeast · Augusta, Georgia</p></div>
+<div><a href="tel:7068601997">706-860-1997</a><br><a href="mailto:info@mycma.com">info@mycma.com</a><br>
+<span style="color:rgba(255,255,255,.76);font-size:.94rem">117 Commercial Blvd, Augusta, GA 30907</span></div>
+</div><div class="cp">© 2026 CMA Technology. All rights reserved. &nbsp;·&nbsp; Preview redesign concept by MARNEXIQ.</div>
 </div></footer>
-<script>(function(){var n=document.getElementById('nav');
-addEventListener('scroll',function(){n.classList.toggle('solid',scrollY>60)},{passive:true})})();</script><script>(function(){function c(){var n=document.querySelectorAll('.stat-number');
+
+<script>
+(function(){var q=document.querySelectorAll('.stat-number');
 var o=new IntersectionObserver(function(e){e.forEach(function(y){if(!y.isIntersecting)return;
-var el=y.target,t=parseFloat(el.dataset.target),d=t%1!==0,s=performance.now();
-function k(w){var p=Math.min((w-s)/2200,1),v=t*(1-Math.pow(1-p,3));
-el.textContent=d?v.toFixed(1):Math.floor(v);if(p<1)requestAnimationFrame(k)}
+var el=y.target,t=parseFloat(el.dataset.target),s=performance.now();
+function k(w){var p=Math.min((w-s)/2000,1);el.textContent=Math.floor(t*(1-Math.pow(1-p,3)));
+if(p<1)requestAnimationFrame(k);else el.textContent=t}
 requestAnimationFrame(k);o.unobserve(el)})},{threshold:.5});
-n.forEach(function(y){o.observe(y)})}document.addEventListener('DOMContentLoaded',c)})();</script><script>(function(){var c=document.getElementById('grid');if(!c)return;
- var x=c.getContext('2d'),w,h,t=0;
- function rs(){w=c.width=c.offsetWidth;h=c.height=c.offsetHeight}rs();addEventListener('resize',rs);
- (function d(){requestAnimationFrame(d);t+=.014;x.clearRect(0,0,w,h);
-  for(var i=0;i<w;i+=34)for(var j=0;j<h;j+=34){
-   var a=.10+.16*Math.sin((i+j)*.014+t);
-   x.fillStyle='rgba(224,37,27,'+Math.max(a,0)+')';
-   x.beginPath();x.moveTo(i,j-2.4);x.lineTo(i+2.4,j);x.lineTo(i,j+2.4);x.lineTo(i-2.4,j);x.fill();}
- })();})();</script><script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script>(function(){
- if(!window.THREE)return;var c=document.getElementById('torus-c');if(!c)return;
- var w=c.clientWidth,h=c.clientHeight;
- var sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(60,w/h,.1,1000);cam.position.z=30;
- var r=new THREE.WebGLRenderer({canvas:c,alpha:true,antialias:true});
- r.setSize(w,h);r.setPixelRatio(Math.min(devicePixelRatio,2));
- var geo=new THREE.TorusKnotGeometry(9,2.6,220,32),pos=geo.attributes.position;
- var pg=new THREE.BufferGeometry();pg.setAttribute('position',pos.clone());
- var mat=new THREE.PointsMaterial({color:0xE0251B,size:.16,transparent:true,opacity:.85});
- var pts=new THREE.Points(pg,mat);sc.add(pts);
- (function loop(){requestAnimationFrame(loop);pts.rotation.x+=.0016;pts.rotation.y+=.0026;r.render(sc,cam)})();
- addEventListener('resize',function(){w=c.clientWidth;h=c.clientHeight;
-  cam.aspect=w/h;cam.updateProjectionMatrix();r.setSize(w,h)});
-})();</script></body></html>
+q.forEach(function(y){o.observe(y)});
+var r=document.querySelectorAll('.rev');
+var o2=new IntersectionObserver(function(e){e.forEach(function(y){if(y.isIntersecting){
+y.target.classList.add('on');o2.unobserve(y.target)}})},{threshold:.14});
+r.forEach(function(y){o2.observe(y)});})();
+</script>
+</body></html>
