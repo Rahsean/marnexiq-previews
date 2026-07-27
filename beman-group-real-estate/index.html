@@ -70,6 +70,8 @@ section{padding:112px 0}
 .tm{padding:34px 26px;border-right:1px solid var(--line);transition:.28s}
 .tm:last-child{border-right:0}
 .tm:hover{background:var(--paper2)}
+.tm .ph{margin:-34px -26px 18px;overflow:hidden}
+.tm .ph img{width:100%;height:auto}
 .tm .mk{width:38px;height:38px;border-radius:50%;border:1px solid var(--gold);color:var(--gold);
  display:grid;place-items:center;font-family:'Cormorant Garamond',serif;font-size:1rem;margin-bottom:16px}
 .tm b{display:block;font-family:'Cormorant Garamond',serif;font-size:1.24rem;font-weight:500}
@@ -80,7 +82,11 @@ section{padding:112px 0}
 
 /* SPLIT with real photo */
 .split{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
-.split img{width:100%;height:auto}
+.split .figbox{position:relative}
+.split .figbox img{width:100%;height:auto}
+.split .cap{position:absolute;left:0;bottom:0;background:var(--navy);color:#fff;padding:16px 22px}
+.split .cap b{font-family:'Cormorant Garamond',serif;font-size:1.15rem;display:block}
+.split .cap span{font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
 .pull{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,2.8vw,2.3rem);line-height:1.24;margin-bottom:20px}
 
 /* CTA */
@@ -149,7 +155,7 @@ what it could be again. Brought back to life in 2024.</p>
 </div></div></section>
 
 <section><div class="wrap split">
-<img src="https://static.wixstatic.com/media/21fb40_202e0ead644f42d5b5a4fc9d997cf2d5~mv2.jpg/v1/fill/w_618,h_780,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/BemanGroup2-65.jpg" alt="Beman Group Real Estate">
+<div class="figbox"><img src="https://static.wixstatic.com/media/21fb40_568c0a47c8cf44c8bf48372a52feb07e~mv2.png/v1/fill/w_700,h_900,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/x.png" alt="Davis H. Beman, Principal"><div class="cap"><b>Davis H. Beman</b><span>Principal</span></div></div>
 <div class="rv"><div class="kicker">The firm</div>
 <p class="pull">Local knowledge isn't a marketing line — it's the whole product.</p>
 <p style="color:var(--ink2)">Beman Group Real Estate is a principal-led commercial firm working across
@@ -163,7 +169,7 @@ we're telling you what we'd pay for it ourselves.</p>
 <section id="team" style="padding-top:0"><div class="wrap">
 <div class="shead rv"><div class="kicker">The team</div>
 <h2>Who you'll actually work with.</h2></div>
-<div class="tgrid"><div class="tm rv"><div class="mk">DH</div><b>Davis H. Beman</b><div class="role">Principal</div><p>Born and raised in Augusta. Academy of Richmond County, then Georgia Tech.</p><a href="mailto:Davis@bemangroup.com">Davis@bemangroup.com</a></div><div class="tm rv"><div class="mk">GG</div><b>Geraldin Gutierrez</b><div class="role">Operations Manager</div><p>Augusta University graduate. Raised in the Bronx and the Dominican Republic — the CSRA is home.</p><a href="mailto:Geraldin@bemangroup.com">Geraldin@bemangroup.com</a></div><div class="tm rv"><div class="mk">WR</div><b>Whitt Rutland</b><div class="role">Commercial Associate</div><p>Auburn, 2019 — Supply Chain Management, then two and a half years in logistics.</p><a href="mailto:Whitt@bemangroup.com">Whitt@bemangroup.com</a></div><div class="tm rv"><div class="mk">KW</div><b>Ky Widener</b><div class="role">Commercial Associate</div><p>Commercial brokerage across the CSRA market.</p><a href="mailto:Ky@bemangroup.com">Ky@bemangroup.com</a></div><div class="tm rv"><div class="mk">VG</div><b>Vicki Gould</b><div class="role">Bookkeeper</div><p>Rooted in the South since 1979. University of South Carolina and Augusta State.</p><a href="mailto:Vicki@bemangroup.com">Vicki@bemangroup.com</a></div></div>
+<div class="tgrid"><div class="tm rv"><div class="ph"><img src="https://static.wixstatic.com/media/21fb40_568c0a47c8cf44c8bf48372a52feb07e~mv2.png/v1/fill/w_700,h_900,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/x.png" alt="Davis H. Beman"></div><b>Davis H. Beman</b><div class="role">Principal</div><p>Born and raised in Augusta. Academy of Richmond County, then Georgia Tech.</p><a href="mailto:Davis@bemangroup.com">Davis@bemangroup.com</a></div><div class="tm rv"><div class="ph"><img src="https://static.wixstatic.com/media/21fb40_f9167520b23f453bad12a56e2fe4692a~mv2.jpg/v1/fill/w_600,h_760,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/x.jpg" alt="Geraldin Gutierrez"></div><b>Geraldin Gutierrez</b><div class="role">Operations Manager</div><p>Augusta University graduate. Raised in the Bronx and the Dominican Republic — the CSRA is home.</p><a href="mailto:Geraldin@bemangroup.com">Geraldin@bemangroup.com</a></div><div class="tm rv"><div class="ph"><img src="https://static.wixstatic.com/media/21fb40_12e114ff19da4375a8950756f9d4f796~mv2.jpg/v1/fill/w_600,h_760,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/x.jpg" alt="Whitt Rutland"></div><b>Whitt Rutland</b><div class="role">Commercial Associate</div><p>Auburn, 2019 — Supply Chain Management, then two and a half years in logistics.</p><a href="mailto:Whitt@bemangroup.com">Whitt@bemangroup.com</a></div><div class="tm rv"><div class="ph"><img src="https://static.wixstatic.com/media/21fb40_202e0ead644f42d5b5a4fc9d997cf2d5~mv2.jpg/v1/fill/w_600,h_760,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/x.jpg" alt="Ky Widener"></div><b>Ky Widener</b><div class="role">Commercial Associate</div><p>Commercial brokerage across the CSRA market.</p><a href="mailto:Ky@bemangroup.com">Ky@bemangroup.com</a></div><div class="tm rv"><div class="mk">VG</div><b>Vicki Gould</b><div class="role">Bookkeeper</div><p>Rooted in the South since 1979. University of South Carolina and Augusta State.</p><a href="mailto:Vicki@bemangroup.com">Vicki@bemangroup.com</a></div></div>
 </div></section>
 
 <section class="cta" id="contact"><div class="wrap cgrid">
