@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Logic Point Consulting - Helping You Map Success</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&amp;family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg-deep: #0d1512;
+            --bg-card: #111c18;
+            --bg-elevated: #1a2623;
+            --accent: #12A05C;
+            --accent-hover: #16c26b;
+            --text: #E7EBEE;
+            --text-muted: #9ca3af;
+            --text-heading: #ffffff;
+            --border: rgba(18, 160, 92, 0.15);
+            --font-heading: 'Cormorant Garamond', 'Georgia', serif;
+            --font-body: 'Inter', 'Helvetica Neue', sans-serif;
+            --font-mono: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg-deep);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-weight: 300;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .survey-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            opacity: 0.03;
+            pointer-events: none;
+            background-image: 
+                linear-gradient(rgba(18, 160, 92, 0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(18, 160, 92, 0.3) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 300;
+            color: var(--text-heading);
+            letter-spacing: 0.02em;
+        }
+
+        h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; }
+        h2 { font-size: clamp(1.8rem, 3.5vw, 3rem); line-height: 1.2; }
+        h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 400; }
+
+        .mono-label {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .nav-blur {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: transparent;
+            border-bottom: 1px solid transparent;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .nav-blur.scrolled {
+            background: rgba(13, 21, 18, 0.85);
+            border-bottom-color: rgba(255, 255, 255, 0.06);
+        }
+
+        .nav-blur-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .nav-blur-logo {
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            color: var(--text-heading);
+            text-decoration: none;
+        }
+
+        .nav-blur-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-blur-links a {
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-blur-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-blur-phone {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .divider-gradient {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0.3;
+            margin: 5rem 0;
+        }
+
+        .glass-card {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .waypoint-number {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            font-weight: 300;
+            color: var(--accent);
+            opacity: 0.4;
+            line-height: 1;
+        }
+
+        .waypoint-line {
+            position: absolute;
+            left: 2rem;
+            top: 0;
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+            opacity: 0.3;
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            padding: 14px 32px;
+            border: 1px solid var(--accent);
+            background: transparent;
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background: var(--accent);
+            color: var(--bg-deep);
+            transform: translateY(-2px);
+        }
+
+        .anim-fade-in-up {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .anim-fade-in-up.anim-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .nav-blur-links {
+                display: none;
+            }
+            
+            .waypoint-line {
+                display: none;
+            }
+        }
+    </style>
+<style>
+.anim-fade-in-up {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.anim-fade-in-up.anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style></head>
+<body>
+<div class="survey-grid"></div>
+<nav class="nav-blur" id="mainNav">
+<div class="nav-blur-inner">
+<a class="nav-blur-logo" href="#">LOGIC POINT</a>
+<ul class="nav-blur-links">
+<li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<a class="nav-blur-phone" href="tel:2403048447">240.304.8447</a>
+</div>
+</nav>
+<main>
+<section class="relative min-h-screen flex items-center justify-start anim-fade-in-up" style="transition-delay: 0.0s; padding-top: 70px;">
+<div class="max-w-7xl mx-auto px-8 py-20 relative z-10">
+<div class="max-w-4xl">
+<div class="mono-label anim-fade-in-up" style="transition-delay: 0s;">STRATEGIC CONSULTING</div>
+<h1 class="gradient-text mt-4 anim-fade-in-up" style="transition-delay: 0.1s;">
+                        Helping you map success
+                    </h1>
+<p class="text-xl text-gray-300 mt-8 max-w-2xl leading-relaxed anim-fade-in-up" style="transition-delay: 0.2s;">
+                        Following 30 years in the defense and technology industry, we're dedicating our resources and knowledge to building our communities.
+                    </p>
+<div class="mt-12 anim-fade-in-up" style="transition-delay: 0.3s;">
+<a class="btn-outline mr-6" href="#contact">Schedule Consultation</a>
+<span class="text-sm text-gray-400 font-mono">90 DAY INTRODUCTORY SPECIAL</span>
+</div>
+</div>
+</div>
+</section>
+<div class="divider-gradient"></div>
+<section class="relative py-20 anim-fade-in-up" id="services" style="transition-delay: 0.1s; ">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center mb-16 anim-fade-in-up">
+<div class="mono-label">SERVICE WAYPOINTS</div>
+<h2 class="mt-4">Our processes and programs are designed to empower your team</h2>
+</div>
+<div class="relative">
+<div class="waypoint-line hidden md:block"></div>
+<div class="grid gap-12 md:gap-16 relative z-10">
+<div class="glass-card ml-0 md:ml-16 anim-fade-in-up" style="transition-delay: 0.1s;">
+<div class="waypoint-number">01</div>
+<div class="mono-label mt-4">BUSINESS CONSULTING</div>
+<h3 class="mt-2 mb-4">Strategic Planning &amp; Support</h3>
+<p class="text-gray-300">
+                                Logic Point Consulting can assist you in reaching your destination of being a business owner. We can help you build a road map to your success with strategic planning, dedicated support, affordable service, and a tailored plan to meet your specific needs.
+                            </p>
+</div>
+<div class="glass-card ml-0 md:ml-16 anim-fade-in-up" style="transition-delay: 0.2s;">
+<div class="waypoint-number">02</div>
+<div class="mono-label mt-4">CERTIFICATION ASSISTANCE</div>
+<h3 class="mt-2 mb-4">Federal, State &amp; Local Certifications</h3>
+<p class="text-gray-300">
+                                There's no need to face the daunting tasks of achieving certifications for your business. Logic Point Consulting's team of professionals have assisted scores of business to receive state, local, and federal certifications.
+                            </p>
+</div>
+<div class="glass-card ml-0 md:ml-16 anim-fade-in-up" style="transition-delay: 0.3s;">
+<div class="waypoint-number">03</div>
+<div class="mono-label mt-4">BUSINESS PRODUCTS</div>
+<h3 class="mt-2 mb-4">Documentation &amp; Proposals</h3>
+<p class="text-gray-300">
+                                Logic Point Consulting can assist you with developing capabilities statements, business plans, mission statements, proposals, statements of work, responses to request for information and a host of other documents. Our services are tailored to your needs.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="divider-gradient"></div>
+<section class="py-20 anim-fade-in-up" id="about" style="transition-delay: 0.2s; ">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid md:grid-cols-2 gap-16 items-center">
+<div class="anim-fade-in-up">
+<div class="mono-label">EXPERIENCE YOU CAN COUNT ON</div>
+<h2 class="mt-4 mb-8">Why Us?</h2>
+<p class="text-gray-300 mb-6">
+                            At Logic Point Consulting, we specialize in providing strategic insights and tailored solutions to help your business thrive in a competitive landscape. Our team of experienced consultants works closely with you to identify challenges and opportunities, ensuring that you achieve your goals efficiently.
+                        </p>
+<p class="text-gray-300">
+                            Business mentors are key—that's why when it comes to client selection, we're choosy. We want to give each of you the time and guidance you deserve.
+                        </p>
+</div>
+<div class="anim-fade-in-up" style="transition-delay: 0.1s;">
+<div class="glass-card">
+<div class="mono-label">COMMITMENT</div>
+<h3 class="mt-2 mb-4">Building Communities</h3>
+<p class="text-gray-300">
+                                We are committed to assisting and growing small and minority businesses. We believe in a collaborative approach, fostering strong partnerships that drive innovation and growth.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 bg-black bg-opacity-20 anim-fade-in-up" id="contact" style="transition-delay: 0.3s; ">
+<div class="max-w-4xl mx-auto px-8 text-center">
+<div class="anim-fade-in-up">
+<div class="mono-label">READY TO START YOUR JOURNEY?</div>
+<h2 class="mt-4 mb-8">Schedule Your Free Consultation</h2>
+<p class="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+                        Call today to schedule your free consultation and discover how we can help map your path to success.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+<a class="btn-outline text-lg px-8 py-4" href="tel:2403048447">Call 240.304.8447</a>
+<span class="text-sm text-gray-400 font-mono">90 DAY INTRODUCTORY SPECIAL AVAILABLE</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="py-16 border-t border-gray-800">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid md:grid-cols-3 gap-8">
+<div>
+<div class="font-mono text-lg font-medium text-white mb-4">Logic Point Consulting</div>
+<p class="text-gray-400 text-sm">Helping you map success through strategic consulting and business development.</p>
+</div>
+<div>
+<div class="mono-label mb-4">CONTACT</div>
+<a class="text-gray-300 hover:text-accent transition-colors" href="tel:2403048447">240.304.8447</a>
+</div>
+<div>
+<div class="mono-label mb-4">HOURS</div>
+<p class="text-gray-300 text-sm">Open today<br/>09:00 AM - 05:00 PM</p>
+</div>
+</div>
+<div class="mt-12 pt-8 border-t border-gray-800 text-center">
+<p class="text-gray-500 text-sm">Copyright © 2026 Logic Point Consulting - All Rights Reserved.</p>
+</div>
+</div>
+</footer>
+<script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('anim-visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.anim-fade-in-up').forEach(function(el) {
+            observer.observe(el);
+        });
+    </script>
+<script>
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) e.target.classList.add('anim-visible');
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+})();
+</script></body>
+</html>
