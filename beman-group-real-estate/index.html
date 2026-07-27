@@ -1,103 +1,191 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex">
-<title>Beman Group Real Estate — Augusta</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Beman Group Real Estate — Commercial &amp; Investment, Augusta GA</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#171844;--ink2:#404165;--gold:#c9a84c;--cream:#f7f5ef;--muted:#6b6c85;--line:#e7e5dc}
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{font-family:"Helvetica Neue",Inter,Avenir,"Segoe UI",system-ui,sans-serif;color:#12131f;background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
-h1,h2,h3{line-height:1.12;letter-spacing:-.01em;font-weight:600}
-.wrap{max-width:1180px;margin:0 auto;padding:0 24px}a{color:inherit;text-decoration:none}
-.btn{display:inline-block;padding:15px 30px;border-radius:2px;font-weight:600;letter-spacing:.03em;font-size:14px;text-transform:uppercase;transition:.25s}
-.btn-gold{background:var(--gold);color:#12131f}.btn-gold:hover{filter:brightness(1.12);transform:translateY(-2px)}
-.btn-ghost{border:1.5px solid rgba(255,255,255,.5);color:#fff}.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
-header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.3s}
-header.scrolled{background:var(--ink);box-shadow:0 6px 30px rgba(0,0,0,.18)}
-nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
-.brand{color:#fff;font-size:21px;font-weight:600}.brand span{color:var(--gold)}
-.navlinks{display:flex;gap:32px;align-items:center}
-.navlinks a{color:#fff;font-size:14px;letter-spacing:.04em;opacity:.92;text-transform:uppercase}
-.navlinks a:hover{color:var(--gold)}.navlinks .btn{padding:11px 22px}
-.menu{display:none;background:none;border:0;color:#fff;font-size:26px}
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;color:#fff;
-background:linear-gradient(rgba(10,12,26,.72),#171844dd),url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80') center/cover}
-.hero-in{max-width:760px}
-.eyebrow{color:var(--gold);letter-spacing:.28em;text-transform:uppercase;font-size:12px;margin-bottom:22px}
-.hero h1{font-size:clamp(36px,5.6vw,64px);margin-bottom:22px}
-.hero p{font-size:19px;opacity:.92;max-width:560px;margin-bottom:36px;font-weight:300}
-.hero-cta{display:flex;gap:16px;flex-wrap:wrap}
-.stats{background:var(--ink);color:#fff}
-.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
-.stat{padding:44px 18px;text-align:center;border-right:1px solid rgba(255,255,255,.09)}
-.stat:last-child{border-right:0}
-.stat b{display:block;font-size:40px;color:var(--gold);font-weight:600}
-.stat span{font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.78}
-section{padding:100px 0}
-.sec-head{text-align:center;max-width:640px;margin:0 auto 58px}
-.sec-head h2{font-size:clamp(28px,4vw,42px);color:var(--ink);margin-bottom:14px}
-.sec-head p{color:var(--muted);font-size:17px}.sec-head .eyebrow{color:var(--gold)}
-.serv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.serv{padding:38px 30px;border:1px solid var(--line);border-radius:4px;transition:.3s}
-.serv:hover{border-color:var(--gold);background:var(--cream);transform:translateY(-4px)}
-.serv .ic{width:52px;height:52px;border-radius:50%;background:var(--ink);color:var(--gold);display:grid;place-items:center;font-size:21px;margin-bottom:20px}
-.serv h3{color:var(--ink);font-size:20px;margin-bottom:10px}.serv p{color:var(--muted);font-size:15px}
-.why{background:var(--cream)}
-.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;text-align:center}
-.why h3{color:var(--ink);font-size:18px;margin:14px 0 8px}.why p{color:var(--muted);font-size:15px}
-.why .n{width:44px;height:44px;margin:0 auto;border-radius:50%;border:2px solid var(--gold);color:var(--gold);display:grid;place-items:center;font-weight:600}
-.cta{background:linear-gradient(rgba(10,12,26,.86),#171844f0),url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80') center/cover;color:#fff;text-align:center}
-.cta h2{font-size:clamp(28px,4vw,44px);margin-bottom:16px}
-.cta p{opacity:.9;font-size:18px;margin:0 auto 32px;max-width:560px;font-weight:300}
-footer{background:#0e0f1c;color:#fff;padding:70px 0 32px}
-.fgrid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:42px}
-footer .brand{margin-bottom:16px;display:block}
-footer p,footer a{color:rgba(255,255,255,.66);font-size:15px}footer a:hover{color:var(--gold)}
-.fcol h4{color:#fff;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
-.fcol a{display:block;margin-bottom:11px}
-.copy{border-top:1px solid rgba(255,255,255,.1);padding-top:26px;text-align:center;font-size:13px;color:rgba(255,255,255,.45)}
-@media(max-width:860px){.navlinks{display:none}.menu{display:block}
-.stats .wrap{grid-template-columns:repeat(2,1fr)}.stat{border-bottom:1px solid rgba(255,255,255,.09)}
-.serv-grid,.why-grid,.fgrid{grid-template-columns:1fr;gap:26px}section{padding:68px 0}}
+img{max-width:100%;display:block}a{text-decoration:none;color:inherit}
+:root{--navy:#191D49;--navy-d:#0E1130;--gold:#C9AF53;--gold-l:#E0CB84;
+ --paper:#F7F5F0;--paper2:#EDE9E0;--ink:#1A1A22;--ink2:#6A6A78;--line:#DAD5C9}
+body{background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.7}
+h1,h2,h3{font-family:'Cormorant Garamond','Georgia',serif;font-weight:500;letter-spacing:-.005em;line-height:1.02}
+.wrap{max-width:1240px;margin:0 auto;padding:0 34px}
+.kicker{font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.hr{height:1px;background:var(--line)}
+
+#nav{position:fixed;inset:0 0 auto;z-index:80;background:rgba(247,245,240,.94);
+ backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+#nav .bar{display:flex;align-items:center;justify-content:space-between;padding:15px 0}
+#nav img{height:34px;width:auto}
+.nl{display:flex;gap:30px;align-items:center}
+.nl a{font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;color:var(--navy);font-weight:500}
+.nl a:hover{color:var(--gold)}
+.btn{display:inline-block;padding:15px 32px;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;
+ font-weight:600;transition:.25s;border:1px solid var(--navy)}
+.btn-f{background:var(--navy);color:var(--paper)}.btn-f:hover{background:var(--gold);border-color:var(--gold);color:var(--navy-d)}
+.btn-o:hover{background:var(--navy);color:var(--paper)}
+.btn-g{border-color:var(--gold);color:var(--gold)}.btn-g:hover{background:var(--gold);color:var(--navy-d)}
+
+/* HERO — dark architectural plate, huge serif, gold rule */
+.hero{background:var(--navy);color:var(--paper);padding:170px 0 96px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-6%;top:12%;width:520px;height:520px;border:1px solid rgba(201,175,83,.18);
+ border-radius:50%;pointer-events:none}
+.hero h1{color:#fff;font-size:clamp(3rem,8vw,7.2rem);margin:24px 0 0}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hgrid{display:grid;grid-template-columns:1.25fr .75fr;gap:60px;align-items:end;margin-top:44px}
+.hero p{color:#B9BCD4;font-size:1.1rem;max-width:520px}
+.hacts{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.hstats{display:flex;gap:40px;flex-wrap:wrap}
+.hstats div b{font-family:'Cormorant Garamond',serif;font-size:2.6rem;color:var(--gold);display:block;line-height:1}
+.hstats div span{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:#8E92B0;margin-top:8px;display:block}
+
+/* SERVICE LEDGER */
+section{padding:112px 0}
+.shead{max-width:660px;margin-bottom:56px}
+.shead h2{font-size:clamp(2.2rem,4.6vw,3.6rem);margin:14px 0 16px}
+.shead p{color:var(--ink2);font-size:1.05rem}
+.ledger{border-top:1px solid var(--line)}
+.lrow{display:grid;grid-template-columns:70px 1fr 1.1fr;gap:34px;padding:32px 0;
+ border-bottom:1px solid var(--line);align-items:baseline;transition:.28s}
+.lrow:hover{background:var(--paper2);padding-left:16px}
+.lrow .no{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--gold)}
+.lrow h3{font-size:1.7rem}
+.lrow p{color:var(--ink2);font-size:.98rem}
+
+/* PROJECTS — the differentiator */
+.proj{background:var(--navy-d);color:var(--paper)}
+.proj h2{color:#fff}
+.pgrid{display:grid;grid-template-columns:1.15fr .85fr;gap:34px;margin-top:52px}
+.pcard{position:relative;border:1px solid rgba(201,175,83,.22);padding:44px 40px;min-height:340px;
+ display:flex;flex-direction:column;justify-content:flex-end;transition:.3s;background:#141733}
+.pcard:hover{border-color:var(--gold);transform:translateY(-5px)}
+.pcard .yr{font-family:'Cormorant Garamond',serif;font-size:3.4rem;color:var(--gold);line-height:1;opacity:.75}
+.pcard h3{color:#fff;font-size:2rem;margin:14px 0 12px}
+.pcard p{color:#A9ADC8;font-size:.97rem}
+.tagpill{display:inline-block;margin-top:18px;border:1px solid rgba(201,175,83,.4);color:var(--gold);
+ padding:6px 14px;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase}
+
+/* TEAM */
+.tgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--line);background:#fff}
+.tm{padding:34px 26px;border-right:1px solid var(--line);transition:.28s}
+.tm:last-child{border-right:0}
+.tm:hover{background:var(--paper2)}
+.tm .mk{width:38px;height:38px;border-radius:50%;border:1px solid var(--gold);color:var(--gold);
+ display:grid;place-items:center;font-family:'Cormorant Garamond',serif;font-size:1rem;margin-bottom:16px}
+.tm b{display:block;font-family:'Cormorant Garamond',serif;font-size:1.24rem;font-weight:500}
+.tm .role{font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:5px 0 12px}
+.tm p{font-size:.86rem;color:var(--ink2)}
+.tm a{font-size:.78rem;color:var(--navy);border-bottom:1px solid var(--line);word-break:break-all}
+.tm a:hover{border-color:var(--gold)}
+
+/* SPLIT with real photo */
+.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
+.split img{width:100%;height:auto}
+.pull{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,2.8vw,2.3rem);line-height:1.24;margin-bottom:20px}
+
+/* CTA */
+.cta{background:var(--gold);color:var(--navy-d)}
+.cta h2{color:var(--navy-d);font-size:clamp(2.2rem,5vw,3.8rem);margin-bottom:16px}
+.cta p{color:#4A421E;max-width:520px;margin-bottom:30px}
+.cgrid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end}
+.cinfo p{font-size:.92rem;color:#4A421E;margin-bottom:5px}
+.cinfo a{color:var(--navy-d);border-bottom:1px solid var(--navy-d)}
+
+footer{background:var(--navy);color:#B9BCD4;padding:44px 0}
+.frow{display:flex;justify-content:space-between;align-items:center;gap:26px;flex-wrap:wrap}
+footer img{height:30px;width:auto}
+footer p{font-size:.76rem;letter-spacing:.06em}
+
+.rv{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}
+.rv.on{opacity:1;transform:none}
+@media(max-width:1050px){.nl{display:none}
+ .hgrid,.pgrid,.split,.cgrid{grid-template-columns:1fr;gap:34px}
+ .tgrid{grid-template-columns:1fr}.tm{border-right:0;border-bottom:1px solid var(--line)}
+ .lrow{grid-template-columns:44px 1fr;gap:18px}.lrow p{grid-column:2}
+ section{padding:72px 0}.hero{padding:130px 0 70px}.wrap{padding:0 20px}}
 </style></head><body>
-<header id="h"><div class="wrap"><nav>
-<a class="brand" href="#">Beman <span>Group Real Estate</span></a>
-<div class="navlinks"><a href="#services">Services</a><a href="#why">Why Us</a><a href="#contact">Contact</a>
-<a class="btn btn-gold" href="#contact">View Listings</a></div>
-<button class="menu">☰</button></nav></div></header>
 
-<section class="hero"><div class="wrap hero-in">
-<div class="eyebrow">Augusta &amp; the CSRA</div>
-<h1>Finding Home Starts With the Right Partner</h1>
-<p>Beman Group Real Estate pairs deep local knowledge with white-glove service — helping families and investors buy and sell with confidence.</p>
-<div class="hero-cta"><a class="btn btn-gold" href="#contact">View Listings</a>
-<a class="btn btn-ghost" href="#services">Talk to an Agent</a></div>
-</div></section>
+<header id="nav"><div class="wrap"><div class="bar">
+<a href="#"><img src="https://static.wixstatic.com/media/792e65_22e2c9e87d9c47ba885962f8be801e5f~mv2.png/v1/fill/w_1045,h_320,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Blue-Horizontal_Beman_Group-Logo.png" alt="Beman Group Real Estate"></a>
+<nav class="nl"><a href="#services">Services</a><a href="#projects">Projects</a><a href="#team">Team</a>
+<a href="#contact" style="color:var(--gold)">Contact</a></nav>
+</div></div></header>
 
-<div class="stats"><div class="wrap"><div class="stat"><b>500+</b><span>Homes Sold</span></div><div class="stat"><b>$180M</b><span>In Closings</span></div><div class="stat"><b>18</b><span>Years Local</span></div><div class="stat"><b>4.9★</b><span>Client Rating</span></div></div></div>
+<section class="hero"><div class="wrap">
+<div class="kicker">Commercial Real Estate &amp; Investment · Augusta, Georgia</div>
+<h1>We put Augusta<br>buildings <em>back to work.</em></h1>
+<div class="hgrid">
+<div><p>Brokerage, investment management and adaptive-reuse development across the CSRA —
+led from Augusta by people who grew up here.</p>
+<div class="hacts"><a class="btn btn-f" href="#contact">Start a conversation</a>
+<a class="btn btn-g" href="#projects">See our projects</a></div></div>
+<div class="hstats">
+<div><b>1890s</b><span>Oldest asset restored</span></div>
+<div><b>50 yrs</b><span>Vacant before we stepped in</span></div>
+<div><b>2</b><span>Landmark redevelopments</span></div>
+</div></div></div></section>
 
 <section id="services"><div class="wrap">
-<div class="sec-head"><div class="eyebrow">How We Help</div><h2>Full-Service Real Estate</h2><p>Whether it's your first home or your fifth investment property, we guide every step.</p></div>
-<div class="serv-grid"><div class="serv"><div class="ic">⌂</div><h3>Buying</h3><p>From pre-approval to closing, we find the right home and negotiate hard on your behalf.</p></div><div class="serv"><div class="ic">◆</div><h3>Selling</h3><p>Professional staging, photography and marketing that gets your home sold for top dollar.</p></div><div class="serv"><div class="ic">▲</div><h3>Investing</h3><p>Data-driven guidance on rental and flip opportunities across the local market.</p></div></div></div></section>
-
-<section class="why" id="why"><div class="wrap">
-<div class="sec-head"><div class="eyebrow">Why Beman Group Real Estate</div><h2>Local, Responsive, Accountable</h2></div>
-<div class="why-grid">
-<div><div class="n">1</div><h3>Rooted in Augusta</h3><p>We live and work here. Your outcome affects our reputation in this community.</p></div>
-<div><div class="n">2</div><h3>Straight Answers</h3><p>No jargon and no runaround — you'll always know exactly where things stand.</p></div>
-<div><div class="n">3</div><h3>Real People</h3><p>Call and reach someone who knows your name and your situation, every time.</p></div>
-</div></div></section>
-
-<section class="cta" id="contact"><div class="wrap">
-<h2>Ready to Make Your Move?</h2><p>Let's talk about your goals. Reach out today and we'll be in touch within one business day.</p><a class="btn btn-gold" href="tel:7065384800">Call 706-538-4800</a>
+<div class="shead rv"><div class="kicker">What we do</div>
+<h2>Four disciplines, one firm.</h2>
+<p>Brokerage that knows the block, investment work that survives a cycle, and development
+that gives a building its second century.</p></div>
+<div class="ledger"><div class="lrow rv"><div class="no">01</div><h3>Commercial Brokerage</h3><p>Office, retail, industrial and land — represented with real CSRA market data, not guesswork.</p></div><div class="lrow rv"><div class="no">02</div><h3>Investment Management</h3><p>Acquisition, underwriting and asset management for owners who think in decades, not quarters.</p></div><div class="lrow rv"><div class="no">03</div><h3>Property Management</h3><p>Day-to-day operations, tenant relations and reporting across our managed portfolio.</p></div><div class="lrow rv"><div class="no">04</div><h3>Development & Adaptive Reuse</h3><p>Taking buildings written off as teardowns and putting them back into service.</p></div></div>
 </div></section>
 
-<footer><div class="wrap"><div class="fgrid">
-<div><a class="brand" href="#">Beman <span>Group Real Estate</span></a>
-<p>Proudly serving Augusta and the surrounding CSRA community.</p></div>
-<div class="fcol"><h4>Explore</h4><a href="#services">Services</a><a href="#why">Why Us</a><a href="#contact">Contact</a></div>
-<div class="fcol"><h4>Contact</h4><a href="tel:7065384800">706-538-4800</a><a href="mailto:info@bemangroup.com">info@bemangroup.com</a><a href="#">Augusta, GA</a></div>
-</div><div class="copy">© 2026 Beman Group Real Estate. All rights reserved. &nbsp;·&nbsp; Preview redesign concept by MARNEXIQ.</div>
+<section class="proj" id="projects"><div class="wrap">
+<div class="shead rv"><div class="kicker">Projects</div>
+<h2 style="color:#fff">Deals done.</h2>
+<p style="color:#A9ADC8">The clearest way to judge a real estate firm is what it has actually finished.</p></div>
+<div class="pgrid">
+<div class="pcard rv"><div class="yr">2024</div><h3>Union Lofts</h3>
+<p>Built in the 1890s across from the former Union Station, where it housed boarding rooms for railroad
+workers and patrons. Vacant for almost fifty years and positioned to be torn down — until the team saw
+what it could be again. Brought back to life in 2024.</p>
+<span class="tagpill">Adaptive reuse · Now leasing</span></div>
+<div class="pcard rv"><div class="yr">—</div><h3>The Lofts on Broad</h3>
+<p>Downtown Augusta residential conversion, on one of the city's principal streets.</p>
+<span class="tagpill">Residential · Downtown</span></div>
+</div></div></section>
+
+<section><div class="wrap split">
+<img src="https://static.wixstatic.com/media/21fb40_202e0ead644f42d5b5a4fc9d997cf2d5~mv2.jpg/v1/fill/w_618,h_780,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/BemanGroup2-65.jpg" alt="Beman Group Real Estate">
+<div class="rv"><div class="kicker">The firm</div>
+<p class="pull">Local knowledge isn't a marketing line — it's the whole product.</p>
+<p style="color:var(--ink2)">Beman Group Real Estate is a principal-led commercial firm working across
+brokerage, investment management and development in Augusta and the greater CSRA. We underwrite our own
+deals, manage our own assets, and put our name on the buildings we bring back.</p>
+<p style="color:var(--ink2);margin-top:14px">That means when we tell you what a property is worth,
+we're telling you what we'd pay for it ourselves.</p>
+<div style="margin-top:28px"><a class="btn btn-o" href="#team">Meet the team</a></div>
+</div></div></section>
+
+<section id="team" style="padding-top:0"><div class="wrap">
+<div class="shead rv"><div class="kicker">The team</div>
+<h2>Who you'll actually work with.</h2></div>
+<div class="tgrid"><div class="tm rv"><div class="mk">DH</div><b>Davis H. Beman</b><div class="role">Principal</div><p>Born and raised in Augusta. Academy of Richmond County, then Georgia Tech.</p><a href="mailto:Davis@bemangroup.com">Davis@bemangroup.com</a></div><div class="tm rv"><div class="mk">GG</div><b>Geraldin Gutierrez</b><div class="role">Operations Manager</div><p>Augusta University graduate. Raised in the Bronx and the Dominican Republic — the CSRA is home.</p><a href="mailto:Geraldin@bemangroup.com">Geraldin@bemangroup.com</a></div><div class="tm rv"><div class="mk">WR</div><b>Whitt Rutland</b><div class="role">Commercial Associate</div><p>Auburn, 2019 — Supply Chain Management, then two and a half years in logistics.</p><a href="mailto:Whitt@bemangroup.com">Whitt@bemangroup.com</a></div><div class="tm rv"><div class="mk">KW</div><b>Ky Widener</b><div class="role">Commercial Associate</div><p>Commercial brokerage across the CSRA market.</p><a href="mailto:Ky@bemangroup.com">Ky@bemangroup.com</a></div><div class="tm rv"><div class="mk">VG</div><b>Vicki Gould</b><div class="role">Bookkeeper</div><p>Rooted in the South since 1979. University of South Carolina and Augusta State.</p><a href="mailto:Vicki@bemangroup.com">Vicki@bemangroup.com</a></div></div>
+</div></section>
+
+<section class="cta" id="contact"><div class="wrap cgrid">
+<div><div class="kicker" style="color:var(--navy-d)">Get in touch</div>
+<h2>Let's talk about the property.</h2>
+<p>Buying, leasing, selling or repositioning — start with a straight conversation about the numbers.</p>
+<a class="btn btn-f" href="tel:7065384800">Call 706-538-4800</a></div>
+<div class="cinfo">
+<p>Beman Group Real Estate</p>
+<p style="color:var(--navy-d);font-weight:600">147 Davis Road, Suite A<br>Augusta, Georgia 30907</p>
+<p style="margin-top:12px"><a href="mailto:info@bemangroup.com">info@bemangroup.com</a></p>
+<p><a href="tel:7065384800">706-538-4800</a></p>
+</div></div></section>
+
+<footer><div class="wrap frow">
+<img src="https://static.wixstatic.com/media/21fb40_e8bbeb97ba2b40b7b5b345d92e3aba5c~mv2.png/v1/fill/w_192,h_192,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Gold-Submark_Beman_Group-Logo.png" alt="Beman Group">
+<p>© 2026 Beman Group Real Estate &nbsp;·&nbsp; Preview redesign concept by MARNEXIQ</p>
 </div></footer>
-<script>const h=document.getElementById('h');addEventListener('scroll',()=>h.classList.toggle('scrolled',scrollY>60));</script>
+
+<script>(function(){
+ var r=document.querySelectorAll('.rv');
+ var o=new IntersectionObserver(function(e){e.forEach(function(y){
+  if(y.isIntersecting){y.target.classList.add('on');o.unobserve(y.target)}})},{threshold:.1});
+ r.forEach(function(y){o.observe(y)});})();</script>
 </body></html>
