@@ -1,103 +1,196 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex">
-<title>Gateway Financial Group — Augusta</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Gateway Financial Group — Retirement &amp; Annuities, Augusta GA</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#5f5018;--ink2:#7b6f41;--gold:#c9a84c;--cream:#f7f5ef;--muted:#6b6c85;--line:#e7e5dc}
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{font-family:"Helvetica Neue",Inter,Avenir,"Segoe UI",system-ui,sans-serif;color:#12131f;background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
-h1,h2,h3{line-height:1.12;letter-spacing:-.01em;font-weight:600}
-.wrap{max-width:1180px;margin:0 auto;padding:0 24px}a{color:inherit;text-decoration:none}
-.btn{display:inline-block;padding:15px 30px;border-radius:2px;font-weight:600;letter-spacing:.03em;font-size:14px;text-transform:uppercase;transition:.25s}
-.btn-gold{background:var(--gold);color:#12131f}.btn-gold:hover{filter:brightness(1.12);transform:translateY(-2px)}
-.btn-ghost{border:1.5px solid rgba(255,255,255,.5);color:#fff}.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
-header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.3s}
-header.scrolled{background:var(--ink);box-shadow:0 6px 30px rgba(0,0,0,.18)}
-nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
-.brand{color:#fff;font-size:21px;font-weight:600}.brand span{color:var(--gold)}
-.navlinks{display:flex;gap:32px;align-items:center}
-.navlinks a{color:#fff;font-size:14px;letter-spacing:.04em;opacity:.92;text-transform:uppercase}
-.navlinks a:hover{color:var(--gold)}.navlinks .btn{padding:11px 22px}
-.menu{display:none;background:none;border:0;color:#fff;font-size:26px}
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;color:#fff;
-background:linear-gradient(rgba(10,12,26,.72),#5f5018dd),url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1920&q=80') center/cover}
-.hero-in{max-width:760px}
-.eyebrow{color:var(--gold);letter-spacing:.28em;text-transform:uppercase;font-size:12px;margin-bottom:22px}
-.hero h1{font-size:clamp(36px,5.6vw,64px);margin-bottom:22px}
-.hero p{font-size:19px;opacity:.92;max-width:560px;margin-bottom:36px;font-weight:300}
-.hero-cta{display:flex;gap:16px;flex-wrap:wrap}
-.stats{background:var(--ink);color:#fff}
-.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
-.stat{padding:44px 18px;text-align:center;border-right:1px solid rgba(255,255,255,.09)}
-.stat:last-child{border-right:0}
-.stat b{display:block;font-size:40px;color:var(--gold);font-weight:600}
-.stat span{font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.78}
-section{padding:100px 0}
-.sec-head{text-align:center;max-width:640px;margin:0 auto 58px}
-.sec-head h2{font-size:clamp(28px,4vw,42px);color:var(--ink);margin-bottom:14px}
-.sec-head p{color:var(--muted);font-size:17px}.sec-head .eyebrow{color:var(--gold)}
-.serv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.serv{padding:38px 30px;border:1px solid var(--line);border-radius:4px;transition:.3s}
-.serv:hover{border-color:var(--gold);background:var(--cream);transform:translateY(-4px)}
-.serv .ic{width:52px;height:52px;border-radius:50%;background:var(--ink);color:var(--gold);display:grid;place-items:center;font-size:21px;margin-bottom:20px}
-.serv h3{color:var(--ink);font-size:20px;margin-bottom:10px}.serv p{color:var(--muted);font-size:15px}
-.why{background:var(--cream)}
-.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;text-align:center}
-.why h3{color:var(--ink);font-size:18px;margin:14px 0 8px}.why p{color:var(--muted);font-size:15px}
-.why .n{width:44px;height:44px;margin:0 auto;border-radius:50%;border:2px solid var(--gold);color:var(--gold);display:grid;place-items:center;font-weight:600}
-.cta{background:linear-gradient(rgba(10,12,26,.86),#5f5018f0),url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80') center/cover;color:#fff;text-align:center}
-.cta h2{font-size:clamp(28px,4vw,44px);margin-bottom:16px}
-.cta p{opacity:.9;font-size:18px;margin:0 auto 32px;max-width:560px;font-weight:300}
-footer{background:#0e0f1c;color:#fff;padding:70px 0 32px}
-.fgrid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:42px}
-footer .brand{margin-bottom:16px;display:block}
-footer p,footer a{color:rgba(255,255,255,.66);font-size:15px}footer a:hover{color:var(--gold)}
-.fcol h4{color:#fff;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
-.fcol a{display:block;margin-bottom:11px}
-.copy{border-top:1px solid rgba(255,255,255,.1);padding-top:26px;text-align:center;font-size:13px;color:rgba(255,255,255,.45)}
-@media(max-width:860px){.navlinks{display:none}.menu{display:block}
-.stats .wrap{grid-template-columns:repeat(2,1fr)}.stat{border-bottom:1px solid rgba(255,255,255,.09)}
-.serv-grid,.why-grid,.fgrid{grid-template-columns:1fr;gap:26px}section{padding:68px 0}}
-</style></head><body>
-<header id="h"><div class="wrap"><nav>
-<a class="brand" href="#">Gateway <span>Financial Group</span></a>
-<div class="navlinks"><a href="#services">Services</a><a href="#why">Why Us</a><a href="#contact">Contact</a>
-<a class="btn btn-gold" href="#contact">Book a Consultation</a></div>
-<button class="menu">☰</button></nav></div></header>
+img{max-width:100%;display:block}a{text-decoration:none;color:inherit}
+:root{--teal:#275A6B;--teal-d:#1B4150;--gold:#D5B237;--gold-d:#B9992A;
+ --cream:#FBF8F2;--cream2:#F3EDE1;--ink:#22282B;--ink2:#55606A;--line:#E2DACB}
+/* Audience is retirees: base 18px, generous line-height, strong contrast. */
+body{background:var(--cream);color:var(--ink);font-family:'Source Sans 3','Segoe UI',system-ui,sans-serif;
+ font-size:18px;line-height:1.78}
+h1,h2,h3{font-family:'Lora','Georgia',serif;font-weight:600;line-height:1.14;color:var(--teal-d)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+.kick{font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-d);font-weight:700}
 
-<section class="hero"><div class="wrap hero-in">
-<div class="eyebrow">Fiduciary Advisors · Augusta</div>
-<h1>Clarity for the Decisions That Matter</h1>
-<p>Gateway Financial Group builds straightforward financial plans — no jargon, no product pitches, just advice aligned with your goals.</p>
-<div class="hero-cta"><a class="btn btn-gold" href="#contact">Book a Consultation</a>
-<a class="btn btn-ghost" href="#services">Our Approach</a></div>
+#nav{position:fixed;inset:0 0 auto;z-index:80;background:rgba(251,248,242,.97);
+ border-bottom:2px solid var(--line)}
+#nav .bar{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:20px}
+#nav img{height:46px;width:auto}
+.nl{display:flex;gap:28px;align-items:center}
+.nl a{font-size:1rem;font-weight:600;color:var(--teal-d)}
+.nl a:hover{color:var(--gold-d)}
+.tel{font-weight:700;color:var(--teal);font-size:1.05rem}
+.btn{display:inline-block;padding:17px 34px;border-radius:6px;font-weight:700;font-size:1.02rem;transition:.22s}
+.btn-t{background:var(--teal);color:#fff}.btn-t:hover{background:var(--teal-d)}
+.btn-g{background:var(--gold);color:#2A2206}.btn-g:hover{background:var(--gold-d)}
+.btn-o{border:2px solid var(--teal);color:var(--teal)}.btn-o:hover{background:var(--teal);color:#fff}
+
+.hero{padding:150px 0 90px;background:linear-gradient(180deg,var(--cream) 0%,var(--cream2) 100%)}
+.hgrid{display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(2.5rem,5vw,4.1rem);margin:18px 0 22px}
+.hero h1 em{font-style:normal;color:var(--gold-d)}
+.hero p{font-size:1.2rem;color:var(--ink2);max-width:540px;margin-bottom:30px}
+.hacts{display:flex;gap:14px;flex-wrap:wrap}
+.hfig{border-radius:14px;overflow:hidden;box-shadow:0 22px 60px rgba(39,90,107,.18)}
+.hfig img{width:100%;height:auto}
+
+.band{background:var(--teal);color:#fff;padding:26px 0}
+.band .wrap{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;text-align:center}
+.band p{font-size:1.12rem;font-weight:600}
+.band a{background:#fff;color:var(--teal-d);padding:12px 26px;border-radius:6px;font-weight:700}
+
+section{padding:100px 0}
+.shead{max-width:680px;margin-bottom:52px}
+.shead h2{font-size:clamp(2rem,3.8vw,3rem);margin:14px 0 16px}
+.shead p{color:var(--ink2);font-size:1.1rem}
+
+/* THREE PRINCIPLES — their own words */
+.p3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.pc{background:#fff;border:2px solid var(--line);border-radius:14px;padding:38px 32px;transition:.25s}
+.pc:hover{border-color:var(--gold);transform:translateY(-5px)}
+.pc .no{font-family:'Lora',serif;font-size:2.6rem;color:var(--gold);line-height:1}
+.pc h3{font-size:1.5rem;margin:12px 0 12px}
+.pc p{color:var(--ink2);font-size:1.02rem}
+
+/* SERVICES list */
+.svc{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:2px solid var(--line);
+ border-radius:14px;overflow:hidden;background:#fff}
+.sv{padding:34px 32px;border-right:2px solid var(--line);border-bottom:2px solid var(--line)}
+.sv:nth-child(2n){border-right:0}
+.sv:nth-last-child(-n+2){border-bottom:0}
+.sv h3{font-size:1.35rem;margin-bottom:8px}
+.sv p{color:var(--ink2);font-size:1rem}
+
+/* FOUNDER */
+.founder{background:var(--cream2)}
+.fgrid{display:grid;grid-template-columns:.82fr 1.18fr;gap:60px;align-items:center}
+.fphoto{position:relative;border-radius:14px;overflow:hidden;box-shadow:0 20px 50px rgba(39,90,107,.16)}
+.fphoto img{width:100%;height:auto}
+.fcap{position:absolute;left:0;right:0;bottom:0;background:var(--teal-d);color:#fff;padding:18px 24px}
+.fcap b{font-family:'Lora',serif;font-size:1.3rem;display:block}
+.fcap span{font-size:.86rem;color:var(--gold)}
+.quote{font-family:'Lora',serif;font-size:clamp(1.4rem,2.4vw,1.9rem);line-height:1.42;color:var(--teal-d);margin-bottom:20px}
+.founder p{color:var(--ink2)}
+
+/* TEAM */
+.tg{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
+.tm{background:#fff;border:2px solid var(--line);border-radius:14px;overflow:hidden;transition:.25s}
+.tm:hover{border-color:var(--gold);transform:translateY(-5px)}
+.tm .ph img{width:100%;height:auto}
+.tm .mk{height:150px;display:grid;place-items:center;background:var(--cream2);
+ font-family:'Lora',serif;font-size:2rem;color:var(--teal)}
+.tm .body{padding:20px 20px 24px}
+.tm b{display:block;font-family:'Lora',serif;font-size:1.15rem;color:var(--teal-d)}
+.tm span{font-size:.92rem;color:var(--ink2)}
+
+.cta{background:var(--teal-d);color:#fff;text-align:center}
+.cta h2{color:#fff;font-size:clamp(2.1rem,4.2vw,3.2rem);margin-bottom:16px}
+.cta p{color:#C6D6DC;font-size:1.14rem;max-width:600px;margin:0 auto 30px}
+footer{background:var(--ink);color:#C7CDD1;padding:44px 0}
+.frow{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+footer img{height:44px;width:auto}
+footer p{font-size:.92rem}
+.disc{margin-top:22px;font-size:.8rem;color:#8B959B;line-height:1.6}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}
+.rv.on{opacity:1;transform:none}
+@media(max-width:1000px){.nl{display:none}
+ .hgrid,.fgrid{grid-template-columns:1fr;gap:34px}
+ .p3,.svc{grid-template-columns:1fr}.sv{border-right:0}
+ .tg{grid-template-columns:repeat(2,1fr)}
+ section{padding:70px 0}.hero{padding:120px 0 60px}.wrap{padding:0 20px}}
+</style></head><body>
+
+<header id="nav"><div class="wrap"><div class="bar">
+<a href="#"><img src="https://gateway-financial.com/wp-content/uploads/2022/03/gateway.png" alt="Gateway Financial Group"></a>
+<nav class="nl"><a href="#principles">Our Approach</a><a href="#services">Services</a>
+<a href="#team">Our Team</a><a class="tel" href="tel:7066311213">706-631-1213</a>
+<a class="btn btn-g" href="#contact" style="padding:12px 24px">Book a Review</a></nav>
+</div></div></header>
+
+<section class="hero"><div class="wrap hgrid">
+<div><div class="kick">Retirement &amp; Annuities · Martinez, Georgia</div>
+<h1>A successful retirement is in <em>your future.</em></h1>
+<p>Protect the savings you worked your whole life for — and turn them into a guaranteed
+income you cannot outlive.*</p>
+<div class="hacts"><a class="btn btn-t" href="tel:7066311213">Call 706-631-1213</a>
+<a class="btn btn-o" href="#principles">See our approach</a></div></div>
+<div class="hfig"><img src="https://gateway-financial.com/wp-content/uploads/2022/07/group3-smiling-successful-retirement-future-martinez-georgia.jpg" alt="Clients enjoying a successful retirement"></div>
 </div></section>
 
-<div class="stats"><div class="wrap"><div class="stat"><b>$120M</b><span>Assets Guided</span></div><div class="stat"><b>300+</b><span>Households</span></div><div class="stat"><b>22</b><span>Years Experience</span></div><div class="stat"><b>Fee</b><span>Only Advice</span></div></div></div>
+<div class="band"><div class="wrap">
+<p>Schedule your no-obligation appointment and review today</p>
+<a href="tel:7066311213">706-631-1213</a></div></div>
 
-<section id="services"><div class="wrap">
-<div class="sec-head"><div class="eyebrow">How We Work</div><h2>Planning Built Around You</h2><p>Retirement, investments, tax and legacy — coordinated into one plan that adapts as life changes.</p></div>
-<div class="serv-grid"><div class="serv"><div class="ic">◆</div><h3>Retirement Planning</h3><p>A clear roadmap to the income you'll need, stress-tested against real markets.</p></div><div class="serv"><div class="ic">▲</div><h3>Investment Management</h3><p>Disciplined, low-cost portfolios matched to your goals and risk tolerance.</p></div><div class="serv"><div class="ic">■</div><h3>Estate &amp; Tax</h3><p>Keep more of what you've built and pass it on the way you intend.</p></div></div></div></section>
-
-<section class="why" id="why"><div class="wrap">
-<div class="sec-head"><div class="eyebrow">Why Gateway Financial Group</div><h2>Local, Responsive, Accountable</h2></div>
-<div class="why-grid">
-<div><div class="n">1</div><h3>Rooted in Augusta</h3><p>We live and work here. Your outcome affects our reputation in this community.</p></div>
-<div><div class="n">2</div><h3>Straight Answers</h3><p>No jargon and no runaround — you'll always know exactly where things stand.</p></div>
-<div><div class="n">3</div><h3>Real People</h3><p>Call and reach someone who knows your name and your situation, every time.</p></div>
+<section id="principles"><div class="wrap">
+<div class="shead rv"><div class="kick">Our approach</div>
+<h2>Three things that lead to a sound retirement.</h2>
+<p>With so many insurance and retirement professionals out there, it can be hard to know who to
+trust. Our approach is deliberately simple.</p></div>
+<div class="p3">
+<div class="pc rv"><div class="no">01</div><h3>Safety First</h3>
+<p>We focus on protecting your principal. The money you spent a career building should not be
+the money you gamble with.</p></div>
+<div class="pc rv"><div class="no">02</div><h3>Reasonable Rate of Return**</h3>
+<p>We avoid relying solely on market returns, which can be volatile — especially in the years
+you can least afford a downturn.</p></div>
+<div class="pc rv"><div class="no">03</div><h3>Simplicity</h3>
+<p>Solutions with fewer moving parts, wisely chosen and genuinely easy to understand.
+If you can't explain it, you shouldn't own it.</p></div>
 </div></div></section>
 
-<section class="cta" id="contact"><div class="wrap">
-<h2>Let's Talk About Your Plan</h2><p>A no-pressure conversation about where you are and where you want to be.</p><a class="btn btn-gold" href="tel:7066311213">Call 706-631-1213</a>
-</div></section>
+<section id="services" style="padding-top:0"><div class="wrap">
+<div class="shead rv"><div class="kick">What we do</div><h2>How we help.</h2></div>
+<div class="svc">
+<div class="sv rv"><h3>Retirement Strategies</h3><p>A clear plan for turning savings into dependable
+income, built around when you actually want to stop working.</p></div>
+<div class="sv rv"><h3>Annuities</h3><p>Guaranteed lifetime income* options that keep paying no
+matter how long you live.</p></div>
+<div class="sv rv"><h3>Life Insurance</h3><p>Protection for the people who depend on you, sized to
+what your family would genuinely need.</p></div>
+<div class="sv rv"><h3>Educational Seminars</h3><p>Straightforward sessions across the CSRA — no
+pressure, no jargon, just how the pieces fit together.</p></div>
+</div></div></section>
 
-<footer><div class="wrap"><div class="fgrid">
-<div><a class="brand" href="#">Gateway <span>Financial Group</span></a>
-<p>Proudly serving Augusta and the surrounding CSRA community.</p></div>
-<div class="fcol"><h4>Explore</h4><a href="#services">Services</a><a href="#why">Why Us</a><a href="#contact">Contact</a></div>
-<div class="fcol"><h4>Contact</h4><a href="tel:7066311213">706-631-1213</a><a href="mailto:marketing@gateway-financial.com">marketing@gateway-financial.com</a><a href="#">Augusta, GA</a></div>
-</div><div class="copy">© 2026 Gateway Financial Group. All rights reserved. &nbsp;·&nbsp; Preview redesign concept by MARNEXIQ.</div>
+<section class="founder"><div class="wrap fgrid">
+<div class="fphoto"><img src="https://gateway-financial.com/wp-content/uploads/2024/07/bernice-new.jpg" alt="Bernice Tayler, President and Founder">
+<div class="fcap"><b>Bernice Tayler</b><span>President &amp; Founder</span></div></div>
+<div class="rv"><div class="kick">Get to know</div>
+<p class="quote">"Honesty, integrity and the truth are more important than anything else."</p>
+<p>Born and raised in South Africa, and a Georgia girl since 2007. Bernice has over 13 years in
+insurance and financial services, and loves work that helps families find peace of mind in their
+retirement years.</p>
+<p style="margin-top:14px">Her objective is simple: eliminate as much confusion as possible from
+planning your financial future. She believes everyone deserves someone in their corner who makes
+things simpler, not more complicated.</p>
+<p style="margin-top:14px">Outside the office she's the proud mother of her son Jayd, and — with
+daughter-in-law Natalie — grandmother to Aidan and Jesse.</p>
+</div></div></section>
+
+<section id="team"><div class="wrap">
+<div class="shead rv"><div class="kick">Our team</div>
+<h2>The people who'll pick up the phone.</h2></div>
+<div class="tg"><div class="tm rv"><div class="ph"><img src="https://gateway-financial.com/wp-content/uploads/2024/07/bernice-new.jpg" alt="Bernice Tayler"></div><div class="body"><b>Bernice Tayler</b><span>President &amp; Founder</span></div></div><div class="tm rv"><div class="mk">BH</div><div class="body"><b>Benai Harrison</b><span>Office Manager</span></div></div><div class="tm rv"><div class="ph"><img src="https://gateway-financial.com/wp-content/uploads/2022/04/monica-headshot.jpg" alt="Monica Camay"></div><div class="body"><b>Monica Camay</b><span>Client Services</span></div></div><div class="tm rv"><div class="ph"><img src="https://gateway-financial.com/wp-content/uploads/2025/09/alexis-cohan-about.jpg" alt="Alexis Cohan"></div><div class="body"><b>Alexis Cohan</b><span>Events &amp; Marketing</span></div></div><div class="tm rv"><div class="mk">JM</div><div class="body"><b>Julia Mezzacapo</b><span>Client Services</span></div></div></div></div></section>
+
+<section class="cta" id="contact"><div class="wrap">
+<div class="kick" style="color:var(--gold)">Get started</div>
+<h2 style="margin-top:14px">Let's protect what you've built.</h2>
+<p>Schedule a no-obligation appointment and review. We'll walk through where you stand and
+what your options actually are — in plain English.</p>
+<a class="btn btn-g" href="tel:7066311213">Call 706-631-1213</a></div></section>
+
+<footer><div class="wrap">
+<div class="frow"><img src="https://gateway-financial.com/wp-content/uploads/2022/03/gateway-w-and-gold.png" alt="Gateway Financial Group">
+<p>706-631-1213 &nbsp;·&nbsp; marketing@gateway-financial.com</p></div>
+<p class="disc">*Guarantees are backed by the financial strength and claims-paying ability of the
+issuing insurance company. **Reasonable rate of return is not a guarantee of performance.
+&nbsp;·&nbsp; © 2026 Gateway Financial Group, LLC &nbsp;·&nbsp; Preview redesign concept by MARNEXIQ</p>
 </div></footer>
-<script>const h=document.getElementById('h');addEventListener('scroll',()=>h.classList.toggle('scrolled',scrollY>60));</script>
+
+<script>(function(){
+ var r=document.querySelectorAll('.rv');
+ var o=new IntersectionObserver(function(e){e.forEach(function(y){
+  if(y.isIntersecting){y.target.classList.add('on');o.unobserve(y.target)}})},{threshold:.1});
+ r.forEach(function(y){o.observe(y)});})();</script>
 </body></html>
