@@ -4,17 +4,18 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>SIG Management - Hotel Development &amp; Operations</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<title>SIG Management - Premium Hotel Development &amp; Management</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
 <style>
         :root {
             --paper: #FAF7F1;
-            --white: #FFFFFF;
-            --panel: #F1EBE0;
+            --panel: #FFFFFF;
+            --panel-alt: #F1EBE0;
             --ink: #16181B;
             --muted: #6E6A63;
             --brass: #B08A3E;
             --brass-dark: #7A5C21;
+            
             --font-display: 'Cormorant Garamond', serif;
             --font-body: 'Inter', sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
@@ -34,35 +35,38 @@
             background: var(--paper);
         }
 
-        /* Typography */
         h1 {
             font-family: var(--font-display);
             font-size: clamp(2.75rem, 6vw, 5rem);
+            font-weight: 700;
             line-height: 1.1;
-            font-weight: 300;
+            color: var(--ink);
         }
 
         h2 {
             font-family: var(--font-display);
             font-size: clamp(2rem, 4vw, 3.25rem);
+            font-weight: 500;
             line-height: 1.2;
-            font-weight: 400;
+            color: var(--ink);
         }
 
         h3 {
             font-family: var(--font-display);
             font-size: clamp(1.15rem, 2vw, 1.5rem);
-            line-height: 1.3;
             font-weight: 500;
+            line-height: 1.3;
+            color: var(--ink);
         }
 
-        .mono-label {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--brass-dark);
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .measure {
+            max-width: 66ch;
         }
 
         /* Navigation */
@@ -71,37 +75,36 @@
             top: 0;
             left: 0;
             right: 0;
-            z-index: 100;
             background: rgba(250, 247, 241, 0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            padding: 1rem 2rem;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
         }
 
         .nav-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
         }
 
-        .wordmark {
+        .nav-logo {
             font-family: var(--font-display);
             font-size: 1.5rem;
-            font-weight: 400;
+            font-weight: 700;
             color: var(--ink);
             text-decoration: none;
         }
 
         .nav-cta {
-            background: var(--brass);
-            color: white;
+            display: inline-flex;
+            align-items: center;
             padding: 0.75rem 1.5rem;
-            border-radius: 50px;
+            background: var(--brass);
+            color: var(--paper);
             text-decoration: none;
             font-size: 0.875rem;
             font-weight: 500;
+            border-radius: 50px;
             transition: all 0.3s ease;
         }
 
@@ -110,35 +113,21 @@
             transform: translateY(-1px);
         }
 
-        /* Section spacing */
-        .section {
-            padding: 6rem 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .content-width {
-            max-width: 66ch;
-            margin: 0 auto;
-        }
-
-        /* Hero */
+        /* Hero Section */
         .hero {
-            padding-top: 10rem;
-            padding-bottom: 8rem;
+            padding: 12rem 0 8rem;
             position: relative;
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
+        .hero-bg {
             position: absolute;
-            top: 10%;
-            right: -10%;
-            width: 500px;
-            height: 400px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             opacity: 0.03;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 400' fill='%23B08A3E'%3E%3Cg stroke='%23B08A3E' stroke-width='1' fill='none'%3E%3Crect x='20' y='20' width='460' height='40'/%3E%3Crect x='20' y='80' width='460' height='40'/%3E%3Crect x='20' y='140' width='460' height='40'/%3E%3Crect x='20' y='200' width='460' height='40'/%3E%3Crect x='20' y='260' width='460' height='40'/%3E%3Crect x='20' y='320' width='460' height='40'/%3E%3Cline x1='100' y1='20' x2='100' y2='360'/%3E%3Cline x1='200' y1='20' x2='200' y2='360'/%3E%3Cline x1='300' y1='20' x2='300' y2='360'/%3E%3Cline x1='400' y1='20' x2='400' y2='360'/%3E%3C/g%3E%3C/svg%3E");
+            z-index: 0;
         }
 
         .hero-content {
@@ -146,88 +135,87 @@
             z-index: 1;
         }
 
-        .hero h1 {
-            margin-bottom: 1.5rem;
-        }
-
         .hero-standfirst {
             font-size: 1.125rem;
-            line-height: 1.6;
             color: var(--muted);
-            margin-bottom: 2rem;
+            margin: 1.5rem 0 2rem;
+            max-width: 60ch;
         }
 
         .hero-rule {
             width: 60px;
             height: 1px;
             background: var(--brass);
-            margin: 2rem 0;
+            margin: 2rem 0 3rem;
         }
 
         .hero-ctas {
             display: flex;
             gap: 1rem;
-            margin-top: 2rem;
+            flex-wrap: wrap;
         }
 
-        .cta-primary {
-            background: var(--brass);
-            color: white;
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
             padding: 1rem 2rem;
-            border-radius: 50px;
+            background: var(--brass);
+            color: var(--paper);
             text-decoration: none;
             font-weight: 500;
+            border-radius: 50px;
             transition: all 0.3s ease;
         }
 
-        .cta-primary:hover {
+        .btn-primary:hover {
             background: var(--brass-dark);
             transform: translateY(-2px);
         }
 
-        .cta-ghost {
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            padding: 1rem 2rem;
             border: 1px solid var(--brass);
             color: var(--brass);
-            padding: 1rem 2rem;
-            border-radius: 50px;
             text-decoration: none;
             font-weight: 500;
+            border-radius: 50px;
             transition: all 0.3s ease;
         }
 
-        .cta-ghost:hover {
+        .btn-ghost:hover {
             background: var(--brass);
-            color: white;
+            color: var(--paper);
         }
 
-        /* Figures band */
-        .figures-band {
-            background: var(--white);
-            padding: 3rem 2rem;
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        /* Figures Band */
+        .figures {
+            background: var(--panel);
+            padding: 4rem 0;
+            border-top: 1px solid var(--brass);
+            border-bottom: 1px solid var(--brass);
         }
 
         .figures-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            gap: 3rem;
             text-align: center;
         }
 
         .figure-item {
-            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .figure-number {
             font-family: var(--font-display);
             font-size: 2.5rem;
-            font-weight: 400;
+            font-weight: 700;
             color: var(--brass);
-            display: block;
-            margin-bottom: 0.5rem;
+            line-height: 1;
         }
 
         .figure-caption {
@@ -236,130 +224,116 @@
             text-transform: uppercase;
             letter-spacing: 0.1em;
             color: var(--muted);
+            margin-top: 0.5rem;
         }
 
         /* Timeline */
         .timeline-section {
-            padding: 8rem 2rem;
-            position: relative;
-        }
-
-        .timeline-title {
-            text-align: center;
-            margin-bottom: 4rem;
+            padding: 8rem 0;
         }
 
         .timeline {
             position: relative;
             max-width: 800px;
             margin: 0 auto;
+            padding-left: 4rem;
         }
 
-        .timeline::before {
-            content: '';
+        .timeline-spine {
             position: absolute;
-            left: 50%;
+            left: 1.5rem;
             top: 0;
             bottom: 0;
             width: 1px;
             background: var(--brass);
-            transform: translateX(-50%);
         }
 
         .timeline-item {
             position: relative;
-            margin-bottom: 4rem;
-            display: flex;
-            align-items: center;
+            margin-bottom: 3rem;
+            padding-left: 1rem;
         }
 
-        .timeline-item:nth-child(odd) {
-            flex-direction: row-reverse;
-        }
-
-        .timeline-year {
-            font-family: var(--font-display);
-            font-size: 2.5rem;
-            color: var(--brass);
-            font-weight: 300;
-            width: 120px;
-            text-align: center;
-            position: relative;
-        }
-
-        .timeline-year::after {
-            content: '';
+        .timeline-node {
             position: absolute;
-            top: 50%;
+            left: -2rem;
+            top: 0.25rem;
             width: 8px;
             height: 8px;
             background: var(--brass);
             border-radius: 50%;
-            transform: translateY(-50%);
         }
 
-        .timeline-item:nth-child(odd) .timeline-year::after {
-            left: -44px;
-        }
-
-        .timeline-item:nth-child(even) .timeline-year::after {
-            right: -44px;
+        .timeline-year {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--brass);
+            line-height: 1;
+            margin-bottom: 0.5rem;
         }
 
         .timeline-content {
-            flex: 1;
-            padding: 0 2rem;
-            background: var(--white);
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            color: var(--muted);
+            max-width: 50ch;
         }
 
         /* Awards */
-        .awards-section {
-            padding: 6rem 2rem;
-            background: var(--panel);
+        .awards {
+            padding: 6rem 0;
+            background: var(--panel-alt);
         }
 
         .awards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
-            max-width: 800px;
-            margin: 0 auto;
+            margin-top: 3rem;
         }
 
         .award-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
+            background: var(--panel);
+            padding: 2.5rem;
             border: 1px solid var(--brass);
-            text-align: center;
+            border-radius: 4px;
+        }
+
+        .award-year {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--brass);
+            margin-bottom: 1rem;
         }
 
         .award-title {
             font-family: var(--font-display);
             font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--ink);
             margin-bottom: 0.5rem;
         }
 
-        .award-year {
-            color: var(--brass);
-            font-weight: 500;
+        .award-scope {
+            color: var(--muted);
+            font-size: 0.875rem;
         }
 
         /* Services */
+        .services {
+            padding: 8rem 0;
+        }
+
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
+            gap: 4rem;
+            margin-top: 4rem;
         }
 
         .service-column h3 {
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--brass);
+            margin-bottom: 1.5rem;
         }
 
         .service-list {
@@ -369,173 +343,177 @@
 
         .service-list li {
             padding: 0.5rem 0;
-            padding-left: 1rem;
+            color: var(--muted);
             position: relative;
+            padding-left: 1rem;
         }
 
         .service-list li::before {
-            content: '•';
+            content: "·";
             color: var(--brass);
             position: absolute;
             left: 0;
         }
 
-        /* Case studies */
-        .case-studies-grid {
+        /* Case Studies */
+        .case-studies {
+            padding: 6rem 0;
+            background: var(--panel-alt);
+        }
+
+        .cases-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
 
-        .case-study-card {
-            background: var(--white);
+        .case-card {
+            background: var(--panel);
             padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            border-radius: 4px;
         }
 
-        .case-study-card h4 {
+        .case-title {
             font-family: var(--font-display);
-            font-size: 1.25rem;
+            font-size: 1.125rem;
+            font-weight: 500;
             margin-bottom: 0.5rem;
         }
 
-        .case-study-location {
+        .case-location {
             color: var(--muted);
-            margin-bottom: 1rem;
+            font-size: 0.875rem;
         }
 
         /* Mission */
-        .mission-section {
-            background: var(--white);
+        .mission {
+            padding: 8rem 0;
+        }
+
+        .mission-content {
             text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .mission-pillars {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
 
         .pillar {
-            padding: 2rem 1rem;
+            text-align: center;
+            padding: 2rem;
         }
 
-        .pillar h4 {
+        .pillar-title {
             font-family: var(--font-display);
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
+            font-size: 1.125rem;
+            font-weight: 500;
             color: var(--brass);
         }
 
-        /* CTA band */
+        /* CTA Band */
         .cta-band {
-            background: var(--brass);
-            color: white;
+            background: var(--ink);
+            color: var(--paper);
+            padding: 4rem 0;
             text-align: center;
-            padding: 4rem 2rem;
         }
 
         .cta-band h2 {
-            color: white;
-            margin-bottom: 1rem;
+            color: var(--paper);
+            margin-bottom: 1.5rem;
         }
 
-        .cta-band .cta-primary {
-            background: white;
-            color: var(--brass);
-            margin-top: 1.5rem;
+        .cta-band .btn-primary {
+            background: var(--brass);
         }
 
         /* Footer */
         .footer {
-            background: var(--ink);
-            color: white;
-            padding: 3rem 2rem 2rem;
-            text-align: center;
+            background: var(--panel);
+            padding: 3rem 0 2rem;
+            border-top: 1px solid var(--brass);
         }
 
         .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
+            text-align: center;
         }
 
         .footer-contact {
             margin-bottom: 2rem;
         }
 
-        .footer-contact h4 {
-            font-family: var(--font-display);
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
+        .footer-address {
+            color: var(--muted);
+            margin-bottom: 0.5rem;
         }
 
         .footer-phone {
-            font-size: 1.125rem;
             color: var(--brass);
             text-decoration: none;
             font-weight: 500;
+            font-size: 1.125rem;
         }
 
-        .footer-address {
-            margin-top: 0.5rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 2rem;
-            padding-top: 2rem;
+        .footer-copyright {
+            color: var(--muted);
             font-size: 0.875rem;
-            color: rgba(255, 255, 255, 0.6);
+            padding-top: 2rem;
+            border-top: 1px solid rgba(176, 138, 62, 0.2);
+        }
+
+        /* Architectural SVG */
+        .hero-bg svg {
+            width: 100%;
+            height: 100%;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .hero {
+                padding: 8rem 0 6rem;
+            }
+
             .hero-ctas {
                 flex-direction: column;
-                align-items: flex-start;
             }
 
-            .timeline::before {
-                left: 30px;
+            .timeline {
+                padding-left: 2rem;
             }
 
-            .timeline-item {
-                flex-direction: row !important;
-                align-items: flex-start;
+            .timeline-spine {
+                left: 0.75rem;
             }
 
-            .timeline-year {
-                width: 60px;
-                font-size: 1.5rem;
+            .timeline-node {
+                left: -1.25rem;
             }
 
-            .timeline-year::after {
-                left: 26px !important;
-                right: auto !important;
-            }
-
-            .timeline-content {
-                padding: 1rem;
-                margin-left: 1rem;
-            }
-
-            .services-grid {
+            .services-grid,
+            .awards-grid,
+            .cases-grid {
                 grid-template-columns: 1fr;
             }
         }
 
-        /* Animations */
-        .fade-in-up {
+        /* Animation */
+        .fade-in {
             opacity: 0;
-            transform: translateY(25px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
-        .fade-in-up.visible {
+        .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
@@ -552,148 +530,168 @@
 }
 </style></head>
 <body>
+<!-- Navigation -->
 <nav class="nav">
+<div class="container">
 <div class="nav-inner">
-<a class="wordmark" href="#">SIG Management</a>
-<a class="nav-cta" href="#contact">Contact Us</a>
+<a class="nav-logo" href="#">SIG Management</a>
+<a class="nav-cta" href="#contact">Connect</a>
+</div>
 </div>
 </nav>
-<section class="hero section anim-fade-in-up" style="transition-delay: 0.0s; ">
-<div class="hero-content content-width fade-in-up">
-<h1>Over 1,700 Managed Guest Rooms Across Premier Hotel Brands</h1>
-<div class="hero-rule"></div>
-<div class="hero-standfirst">
-                A privately held real estate management firm based in Augusta, Georgia, operating hotels under Hilton, Marriott, IHG, and Choice flags. A proven leader in hotel management.
-            </div>
-<div class="hero-ctas">
-<a class="cta-primary" href="#contact">Partner With Us</a>
-<a class="cta-ghost" href="#portfolio">View Portfolio</a>
+<!-- Hero Section -->
+<section class="hero anim-fade-in-up" style="transition-delay: 0.0s; ">
+<div class="hero-bg">
+<svg viewbox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" opacity="0.08" stroke="currentColor" stroke-width="1">
+<rect height="300" width="200" x="100" y="150"></rect>
+<rect height="350" width="180" x="320" y="100"></rect>
+<rect height="270" width="160" x="520" y="180"></rect>
+<rect height="330" width="220" x="700" y="120"></rect>
+<line x1="100" x2="300" y1="200" y2="200"></line>
+<line x1="100" x2="300" y1="250" y2="250"></line>
+<line x1="100" x2="300" y1="300" y2="300"></line>
+<line x1="320" x2="500" y1="150" y2="150"></line>
+<line x1="320" x2="500" y1="200" y2="200"></line>
+<line x1="320" x2="500" y1="250" y2="250"></line>
+<line x1="520" x2="680" y1="230" y2="230"></line>
+<line x1="520" x2="680" y1="280" y2="280"></line>
+<line x1="700" x2="920" y1="170" y2="170"></line>
+<line x1="700" x2="920" y1="220" y2="220"></line>
+<line x1="700" x2="920" y1="270" y2="270"></line>
+</g>
+</svg>
+</div>
+<div class="container">
+<div class="hero-content">
+<h1 class="fade-in">Over 1,700 Managed Guest Rooms Across Premium Hotel Brands</h1>
+<p class="hero-standfirst fade-in">A privately held real estate management firm based in Augusta, Georgia. A proven leader in hotel management with properties operating under Hilton, Marriott, IHG, and Choice flags.</p>
+<div class="hero-rule fade-in"></div>
+<div class="hero-ctas fade-in">
+<a class="btn-primary" href="#services">Our Services</a>
+<a class="btn-ghost" href="#contact">Connect With Us</a>
+</div>
 </div>
 </div>
 </section>
-<section class="figures-band anim-fade-in-up" style="transition-delay: 0.1s; ">
+<!-- Figures Band -->
+<section class="figures anim-fade-in-up" style="transition-delay: 0.1s; ">
+<div class="container">
 <div class="figures-grid">
-<div class="figure-item fade-in-up">
-<span class="figure-number">1,700+</span>
-<span class="figure-caption">Managed Guest Rooms</span>
+<div class="figure-item fade-in">
+<div class="figure-number">1,700+</div>
+<div class="figure-caption">Managed Guest Rooms</div>
 </div>
-<div class="figure-item fade-in-up" style="transition-delay: 0.1s;">
-<span class="figure-number">750</span>
-<span class="figure-caption">Team Members</span>
+<div class="figure-item fade-in">
+<div class="figure-number">750</div>
+<div class="figure-caption">Team Members</div>
 </div>
-<div class="figure-item fade-in-up" style="transition-delay: 0.2s;">
-<span class="figure-number">4</span>
-<span class="figure-caption">Hotel Flags</span>
+<div class="figure-item fade-in">
+<div class="figure-number">Augusta</div>
+<div class="figure-caption">Largest Employers</div>
 </div>
-<div class="figure-item fade-in-up" style="transition-delay: 0.3s;">
-<span class="figure-number">Augusta</span>
-<span class="figure-caption">Largest Employers</span>
+<div class="figure-item fade-in">
+<div class="figure-number">4</div>
+<div class="figure-caption">Hotel Flags</div>
+</div>
 </div>
 </div>
 </section>
+<!-- Timeline Section -->
 <section class="timeline-section anim-fade-in-up" style="transition-delay: 0.2s; ">
-<div class="timeline-title fade-in-up">
-<h2>Our Growth Story</h2>
-<div class="mono-label" style="margin-top: 1rem;">Since 1997</div>
-</div>
+<div class="container">
+<h2 class="fade-in" style="text-align: center; margin-bottom: 4rem;">Our Growth Story</h2>
 <div class="timeline">
-<div class="timeline-item fade-in-up" style="transition-delay: 0.1s;">
+<div class="timeline-spine"></div>
+<div class="timeline-item fade-in">
+<div class="timeline-node"></div>
 <div class="timeline-year">1997</div>
-<div class="timeline-content">
-<p>SIG builds its first hotel, Wingate Inn.</p>
+<div class="timeline-content">SIG builds its first hotel, Wingate Inn.</div>
 </div>
-</div>
-<div class="timeline-item fade-in-up" style="transition-delay: 0.2s;">
+<div class="timeline-item fade-in">
+<div class="timeline-node"></div>
 <div class="timeline-year">2002</div>
-<div class="timeline-content">
-<p>SIG begins new partnership with Hilton Worldwide, opening a Hampton Inn &amp; Suites.</p>
+<div class="timeline-content">SIG begins new partnership with Hilton Worldwide, opening a Hampton Inn &amp; Suites.</div>
 </div>
-</div>
-<div class="timeline-item fade-in-up" style="transition-delay: 0.3s;">
+<div class="timeline-item fade-in">
+<div class="timeline-node"></div>
 <div class="timeline-year">2005</div>
-<div class="timeline-content">
-<p>SIG opens its first full-service hotel at the entrance of Fort Gordon.</p>
+<div class="timeline-content">SIG opens its first full-service hotel at entrance of Fort Gordon.</div>
 </div>
-</div>
-<div class="timeline-item fade-in-up" style="transition-delay: 0.4s;">
+<div class="timeline-item fade-in">
+<div class="timeline-node"></div>
 <div class="timeline-year">2007</div>
-<div class="timeline-content">
-<p>A corporate restructuring establishes dedicated hotel management and development divisions.</p>
+<div class="timeline-content">A corporate restructuring establishes new hotel management and development divisions.</div>
 </div>
-</div>
-<div class="timeline-item fade-in-up" style="transition-delay: 0.5s;">
+<div class="timeline-item fade-in">
+<div class="timeline-node"></div>
 <div class="timeline-year">2008</div>
-<div class="timeline-content">
-<p>Hilton Garden Inn opens and becomes RevPAR market leader within one month.</p>
+<div class="timeline-content">Hilton Garden Inn opens and becomes RevPAR market leader within one month.</div>
 </div>
-</div>
-<div class="timeline-item fade-in-up" style="transition-delay: 0.6s;">
+<div class="timeline-item fade-in">
+<div class="timeline-node"></div>
 <div class="timeline-year">2009</div>
-<div class="timeline-content">
-<p>SIG becomes a franchisee of Starwood.</p>
+<div class="timeline-content">SIG becomes a franchisee of Starwood.</div>
 </div>
-</div>
-<div class="timeline-item fade-in-up" style="transition-delay: 0.7s;">
+<div class="timeline-item fade-in">
+<div class="timeline-node"></div>
 <div class="timeline-year">2010</div>
-<div class="timeline-content">
-<p>SIG begins a three-hotel redevelopment near the entrance of Augusta National Golf Club.</p>
+<div class="timeline-content">SIG begins three-hotel redevelopment near entrance of Augusta National Golf Club.</div>
 </div>
-</div>
-<div class="timeline-item fade-in-up" style="transition-delay: 0.8s;">
+<div class="timeline-item fade-in">
+<div class="timeline-node"></div>
 <div class="timeline-year">2011</div>
-<div class="timeline-content">
-<p>SIG hires its 500th employee and repositions the DoubleTree Riverfront in New Bern, NC.</p>
+<div class="timeline-content">SIG hires its 500th Employee; repositions the DoubleTree Riverfront in New Bern, NC.</div>
 </div>
-</div>
-<div class="timeline-item fade-in-up" style="transition-delay: 0.9s;">
+<div class="timeline-item fade-in">
+<div class="timeline-node"></div>
 <div class="timeline-year">2013</div>
-<div class="timeline-content">
-<p>Sheraton Augusta wins Starwood Hotel of the Year Award (worldwide).</p>
+<div class="timeline-content">Sheraton Augusta wins Starwood Hotel of the Year Award (worldwide).</div>
 </div>
-</div>
-<div class="timeline-item fade-in-up" style="transition-delay: 1s;">
+<div class="timeline-item fade-in">
+<div class="timeline-node"></div>
 <div class="timeline-year">2014</div>
-<div class="timeline-content">
-<p>SIG repositions a foreclosed Atlantic Beach, NC oceanfront resort into a DoubleTree and wins Conversion of the Year (worldwide). SIG employs approximately 750 team members.</p>
+<div class="timeline-content">SIG repositions foreclosed Atlantic Beach, NC oceanfront resort into DoubleTree and wins Conversion of the Year (worldwide); employs approximately 750 team members.</div>
 </div>
-</div>
-<div class="timeline-item fade-in-up" style="transition-delay: 1.1s;">
+<div class="timeline-item fade-in">
+<div class="timeline-node"></div>
 <div class="timeline-year">2018</div>
-<div class="timeline-content">
-<p>SIG opens two Hilton-branded hotels, Homewood Suites and Home2 Suites.</p>
+<div class="timeline-content">SIG opens two Hilton branded hotels – Homewood Suites and Home2 Suites.</div>
 </div>
-</div>
-<div class="timeline-item fade-in-up" style="transition-delay: 1.2s;">
+<div class="timeline-item fade-in">
+<div class="timeline-node"></div>
 <div class="timeline-year">2020</div>
-<div class="timeline-content">
-<p>SIG opens SpringHill Suites by Marriott Hilton Head Island.</p>
+<div class="timeline-content">SIG opens SpringHill Suites by Marriott Hilton Head Island.</div>
 </div>
 </div>
 </div>
 </section>
-<section class="awards-section anim-fade-in-up" style="transition-delay: 0.3s; ">
-<div class="section">
+<!-- Awards -->
+<section class="awards anim-fade-in-up" style="transition-delay: 0.3s; ">
+<div class="container">
+<h2 class="fade-in" style="text-align: center;">Industry Recognition</h2>
 <div class="awards-grid">
-<div class="award-card fade-in-up">
-<h4 class="award-title">Starwood Hotel of the Year Award</h4>
-<div class="award-year">Worldwide Recognition • 2013</div>
-<p style="margin-top: 1rem; color: var(--muted);">Sheraton Augusta.</p>
+<div class="award-card fade-in">
+<div class="award-year">2013</div>
+<div class="award-title">Starwood Hotel of the Year Award</div>
+<div class="award-scope">Worldwide</div>
 </div>
-<div class="award-card fade-in-up" style="transition-delay: 0.2s;">
-<h4 class="award-title">Conversion of the Year Award</h4>
-<div class="award-year">Worldwide Recognition • 2014</div>
-<p style="margin-top: 1rem; color: var(--muted);">Atlantic Beach, NC oceanfront resort repositioned into a DoubleTree.</p>
+<div class="award-card fade-in">
+<div class="award-year">2014</div>
+<div class="award-title">Conversion of the Year</div>
+<div class="award-scope">Worldwide</div>
 </div>
 </div>
 </div>
 </section>
-<section class="section anim-fade-in-up" id="services" style="transition-delay: 0.4s; ">
-<div class="content-width fade-in-up">
-<h2>What We Do</h2>
+<!-- Services -->
+<section class="services anim-fade-in-up" id="services" style="transition-delay: 0.4s; ">
+<div class="container">
+<h2 class="fade-in" style="text-align: center;">What We Do</h2>
 <div class="services-grid">
-<div class="service-column">
+<div class="service-column fade-in">
 <h3>Real Estate Operations</h3>
-<p>SIG Management features an experienced management team with lifelong careers in the real estate and hospitality industries. All managers understand the importance of efficient day-to-day operations to increase operational and financial performance.</p>
+<p class="measure">SIG Management features an experienced management team with lifelong careers in the real estate and hospitality industries. All managers understand the importance of efficient day-to-day operations to increase properties' operational and financial performance.</p>
 <ul class="service-list">
 <li>Revenue Management</li>
 <li>Sales and Marketing</li>
@@ -704,11 +702,9 @@
 <li>Asset Management</li>
 </ul>
 </div>
-<div class="service-column">
+<div class="service-column fade-in">
 <h3>Hospitality Advisory</h3>
-<p>SIG Management offers consulting services that cater towards the specific needs of its clients. Our objective is to understand the client's current state of operations and formulate the necessary strategic plan that will maximize operational efficiency and overall financial performance.</p>
-<div style="margin-top: 1.5rem;">
-<h4 style="font-size: 1rem; margin-bottom: 0.75rem; color: var(--brass);">Development &amp; Acquisitions</h4>
+<p class="measure">SIG Management offers consulting services that cater towards the specific needs of its clients. Our objective is to understand the client's current state of operations and formulate the necessary strategic plan that will maximize operational efficiency and overall financial performance.</p>
 <ul class="service-list">
 <li>Market Analysis and Impact Study</li>
 <li>Value Add Opportunities</li>
@@ -720,91 +716,101 @@
 </div>
 </div>
 </div>
-</div>
 </section>
-<section class="section anim-fade-in-up" id="portfolio" style="transition-delay: 0.5s; background: var(--panel);">
-<div class="content-width">
-<div class="fade-in-up">
-<h2>Case Studies</h2>
-<p style="margin-top: 1rem; color: var(--muted);">SIG has a proven track record of developing and acquiring properties under many different circumstances. These can range from traditional new build opportunities to acquisitions of distressed assets with significant upside potential.</p>
+<!-- Case Studies -->
+<section class="case-studies anim-fade-in-up" style="transition-delay: 0.5s; ">
+<div class="container">
+<h2 class="fade-in" style="text-align: center;">Case Studies</h2>
+<p class="fade-in" style="text-align: center; color: var(--muted); margin-top: 1rem; max-width: 60ch; margin-left: auto; margin-right: auto;">SIG has a proven track record of developing and acquiring properties under many different circumstances, from traditional new build opportunities to acquisitions of distressed assets with significant upside potential.</p>
+<div class="cases-grid">
+<div class="case-card fade-in">
+<div class="case-title">DoubleTree by Hilton</div>
+<div class="case-location">Augusta, GA</div>
 </div>
-<div class="case-studies-grid">
-<div class="case-study-card fade-in-up" style="transition-delay: 0.2s;">
-<h4>DoubleTree by Hilton</h4>
-<div class="case-study-location">Augusta, GA</div>
-<p>Comprehensive repositioning and operational optimization of a full-service hotel property.</p>
-</div>
-<div class="case-study-card fade-in-up" style="transition-delay: 0.4s;">
-<h4>DoubleTree by Hilton</h4>
-<div class="case-study-location">Atlantic Beach, NC</div>
-<p>Successful conversion of a foreclosed oceanfront resort, recognized with worldwide Conversion of the Year award.</p>
+<div class="case-card fade-in">
+<div class="case-title">DoubleTree by Hilton</div>
+<div class="case-location">Atlantic Beach, NC</div>
 </div>
 </div>
 </div>
 </section>
-<section class="mission-section section anim-fade-in-up" style="transition-delay: 0.0s; ">
-<div class="content-width fade-in-up">
-<h2>Our Mission</h2>
-<p style="margin-top: 1rem; font-size: 1.125rem; color: var(--muted);">SIG's mission is to implement efficient operational strategies that maximize financial performance in order to subsequently result in company growth.</p>
+<!-- Mission -->
+<section class="mission anim-fade-in-up" style="transition-delay: 0.0s; ">
+<div class="container">
+<div class="mission-content">
+<h2 class="fade-in">Mission Statement</h2>
+<p class="fade-in" style="font-size: 1.125rem; margin-top: 1.5rem;">SIG's mission is to implement efficient operational strategies that maximize financial performance in order to subsequently result in company growth.</p>
 <div class="mission-pillars">
-<div class="pillar fade-in-up" style="transition-delay: 0.2s;">
-<h4>Team Member Development</h4>
-<p>Investing in ongoing service training and career advancement for all associates to achieve hospitality excellence and above-market financial results.</p>
+<div class="pillar fade-in">
+<div class="pillar-title">Team Member Development</div>
 </div>
-<div class="pillar fade-in-up" style="transition-delay: 0.4s;">
-<h4>Exceptional Customer Satisfaction</h4>
-<p>Recognizing customer satisfaction as the ultimate goal of hospitality through consistent service delivery and operational excellence.</p>
+<div class="pillar fade-in">
+<div class="pillar-title">Exceptional Customer Satisfaction</div>
 </div>
-<div class="pillar fade-in-up" style="transition-delay: 0.6s;">
-<h4>Disciplined Financial Management</h4>
-<p>Maintaining rigorous financial oversight and strategic planning to ensure sustainable growth and optimal property performance.</p>
+<div class="pillar fade-in">
+<div class="pillar-title">Disciplined Financial Management</div>
+</div>
 </div>
 </div>
 </div>
 </section>
+<!-- CTA Band -->
 <section class="cta-band anim-fade-in-up" id="contact" style="transition-delay: 0.1s; ">
-<div class="content-width fade-in-up">
-<h2>Ready to Partner With Us?</h2>
-<p>Discover how SIG Management can optimize your hotel operations and maximize financial performance.</p>
-<a class="cta-primary" href="tel:7063965700">Call (706) 396-5700</a>
+<div class="container">
+<h2 class="fade-in">Ready to Work Together?</h2>
+<p class="fade-in" style="margin-bottom: 2rem; color: rgba(250, 247, 241, 0.8);">Let's discuss how SIG Management can optimize your hospitality investments.</p>
+<a class="btn-primary fade-in" href="tel:7063965700">Call (706) 396-5700</a>
 </div>
 </section>
+<!-- Footer -->
 <footer class="footer">
+<div class="container">
 <div class="footer-content">
 <div class="footer-contact">
-<h4>SIG Management</h4>
+<div class="footer-address">523 Pleasant Home Road<br/>Augusta GA 30907</div>
 <a class="footer-phone" href="tel:7063965700">(706) 396-5700</a>
-<div class="footer-address">
-                    523 Pleasant Home Road<br/>
-                    Augusta, GA 30907
+</div>
+<div class="footer-copyright">
+                    © 2026 SIG Management. All rights reserved.
                 </div>
 </div>
-<div class="footer-bottom">
-                © 2026 SIG Management. All rights reserved.
-            </div>
 </div>
 </footer>
 <script>
-        // Scroll reveal animation
+        // Intersection Observer for fade-in animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.fade-in-up').forEach(function(el) {
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
 
         // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').</script><script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+<script>
 (function(){
   var obs = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
@@ -813,4 +819,5 @@
   }, {threshold: 0.1});
   document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
 })();
-</script></body></html>
+</script></body>
+</html>
