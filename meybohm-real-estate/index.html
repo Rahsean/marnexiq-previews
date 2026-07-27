@@ -1,103 +1,280 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex">
-<title>Meybohm Real Estate — Augusta</title>
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="noindex" name="robots"/>
+<title>Meybohm Real Estate — Augusta &amp; the CSRA</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;family=Source+Sans+Pro:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
 <style>
-:root{--ink:#1b2a4a;--ink2:#44506a;--gold:#c9a84c;--cream:#f7f5ef;--muted:#6b6c85;--line:#e7e5dc}
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{font-family:"Helvetica Neue",Inter,Avenir,"Segoe UI",system-ui,sans-serif;color:#12131f;background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
-h1,h2,h3{line-height:1.12;letter-spacing:-.01em;font-weight:600}
-.wrap{max-width:1180px;margin:0 auto;padding:0 24px}a{color:inherit;text-decoration:none}
-.btn{display:inline-block;padding:15px 30px;border-radius:2px;font-weight:600;letter-spacing:.03em;font-size:14px;text-transform:uppercase;transition:.25s}
-.btn-gold{background:var(--gold);color:#12131f}.btn-gold:hover{filter:brightness(1.12);transform:translateY(-2px)}
-.btn-ghost{border:1.5px solid rgba(255,255,255,.5);color:#fff}.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
-header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.3s}
-header.scrolled{background:var(--ink);box-shadow:0 6px 30px rgba(0,0,0,.18)}
-nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
-.brand{color:#fff;font-size:21px;font-weight:600}.brand span{color:var(--gold)}
-.navlinks{display:flex;gap:32px;align-items:center}
-.navlinks a{color:#fff;font-size:14px;letter-spacing:.04em;opacity:.92;text-transform:uppercase}
-.navlinks a:hover{color:var(--gold)}.navlinks .btn{padding:11px 22px}
-.menu{display:none;background:none;border:0;color:#fff;font-size:26px}
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;color:#fff;
-background:linear-gradient(rgba(10,12,26,.72),#1b2a4add),url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80') center/cover}
-.hero-in{max-width:760px}
-.eyebrow{color:var(--gold);letter-spacing:.28em;text-transform:uppercase;font-size:12px;margin-bottom:22px}
-.hero h1{font-size:clamp(36px,5.6vw,64px);margin-bottom:22px}
-.hero p{font-size:19px;opacity:.92;max-width:560px;margin-bottom:36px;font-weight:300}
-.hero-cta{display:flex;gap:16px;flex-wrap:wrap}
-.stats{background:var(--ink);color:#fff}
-.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
-.stat{padding:44px 18px;text-align:center;border-right:1px solid rgba(255,255,255,.09)}
-.stat:last-child{border-right:0}
-.stat b{display:block;font-size:40px;color:var(--gold);font-weight:600}
-.stat span{font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.78}
-section{padding:100px 0}
-.sec-head{text-align:center;max-width:640px;margin:0 auto 58px}
-.sec-head h2{font-size:clamp(28px,4vw,42px);color:var(--ink);margin-bottom:14px}
-.sec-head p{color:var(--muted);font-size:17px}.sec-head .eyebrow{color:var(--gold)}
-.serv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.serv{padding:38px 30px;border:1px solid var(--line);border-radius:4px;transition:.3s}
-.serv:hover{border-color:var(--gold);background:var(--cream);transform:translateY(-4px)}
-.serv .ic{width:52px;height:52px;border-radius:50%;background:var(--ink);color:var(--gold);display:grid;place-items:center;font-size:21px;margin-bottom:20px}
-.serv h3{color:var(--ink);font-size:20px;margin-bottom:10px}.serv p{color:var(--muted);font-size:15px}
-.why{background:var(--cream)}
-.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;text-align:center}
-.why h3{color:var(--ink);font-size:18px;margin:14px 0 8px}.why p{color:var(--muted);font-size:15px}
-.why .n{width:44px;height:44px;margin:0 auto;border-radius:50%;border:2px solid var(--gold);color:var(--gold);display:grid;place-items:center;font-weight:600}
-.cta{background:linear-gradient(rgba(10,12,26,.86),#1b2a4af0),url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80') center/cover;color:#fff;text-align:center}
-.cta h2{font-size:clamp(28px,4vw,44px);margin-bottom:16px}
-.cta p{opacity:.9;font-size:18px;margin:0 auto 32px;max-width:560px;font-weight:300}
-footer{background:#0e0f1c;color:#fff;padding:70px 0 32px}
-.fgrid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:42px}
-footer .brand{margin-bottom:16px;display:block}
-footer p,footer a{color:rgba(255,255,255,.66);font-size:15px}footer a:hover{color:var(--gold)}
-.fcol h4{color:#fff;font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
-.fcol a{display:block;margin-bottom:11px}
-.copy{border-top:1px solid rgba(255,255,255,.1);padding-top:26px;text-align:center;font-size:13px;color:rgba(255,255,255,.45)}
-@media(max-width:860px){.navlinks{display:none}.menu{display:block}
-.stats .wrap{grid-template-columns:repeat(2,1fr)}.stat{border-bottom:1px solid rgba(255,255,255,.09)}
-.serv-grid,.why-grid,.fgrid{grid-template-columns:1fr;gap:26px}section{padding:68px 0}}
-</style></head><body>
-<header id="h"><div class="wrap"><nav>
-<a class="brand" href="#">Meybohm <span>Real Estate</span></a>
-<div class="navlinks"><a href="#services">Services</a><a href="#why">Why Us</a><a href="#contact">Contact</a>
-<a class="btn btn-gold" href="#contact">View Listings</a></div>
-<button class="menu">☰</button></nav></div></header>
+:root{--bg-deep:#0f1410;--bg-card:#1a1f1c;--bg-elevated:#242a26;--accent:#c4842a;
+--accent-rgb:196,132,42;--accent-hover:#d49a3e;--gold:#d4af37;--gold-muted:rgba(212,175,55,.12);
+--text:#f5f0e8;--text-muted:#b8b0a0;--text-heading:#fff;--border:rgba(196,132,42,.15);
+--border-strong:rgba(196,132,42,.32);--font-heading:'Playfair Display',Georgia,serif;
+--font-body:'Source Sans Pro',Helvetica Neue,sans-serif;--font-mono:'Source Sans Pro',monospace}
+body{background:var(--bg-deep);color:var(--text);font-family:var(--font-body);font-weight:300;line-height:1.7}
+h1,h2,h3{font-family:var(--font-heading);font-weight:400;color:var(--text-heading)}
+h1{font-size:clamp(2.5rem,5vw,4.5rem);line-height:1.1}
+h2{font-size:clamp(1.8rem,3.5vw,3rem);line-height:1.2}
+h3{font-size:clamp(1.2rem,2vw,1.5rem);font-weight:700}
+.metallic-gold{background:linear-gradient(135deg,#8B6914 0%,#DAA520 25%,#FFD700 50%,#FFEAA7 75%,#DAA520 100%);
+ background-size:200% 200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+ background-clip:text;animation:metalShift 6s ease-in-out infinite}
+@keyframes metalShift{0%{background-position:0% 0%}50%{background-position:100% 100%}100%{background-position:0% 0%}}
+.bento-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;grid-auto-rows:minmax(200px,auto)}
+.bento-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:16px;
+ overflow:hidden;transition:transform .3s cubic-bezier(.25,.46,.45,.94),border-color .3s ease,box-shadow .3s ease}
+.bento-card:hover{transform:translateY(-4px);border-color:rgba(var(--accent-rgb),.35);
+ box-shadow:0 16px 48px rgba(0,0,0,.35)}
+.bento-hero{grid-column:span 2;grid-row:span 2;
+ background:linear-gradient(135deg,rgba(var(--accent-rgb),.10),rgba(0,0,0,.4))}
+.bento-wide{grid-column:span 2}
+.bento-card-inner{padding:2rem;height:100%;display:flex;flex-direction:column;justify-content:flex-end}
+.bento-hero .bento-card-inner{padding:3rem}
+.bento-label{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;
+ color:var(--accent);margin-bottom:1rem;opacity:.75}
+.bento-card h3{font-family:var(--font-heading);font-size:1.3rem;font-weight:500;color:#fff;margin:0 0 .75rem}
+.bento-hero h3{font-size:1.9rem}
+.bento-card p{font-size:.92rem;line-height:1.65;color:rgba(255,255,255,.55);margin:0}
+.bento-link{display:inline-block;margin-top:1.5rem;font-size:.85rem;color:var(--accent);transition:opacity .3s}
+.bento-link:hover{opacity:.75}
+.bleed{position:relative;overflow:hidden}
+.bleed::before{content:"";position:absolute;inset:0;
+ background:url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=70")
+ center/cover;opacity:.06;pointer-events:none}
+.bleed>*{position:relative;z-index:1}
+.hero-re{background:linear-gradient(90deg,rgba(15,20,16,.92) 0%,rgba(15,20,16,.55) 55%,rgba(15,20,16,.25) 100%),
+ url("https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=80") center/cover}
+@media(max-width:1024px) and (min-width:769px){.bento-grid{grid-template-columns:repeat(2,1fr)}
+ .bento-hero{grid-column:span 2;grid-row:span 1}}
+@media(max-width:768px){.bento-grid{grid-template-columns:1fr}
+ .bento-hero,.bento-wide{grid-column:span 1;grid-row:span 1}}
 
-<section class="hero"><div class="wrap hero-in">
-<div class="eyebrow">Augusta &amp; the CSRA</div>
-<h1>Finding Home Starts With the Right Partner</h1>
-<p>Meybohm Real Estate pairs deep local knowledge with white-glove service — helping families and investors buy and sell with confidence.</p>
-<div class="hero-cta"><a class="btn btn-gold" href="#contact">View Listings</a>
-<a class="btn btn-ghost" href="#services">Talk to an Agent</a></div>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+img{max-width:100%;display:block}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+a{text-decoration:none;color:inherit}
+/* sticky-blur-nav */
+#nav{position:fixed;top:0;left:0;right:0;z-index:60;transition:background .35s ease,box-shadow .35s ease;
+  backdrop-filter:blur(0px)}
+#nav.solid{background:rgba(10,15,26,.86);backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);box-shadow:0 8px 32px rgba(0,0,0,.35)}
+#nav .bar{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
+.logo{font-family:var(--font-heading);font-size:22px;color:#fff;letter-spacing:.04em}
+.logo b{color:var(--accent);font-weight:inherit}
+.nl{display:flex;gap:34px;align-items:center}
+.nl a{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.82)}
+.nl a:hover{color:var(--accent)}
+/* monospace-labels */
+.mono{font-family:var(--font-mono,'JetBrains Mono',monospace);font-size:.7rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--accent);opacity:.9}
+/* gold-gradient-line */
+.gline{height:1px;border:0;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0}
+/* ghost-outline */
+.btn-ghost{display:inline-block;padding:15px 34px;border:1px solid var(--accent);color:var(--accent);
+  border-radius:8px;font-size:.9rem;letter-spacing:.04em;transition:.3s;background:transparent}
+.btn-ghost:hover{background:var(--accent);color:#0a0f1a}
+.btn-solid{display:inline-block;padding:15px 34px;background:var(--accent);color:#fff;border-radius:8px;
+  font-size:.9rem;letter-spacing:.04em;transition:.3s}
+.btn-solid:hover{filter:brightness(1.12);transform:translateY(-2px)}
+/* hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+.hero .inner{position:relative;z-index:2;max-width:720px;padding:120px 0 80px}
+.hero h1{margin:18px 0 22px}
+.hero .sub{color:var(--text-muted);font-size:1.15rem;max-width:560px;margin-bottom:34px}
+.cta-row{display:flex;gap:16px;flex-wrap:wrap}
+section{padding:104px 0}
+.sec-head{max-width:660px;margin-bottom:56px}
+.sec-head h2{margin:14px 0 16px}
+.sec-head p{color:var(--text-muted);font-size:1.05rem}
+/* counter-stats */
+.stats-bar{display:flex;justify-content:center;align-items:center;gap:3rem;padding:4rem 2rem;
+  background:var(--bg-card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);flex-wrap:wrap}
+.stat{text-align:center}
+.stat-number,.stat-prefix,.stat-suffix{font-family:var(--font-heading);font-size:3.4rem;font-weight:300;
+  color:var(--text-heading);line-height:1}
+.stat-suffix{font-size:1.4rem;color:var(--accent);margin-left:2px}
+.stat-prefix{font-size:2rem;color:var(--accent);margin-right:2px}
+.stat-label{display:block;margin-top:.75rem;font-family:var(--font-body);font-size:.68rem;
+  letter-spacing:.25em;text-transform:uppercase;color:var(--text-muted)}
+.stat-divider{width:1px;height:50px;background:linear-gradient(to bottom,transparent,var(--border-strong),transparent)}
+/* numbered-feature */
+.nf{display:grid;grid-template-columns:repeat(3,1fr);gap:44px}
+.nf .n{font-family:var(--font-heading);font-size:3.2rem;color:var(--accent);opacity:.55;line-height:1}
+.nf h3{margin:12px 0 10px}
+.nf p{color:var(--text-muted);font-size:.96rem}
+/* footer */
+footer{background:#05080f;padding:72px 0 32px;border-top:1px solid var(--border)}
+.fg{display:grid;grid-template-columns:2fr 1fr 1fr;gap:44px;margin-bottom:44px}
+footer p,footer a{color:var(--text-muted);font-size:.95rem}
+footer a:hover{color:var(--accent)}
+.fcol h4{color:#fff;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px}
+.fcol a{display:block;margin-bottom:10px}
+.copy{border-top:1px solid var(--border);padding-top:24px;text-align:center;font-size:.8rem;color:var(--text-muted)}
+@media(max-width:900px){.nl{display:none}.nf{grid-template-columns:1fr;gap:32px}
+ .fg{grid-template-columns:1fr;gap:28px}section{padding:72px 0}.stat-divider{display:none}.stat{flex:0 0 42%}}
+</style>
+<style>
+.anim-fade-in-up {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.anim-fade-in-up.anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style><link href="https://fonts.googleapis.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/></head><body><svg aria-hidden="true" style="position:absolute;width:0;height:0;">
+<filter id="anim-brand-tint">
+<fecolormatrix type="matrix" values="0.77 0 0 0 0.23 0.52 0 0 0 0.48 0.16 0 0 0 0.84 0 0 0 1 0"></fecolormatrix>
+</filter>
+</svg>
+<header id="nav" style="position: relative; overflow: hidden; "><div style="position:absolute;inset:0;z-index:0;overflow:hidden;">
+<video autoplay="" loop="" muted="" playsinline="" poster="https://images.pexels.com/photos/574919/pexels-photo-574919.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1920" style="width:100%;height:100%;object-fit:cover;filter:url(#anim-brand-tint) saturate(0.8) brightness(0.6);">
+<source src="https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_30fps.mp4" type="video/mp4"/>
+</video>
+<div style="position:absolute;inset:0;background:rgba(0,0,0,0.55);"></div>
+<div style="position:absolute;inset:0;background:radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.6) 100%);"></div>
+<div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);pointer-events:none;"></div>
+</div><div class="wrap" style="position: relative; z-index: 1; "><div class="bar">
+<a class="logo" href="#">MEYBOHM <b>REAL ESTATE</b></a>
+<nav class="nl"><a href="#services">Services</a><a href="#approach">Approach</a><a href="#contact">Contact</a></nav>
+<a class="btn-solid" href="#contact" style="padding:11px 24px">Find an Agent</a>
+</div></div><div style="position:absolute;top:16px;left:16px;z-index:50;font-family:'JetBrains Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.25em;color:rgba(255,255,255,0.4);">
+<div>SYSTEM ONLINE</div>
+</div>
+<div style="position:absolute;top:16px;right:16px;z-index:50;font-family:'JetBrains Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.25em;color:rgba(255,255,255,0.4);text-align:right;">
+<div>Status: <span style="color:#22c55e;">ACTIVE</span></div>
+</div>
+<div style="position:absolute;bottom:16px;right:16px;z-index:50;display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
+<span style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.25em;color:rgba(255,255,255,0.3);">[SCROLL]</span>
+<div style="width:1px;height:32px;background:linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);animation:pulse 2s infinite;"></div>
+</div></header>
+<section class="hero hero-re anim-fade-in-up" style="transition-delay: 0.0s; "><div class="wrap inner">
+<div class="mono">Augusta · Evans · Martinez · Aiken</div>
+<h1>Where <span class="metallic-gold">Home</span><br/>Begins</h1>
+<p class="sub">Meybohm Real Estate has guided CSRA families through every kind of move for generations — with the market knowledge, negotiating strength and quiet professionalism that only comes from being genuinely local.</p>
+<div class="cta-row"><a class="btn-solid" href="#services">Explore Listings</a>
+<a class="btn-ghost" href="#contact">Speak With an Agent</a></div>
 </div></section>
-
-<div class="stats"><div class="wrap"><div class="stat"><b>500+</b><span>Homes Sold</span></div><div class="stat"><b>$180M</b><span>In Closings</span></div><div class="stat"><b>18</b><span>Years Local</span></div><div class="stat"><b>4.9★</b><span>Client Rating</span></div></div></div>
-
-<section id="services"><div class="wrap">
-<div class="sec-head"><div class="eyebrow">How We Help</div><h2>Full-Service Real Estate</h2><p>Whether it's your first home or your fifth investment property, we guide every step.</p></div>
-<div class="serv-grid"><div class="serv"><div class="ic">⌂</div><h3>Buying</h3><p>From pre-approval to closing, we find the right home and negotiate hard on your behalf.</p></div><div class="serv"><div class="ic">◆</div><h3>Selling</h3><p>Professional staging, photography and marketing that gets your home sold for top dollar.</p></div><div class="serv"><div class="ic">▲</div><h3>Investing</h3><p>Data-driven guidance on rental and flip opportunities across the local market.</p></div></div></div></section>
-
-<section class="why" id="why"><div class="wrap">
-<div class="sec-head"><div class="eyebrow">Why Meybohm Real Estate</div><h2>Local, Responsive, Accountable</h2></div>
-<div class="why-grid">
-<div><div class="n">1</div><h3>Rooted in Augusta</h3><p>We live and work here. Your outcome affects our reputation in this community.</p></div>
-<div><div class="n">2</div><h3>Straight Answers</h3><p>No jargon and no runaround — you'll always know exactly where things stand.</p></div>
-<div><div class="n">3</div><h3>Real People</h3><p>Call and reach someone who knows your name and your situation, every time.</p></div>
+<hr class="gline"/>
+<section class="stats-bar anim-fade-in-up" style="position: relative; overflow: hidden; transition-delay: 0.1s; "><canvas id="anim-dots-rhombus" style="position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0.15;"></canvas><div class="stat" style="position: relative; z-index: 1; "><span class="stat-number" data-target="50">0</span><span class="stat-suffix">+</span><span class="stat-label">Years Serving CSRA</span></div><div class="stat-divider" style="position: relative; z-index: 1; "></div><div class="stat" style="position: relative; z-index: 1; "><span class="stat-prefix">$</span><span class="stat-number" data-target="1.2">0</span><span class="stat-suffix">B+</span><span class="stat-label">Annual Volume</span></div><div class="stat-divider" style="position: relative; z-index: 1; "></div><div class="stat" style="position: relative; z-index: 1; "><span class="stat-number" data-target="300">0</span><span class="stat-suffix">+</span><span class="stat-label">Agents &amp; Staff</span></div><div class="stat-divider" style="position: relative; z-index: 1; "></div><div class="stat" style="position: relative; z-index: 1; "><span class="stat-number" data-target="4.9">0</span><span class="stat-label">Client Rating</span></div></section>
+<section class="bleed anim-fade-in-up" id="services" style="transition-delay: 0.2s; "><div class="wrap">
+<div class="sec-head"><div class="mono">What We Offer</div><h2>Full-Service, Start to Close</h2>
+<p>Buying, selling, building or investing — handled by specialists rather than generalists.</p></div>
+<div class="bento-grid">
+<div class="bento-card bento-hero"><div class="bento-card-inner">
+<span class="bento-label">Featured</span><h3>Residential Sales</h3>
+<p>From first homes to estate properties, our agents pair deep neighbourhood knowledge with marketing that puts your listing in front of genuinely qualified buyers — and negotiates hard when the offers arrive.</p>
+<a class="bento-link" href="#contact">Explore →</a></div></div>
+<div class="bento-card"><div class="bento-card-inner"><span class="bento-label">01</span><h3>New Construction</h3>
+<p>Guidance through builder contracts, upgrades and timelines so nothing is left to assumption.</p></div></div>
+<div class="bento-card"><div class="bento-card-inner"><span class="bento-label">02</span><h3>Property Management</h3>
+<p>Tenant placement, maintenance and reporting handled end-to-end for owners and investors.</p></div></div>
+<div class="bento-card"><div class="bento-card-inner"><span class="bento-label">03</span><h3>Commercial</h3>
+<p>Office, retail and land representation backed by real CSRA market data.</p></div></div>
+<div class="bento-card bento-wide"><div class="bento-card-inner"><span class="bento-label">Highlight</span>
+<h3>Relocation Services</h3><p>Moving to the area for Fort Eisenhower, medical or corporate reasons? A dedicated relocation team handles the logistics so you can focus on the move itself.</p></div></div>
 </div></div></section>
-
-<section class="cta" id="contact"><div class="wrap">
-<h2>Ready to Make Your Move?</h2><p>Let's talk about your goals. Reach out today and we'll be in touch within one business day.</p><a class="btn btn-gold" href="tel:7067363375">Call 706.736.3375</a>
-</div></section>
-
-<footer><div class="wrap"><div class="fgrid">
-<div><a class="brand" href="#">Meybohm <span>Real Estate</span></a>
-<p>Proudly serving Augusta and the surrounding CSRA community.</p></div>
-<div class="fcol"><h4>Explore</h4><a href="#services">Services</a><a href="#why">Why Us</a><a href="#contact">Contact</a></div>
-<div class="fcol"><h4>Contact</h4><a href="tel:7067363375">706.736.3375</a><a href="#">Augusta, GA</a></div>
-</div><div class="copy">© 2026 Meybohm Real Estate. All rights reserved. &nbsp;·&nbsp; Preview redesign concept by MARNEXIQ.</div>
+<hr class="gline"/>
+<section class="anim-fade-in-up" id="approach" style="transition-delay: 0.3s; "><div class="wrap">
+<div class="sec-head"><div class="mono">Our Approach</div><h2>Local Roots, Modern Marketing</h2></div>
+<div class="nf">
+<div><div class="n">01</div><h3>Price It Right</h3><p>Real comparables and honest guidance — not an inflated number to win the listing.</p></div>
+<div><div class="n">02</div><h3>Market It Properly</h3><p>Professional photography, staging guidance and full digital syndication on every home.</p></div>
+<div><div class="n">03</div><h3>Close It Cleanly</h3><p>Inspections, appraisals and lenders coordinated so closing day holds no surprises.</p></div>
+</div></div></section>
+<section class="anim-fade-in-up" id="contact" style="transition-delay: 0.4s; background:var(--bg-card);text-align:center">
+<div class="wrap"><div class="mono">Get in Touch</div>
+<h2 style="margin:16px 0 14px">Ready to Make Your Move?</h2>
+<p style="color:var(--text-muted);max-width:560px;margin:0 auto 32px">Tell us where you are headed and we will match you with the right agent for it.</p>
+<a class="btn-solid" href="tel:7067363375">Call 706-736-3375</a></div></section>
+<footer><div class="wrap"><div class="fg">
+<div><div class="logo" style="margin-bottom:14px">MEYBOHM <b>REAL ESTATE</b></div>
+<p>Proudly serving Augusta and the greater CSRA.</p></div>
+<div class="fcol"><h4>Explore</h4><a href="#services">Services</a><a href="#approach">Approach</a><a href="#contact">Contact</a></div>
+<div class="fcol"><h4>Contact</h4><a href="tel:7067363375">706-736-3375</a><span style="color:var(--text-muted);font-size:.95rem">Augusta, GA</span></div>
+</div><div class="copy">© 2026 Meybohm Real Estate. All rights reserved.  ·  Preview redesign concept by MARNEXIQ.</div>
 </div></footer>
-<script>const h=document.getElementById('h');addEventListener('scroll',()=>h.classList.toggle('scrolled',scrollY>60));</script>
-</body></html>
+<script>
+(function(){var n=document.getElementById('nav');
+addEventListener('scroll',function(){n.classList.toggle('solid',scrollY>60);},{passive:true});})();
+</script>
+<script>
+(function(){
+  function animateCounters(){
+    var counters=document.querySelectorAll('.stat-number');
+    var observer=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(!entry.isIntersecting)return;
+        var el=entry.target, target=parseFloat(el.dataset.target);
+        var isDecimal=target%1!==0, duration=2200, start=performance.now();
+        function tick(now){
+          var progress=Math.min((now-start)/duration,1);
+          var eased=1-Math.pow(1-progress,3);
+          var current=target*eased;
+          el.textContent=isDecimal?current.toFixed(1):Math.floor(current);
+          if(progress<1)requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick); observer.unobserve(el);
+      });
+    },{threshold:0.5});
+    counters.forEach(function(c){observer.observe(c);});
+  }
+  document.addEventListener('DOMContentLoaded',animateCounters);
+})();
+</script>
+<script>
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) e.target.classList.add('anim-visible');
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+})();
+</script><script>
+(function(){
+  var c = document.getElementById('anim-dots-rhombus');
+  if(!c) return;
+  var ctx = c.getContext('2d');
+  var spacing = 18;
+  var dots = [];
+
+  function resize(){
+    c.width = c.parentElement.offsetWidth;
+    c.height = c.parentElement.offsetHeight;
+    dots = [];
+    var cx = c.width/2, cy = c.height/2;
+    var rhombusSize = Math.min(c.width, c.height) * 0.45;
+    var arrowW = c.width * 0.6, arrowH = c.height * 0.8;
+    for(var x=0; x<c.width; x+=spacing){
+      for(var y=0; y<c.height; y+=spacing){
+        var relX = x - cx, relY = y - cy;
+        if(Math.abs(relX) + Math.abs(relY) < rhombusSize){
+          dots.push({x:x, y:y});
+        }
+      }
+    }
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function animate(time){
+    ctx.clearRect(0,0,c.width,c.height);
+    for(var i=0;i<dots.length;i++){
+      var d = dots[i];
+      var dist = d.x + d.y;
+      var wave = Math.sin(dist * 0.008 - time / 600);
+      var size = 1 + (wave + 1) * 1.5;
+      var opacity = 0.3 + (wave + 1) * 0.35;
+      ctx.fillStyle = 'rgba(255,255,255,' + opacity + ')';
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, size, 0, Math.PI*2);
+      ctx.fill();
+    }
+    requestAnimationFrame(animate);
+  }
+  requestAnimationFrame(animate);
+})();
+</script></body></html>
