@@ -3,7 +3,7 @@
 <html lang="en"><head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="noindex" name="robots"/>
-<title>CMA Technology — Managed IT, Augusta</title>
+<title>CMA Technology — Managed IT, Augusta GA</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
 <style>
 :root{--bg-deep:#0a0f1a;--bg-card:#111827;--bg-elevated:#1e293b;--accent:#E0251B;
@@ -107,6 +107,44 @@ footer a:hover{color:var(--accent)}
 .copy{border-top:1px solid var(--border);padding-top:24px;text-align:center;font-size:.8rem;color:var(--text-muted)}
 @media(max-width:900px){.nl{display:none}.nf{grid-template-columns:1fr;gap:32px}
  .fg{grid-template-columns:1fr;gap:28px}section{padding:72px 0}.stat-divider{display:none}.stat{flex:0 0 42%}}
+
+/* team-grid */
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.tm{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;
+ padding:28px 22px;text-align:center;transition:transform .3s cubic-bezier(.25,.46,.45,.94),
+ border-color .3s ease,box-shadow .3s ease}
+.tm:hover{transform:translateY(-5px);border-color:var(--accent);box-shadow:0 16px 44px rgba(0,0,0,.32)}
+.tm .av{width:78px;height:78px;margin:0 auto 16px;border-radius:50%;display:grid;place-items:center;
+ font-family:var(--font-heading);font-size:1.5rem;letter-spacing:.04em;color:var(--accent);
+ background:linear-gradient(140deg,rgba(255,255,255,.07),rgba(255,255,255,.02));
+ border:1px solid var(--border-strong)}
+.tm .nm{font-family:var(--font-heading);font-size:1.05rem;color:var(--text-heading);margin-bottom:4px}
+.tm .rl{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);opacity:.85}
+.tm .bio{font-size:.85rem;color:var(--text-muted);margin-top:12px;line-height:1.55}
+.team-note{margin-top:28px;font-size:.85rem;color:var(--text-muted);text-align:center;opacity:.75}
+@media(max-width:1024px){.team-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.team-grid{grid-template-columns:1fr}}
+
+/* testimonial-cards */
+.tst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.tst{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:14px;padding:30px;
+ position:relative;transition:.3s}
+.tst:hover{border-color:var(--accent);transform:translateY(-4px)}
+.tst::before{content:"\201C";position:absolute;top:6px;left:20px;font-family:var(--font-heading);
+ font-size:4.5rem;color:var(--accent);opacity:.22;line-height:1}
+.tst p{position:relative;color:var(--text);font-size:.96rem;line-height:1.7;margin-bottom:18px}
+.tst .who{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.tst .stars{color:var(--gold);letter-spacing:3px;margin-bottom:14px;font-size:.9rem}
+@media(max-width:900px){.tst-grid{grid-template-columns:1fr}}
+
+/* service-matrix — deep service lists a single card row can't hold */
+.svc-matrix{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.svc-col{border-top:1px solid var(--border-strong);padding-top:22px}
+.svc-col h3{font-size:1.15rem;margin-bottom:14px;color:var(--text-heading)}
+.svc-col ul{list-style:none}
+.svc-col li{font-size:.9rem;color:var(--text-muted);padding:6px 0 6px 18px;position:relative}
+.svc-col li::before{content:"";position:absolute;left:0;top:14px;width:7px;height:1px;background:var(--accent)}
+@media(max-width:900px){.svc-matrix{grid-template-columns:1fr}}
 </style>
 <style>
 .anim-fade-in-up {
@@ -133,7 +171,7 @@ footer a:hover{color:var(--accent)}
 </div><div class="wrap" style="position: relative; z-index: 1; "><div class="bar">
 <a class="logo" href="#">CMA <b>TECHNOLOGY</b></a>
 <nav class="nl"><a href="#services">Services</a><a href="#approach">Approach</a><a href="#contact">Contact</a></nav>
-<a class="btn-solid" href="#contact" style="padding:11px 24px">Get a Free Assessment</a>
+<a class="btn-solid" href="#contact" style="padding:11px 24px">Partner With Us</a>
 </div></div><div style="position:absolute;top:16px;left:16px;z-index:50;font-family:'JetBrains Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.25em;color:rgba(255,255,255,0.4);">
 <div>SYSTEM ONLINE</div>
 </div>
@@ -145,39 +183,44 @@ footer a:hover{color:var(--accent)}
 <div style="width:1px;height:32px;background:linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);animation:pulse 2s infinite;"></div>
 </div></header>
 <section class="hero hero-tech anim-fade-in-up" style="transition-delay: 0.0s; "><div class="wrap inner">
-<span class="badge">Serving the CSRA since 1985</span>
-<h1 style="margin-top:22px">Technology That <span class="gtext">Just Works</span></h1>
-<p class="sub">CMA Technology keeps Augusta businesses running — managed IT, cybersecurity and cloud infrastructure backed by engineers who answer the phone when it matters.</p>
-<div class="cta-row"><a class="btn-solid" href="#contact">Get a Free Assessment</a>
-<a class="btn-ghost" href="#services">See Our Services</a></div>
+<span class="badge">Keeping IT groovy since 1979</span>
+<h1 style="margin-top:22px">LET CMA <span class="gtext">HANDLE IT.</span></h1>
+<p class="sub">When you partner with CMA Technology you get more than an IT guy — you get a team of certified
+experts protecting your most sensitive data and keeping your business running. Timely, responsive, proactive.</p>
+<div class="cta-row"><a class="btn-solid" href="#contact">Partner With Us</a>
+<a class="btn-ghost" href="#services">View Service Plans</a></div>
 </div></section>
-<div class="mq"><div class="mq-track"><span>Managed IT</span><span>Cybersecurity</span><span>Cloud Migration</span><span>Network Design</span><span>Help Desk</span><span>Backup &amp; Recovery</span><span>VoIP</span><span>Compliance</span><span>24/7 Monitoring</span><span>Managed IT</span><span>Cybersecurity</span><span>Cloud Migration</span><span>Network Design</span><span>Help Desk</span><span>Backup &amp; Recovery</span><span>VoIP</span><span>Compliance</span><span>24/7 Monitoring</span></div></div>
-<section class="stats-bar anim-fade-in-up" style="position: relative; overflow: hidden; transition-delay: 0.1s; "><canvas id="anim-dots-rhombus" style="position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0.15;"></canvas><div class="stat" style="position: relative; z-index: 1; "><span class="stat-number" data-target="40">0</span><span class="stat-suffix">+</span><span class="stat-label">Years in Business</span></div><div class="stat-divider" style="position: relative; z-index: 1; "></div><div class="stat" style="position: relative; z-index: 1; "><span class="stat-number" data-target="99.9">0</span><span class="stat-suffix">%</span><span class="stat-label">Uptime Delivered</span></div><div class="stat-divider" style="position: relative; z-index: 1; "></div><div class="stat" style="position: relative; z-index: 1; "><span class="stat-number" data-target="15">0</span><span class="stat-suffix">min</span><span class="stat-label">Avg. Response</span></div><div class="stat-divider" style="position: relative; z-index: 1; "></div><div class="stat" style="position: relative; z-index: 1; "><span class="stat-number" data-target="24">0</span><span class="stat-suffix">/7</span><span class="stat-label">Monitoring</span></div></section>
+<div class="mq"><div class="mq-track"><span>Managed IT</span><span>Data Backup</span><span>Endpoint Security</span><span>Microsoft 365</span><span>Cloud Migration</span><span>Preventative Maintenance</span><span>Help Desk</span><span>Cybersecurity</span><span>24/7 Monitoring</span><span>Managed IT</span><span>Data Backup</span><span>Endpoint Security</span><span>Microsoft 365</span><span>Cloud Migration</span><span>Preventative Maintenance</span><span>Help Desk</span><span>Cybersecurity</span><span>24/7 Monitoring</span></div></div>
+<section class="stats-bar anim-fade-in-up" style="position: relative; overflow: hidden; transition-delay: 0.1s; "><canvas id="anim-dots-rhombus" style="position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0.15;"></canvas><div class="stat" style="position: relative; z-index: 1; "><span class="stat-number" data-target="45">0</span><span class="stat-suffix">yrs</span><span class="stat-label">In Business</span></div><div class="stat-divider" style="position: relative; z-index: 1; "></div><div class="stat" style="position: relative; z-index: 1; "><span class="stat-number" data-target="1979">0</span><span class="stat-label">Founded</span></div><div class="stat-divider" style="position: relative; z-index: 1; "></div><div class="stat" style="position: relative; z-index: 1; "><span class="stat-number" data-target="24">0</span><span class="stat-suffix">/7</span><span class="stat-label">Monitoring</span></div><div class="stat-divider" style="position: relative; z-index: 1; "></div><div class="stat" style="position: relative; z-index: 1; "><span class="stat-number" data-target="100">0</span><span class="stat-suffix">%</span><span class="stat-label">Southeast Coverage</span></div></section>
 <section class="anim-fade-in-up" id="services" style="transition-delay: 0.2s; "><div class="wrap">
-<div class="sec-head"><div class="mono">Capabilities</div><h2>Your IT Department, Without the Overhead</h2>
-<p>From day-to-day support to long-term infrastructure strategy — one team accountable for all of it.</p></div>
+<div class="sec-head"><div class="mono">What We Do</div><h2>Maintenance-Based Management</h2>
+<p>Our services are built around the priorities that actually prevent outages — not a menu of add-ons.</p></div>
 <div class="g3">
-<div class="glass"><h3>Managed IT Services</h3><p>Proactive monitoring, patching and support that stops problems before your team ever files a ticket.</p></div>
-<div class="glass"><h3>Cybersecurity</h3><p>Layered protection, employee training and compliance readiness built for businesses that can't afford downtime.</p></div>
-<div class="glass"><h3>Cloud &amp; Infrastructure</h3><p>Migration, backup and disaster recovery designed so your data is always available and always recoverable.</p></div>
+<div class="glass"><h3>Data Backup</h3><p>Whether it's an on-premises server or the data in your Microsoft 365 tenant,
+a secure second copy is what stands between an incident and a shutdown.</p></div>
+<div class="glass"><h3>Preventative Maintenance</h3><p>Scheduled updates and patching keep cybersecurity protections
+intact and stop costly, disruptive service interruptions before they start.</p></div>
+<div class="glass"><h3>Endpoint Security</h3><p>With staff working from anywhere, your security boundary has to expand
+to cover every device — monitored and actively defended.</p></div>
 </div></div></section>
-<section class="anim-fade-in-up" id="approach" style="transition-delay: 0.3s; background:var(--bg-card)"><div class="wrap">
-<div class="sec-head"><div class="mono">How We Work</div><h2>Local Engineers, Enterprise Standards</h2></div>
-<div class="nf">
-<div><div class="n">01</div><h3>Assess</h3><p>We audit your environment and show you exactly where the risk and cost live.</p></div>
-<div><div class="n">02</div><h3>Stabilise</h3><p>Fix what's broken, secure what's exposed, and document everything as we go.</p></div>
-<div><div class="n">03</div><h3>Support</h3><p>Ongoing monitoring and a real help desk staffed by people who know your setup.</p></div>
-</div></div></section>
-<section class="anim-fade-in-up" id="contact" style="transition-delay: 0.4s; text-align:center">
-<div class="wrap"><div class="mono">Get Started</div>
-<h2 style="margin:16px 0 14px">Let's Take IT Off Your Plate</h2>
-<p style="color:var(--text-muted);max-width:560px;margin:0 auto 32px">Book a free assessment and we'll show you what's working, what isn't, and what it costs to fix.</p>
+<section class="anim-fade-in-up" id="team" style="transition-delay: 0.3s; background:var(--bg-card)"><div class="wrap">
+<div class="sec-head"><div class="mono">The CMA Way</div><h2>You Get a Team of Experts</h2>
+<p>Certified specialists, headquartered in Augusta and serving clients across the southeast.</p></div>
+<div class="team-grid"><div class="tm"><div class="av">MS</div><div class="nm">Managed Services</div><div class="rl">Service Delivery</div><div class="bio">Day-to-day support, ticket response and on-site visits across the CSRA.</div></div><div class="tm"><div class="av">SE</div><div class="nm">Security Engineering</div><div class="rl">Cybersecurity</div><div class="bio">Endpoint protection, monitoring and compliance readiness.</div></div><div class="tm"><div class="av">CL</div><div class="nm">Cloud Practice</div><div class="rl">Microsoft 365 &amp; Azure</div><div class="bio">Migrations and hybrid architecture as a certified Microsoft CSP.</div></div><div class="tm"><div class="av">HD</div><div class="nm">Help Desk</div><div class="rl">Client Support</div><div class="bio">The people who actually answer when your team calls.</div></div></div><div class="team-note">Your real team photos and bios drop straight into this section.</div></div></section>
+<section class="anim-fade-in-up" id="proof" style="transition-delay: 0.4s; "><div class="wrap">
+<div class="sec-head"><div class="mono">Client Results</div><h2>What Partners Say</h2></div>
+<div class="tst-grid"><div class="tst"><div class="stars">★★★★★</div><p>Placeholder for a real client quote — this is where the reviews you already collect would live, front and centre instead of buried.</p><div class="who">Client Name · Company</div></div><div class="tst"><div class="stars">★★★★★</div><p>A second proof point, ideally naming the result: uptime restored, migration delivered, breach avoided.</p><div class="who">Client Name · Company</div></div><div class="tst"><div class="stars">★★★★★</div><p>A third, short and specific. Social proof is the single biggest gap flagged on the current site.</p><div class="who">Client Name · Company</div></div></div></div></section>
+<section class="anim-fade-in-up" id="contact" style="transition-delay: 0.5s; background:var(--bg-card);text-align:center"><div class="wrap">
+<div class="mono">Get Started</div>
+<h2 style="margin:16px 0 14px">Consider IT Handled</h2>
+<p style="color:var(--text-muted);max-width:600px;margin:0 auto 32px">117 Commercial Blvd, Augusta, GA 30907 —
+as a certified Microsoft Cloud Solution Provider we'll show you exactly where your risk and cost sit today.</p>
 <a class="btn-solid" href="tel:7068601997">Call 706-860-1997</a></div></section>
 <footer><div class="wrap"><div class="fg">
 <div><div class="logo" style="margin-bottom:14px">CMA <b>TECHNOLOGY</b></div>
 <p>Proudly serving Augusta and the greater CSRA.</p></div>
 <div class="fcol"><h4>Explore</h4><a href="#services">Services</a><a href="#approach">Approach</a><a href="#contact">Contact</a></div>
-<div class="fcol"><h4>Contact</h4><a href="tel:7068601997">706-860-1997</a><span style="color:var(--text-muted);font-size:.95rem">Augusta, GA</span></div>
+<div class="fcol"><h4>Contact</h4><a href="tel:7068601997">706-860-1997</a><a href="mailto:info@mycma.com">info@mycma.com</a><span style="color:var(--text-muted);font-size:.95rem">Augusta, GA</span></div>
 </div><div class="copy">© 2026 CMA Technology. All rights reserved.  ·  Preview redesign concept by MARNEXIQ.</div>
 </div></footer>
 <script>
