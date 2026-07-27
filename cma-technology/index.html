@@ -32,14 +32,14 @@ h1,h2,h3{font-family:'Bungee','Nunito Sans',sans-serif;font-weight:400;color:var
 .btn-r{background:var(--red);color:#fff}.btn-r:hover{filter:brightness(1.08);transform:translateY(-2px)}
 .btn-o{background:transparent;border:2px solid #fff;color:#fff}.btn-o:hover{background:#fff;color:var(--ink)}
 /* HERO — their real 11-person team photo */
-.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden;background:#c8221b}
+.hero{position:relative;min-height:84vh;display:flex;align-items:flex-end;overflow:hidden;background:#c8221b}
 .hero .ph{position:absolute;inset:0;z-index:0}
-.hero .ph img{width:100%;height:100%;object-fit:cover;object-position:center 26%;
- animation:kb 30s ease-in-out infinite alternate}
-@keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.11)}}
+.hero .ph img{width:100%;height:100%;object-fit:cover;object-position:center top;
+ transform-origin:50% 0%;animation:kb 34s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.045)}}
 .hero .sh{position:absolute;inset:0;z-index:1;
- background:linear-gradient(transparent 56%,rgba(28,9,7,.62) 80%,rgba(22,7,5,.93) 100%)}
-.hero .in{position:relative;z-index:2;padding:0 0 66px;width:100%}
+ background:linear-gradient(transparent 60%,rgba(28,9,7,.55) 82%,rgba(22,7,5,.92) 100%)}
+.hero .in{position:relative;z-index:2;padding:0 0 52px;width:100%}
 .hero h1{color:#fff;font-size:clamp(2.1rem,5.4vw,4.4rem);text-shadow:0 4px 26px rgba(0,0,0,.4)}
 .hero p{color:rgba(255,255,255,.96);font-size:1.1rem;max-width:600px;margin:0 0 26px;font-weight:600;
  text-shadow:0 2px 14px rgba(0,0,0,.55)}
@@ -48,6 +48,9 @@ h1,h2,h3{font-family:'Bungee','Nunito Sans',sans-serif;font-weight:400;color:var
  clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .wave{display:block;width:100%;height:80px}
 .wave path{fill:currentColor}
+.tag{background:#fff;padding:26px 0}
+.tag p{text-align:center;font-size:1.04rem;color:var(--ink2);max-width:760px;margin:0 auto}
+.tag strong{color:var(--ink)}
 /* MARQUEE */
 .mq{overflow:hidden;background:var(--ink);padding:15px 0}
 .mqt{display:flex;gap:52px;white-space:nowrap;animation:mv 34s linear infinite;width:max-content}
@@ -118,7 +121,7 @@ footer a,footer p{color:rgba(255,255,255,.76);font-size:.94rem}footer a:hover{co
 .rev.on{opacity:1;transform:none}
 @media(max-width:960px){.nl{display:none}.split{grid-template-columns:1fr;gap:34px}
  .split.rev .txt{order:0}.ic3{grid-template-columns:1fr}.roles{grid-template-columns:repeat(2,1fr)}
- section{padding:70px 0}.hero .in{padding-bottom:56px}}
+ section{padding:70px 0}.hero{min-height:72vh}.hero .in{padding-bottom:40px}}
 </style></head><body>
 
 <header id="nav"><div class="wrap"><div class="bar">
@@ -132,11 +135,12 @@ footer a,footer p{color:rgba(255,255,255,.76);font-size:.94rem}footer a:hover{co
 <div class="ph"><img src="https://mycma.com/wp-content/uploads/2026/04/Homepage_headerimage_withtext_edit2026_2.png" alt="The CMA Technology team"></div><div class="sh"></div>
 <div class="wrap in">
 <h1 class="sr">CMA Technology — Keeping IT Groovy Since 1979</h1>
-<p class="sub">Providing IT solutions since the information superhighway was a single-lane dirt road.
-We've seen IT all — and we're ready for the future.</p>
 <div class="row"><a class="btn btn-g" href="#contact">Let's Get Started</a>
 <a class="btn btn-o" href="#services">View Service Plans</a></div>
 </div></section>
+
+<div class="tag"><div class="wrap"><p>Providing IT solutions since the information superhighway was a
+single-lane dirt road. <strong>We've seen IT all &mdash; and we're ready for the future.</strong></p></div></div>
 
 <div class="mq"><div class="mqt">
 <span>Managed IT</span><span>Data Backup</span><span>Endpoint Security</span><span>Microsoft 365</span>
