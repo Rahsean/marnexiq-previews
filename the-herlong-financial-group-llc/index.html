@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Herlong Financial Group - Financial Planning and Investment Advisory Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg-primary: #FAF8F2;
+            --bg-secondary: #F7F5EF;
+            --text-primary: #15181A;
+            --text-muted: #6B6F72;
+            --accent: #243C5A;
+            --accent-light: rgba(36, 60, 90, 0.1);
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.75rem, 6vw, 5rem);
+            line-height: 1.1;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3.25rem);
+            line-height: 1.15;
+            font-weight: 500;
+        }
+
+        h3 {
+            font-family: var(--font-display);
+            font-size: clamp(1.15rem, 2vw, 1.5rem);
+            line-height: 1.2;
+            font-weight: 500;
+        }
+
+        p {
+            max-width: 66ch;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: rgba(250, 248, 242, 0.95);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(36, 60, 90, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-cta {
+            background: var(--accent);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-1px);
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .nav-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 12rem 0 8rem;
+            background: var(--bg-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            margin-bottom: 2rem;
+        }
+
+        .hero-desc {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            max-width: 60ch;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            background: var(--accent);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(36, 60, 90, 0.2);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(36, 60, 90, 0.3);
+        }
+
+        /* Decorative SVG */
+        .hero-decoration {
+            position: absolute;
+            top: 20%;
+            right: -10%;
+            opacity: 0.05;
+            z-index: -1;
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--bg-secondary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .service-card {
+            padding: 2.5rem;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            border: 1px solid rgba(36, 60, 90, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(36, 60, 90, 0.1);
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            margin-bottom: 2rem;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .feature-check {
+            width: 20px;
+            height: 20px;
+            color: var(--accent);
+        }
+
+        /* Process Section */
+        .process {
+            background: var(--bg-secondary);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0 auto 1.5rem;
+        }
+
+        .process-step h3 {
+            margin-bottom: 1rem;
+        }
+
+        .process-step p {
+            color: var(--text-muted);
+            margin: 0 auto;
+        }
+
+        /* CTA Section */
+        .cta {
+            text-align: center;
+            background: var(--accent);
+            color: white;
+        }
+
+        .cta h2 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0 auto 2.5rem;
+            font-size: 1.125rem;
+        }
+
+        .cta-button {
+            background: white;
+            color: var(--accent);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-family: var(--font-display);
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .hero {
+                padding: 8rem 0 6rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .services-grid,
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 4rem 0;
+            }
+        }
+    </style>
+<style>
+.anim-fade-in-up {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.anim-fade-in-up.anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style></head>
+<body>
+<!-- Navigation -->
+<nav class="nav" id="nav">
+<div class="nav-inner">
+<a class="nav-logo" href="#">Herlong Financial Group</a>
+<ul class="nav-links">
+<li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#process">Process</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<a class="nav-cta" href="#contact">Schedule Consultation</a>
+<button class="nav-toggle" id="nav-toggle">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="hero anim-fade-in-up" style="transition-delay: 0.0s; ">
+<div class="container">
+<div class="hero-content">
+<div class="hero-label fade-in-up">Over Three Decades of Service</div>
+<h1 class="fade-in-up" style="transition-delay: 0.1s;">Financial Planning and Investment Advisory Services</h1>
+<p class="hero-desc fade-in-up" style="transition-delay: 0.2s;">Helping business owners and successful families make strategic decisions to create, manage, and protect their wealth for life.</p>
+<a class="hero-cta fade-in-up" href="#contact" style="transition-delay: 0.3s;">Schedule Your Consultation</a>
+</div>
+</div>
+<!-- Decorative SVG -->
+<svg class="hero-decoration" fill="none" height="300" viewbox="0 0 400 300" width="400">
+<path d="M50 150C50 67.157 117.157 0 200 0s150 67.157 150 150-67.157 150-150 150S50 232.843 50 150z" stroke="currentColor" stroke-width="1"></path>
+<path d="M80 150C80 83.726 133.726 30 200 30s120 53.726 120 120-53.726 120-120 120S80 216.274 80 150z" stroke="currentColor" stroke-width="0.5"></path>
+<path d="M110 150C110 100.294 150.294 60 200 60s90 40.294 90 90-40.294 90-90 90-90-40.294-90-90z" stroke="currentColor" stroke-width="0.25"></path>
+</svg>
+</section>
+<!-- Services Section -->
+<section class="services anim-fade-in-up" id="services" style="transition-delay: 0.1s; ">
+<div class="container">
+<div class="fade-in-up">
+<h2>A Different Kind of Financial Firm</h2>
+</div>
+<div class="services-grid">
+<div class="service-card fade-in-up" style="transition-delay: 0.1s;">
+<svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+</svg>
+<h3>Business Solutions</h3>
+<p>Comprehensive financial strategies for business owners and executives who value customized and proactive planning.</p>
+</div>
+<div class="service-card fade-in-up" style="transition-delay: 0.2s;">
+<svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
+<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+<circle cx="9" cy="7" r="4"></circle>
+<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+</svg>
+<h3>Individual &amp; Family Services</h3>
+<p>Holistic wealth planning for affluent individuals and families focused on creating and protecting generational wealth.</p>
+</div>
+<div class="service-card fade-in-up" style="transition-delay: 0.3s;">
+<svg class="service-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="10"></circle>
+<polyline points="12,6 12,12 16,14"></polyline>
+</svg>
+<h3>Retirement Planning</h3>
+<p>Strategic planning for pre-retirees and retirees to ensure financial security throughout all stages of life.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="about anim-fade-in-up" id="about" style="transition-delay: 0.2s; ">
+<div class="container">
+<div class="about-content">
+<div class="about-text fade-in-up">
+<h2>Aligning Your Wealth With Your Values</h2>
+<p>Our services are truly holistic, focusing on the entirety of your financial life instead of just pieces of it. We aim to educate and empower you to make the wisest possible financial decisions, helping you achieve your financial goals by finding the right balance between your current needs with your future ones.</p>
+<p>No matter how much planning and investing you've already done or how organized or chaotic your financial affairs are, we'll meet you where you are and help you figure out the right steps toward a strong and secure financial future.</p>
+<div class="about-features">
+<div class="feature-item">
+<svg class="feature-check" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<polyline points="20,6 9,17 4,12"></polyline>
+</svg>
+<span>Comprehensive wealth planning</span>
+</div>
+<div class="feature-item">
+<svg class="feature-check" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<polyline points="20,6 9,17 4,12"></polyline>
+</svg>
+<span>Integrated team approach</span>
+</div>
+<div class="feature-item">
+<svg class="feature-check" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<polyline points="20,6 9,17 4,12"></polyline>
+</svg>
+<span>Lasting legacy creation</span>
+</div>
+</div>
+</div>
+<div class="about-visual fade-in-up" style="transition-delay: 0.2s;">
+<svg fill="none" height="300" viewbox="0 0 300 300" width="100%">
+<circle cx="150" cy="150" opacity="0.1" r="140" stroke="currentColor" stroke-width="1"></circle>
+<circle cx="150" cy="150" opacity="0.2" r="100" stroke="currentColor" stroke-width="1"></circle>
+<circle cx="150" cy="150" opacity="0.3" r="60" stroke="currentColor" stroke-width="1"></circle>
+<circle cx="150" cy="150" fill="currentColor" opacity="0.1" r="20"></circle>
+<path d="M150 10L150 290M10 150L290 150" opacity="0.1" stroke="currentColor" stroke-width="0.5"></path>
+<path d="M42.5 42.5L257.5 257.5M42.5 257.5L257.5 42.5" opacity="0.1" stroke="currentColor" stroke-width="0.5"></path>
+</svg>
+</div>
+</div>
+</div>
+</section>
+<!-- Process Section -->
+<section class="process anim-fade-in-up" id="process" style="transition-delay: 0.3s; ">
+<div class="container">
+<div class="fade-in-up" style="text-align: center;">
+<h2>Our Strategic Partnership Approach</h2>
+<p style="color: var(--text-muted); margin-top: 1rem; max-width: 60ch; margin-left: auto; margin-right: auto;">We serve as your quarterback, coordinating with your existing trusted advisors or bringing in our subject-matter experts as needed.</p>
+</div>
+<div class="process-steps">
+<div class="process-step fade-in-up" style="transition-delay: 0.1s;">
+<div class="step-number">1</div>
+<h3>Discovery</h3>
+<p>We meet you where you are and understand your current financial situation, goals, and values.</p>
+</div>
+<div class="process-step fade-in-up" style="transition-delay: 0.2s;">
+<div class="step-number">2</div>
+<h3>Strategy</h3>
+<p>Develop an integrated wealth plan that reflects your values, family goals, and business aspirations.</p>
+</div>
+<div class="process-step fade-in-up" style="transition-delay: 0.3s;">
+<div class="step-number">3</div>
+<h3>Implementation</h3>
+<p>Execute your customized plan with our team of experts and trusted strategic partners.</p>
+</div>
+<div class="process-step fade-in-up" style="transition-delay: 0.4s;">
+<div class="step-number">4</div>
+<h3>Ongoing Partnership</h3>
+<p>Provide continuous guidance through life's twists and turns, always looking after your finances as our own.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="cta anim-fade-in-up" id="contact" style="transition-delay: 0.4s; ">
+<div class="container">
+<div class="fade-in-up">
+<h2>Ready to Align Your Wealth With Your Values?</h2>
+<p>Schedule a consultation to discover how our holistic approach can help you create, manage, and protect your wealth for life.</p>
+<a class="cta-button" href="tel:803-275-5090">Call (803) 275-5090</a>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h4>Herlong Financial Group</h4>
+<p>Financial Planning and Investment Advisory Services for over three decades.</p>
+</div>
+<div class="footer-section">
+<h4>Location</h4>
+<p>424 Calhoun Street<br/>
+                    Johnston, SC 29832</p>
+<p style="margin-top: 1rem;">237 Park Avenue S.W.<br/>
+                    Aiken, SC 29801<br/>
+<em>by appointment only</em></p>
+</div>
+<div class="footer-section">
+<h4>Contact</h4>
+<p>Phone: <a href="tel:803-275-5090">(803) 275-5090</a></p>
+</div>
+<div class="footer-section">
+<h4>Services</h4>
+<p>Solutions for Businesses<br/>
+                    Solutions for Individuals<br/>
+                    Retirement Planning<br/>
+                    Legacy Planning</p>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 Herlong Financial Group LLC. Securities and advisory services offered through NYLIFE Securities LLC and Eagle Strategies LLC.</p>
+</div>
+</div>
+</footer>
+<script>
+        // Scroll reveal animation
+        function reveal() {
+            var reveals = document.querySelectorAll('.fade-in-up');
+            
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('visible');
+                }
+            }
+        }
+
+        // Nav scroll effect
+        function updateNav() {
+            var nav = document.getElementById('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(250, 248, 242, 0.98)';
+                nav.style.boxShadow = '0 2px 20px rgba(36, 60, 90, 0.1)';
+            } else {
+                nav.style.background = 'rgba(250, 248, 242, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        }
+
+        window.addEventListener('scroll', reveal);
+        window.addEventListener('scroll', updateNav);
+        
+        // Initial call
+        reveal();
+        updateNav();
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+<script>
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) e.target.classList.add('anim-visible');
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+})();
+</script></body>
+</html>
