@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>InnoVationV - Marketing Agency in Augusta, Georgia</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg-primary: #FAF8F2;
+            --bg-paper: #FFFFFF;
+            --text-ink: #15181A;
+            --text-muted: #6B6F72;
+            --accent-indigo: #5B3FD6;
+            --accent-teal: #12D2B0;
+            --border-light: rgba(107, 111, 114, 0.15);
+            
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--text-ink);
+            background: var(--bg-primary);
+            overflow-x: hidden;
+        }
+        
+        h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.75rem, 6vw, 5rem);
+            line-height: 1.1;
+            font-weight: 500;
+            color: var(--text-ink);
+        }
+        
+        h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4vw, 3.25rem);
+            line-height: 1.15;
+            font-weight: 500;
+            color: var(--text-ink);
+        }
+        
+        h3 {
+            font-family: var(--font-serif);
+            font-size: clamp(1.15rem, 2vw, 1.5rem);
+            line-height: 1.2;
+            font-weight: 500;
+            color: var(--text-ink);
+        }
+        
+        .mono-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .measure {
+            max-width: 66ch;
+        }
+        
+        /* Scroll Progress */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--accent-indigo);
+            z-index: 100;
+            transition: width 0.1s ease-out;
+        }
+        
+        /* Navigation */
+        .nav-blur {
+            position: fixed;
+            top: 3px;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: rgba(250, 248, 242, 0.85);
+            border-bottom: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-blur-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+        
+        .nav-blur-logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-ink);
+            text-decoration: none;
+        }
+        
+        .nav-blur-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+        
+        .nav-blur-links a {
+            color: var(--text-ink);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        
+        .nav-blur-links a:hover {
+            color: var(--accent-indigo);
+        }
+        
+        .nav-blur-cta {
+            background: var(--accent-indigo);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: background 0.2s ease;
+        }
+        
+        .nav-blur-cta:hover {
+            background: #4A2FB5;
+        }
+        
+        .nav-blur-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+        
+        .nav-blur-toggle span {
+            width: 20px;
+            height: 2px;
+            background: var(--text-ink);
+            margin: 2px 0;
+            transition: 0.3s;
+        }
+        
+        .nav-blur-mobile {
+            display: none;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 10rem 0 8rem;
+            background: var(--bg-primary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .hero-content h1 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-standfirst {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            line-height: 1.5;
+        }
+        
+        .hero-ctas {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: var(--accent-indigo);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-primary:hover {
+            background: #4A2FB5;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            color: var(--text-ink);
+            padding: 16px 32px;
+            border: 2px solid var(--border-light);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--accent-indigo);
+            color: var(--accent-indigo);
+        }
+        
+        .hero-visual {
+            position: relative;
+            height: 400px;
+        }
+        
+        /* Blueprint Grid Effect */
+        .blueprint-grid {
+            position: absolute;
+            inset: 0;
+            opacity: 0.1;
+            background-image: 
+                linear-gradient(var(--accent-indigo) 1px, transparent 1px),
+                linear-gradient(90deg, var(--accent-indigo) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        
+        /* Services Index */
+        .services {
+            padding: 8rem 0;
+            background: var(--bg-paper);
+        }
+        
+        .services-header {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+        
+        .services-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .service-item {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 3rem;
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border-light);
+            align-items: center;
+        }
+        
+        .service-item:last-child {
+            border-bottom: none;
+        }
+        
+        .service-number {
+            font-family: var(--font-serif);
+            font-size: 4rem;
+            font-weight: 300;
+            color: var(--accent-indigo);
+            line-height: 1;
+        }
+        
+        .service-content h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .service-content p {
+            color: var(--text-muted);
+        }
+        
+        /* Case Studies */
+        .case-studies {
+            padding: 8rem 0;
+            background: var(--bg-primary);
+        }
+        
+        .case-studies-header {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+        
+        .case-study {
+            max-width: 900px;
+            margin: 0 auto 6rem;
+            background: var(--bg-paper);
+            padding: 4rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+        }
+        
+        .case-study:last-child {
+            margin-bottom: 0;
+        }
+        
+        .case-study-meta {
+            margin-bottom: 2rem;
+        }
+        
+        .case-study h3 {
+            margin-bottom: 2rem;
+        }
+        
+        .case-study-section {
+            margin-bottom: 2rem;
+        }
+        
+        .case-study-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .case-study-section h4 {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent-indigo);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Stats Section */
+        .stats {
+            padding: 6rem 0;
+            background: var(--bg-paper);
+        }
+        
+        .stats-content {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .stats-number {
+            font-family: var(--font-serif);
+            font-size: 8rem;
+            font-weight: 300;
+            color: var(--accent-indigo);
+            line-height: 1;
+        }
+        
+        .stats-text {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+        }
+        
+        /* Philosophy */
+        .philosophy {
+            padding: 8rem 0;
+            background: var(--bg-primary);
+        }
+        
+        .philosophy-content {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .philosophy-quote {
+            font-family: var(--font-serif);
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+            line-height: 1.4;
+            color: var(--text-ink);
+            margin-bottom: 2rem;
+        }
+        
+        /* Reviews */
+        .reviews {
+            padding: 8rem 0;
+            background: var(--bg-paper);
+        }
+        
+        .reviews-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .review {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+        }
+        
+        .review-quote {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+        
+        .review-stars {
+            color: #FFB800;
+            margin-bottom: 1rem;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 8rem 0;
+            background: var(--accent-indigo);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta p {
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+        
+        .cta .btn-primary {
+            background: white;
+            color: var(--accent-indigo);
+        }
+        
+        .cta .btn-primary:hover {
+            background: #f8f8f8;
+        }
+        
+        /* Footer */
+        .footer {
+            padding: 4rem 0 2rem;
+            background: var(--text-ink);
+            color: white;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border-light);
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 16px;
+            transition: border-color 0.2s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-indigo);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        /* Animations */
+        .anim-fade-in-up {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .anim-fade-in-up.anim-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-blur-links {
+                display: none;
+            }
+            
+            .nav-blur-toggle {
+                display: flex;
+            }
+            
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+            
+            .hero {
+                padding: 8rem 0 6rem;
+            }
+            
+            .service-item {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .stats-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .hero-ctas {
+                justify-content: center;
+            }
+            
+            .case-study {
+                padding: 2rem;
+                margin: 0 1rem 4rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .services,
+            .case-studies,
+            .philosophy,
+            .reviews {
+                padding: 6rem 0;
+            }
+        }
+    </style>
+<style>
+.anim-fade-in-up {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.anim-fade-in-up.anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style></head>
+<body>
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress" id="scrollProgress"></div>
+<!-- Navigation -->
+<nav class="nav-blur" id="mainNav">
+<div class="nav-blur-inner">
+<a class="nav-blur-logo" href="#">InnoVationV</a>
+<ul class="nav-blur-links">
+<li><a href="#services">Services</a></li>
+<li><a href="#work">Work</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<a class="nav-blur-cta" href="tel:706-817-4220">(706) 817-4220</a>
+<button class="nav-blur-toggle" id="navToggle">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="hero anim-fade-in-up" style="transition-delay: 0.0s; ">
+<div class="container">
+<div class="hero-grid">
+<div class="hero-content">
+<div class="anim-fade-in-up">
+<h1>Come Innovate With Us</h1>
+</div>
+<div class="anim-fade-in-up" style="transition-delay: 0.1s;">
+<p class="hero-standfirst">We aren't just another marketing agency in Augusta, Georgia. At InnoVationV, we're your champions for success. Turn ideas into impact through strategic web development, Google advertising, and powerful digital marketing solutions.</p>
+</div>
+<div class="anim-fade-in-up" style="transition-delay: 0.2s;">
+<div class="hero-ctas">
+<a class="btn-primary" href="#contact">Start Your Project</a>
+<a class="btn-secondary" href="#work">View Our Work</a>
+</div>
+</div>
+</div>
+<div class="hero-visual">
+<div class="blueprint-grid"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="services anim-fade-in-up" id="services" style="transition-delay: 0.1s; ">
+<div class="container">
+<div class="services-header anim-fade-in-up">
+<h2>We build it, then we make it findable</h2>
+</div>
+<div class="services-list">
+<div class="service-item anim-fade-in-up" style="transition-delay: 0.1s;">
+<div class="service-number">01</div>
+<div class="service-content">
+<h3>Web Development</h3>
+<p>Blending aesthetics and user experience creates visually appealing, well-functioning websites. We can create brochure sites, e-commerce sites, or whatever you need.</p>
+</div>
+</div>
+<div class="service-item anim-fade-in-up" style="transition-delay: 0.2s;">
+<div class="service-number">02</div>
+<div class="service-content">
+<h3>SEO &amp; Content Marketing</h3>
+<p>Amplify your Search Engine Optimization score with fresh, relevant, and revolving content. Show the algorithms that you're worthy of the top spot on their SERPs.</p>
+</div>
+</div>
+<div class="service-item anim-fade-in-up" style="transition-delay: 0.3s;">
+<div class="service-number">03</div>
+<div class="service-content">
+<h3>Google Advertising</h3>
+<p>Strategic advertising campaigns that deliver qualified leads and maximize your return on investment through data-driven targeting and optimization.</p>
+</div>
+</div>
+<div class="service-item anim-fade-in-up" style="transition-delay: 0.4s;">
+<div class="service-number">04</div>
+<div class="service-content">
+<h3>Branding &amp; Graphic Design</h3>
+<p>Don't let your logo and custom graphics be plain, stock, or copied from someone else. Tell a story through color, styles, textures, and visuals.</p>
+</div>
+</div>
+<div class="service-item anim-fade-in-up" style="transition-delay: 0.5s;">
+<div class="service-number">05</div>
+<div class="service-content">
+<h3>Reputation &amp; Listing Management</h3>
+<p>You need unique, engaging social media content and a swift reputation management system. Your online presence shapes how leads perceive you.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Case Studies -->
+<section class="case-studies anim-fade-in-up" id="work" style="transition-delay: 0.2s; ">
+<div class="container">
+<div class="case-studies-header anim-fade-in-up">
+<div class="mono-label">Case Studies</div>
+<h2>Projects we love</h2>
+</div>
+<!-- ShoreShade Case Study -->
+<div class="case-study anim-fade-in-up" style="transition-delay: 0.1s;">
+<div class="case-study-meta">
+<div class="mono-label">E-commerce &amp; SEO Strategy</div>
+</div>
+<h3>ShoreShade</h3>
+<div class="case-study-section">
+<h4>The Challenge</h4>
+<p>ShoreShade came to us wanting an e-commerce website plus Google Ads management. They needed a complete online presence to showcase and sell their products in an increasingly competitive market.</p>
+</div>
+<div class="case-study-section">
+<h4>What We Did</h4>
+<p>Over months, this grew into a full SEO package involving back link building and listings management. As more competition entered the CSRA, we implemented extra safety precautions through managed hosting for their expanding e-commerce site.</p>
+</div>
+<div class="case-study-section">
+<h4>The Outcome</h4>
+<p>Eventually they saw similar—if not better—results from the same ad campaigns, while cutting the budget by two thirds. Work continued as ShoreShade grew and added new products to their expanding catalog.</p>
+</div>
+</div>
+<!-- Worthouse Case Study -->
+<div class="case-study anim-fade-in-up" style="transition-delay: 0.2s;">
+<div class="case-study-meta">
+<div class="mono-label">Web Development</div>
+</div>
+<h3>Worthouse</h3>
+<div class="case-study-section">
+<h4>The Challenge</h4>
+<p>A metal roof manufacturing company whose old site was managed by a team in Poland. It got the job done but they wanted something that told a visual story and worked seamlessly on mobile devices.</p>
+</div>
+<div class="case-study-section">
+<h4>What We Did</h4>
+<p>As a roofing manufacturer, they needed visually stunning assets to showcase flagship metal roofing products. We took a bare-boned 65+ page website, refreshed the template and built an easily navigable, fully optimized site with a custom mobile menu.</p>
+</div>
+<div class="case-study-section">
+<h4>The Outcome</h4>
+<p>A completely transformed digital presence that effectively showcases their products across all devices, with improved navigation and user experience that better serves their customers and drives conversions.</p>
+</div>
+</div>
+<!-- The Augusta Press Case Study -->
+<div class="case-study anim-fade-in-up" style="transition-delay: 0.3s;">
+<div class="case-study-meta">
+<div class="mono-label">Web Development &amp; Infrastructure</div>
+</div>
+<h3>The Augusta Press</h3>
+<div class="case-study-section">
+<h4>The Challenge</h4>
+<p>A local online newspaper that needed a team on call in case something catastrophic happened to their website. With a large number of subscribers, there is no room for downtime.</p>
+</div>
+<div class="case-study-section">
+<h4>What We Did</h4>
+<p>They needed a web designer who also understood payment processors and larger digital infrastructure. The work involved migrating between two different hosts, redesigning the site into a more dynamic approach, and creating a comprehensive support system.</p>
+</div>
+<div class="case-study-section">
+<h4>The Outcome</h4>
+<p>A robust, reliable platform that handles their subscriber base with zero downtime, removing the burden of dedicated in-house technical staff while ensuring their content delivery remains uninterrupted.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Section -->
+<section class="stats anim-fade-in-up" style="transition-delay: 0.3s; ">
+<div class="container">
+<div class="stats-content anim-fade-in-up">
+<div class="stats-number">10+</div>
+<div class="stats-text">
+<p>Years building the agency, from a one-man show to a large network of relationships with a foundation that remains solid.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Philosophy Section -->
+<section class="philosophy anim-fade-in-up" id="about" style="transition-delay: 0.4s; ">
+<div class="container">
+<div class="philosophy-content anim-fade-in-up">
+<div class="mono-label">Your vision, not our idea of it</div>
+<p class="philosophy-quote">"Thorough communication with each client guarantees that you will receive an end result that is still YOURS, not just our idea of your vision."</p>
+<p class="measure" style="margin: 0 auto;">We promote local and small businesses rather than commercialized ones. No matter where you are, we will be there for you. We have the systems, technology, and resources to research the ever-changing algorithms all around the world.</p>
+</div>
+</div>
+</section>
+<!-- Reviews Section -->
+<section class="reviews anim-fade-in-up" style="transition-delay: 0.5s; ">
+<div class="container">
+<div class="reviews-header anim-fade-in-up">
+<h2>What clients say about working with us</h2>
+</div>
+<div class="reviews-grid">
+<div class="review anim-fade-in-up" style="transition-delay: 0.1s;">
+<div class="review-stars">★★★★★</div>
+<p class="review-quote">"This group is the absolute best. I highly recommend for any web related work you need done. Super professional and easy to work with."</p>
+</div>
+<div class="review anim-fade-in-up" style="transition-delay: 0.2s;">
+<div class="review-stars">★★★★★</div>
+<p class="review-quote">"They work fast and know what they are doing. I've also been very pleased with their customer service. After being a customer for a few years, it's easy for me to give a 5-star rating."</p>
+</div>
+<div class="review anim-fade-in-up" style="transition-delay: 0.3s;">
+<div class="review-stars">★★★★★</div>
+<p class="review-quote">"InnoVationV took all of my thoughts, and turned them into more than I imagined, delivering an amazing product for my business."</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="cta anim-fade-in-up" id="contact" style="transition-delay: 0.0s; ">
+<div class="container">
+<div class="anim-fade-in-up">
+<h2>Let's get you found.</h2>
+<p>Give us a call or book now with our admin team to get started.</p>
+<div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+<a class="btn-primary" href="tel:706-817-4220">(706) 817-4220</a>
+<a class="btn-primary" href="mailto:operations@innovationv.com">Email Our Team</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Form Section -->
+<section class="anim-fade-in-up" style="transition-delay: 0.1s; padding: 6rem 0; background: var(--bg-paper);">
+<div class="container">
+<div class="contact-form anim-fade-in-up">
+<h3 style="text-align: center; margin-bottom: 2rem;">Start Your Project</h3>
+<form>
+<div class="form-group">
+<label for="name">Name</label>
+<input id="name" name="name" required="" type="text"/>
+</div>
+<div class="form-group">
+<label for="email">Email</label>
+<input id="email" name="email" required="" type="email"/>
+</div>
+<div class="form-group">
+<label for="phone">Phone</label>
+<input id="phone" name="phone" type="tel"/>
+</div>
+<div class="form-group">
+<label for="project">Tell us about your project</label>
+<textarea id="project" name="project" placeholder="Describe your goals, timeline, and what you're looking to achieve..."></textarea>
+</div>
+<button class="btn-primary" style="width: 100%; justify-content: center;" type="submit">Send Message</button>
+</form>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h4>Services</h4>
+<ul>
+<li><a href="#services">Web Development &amp; Design</a></li>
+<li><a href="#services">SEO &amp; Content Marketing</a></li>
+<li><a href="#services">Google Advertising</a></li>
+<li><a href="#services">Branding &amp; Graphic Design</a></li>
+<li><a href="#services">Reputation Management</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>Company</h4>
+<ul>
+<li><a href="#work">Portfolio</a></li>
+<li><a href="#about">About Us</a></li>
+<li><a href="/blog">Blog</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>Contact</h4>
+<ul>
+<li><a href="tel:706-817-4220">(706) 817-4220</a></li>
+<li><a href="mailto:operations@innovationv.com">operations@innovationv.com</a></li>
+<li>Augusta, Georgia</li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 InnoVationV. Stay five steps ahead.</p>
+</div>
+</div>
+</footer>
+<script>
+        // Scroll Progress Bar
+        function updateScrollProgress() {
+            const scrollProgress = document.getElementById('scrollProgress');
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            scrollProgress.style.width = scrollPercent + '%';
+        }
+        
+        window.addEventListener('scroll', updateScrollProgress);
+        
+        // Scroll Reveal Animation
+        (function(){
+            var obs = new IntersectionObserver(function(entries){
+                entries.forEach(function(e){
+                    if(e.isIntersecting) e.target.classList.add('anim-visible');
+                });
+            }, {threshold: 0.1});
+            document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+        })();
+        
+        // Mobile Menu Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMobile = document.getElementById('navMobile');
+        
+        if (navToggle) {
+            navToggle.addEventListener('click', function() {
+                navMobile.style.display = navMobile.style.display === 'block' ? 'none' : 'block';
+            });
+        }
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Form Submission
+        const form = document.querySelector('form');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We\'ll be in touch soon.');
+                form.reset();
+            });
+        }
+    </script>
+<script>
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) e.target.classList.add('anim-visible');
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+})();
+</script></body>
+</html>
