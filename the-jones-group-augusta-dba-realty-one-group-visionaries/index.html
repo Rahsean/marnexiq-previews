@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Realty ONE Group Visionaries - Opening Doors and Changing Lives in Augusta, GA</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg: #FAF8F2;
+            --bg-alt: #F7F5EF;
+            --text: #15181A;
+            --text-muted: #6B6F72;
+            --accent: #B08A3E;
+            --accent-light: rgba(176, 138, 62, 0.1);
+            --accent-border: rgba(176, 138, 62, 0.2);
+            
+            --font-serif: 'Cormorant Garamond', Georgia, serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', Consolas, monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-serif);
+            font-weight: 400;
+            line-height: 1.15;
+            color: var(--text);
+        }
+
+        h1 { font-size: clamp(2.75rem, 6vw, 5rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3.25rem); }
+        h3 { font-size: clamp(1.15rem, 2vw, 1.5rem); }
+
+        .label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .measure {
+            max-width: 66ch;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            padding: 14px 48px;
+            background: var(--accent);
+            color: white;
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(176, 138, 62, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(176, 138, 62, 0.4);
+        }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            padding: 14px 48px;
+            background: transparent;
+            color: var(--text);
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: 1px solid var(--accent-border);
+            cursor: pointer;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .btn-ghost:hover {
+            background: var(--accent-light);
+            border-color: var(--accent);
+        }
+
+        .anim-fade-in-up {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .anim-fade-in-up.anim-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(250, 248, 242, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--accent-border);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .phone-link {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-svg {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 0;
+            background: var(--bg-alt);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--bg);
+            border-radius: 8px;
+            padding: 2rem;
+            border: 1px solid var(--accent-border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(176, 138, 62, 0.1);
+        }
+
+        .service-number {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 0;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--accent-light);
+            border-radius: 8px;
+        }
+
+        .stat-number {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: var(--accent);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        /* Location Section */
+        .locations {
+            padding: 6rem 0;
+            background: var(--bg-alt);
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .location-card {
+            background: var(--bg);
+            padding: 1.5rem;
+            border-radius: 6px;
+            text-align: center;
+            border: 1px solid var(--accent-border);
+            transition: background 0.3s ease;
+        }
+
+        .location-card:hover {
+            background: var(--accent-light);
+        }
+
+        .location-card h4 {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+
+        /* Agent Section */
+        .agent-cta {
+            padding: 6rem 0;
+        }
+
+        .agent-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .agent-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .agent-feature {
+            text-align: left;
+            padding: 1.5rem;
+            background: var(--bg-alt);
+            border-radius: 8px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 0;
+            background: var(--bg-alt);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 0.75rem;
+            border: 1px solid var(--accent-border);
+            border-radius: 4px;
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-sans);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .contact-info {
+            padding: 2rem;
+            background: var(--bg);
+            border-radius: 8px;
+            border: 1px solid var(--accent-border);
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--accent-border);
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 3rem 0 2rem;
+            background: var(--text);
+            color: var(--bg);
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content,
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero {
+                padding: 4rem 0 3rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid,
+            .agent-features {
+                grid-template-columns: 1fr;
+            }
+
+            .locations-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+<style>
+.anim-fade-in-up {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.anim-fade-in-up.anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style></head>
+<body>
+<!-- Header -->
+<header class="header">
+<div class="container">
+<nav class="nav">
+<a class="logo" href="#">Realty ONE Group Visionaries</a>
+<ul class="nav-links">
+<li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#locations">Areas</a></li>
+<li><a href="#agents">Join Our Team</a></li>
+<li><a class="phone-link" href="tel:706-945-1267">(706) 945-1267</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="hero anim-fade-in-up" style="transition-delay: 0.0s; ">
+<div class="container">
+<div class="hero-content">
+<div class="hero-text anim-fade-in-up">
+<div class="label">Augusta, GA Real Estate</div>
+<h1>Opening Doors and Changing Lives</h1>
+<p class="measure">Making your home buying dream a reality with over 20 years of real estate experience and a fresh approach combined with cutting-edge technology.</p>
+<div class="hero-buttons">
+<a class="btn-primary" href="#contact">Find Your Home</a>
+<a class="btn-ghost" href="#services">Our Services</a>
+</div>
+</div>
+<div class="hero-visual anim-fade-in-up" style="transition-delay: 0.2s;">
+<svg class="hero-svg" fill="none" viewbox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+<rect fill="none" height="180" opacity="0.3" stroke="currentColor" stroke-width="1" width="300" x="50" y="80"></rect>
+<rect fill="none" height="60" opacity="0.2" stroke="currentColor" stroke-width="1" width="80" x="80" y="110"></rect>
+<rect fill="none" height="60" opacity="0.2" stroke="currentColor" stroke-width="1" width="80" x="200" y="110"></rect>
+<rect fill="none" height="60" opacity="0.2" stroke="currentColor" stroke-width="1" width="60" x="140" y="200"></rect>
+<path d="M50 80 L200 20 L350 80" fill="none" opacity="0.3" stroke="currentColor" stroke-width="1"></path>
+<circle cx="320" cy="50" fill="none" opacity="0.2" r="15" stroke="currentColor" stroke-width="1"></circle>
+<path d="M170 220 L170 260 M160 260 L180 260" opacity="0.3" stroke="currentColor" stroke-width="1"></path>
+</svg>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="services anim-fade-in-up" id="services" style="transition-delay: 0.1s; ">
+<div class="container">
+<div class="anim-fade-in-up">
+<div class="label">Full Range of Services</div>
+<h2>What we do for you</h2>
+</div>
+<div class="services-grid">
+<div class="service-card anim-fade-in-up" style="transition-delay: 0.1s;">
+<div class="service-number">01</div>
+<h3>Home Buying</h3>
+<p>Expert guidance through every step of the home buying process, from search to closing, ensuring you find the perfect property for your needs and budget.</p>
+</div>
+<div class="service-card anim-fade-in-up" style="transition-delay: 0.2s;">
+<div class="service-number">02</div>
+<h3>Home Selling</h3>
+<p>Strategic marketing and pricing to sell your property quickly and for the best possible price, backed by cutting-edge technology and proven expertise.</p>
+</div>
+<div class="service-card anim-fade-in-up" style="transition-delay: 0.3s;">
+<div class="service-number">03</div>
+<h3>Market Analysis</h3>
+<p>Comprehensive comparative market analysis to help you make informed decisions whether buying or selling in the competitive CSRA market.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="about anim-fade-in-up" id="about" style="transition-delay: 0.2s; ">
+<div class="container">
+<div class="about-content">
+<div class="anim-fade-in-up">
+<div class="label">Established January 2021</div>
+<h2>A brokerage built in 2021, on purpose</h2>
+<p class="measure">Realty ONE Group Visionaries combines cutting-edge technology with unparalleled customer service. Our leadership brings over 20 years of real estate experience, including a Bachelor's degree in Business Administration and several real estate designations, alongside operations management from a retired US Army Signal Officer with 25+ years of distinguished service and a Master's degree in Information Technology Management.</p>
+</div>
+<div class="anim-fade-in-up" style="transition-delay: 0.2s;">
+<div class="stats">
+<div class="stat">
+<span class="stat-number">$150M+</span>
+<span class="stat-label">In Closed Sales</span>
+</div>
+<div class="stat">
+<span class="stat-number">20+</span>
+<span class="stat-label">Years Experience</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Locations Section -->
+<section class="locations anim-fade-in-up" id="locations" style="transition-delay: 0.3s; ">
+<div class="container">
+<div class="anim-fade-in-up">
+<div class="label">Service Areas</div>
+<h2>Communities We Serve</h2>
+</div>
+<div class="locations-grid anim-fade-in-up" style="transition-delay: 0.2s;">
+<div class="location-card">
+<h4>Aiken</h4>
+</div>
+<div class="location-card">
+<h4>Appling</h4>
+</div>
+<div class="location-card">
+<h4>Augusta</h4>
+</div>
+<div class="location-card">
+<h4>Evans</h4>
+</div>
+<div class="location-card">
+<h4>Grovetown</h4>
+</div>
+<div class="location-card">
+<h4>Harlem</h4>
+</div>
+<div class="location-card">
+<h4>Hephzibah</h4>
+</div>
+<div class="location-card">
+<h4>Lincolnton</h4>
+</div>
+<div class="location-card">
+<h4>Martinez</h4>
+</div>
+<div class="location-card">
+<h4>North Augusta</h4>
+</div>
+<div class="location-card">
+<h4>Thomson</h4>
+</div>
+<div class="location-card">
+<h4>Waynesboro</h4>
+</div>
+</div>
+</div>
+</section>
+<!-- Agent CTA Section -->
+<section class="agent-cta anim-fade-in-up" id="agents" style="transition-delay: 0.4s; ">
+<div class="container">
+<div class="agent-content">
+<div class="anim-fade-in-up">
+<div class="label">Career Opportunities</div>
+<h2>Take Your Real Estate Business to the Next Level</h2>
+<p class="measure">Break the chains of traditional brokerages and join a team that creates win-win situations through coaching, mentoring, and empowered agents.</p>
+</div>
+<div class="agent-features">
+<div class="agent-feature anim-fade-in-up" style="transition-delay: 0.1s;">
+<h3>100% Commission Model</h3>
+<p>Keep more of what you earn with our agent-focused commission structure designed to put more money in your pocket.</p>
+</div>
+<div class="agent-feature anim-fade-in-up" style="transition-delay: 0.2s;">
+<h3>Training Platform</h3>
+<p>Access to comprehensive learning management system with the best training and education in the industry.</p>
+</div>
+<div class="agent-feature anim-fade-in-up" style="transition-delay: 0.3s;">
+<h3>Latest Technology</h3>
+<p>Cutting-edge tools and technology designed to streamline the real estate process and enhance client service.</p>
+</div>
+</div>
+<div class="anim-fade-in-up" style="transition-delay: 0.4s;">
+<a class="btn-primary" href="#contact">Join Our Team</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="contact anim-fade-in-up" id="contact" style="transition-delay: 0.5s; ">
+<div class="container">
+<div class="contact-content">
+<div class="anim-fade-in-up">
+<h2>Let's open the door.</h2>
+<p class="measure">Whether you're looking to buy, sell, or join our team, we're here to help you achieve your real estate goals in the CSRA.</p>
+<form class="contact-form">
+<div class="form-group">
+<label for="name">Name *</label>
+<input id="name" name="name" required="" type="text"/>
+</div>
+<div class="form-group">
+<label for="phone">Phone</label>
+<input id="phone" name="phone" type="tel"/>
+</div>
+<div class="form-group">
+<label for="email">Email *</label>
+<input id="email" name="email" required="" type="email"/>
+</div>
+<div class="form-group">
+<label for="interest">I am Interested In</label>
+<select id="interest" name="interest">
+<option value="">Select an option</option>
+<option value="buying">Purchasing A Home</option>
+<option value="selling">Selling A Home</option>
+<option value="agent">Becoming An Agent</option>
+<option value="other">Other</option>
+</select>
+</div>
+<div class="form-group">
+<label for="message">Message</label>
+<textarea id="message" name="message" rows="4"></textarea>
+</div>
+<button class="btn-primary" type="submit">Send Message</button>
+</form>
+</div>
+<div class="contact-info anim-fade-in-up" style="transition-delay: 0.2s;">
+<h3>Get In Touch</h3>
+<div class="contact-item">
+<div class="label">Office</div>
+<p>985 Broad St., Ste. 3<br/>Augusta, GA 30901</p>
+</div>
+<div class="contact-item">
+<div class="label">Phone</div>
+<p><a href="tel:706-945-1267" style="color: var(--accent); text-decoration: none;">(706) 945-1267</a></p>
+</div>
+<div class="contact-item">
+<div class="label">Email</div>
+<p><a href="mailto:info@rogvisionaries.com" style="color: var(--accent); text-decoration: none;">info@rogvisionaries.com</a></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<p>© 2026 Realty ONE Group Visionaries. All Rights Reserved.</p>
+</div>
+</footer>
+<script>
+        // Scroll reveal animation
+        (function(){
+            var obs = new IntersectionObserver(function(entries){
+                entries.forEach(function(e){
+                    if(e.isIntersecting) e.target.classList.add('anim-visible');
+                });
+            }, {threshold: 0.1});
+            document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+        })();
+
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message. We will contact you soon!');
+        });
+    </script>
+<script>
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) e.target.classList.add('anim-visible');
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+})();
+</script></body>
+</html>
