@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Century Investment Planning | Independent Fiduciary Advisors Since 1961</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&amp;family=Inter:wght@300;400;500&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg-paper: #FAF8F2;
+            --bg-card: #F4F1E9;
+            --text-ink: #14171A;
+            --text-muted: #6B6F72;
+            --accent-blue: #20456B;
+            --accent-brass: #9C7C3C;
+            --font-display: 'Cormorant Garamond', serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-paper);
+            color: var(--text-ink);
+            font-size: 17px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.75rem, 6vw, 5rem);
+            line-height: 1.15;
+            font-weight: 300;
+        }
+
+        h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3.25rem);
+            line-height: 1.15;
+            font-weight: 300;
+        }
+
+        h3 {
+            font-family: var(--font-display);
+            font-size: clamp(1.15rem, 2vw, 1.5rem);
+            line-height: 1.3;
+            font-weight: 400;
+        }
+
+        .mono-label {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .measure {
+            max-width: 66ch;
+        }
+
+        .section-padding {
+            padding: 7rem 0;
+        }
+
+        /* Nav */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: rgba(250, 248, 242, 0.95);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(155, 124, 60, 0.2);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .nav-logo {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            font-weight: 500;
+            text-decoration: none;
+            color: var(--text-ink);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 300;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 2rem;
+            background: var(--accent-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(32, 69, 107, 0.3);
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .nav-toggle span {
+            width: 20px;
+            height: 2px;
+            background: var(--text-ink);
+            transition: all 0.3s;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.03;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .hero-eyebrow {
+            color: var(--accent-brass);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            margin-bottom: 2rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            padding: 1rem 2.5rem;
+            background: var(--accent-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 2rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(32, 69, 107, 0.3);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            padding: 1rem 2.5rem;
+            background: transparent;
+            color: var(--accent-blue);
+            text-decoration: none;
+            border: 1px solid var(--accent-blue);
+            border-radius: 2rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-blue);
+            color: white;
+        }
+
+        .year-backdrop {
+            position: absolute;
+            font-family: var(--font-display);
+            font-size: 20rem;
+            font-weight: 300;
+            color: var(--accent-brass);
+            opacity: 0.08;
+            top: 50%;
+            right: -5rem;
+            transform: translateY(-50%);
+            z-index: 0;
+        }
+
+        /* Lineage */
+        .lineage {
+            position: relative;
+        }
+
+        .lineage-spine {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: var(--accent-brass);
+            opacity: 0.3;
+            transform: translateX(-50%);
+        }
+
+        .lineage-items {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .lineage-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 3rem;
+            position: relative;
+        }
+
+        .lineage-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .lineage-year {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 300;
+            color: var(--accent-brass);
+            min-width: 120px;
+            text-align: center;
+            position: relative;
+        }
+
+        .lineage-year::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -2rem;
+            width: 8px;
+            height: 8px;
+            background: var(--accent-brass);
+            border-radius: 50%;
+            transform: translateY(-50%);
+        }
+
+        .lineage-item:nth-child(even) .lineage-year::after {
+            right: auto;
+            left: -2rem;
+        }
+
+        .lineage-content {
+            flex: 1;
+        }
+
+        .lineage-content p {
+            margin-bottom: 1rem;
+        }
+
+        .lineage-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Services */
+        .services-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .service-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 3rem;
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(155, 124, 60, 0.2);
+        }
+
+        .service-item:last-child {
+            border-bottom: none;
+        }
+
+        .service-number {
+            font-family: var(--font-mono);
+            font-size: 3rem;
+            font-weight: 500;
+            color: var(--accent-brass);
+            opacity: 0.6;
+            min-width: 120px;
+        }
+
+        .service-content h3 {
+            margin-bottom: 1rem;
+        }
+
+        /* Investment Approach */
+        .investment-quote {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .investment-quote blockquote {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+            line-height: 1.4;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .investment-quote blockquote::before {
+            content: '';
+            position: absolute;
+            top: -1rem;
+            left: 50%;
+            width: 60px;
+            height: 1px;
+            background: var(--accent-brass);
+            transform: translateX(-50%);
+        }
+
+        /* Custodian Panel */
+        .custodian-panel {
+            background: var(--bg-card);
+            border: 1px solid rgba(155, 124, 60, 0.2);
+            border-radius: 8px;
+            padding: 3rem;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .custodian-panel h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid rgba(155, 124, 60, 0.2);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-info h3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-info p {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-info .phone {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--accent-blue);
+        }
+
+        .footer-contact h4 {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(155, 124, 60, 0.2);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Animations */
+        .anim-fade-in-up {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .anim-fade-in-up.anim-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+            }
+
+            .lineage-item {
+                flex-direction: column !important;
+                text-align: center;
+                gap: 1.5rem;
+            }
+
+            .lineage-year::after {
+                display: none;
+            }
+
+            .service-item {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .service-number {
+                min-width: auto;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .year-backdrop {
+                display: none;
+            }
+        }
+    </style>
+<style>
+.anim-fade-in-up {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.anim-fade-in-up.anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style></head>
+<body>
+<!-- Navigation -->
+<nav class="nav">
+<div class="container">
+<div class="nav-inner">
+<a class="nav-logo" href="#">Century Investment Planning</a>
+<ul class="nav-links">
+<li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#approach">Approach</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<a class="nav-cta" href="tel:706-738-6899">Call Today</a>
+<button aria-label="Toggle menu" class="nav-toggle">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Hero -->
+<section class="hero section-padding anim-fade-in-up" id="hero" style="transition-delay: 0.0s; ">
+<div class="container">
+<div class="hero-content">
+<div class="hero-bg">
+<svg fill="none" height="400" viewbox="0 0 400 400" width="400">
+<circle cx="200" cy="200" opacity="0.3" r="150" stroke="currentColor" stroke-width="0.5"></circle>
+<circle cx="200" cy="200" opacity="0.3" r="120" stroke="currentColor" stroke-width="0.5"></circle>
+<circle cx="200" cy="200" opacity="0.3" r="90" stroke="currentColor" stroke-width="0.5"></circle>
+<circle cx="200" cy="200" opacity="0.3" r="60" stroke="currentColor" stroke-width="0.5"></circle>
+</svg>
+</div>
+<div class="year-backdrop">1961</div>
+<div class="anim-fade-in-up">
+<div class="mono-label hero-eyebrow">Independent Registered Investment Advisors</div>
+</div>
+<div class="anim-fade-in-up" style="transition-delay: 0.1s;">
+<h1 class="hero-title">We have a fiduciary responsibility to act in our client's best interest, not ours.</h1>
+</div>
+<div class="anim-fade-in-up" style="transition-delay: 0.2s;">
+<p class="hero-subtitle">We are dependent on our client's success. We focus on partnerships, personal service and performance.</p>
+</div>
+<div class="anim-fade-in-up" style="transition-delay: 0.3s;">
+<div class="hero-ctas">
+<a class="btn-primary" href="#contact">Schedule a Consultation</a>
+<a class="btn-secondary" href="#about">Our Story</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Lineage -->
+<section class="section-padding anim-fade-in-up" id="about" style="transition-delay: 0.1s; ">
+<div class="container">
+<div class="anim-fade-in-up">
+<div style="text-align: center; margin-bottom: 4rem;">
+<div class="mono-label" style="color: var(--accent-brass); margin-bottom: 1rem;">Our History</div>
+<h2 class="measure" style="margin: 0 auto;">Six decades of trusted financial guidance</h2>
+</div>
+</div>
+<div class="lineage">
+<div class="lineage-spine"></div>
+<div class="lineage-items">
+<div class="lineage-item anim-fade-in-up" style="transition-delay: 0.1s;">
+<div class="lineage-year">1961</div>
+<div class="lineage-content">
+<p>The firm's history began when its founder, after completing service in the U.S. Army, became a Certified Public Accountant and began working in his hometown of Augusta, Georgia.</p>
+</div>
+</div>
+<div class="lineage-item anim-fade-in-up" style="transition-delay: 0.2s;">
+<div class="lineage-year">1994</div>
+<div class="lineage-content">
+<p>Money Advisors, Inc. was established out of necessity for tax clients who needed strategic investment planning services, combining CPA expertise with comprehensive financial planning.</p>
+</div>
+</div>
+<div class="lineage-item anim-fade-in-up" style="transition-delay: 0.3s;">
+<div class="lineage-year">2017</div>
+<div class="lineage-content">
+<p>After retiring as Managing Partner of a CPA firm, the founder continued with financial planning and maintained the investment advisory practice. Century Investment Planning was formed to identify Money Advisors, Inc's core business operation.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services -->
+<section class="section-padding anim-fade-in-up" id="services" style="transition-delay: 0.2s; background: var(--bg-card);">
+<div class="container">
+<div class="anim-fade-in-up">
+<div style="text-align: center; margin-bottom: 4rem;">
+<div class="mono-label" style="color: var(--accent-brass); margin-bottom: 1rem;">What We Do</div>
+<h2 class="measure" style="margin: 0 auto;">Comprehensive wealth management services</h2>
+</div>
+</div>
+<div class="services-list">
+<div class="service-item anim-fade-in-up" style="transition-delay: 0.1s;">
+<div class="service-number">01</div>
+<div class="service-content">
+<h3>Financial Analysis</h3>
+<p>We collaborate and review the full scope of your financial wellbeing and establish personal forecasts that help guide you through a successful financial future.</p>
+</div>
+</div>
+<div class="service-item anim-fade-in-up" style="transition-delay: 0.2s;">
+<div class="service-number">02</div>
+<div class="service-content">
+<h3>Portfolio Management</h3>
+<p>We construct unique portfolio strategies aligned with your risk tolerance and objectives for wealth accumulation.</p>
+</div>
+</div>
+<div class="service-item anim-fade-in-up" style="transition-delay: 0.3s;">
+<div class="service-number">03</div>
+<div class="service-content">
+<h3>Retirement Solutions</h3>
+<p>We analyze your path to retirement and advise on protecting your financial independence and long-term care.</p>
+</div>
+</div>
+<div class="service-item anim-fade-in-up" style="transition-delay: 0.4s;">
+<div class="service-number">04</div>
+<div class="service-content">
+<h3>Estate Planning</h3>
+<p>We support you in outlining wills, trusts, powers of attorney, charitable endowments and other directives to ensure your lasting legacy.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Investment Approach -->
+<section class="section-padding anim-fade-in-up" id="approach" style="transition-delay: 0.3s; ">
+<div class="container">
+<div class="investment-quote anim-fade-in-up">
+<blockquote>
+                    Our investment selection process is based on extensive fundamental research to assess each investment's underlying financial stability and future earnings potential. We stress a commitment to long term investment time horizon. Time is a major factor that supports wealth accumulation.
+                </blockquote>
+</div>
+</div>
+</section>
+<!-- Custodian -->
+<section class="section-padding anim-fade-in-up" style="transition-delay: 0.4s; background: var(--bg-card);">
+<div class="container">
+<div class="custodian-panel anim-fade-in-up">
+<h3>Asset Custody</h3>
+<p>Client assets are held by Charles Schwab &amp; Co, Inc., which acts as the custodian of our accounts under management. Schwab's Advisor Services platform assists in processing administrative services and issues transaction statements directly to clients on a monthly basis.</p>
+</div>
+</div>
+</section>
+<!-- CTA -->
+<section class="section-padding anim-fade-in-up" id="contact" style="transition-delay: 0.5s; ">
+<div class="container">
+<div class="anim-fade-in-up" style="text-align: center; max-width: 700px; margin: 0 auto;">
+<h2 style="margin-bottom: 2rem;">Ready to discuss your financial future?</h2>
+<p style="font-size: 1.1rem; margin-bottom: 3rem; color: var(--text-muted);">We invite you to contact us today and look forward to discussing your financial future together.</p>
+<div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+<a class="btn-primary" href="tel:706-738-6899">Call 706-738-6899</a>
+<a class="btn-secondary" href="mailto:invest@centuryplanner.com">Send Email</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-info">
+<h3>Century Investment Planning</h3>
+<p><strong>Money Advisors Inc.</strong></p>
+<p style="margin: 1rem 0;">3540 Wheeler Road, Suite 206<br/>Augusta, GA 30909</p>
+<p class="phone">706-738-6899</p>
+<p>invest@centuryplanner.com</p>
+</div>
+<div class="footer-contact">
+<h4>Services</h4>
+<p>Portfolio Management<br/>Retirement Planning<br/>Estate Planning<br/>Financial Analysis</p>
+</div>
+</div>
+<div class="footer-bottom">
+<p>©2021 Money Advisors Inc dba Century Investment Planning</p>
+<p style="margin-top: 1rem; font-size: 0.75rem;">General information provided is not intended to be specific investment advice for your personal situation. Risk is involved in holding any marketable security. Fluctuations in market value can result in loss of principal. Past results do not guarantee future performance.</p>
+</div>
+</div>
+</footer>
+<script>
+        // Scroll reveal animation
+        (function(){
+            var observer = new IntersectionObserver(function(entries){
+                entries.forEach(function(entry){
+                    if(entry.isIntersecting) {
+                        entry.target.classList.add('anim-visible');
+                    }
+                });
+            }, {threshold: 0.1});
+            
+            document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ 
+                observer.observe(el); 
+            });
+        })();
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+<script>
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) e.target.classList.add('anim-visible');
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+})();
+</script></body>
+</html>
