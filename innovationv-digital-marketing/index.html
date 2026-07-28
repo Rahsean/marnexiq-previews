@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>InnoVationV - Augusta Marketing Agency | Turn Ideas Into Impact</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg-paper: #FAF8F2;
+            --bg-elevated: #F7F5EF;
+            --text-ink: #15181A;
+            --text-muted: #6B6F72;
+            --accent: #5B3FD6;
+            --accent-hover: #4A2FC4;
+            --border-subtle: rgba(107, 111, 114, 0.15);
+            
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-paper);
+            color: var(--text-ink);
+            font-size: 16px;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3 {
+            font-family: var(--font-display);
+            font-weight: 500;
+            line-height: 1.15;
+            color: var(--text-ink);
+        }
+        
+        h1 {
+            font-size: clamp(2.75rem, 6vw, 5rem);
+            font-weight: 600;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3.25rem);
+        }
+        
+        h3 {
+            font-size: clamp(1.15rem, 2vw, 1.5rem);
+        }
+        
+        .section-padding {
+            padding: 6rem 1.5rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .text-measure {
+            max-width: 66ch;
+        }
+        
+        .label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+        
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50px;
+            padding: 16px 40px;
+            background: var(--accent);
+            color: white;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(91, 63, 214, 0.25);
+        }
+        
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(91, 63, 214, 0.35);
+        }
+        
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            backdrop-filter: blur(16px);
+            background: rgba(250, 248, 242, 0.9);
+            border-bottom: 1px solid var(--border-subtle);
+            transition: all 0.3s ease;
+        }
+        
+        .nav.scrolled {
+            background: rgba(250, 248, 242, 0.95);
+        }
+        
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-ink);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: none;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text-ink);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .nav-cta {
+            padding: 10px 24px;
+            font-size: 0.85rem;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--bg-paper) 0%, var(--bg-elevated) 100%);
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-ink) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        @media (min-width: 640px) {
+            .hero-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+        
+        .btn-secondary {
+            color: var(--text-ink);
+            background: transparent;
+            border: 1px solid var(--border-subtle);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--bg-elevated);
+            transform: translateY(-2px);
+        }
+        
+        /* Decorative Elements */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            border: 1px solid var(--border-subtle);
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 20%;
+            left: -10%;
+            width: 300px;
+            height: 300px;
+            border: 1px solid var(--accent);
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+        
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+        
+        .service-card {
+            position: relative;
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 24px rgba(21, 24, 26, 0.08);
+            border: 1px solid var(--border-subtle);
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 40px rgba(21, 24, 26, 0.12);
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent), #7C4DFF);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: white;
+        }
+        
+        .service-card h3 {
+            margin-bottom: 1rem;
+            color: var(--text-ink);
+        }
+        
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        
+        /* About Section */
+        .about {
+            background: white;
+            position: relative;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        @media (min-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .about-text h2 {
+            margin-bottom: 2rem;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--bg-elevated);
+            border-radius: 12px;
+        }
+        
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--accent);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        /* Process Section */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .process-step h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .process-step p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background: var(--bg-elevated);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(21, 24, 26, 0.06);
+        }
+        
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--text-ink);
+        }
+        
+        .testimonial-company {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        
+        .stars {
+            color: #FFB800;
+            margin-bottom: 1rem;
+        }
+        
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--accent) 0%, #7C4DFF 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta p {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+        
+        .btn-white {
+            background: white;
+            color: var(--accent);
+        }
+        
+        .btn-white:hover {
+            background: var(--bg-elevated);
+            transform: translateY(-2px);
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            display: grid;
+            gap: 1.5rem;
+            max-width: 500px;
+            margin: 3rem auto 0;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .form-group label {
+            font-weight: 500;
+            color: white;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            padding: 12px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-family: var(--font-body);
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--text-ink);
+            color: white;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+        
+        .footer-section h4 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 3rem;
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        .anim-fade-in-up {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .anim-fade-in-up.anim-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive */
+        @media (max-width: 640px) {
+            .section-padding {
+                padding: 4rem 1rem;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+<style>
+.anim-fade-in-up {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.anim-fade-in-up.anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style></head>
+<body>
+<!-- Navigation -->
+<nav class="nav" id="mainNav">
+<div class="nav-inner">
+<a class="nav-logo" href="#">InnoVationV</a>
+<ul class="nav-links">
+<li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#process">Process</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<a class="btn-primary nav-cta" href="tel:7068174220">Call Now</a>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="hero section-padding anim-fade-in-up" style="transition-delay: 0.0s; ">
+<div class="container">
+<div class="hero-content anim-fade-in-up">
+<div class="label" style="margin-bottom: 2rem;">Augusta Marketing Agency</div>
+<h1>Turn Ideas Into Impact</h1>
+<p class="hero-subtitle">We aren't just another marketing agency in Augusta, Georgia. At InnoVationV, we're your champions for success through strategic Web Development, Google Advertising, and powerful Digital &amp; Print Marketing Solutions.</p>
+<div class="hero-buttons">
+<a class="btn-primary" href="tel:7068174220">Call (706) 817-4220</a>
+<a class="btn-primary btn-secondary" href="#services">View Services</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="section-padding anim-fade-in-up" id="services" style="transition-delay: 0.1s; ">
+<div class="container">
+<div class="text-center anim-fade-in-up">
+<div class="label">What We Provide</div>
+<h2 style="margin-bottom: 1rem;">A System Proven to Excel</h2>
+<p class="text-measure" style="margin: 0 auto 0; color: var(--text-muted);">We deliver comprehensive marketing solutions that amplify your online presence and drive real business growth.</p>
+</div>
+<div class="services-grid">
+<div class="service-card anim-fade-in-up" style="transition-delay: 0.1s;">
+<div class="service-icon">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+</svg>
+</div>
+<h3>SEO &amp; Content Marketing</h3>
+<p>Amplify your Search Engine Optimization score with fresh, relevant, and revolving content. Show the algorithms that you're worthy of the top spot on their SERPs!</p>
+</div>
+<div class="service-card anim-fade-in-up" style="transition-delay: 0.2s;">
+<div class="service-icon">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+</div>
+<h3>Reputation &amp; Listing Management</h3>
+<p>You need unique, engaging social media content and a swift reputation management system. Your online presence shapes how leads perceive you!</p>
+</div>
+<div class="service-card anim-fade-in-up" style="transition-delay: 0.3s;">
+<div class="service-icon">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+<path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+</svg>
+</div>
+<h3>Branding &amp; Graphic Design</h3>
+<p>Don't let your logo and custom graphics be plain, stock, or copied from someone else! Tell a story through color, styles, textures, and visuals.</p>
+</div>
+<div class="service-card anim-fade-in-up" style="transition-delay: 0.4s;">
+<div class="service-icon">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<rect height="14" rx="2" ry="2" width="20" x="2" y="3"></rect>
+<line x1="8" x2="16" y1="21" y2="21"></line>
+<line x1="12" x2="12" y1="17" y2="21"></line>
+</svg>
+</div>
+<h3>Web Design &amp; Development</h3>
+<p>Blending aesthetics and user experience creates a visually appealing, well functioning website. We can create brochure sites, e-commerce sites, or whatever you need!</p>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="about section-padding anim-fade-in-up" id="about" style="transition-delay: 0.2s; ">
+<div class="container">
+<div class="about-content">
+<div class="about-text anim-fade-in-up">
+<div class="label">We Know What Works</div>
+<h2>More Than Just a Landing Page</h2>
+<p>You need a website that is going to efficiently communicate your message that turns those ghost users into active, loyal customers. To do this, you need to have an entirely built-in system that collects qualified leads.</p>
+<p>Our strategies take the stress off of your back and easily provide solutions to otherwise time-consuming issues. InnoVationV has been working diligently for the last 10+ years to build the best marketing agency from the ground up.</p>
+<p>We work with website developers, graphic designers, content writers, and other service-based business-to-business industries to help us reach our goals and yours!</p>
+</div>
+<div class="anim-fade-in-up" style="transition-delay: 0.2s;">
+<div class="stats-grid">
+<div class="stat-item">
+<span class="stat-number">10+</span>
+<span class="stat-label">Years Building</span>
+</div>
+<div class="stat-item">
+<span class="stat-number">Local</span>
+<span class="stat-label">Augusta Focus</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Process Section -->
+<section class="section-padding anim-fade-in-up" id="process" style="transition-delay: 0.3s; ">
+<div class="container">
+<div class="text-center anim-fade-in-up">
+<div class="label">Our Approach</div>
+<h2 style="margin-bottom: 1rem;">Communication-Driven Process</h2>
+<p class="text-measure" style="margin: 0 auto; color: var(--text-muted);">Thorough communication with each client guarantees that you will receive an end result that is still yours, not just our idea of your vision.</p>
+</div>
+<div class="process-steps">
+<div class="process-step anim-fade-in-up" style="transition-delay: 0.1s;">
+<div class="step-number">1</div>
+<h3>Discovery &amp; Strategy</h3>
+<p>We start by understanding your business, goals, and target audience to create a tailored marketing strategy.</p>
+</div>
+<div class="process-step anim-fade-in-up" style="transition-delay: 0.2s;">
+<div class="step-number">2</div>
+<h3>Design &amp; Development</h3>
+<p>Our team creates visually appealing, functional solutions that communicate your message effectively.</p>
+</div>
+<div class="process-step anim-fade-in-up" style="transition-delay: 0.3s;">
+<div class="step-number">3</div>
+<h3>Implementation &amp; Launch</h3>
+<p>We execute your campaign with precision, ensuring all elements work together seamlessly.</p>
+</div>
+<div class="process-step anim-fade-in-up" style="transition-delay: 0.4s;">
+<div class="step-number">4</div>
+<h3>Optimize &amp; Scale</h3>
+<p>Continuous monitoring and optimization ensure your marketing delivers sustained growth.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section class="testimonials section-padding anim-fade-in-up" style="transition-delay: 0.4s; ">
+<div class="container">
+<div class="text-center anim-fade-in-up">
+<div class="label">Client Success</div>
+<h2 style="margin-bottom: 1rem;">What Our Clients Say</h2>
+</div>
+<div class="testimonials-grid">
+<div class="testimonial anim-fade-in-up" style="transition-delay: 0.1s;">
+<div class="stars">★★★★★</div>
+<p class="testimonial-content">"Been working with Reed and his team for years. They have seen and guided me through several transitions. Extremely responsive and highly recommended!"</p>
+<div class="testimonial-author">Charism Life</div>
+<div class="testimonial-company">Charism Enterprise</div>
+</div>
+<div class="testimonial anim-fade-in-up" style="transition-delay: 0.2s;">
+<div class="stars">★★★★★</div>
+<p class="testimonial-content">"This group is the absolute best. I highly recommend for any web related work you need done. Super professional and easy to work with"</p>
+<div class="testimonial-author">Joe Edge</div>
+<div class="testimonial-company">Sherman &amp; Hemstreet / The Augusta Press</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="cta section-padding anim-fade-in-up" id="contact" style="transition-delay: 0.5s; ">
+<div class="container">
+<div class="anim-fade-in-up">
+<h2>Ready to Turn Your Ideas Into Impact?</h2>
+<p>Give us a call or book now with our team to get started on your marketing transformation.</p>
+<div class="contact-form">
+<div class="form-group">
+<label for="name">Full Name</label>
+<input id="name" name="name" placeholder="Your name" required="" type="text"/>
+</div>
+<div class="form-group">
+<label for="email">Email Address</label>
+<input id="email" name="email" placeholder="your@email.com" required="" type="email"/>
+</div>
+<div class="form-group">
+<label for="phone">Phone Number</label>
+<input id="phone" name="phone" placeholder="(706) 817-4220" type="tel"/>
+</div>
+<div class="form-group">
+<label for="message">Project Details</label>
+<textarea id="message" name="message" placeholder="Tell us about your project and goals..." rows="4"></textarea>
+</div>
+<button class="btn-primary btn-white" type="submit">Send Message</button>
+</div>
+<div style="margin-top: 3rem; padding-top: 3rem; border-top: 1px solid rgba(255, 255, 255, 0.2);">
+<h3 style="color: white; margin-bottom: 1rem;">Or Call Directly</h3>
+<a class="btn-primary btn-white" href="tel:7068174220" style="font-size: 1.1rem; padding: 16px 32px;">(706) 817-4220</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="footer section-padding">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h4>InnoVationV</h4>
+<p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 1.5rem;">An Augusta marketing agency, turning ideas into impact through strategic digital solutions.</p>
+<p style="color: rgba(255, 255, 255, 0.7);">
+<strong>Phone:</strong> (706) 817-4220<br/>
+<strong>Email:</strong> operations@innovationv.com
+                    </p>
+</div>
+<div class="footer-section">
+<h4>Digital Services</h4>
+<ul>
+<li><a href="#">SEO &amp; Content Marketing</a></li>
+<li><a href="#">Web Development &amp; Design</a></li>
+<li><a href="#">Graphic Design</a></li>
+<li><a href="#">Reputation Management</a></li>
+<li><a href="#">Pay Per Click</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>Print Services</h4>
+<ul>
+<li><a href="#">Brochures &amp; Flyers</a></li>
+<li><a href="#">Business Cards</a></li>
+<li><a href="#">Menus</a></li>
+<li><a href="#">Gift Certificates</a></li>
+<li><a href="#">EDDM &amp; Post Cards</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>Quick Links</h4>
+<ul>
+<li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#process">Process</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 InnoVationV. All rights reserved. Augusta, Georgia Marketing Agency.</p>
+</div>
+</div>
+</footer>
+<script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll reveal animation
+        (function(){
+            var obs = new IntersectionObserver(function(entries){
+                entries.forEach(function(e){
+                    if(e.isIntersecting) e.target.classList.add('anim-visible');
+                });
+            }, {threshold: 0.1});
+            document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+        })();
+
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will contact you shortly.');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+<script>
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) e.target.classList.add('anim-visible');
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+})();
+</script></body>
+</html>
