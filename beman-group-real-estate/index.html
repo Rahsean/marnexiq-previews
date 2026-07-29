@@ -1,197 +1,794 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
-<title>Beman Group Real Estate — Commercial &amp; Investment, Augusta GA</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Beman Group Real Estate - Commercial Real Estate Experts in Augusta, GA</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;family=Source+Sans+Pro:wght@300;400;600&amp;family=JetBrains+Mono:wght@400&amp;family=Cormorant+Garamond:wght@300;400&amp;display=swap" rel="stylesheet"/>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-img{max-width:100%;display:block}a{text-decoration:none;color:inherit}
-:root{--navy:#191D49;--navy-d:#0E1130;--gold:#C9AF53;--gold-l:#E0CB84;
- --paper:#F7F5F0;--paper2:#EDE9E0;--ink:#1A1A22;--ink2:#6A6A78;--line:#DAD5C9}
-body{background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.7}
-h1,h2,h3{font-family:'Cormorant Garamond','Georgia',serif;font-weight:500;letter-spacing:-.005em;line-height:1.02}
-.wrap{max-width:1240px;margin:0 auto;padding:0 34px}
-.kicker{font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:600}
-.hr{height:1px;background:var(--line)}
+        /* Real Estate Palette - CSS Custom Properties */
+        :root {
+            /* Core colors */
+            --bg-deep: #0f1410;
+            --bg-card: #1a1f1c;
+            --bg-elevated: #242a26;
+            --accent: #c4842a;
+            --accent-hover: #d49a3e;
+            --gold: #d4af37;
+            --gold-muted: rgba(212, 175, 55, 0.12);
+            --text: #f5f0e8;
+            --text-muted: #b8b0a0;
+            --text-heading: #ffffff;
+            --border: rgba(196, 132, 42, 0.15);
+            --accent-rgb: 196, 132, 42;
 
-#nav{position:fixed;inset:0 0 auto;z-index:80;background:rgba(247,245,240,.94);
- backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-#nav .bar{display:flex;align-items:center;justify-content:space-between;padding:15px 0}
-#nav img{height:34px;width:auto}
-.nl{display:flex;gap:30px;align-items:center}
-.nl a{font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;color:var(--navy);font-weight:500}
-.nl a:hover{color:var(--gold)}
-.btn{display:inline-block;padding:15px 32px;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;
- font-weight:600;transition:.25s;border:1px solid var(--navy)}
-.btn-f{background:var(--navy);color:var(--paper)}.btn-f:hover{background:var(--gold);border-color:var(--gold);color:var(--navy-d)}
-.btn-o:hover{background:var(--navy);color:var(--paper)}
-.btn-g{border-color:var(--gold);color:var(--gold)}.btn-g:hover{background:var(--gold);color:var(--navy-d)}
+            /* Typography */
+            --font-heading: 'Playfair Display', 'Georgia', serif;
+            --font-body: 'Source Sans Pro', 'Helvetica Neue', sans-serif;
+            --heading-weight: 400;
+            --heading-weight-bold: 700;
+            --body-weight: 300;
+            --body-weight-medium: 400;
 
-/* HERO — dark architectural plate, huge serif, gold rule */
-.hero{background:var(--navy);color:var(--paper);padding:170px 0 96px;position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;right:-6%;top:12%;width:520px;height:520px;border:1px solid rgba(201,175,83,.18);
- border-radius:50%;pointer-events:none}
-.hero h1{color:#fff;font-size:clamp(3rem,8vw,7.2rem);margin:24px 0 0}
-.hero h1 em{font-style:italic;color:var(--gold)}
-.hgrid{display:grid;grid-template-columns:1.25fr .75fr;gap:60px;align-items:end;margin-top:44px}
-.hero p{color:#B9BCD4;font-size:1.1rem;max-width:520px}
-.hacts{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
-.hstats{display:flex;gap:40px;flex-wrap:wrap}
-.hstats div b{font-family:'Cormorant Garamond',serif;font-size:2.6rem;color:var(--gold);display:block;line-height:1}
-.hstats div span{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:#8E92B0;margin-top:8px;display:block}
+            /* Photo overlay - keep low so properties show */
+            --overlay-opacity: 0.45;
+        }
 
-/* SERVICE LEDGER */
-section{padding:112px 0}
-.shead{max-width:660px;margin-bottom:56px}
-.shead h2{font-size:clamp(2.2rem,4.6vw,3.6rem);margin:14px 0 16px}
-.shead p{color:var(--ink2);font-size:1.05rem}
-.ledger{border-top:1px solid var(--line)}
-.lrow{display:grid;grid-template-columns:70px 1fr 1.1fr;gap:34px;padding:32px 0;
- border-bottom:1px solid var(--line);align-items:baseline;transition:.28s}
-.lrow:hover{background:var(--paper2);padding-left:16px}
-.lrow .no{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--gold)}
-.lrow h3{font-size:1.7rem}
-.lrow p{color:var(--ink2);font-size:.98rem}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* PROJECTS — the differentiator */
-.proj{background:var(--navy-d);color:var(--paper)}
-.proj h2{color:#fff}
-.pgrid{display:grid;grid-template-columns:1.15fr .85fr;gap:34px;margin-top:52px}
-.pcard{position:relative;border:1px solid rgba(201,175,83,.22);padding:44px 40px;min-height:340px;
- display:flex;flex-direction:column;justify-content:flex-end;transition:.3s;background:#141733}
-.pcard:hover{border-color:var(--gold);transform:translateY(-5px)}
-.pcard .yr{font-family:'Cormorant Garamond',serif;font-size:3.4rem;color:var(--gold);line-height:1;opacity:.75}
-.pcard h3{color:#fff;font-size:2rem;margin:14px 0 12px}
-.pcard p{color:#A9ADC8;font-size:.97rem}
-.tagpill{display:inline-block;margin-top:18px;border:1px solid rgba(201,175,83,.4);color:var(--gold);
- padding:6px 14px;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase}
+        body {
+            background: var(--bg-deep);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-weight: var(--body-weight);
+            line-height: 1.7;
+        }
 
-/* TEAM */
-.tgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--line);background:#fff}
-.tm{padding:34px 26px;border-right:1px solid var(--line);transition:.28s}
-.tm:last-child{border-right:0}
-.tm:hover{background:var(--paper2)}
-.tm .ph{margin:-34px -26px 18px;overflow:hidden}
-.tm .ph img{width:100%;height:auto}
-.tm .mk{width:38px;height:38px;border-radius:50%;border:1px solid var(--gold);color:var(--gold);
- display:grid;place-items:center;font-family:'Cormorant Garamond',serif;font-size:1rem;margin-bottom:16px}
-.tm b{display:block;font-family:'Cormorant Garamond',serif;font-size:1.24rem;font-weight:500}
-.tm .role{font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:5px 0 12px}
-.tm p{font-size:.86rem;color:var(--ink2)}
-.tm a{font-size:.78rem;color:var(--navy);border-bottom:1px solid var(--line);word-break:break-all}
-.tm a:hover{border-color:var(--gold)}
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: var(--heading-weight);
+            color: var(--text-heading);
+            line-height: 1.1;
+        }
 
-/* SPLIT with real photo */
-.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
-.split .figbox{position:relative}
-.split .figbox img{width:100%;height:auto}
-.split .cap{position:absolute;left:0;bottom:0;background:var(--navy);color:#fff;padding:16px 22px}
-.split .cap b{font-family:'Cormorant Garamond',serif;font-size:1.15rem;display:block}
-.split .cap span{font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
-.pull{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,2.8vw,2.3rem);line-height:1.24;margin-bottom:20px}
+        h1 { 
+            font-size: clamp(2.75rem, 6vw, 5rem); 
+            margin-bottom: 1.5rem;
+        }
+        h2 { 
+            font-size: clamp(2rem, 4vw, 3.25rem); 
+            margin-bottom: 1rem;
+        }
+        h3 { 
+            font-size: clamp(1.15rem, 2vw, 1.5rem); 
+            font-weight: var(--heading-weight-bold);
+            margin-bottom: 0.75rem;
+        }
 
-/* CTA */
-.cta{background:var(--gold);color:var(--navy-d)}
-.cta h2{color:var(--navy-d);font-size:clamp(2.2rem,5vw,3.8rem);margin-bottom:16px}
-.cta p{color:#4A421E;max-width:520px;margin-bottom:30px}
-.cgrid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:end}
-.cinfo p{font-size:.92rem;color:#4A421E;margin-bottom:5px}
-.cinfo a{color:var(--navy-d);border-bottom:1px solid var(--navy-d)}
+        p {
+            font-size: 1.1rem;
+            max-width: 65ch;
+            margin-bottom: 1.5rem;
+        }
 
-footer{background:var(--navy);color:#B9BCD4;padding:44px 0}
-.frow{display:flex;justify-content:space-between;align-items:center;gap:26px;flex-wrap:wrap}
-footer img{height:30px;width:auto}
-footer p{font-size:.76rem;letter-spacing:.06em}
+        /* Sticky Blur Navigation */
+        .nav-blur {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: transparent;
+            border-bottom: 1px solid transparent;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
 
-.rv{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}
-.rv.on{opacity:1;transform:none}
-@media(max-width:1050px){.nl{display:none}
- .hgrid,.pgrid,.split,.cgrid{grid-template-columns:1fr;gap:34px}
- .tgrid{grid-template-columns:1fr}.tm{border-right:0;border-bottom:1px solid var(--line)}
- .lrow{grid-template-columns:44px 1fr;gap:18px}.lrow p{grid-column:2}
- section{padding:72px 0}.hero{padding:130px 0 70px}.wrap{padding:0 20px}}
-</style></head><body>
+        .nav-blur.scrolled {
+            background: rgba(10, 10, 10, 0.85);
+            border-bottom-color: rgba(255, 255, 255, 0.06);
+        }
 
-<header id="nav"><div class="wrap"><div class="bar">
-<a href="#"><img src="https://static.wixstatic.com/media/792e65_22e2c9e87d9c47ba885962f8be801e5f~mv2.png/v1/fill/w_1045,h_320,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Blue-Horizontal_Beman_Group-Logo.png" alt="Beman Group Real Estate"></a>
-<nav class="nl"><a href="#services">Services</a><a href="#projects">Projects</a><a href="#team">Team</a>
-<a href="#contact" style="color:var(--gold)">Contact</a></nav>
-</div></div></header>
+        .nav-blur-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+        }
 
-<section class="hero"><div class="wrap">
-<div class="kicker">Commercial Real Estate &amp; Investment · Augusta, Georgia</div>
-<h1>We put Augusta<br>buildings <em>back to work.</em></h1>
-<div class="hgrid">
-<div><p>Brokerage, investment management and adaptive-reuse development across the CSRA —
-led from Augusta by people who grew up here.</p>
-<div class="hacts"><a class="btn btn-f" href="#contact">Start a conversation</a>
-<a class="btn btn-g" href="#projects">See our projects</a></div></div>
-<div class="hstats">
-<div><b>1890s</b><span>Oldest asset restored</span></div>
-<div><b>50 yrs</b><span>Vacant before we stepped in</span></div>
-<div><b>2</b><span>Landmark redevelopments</span></div>
-</div></div></div></section>
+        .nav-blur-logo-text {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: var(--heading-weight-bold);
+            color: var(--text-heading);
+            text-decoration: none;
+        }
 
-<section id="services"><div class="wrap">
-<div class="shead rv"><div class="kicker">What we do</div>
-<h2>Four disciplines, one firm.</h2>
-<p>Brokerage that knows the block, investment work that survives a cycle, and development
-that gives a building its second century.</p></div>
-<div class="ledger"><div class="lrow rv"><div class="no">01</div><h3>Commercial Brokerage</h3><p>Office, retail, industrial and land — represented with real CSRA market data, not guesswork.</p></div><div class="lrow rv"><div class="no">02</div><h3>Investment Management</h3><p>Acquisition, underwriting and asset management for owners who think in decades, not quarters.</p></div><div class="lrow rv"><div class="no">03</div><h3>Property Management</h3><p>Day-to-day operations, tenant relations and reporting across our managed portfolio.</p></div><div class="lrow rv"><div class="no">04</div><h3>Development & Adaptive Reuse</h3><p>Taking buildings written off as teardowns and putting them back into service.</p></div></div>
-</div></section>
+        .nav-blur-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
 
-<section class="proj" id="projects"><div class="wrap">
-<div class="shead rv"><div class="kicker">Projects</div>
-<h2 style="color:#fff">Deals done.</h2>
-<p style="color:#A9ADC8">The clearest way to judge a real estate firm is what it has actually finished.</p></div>
-<div class="pgrid">
-<div class="pcard rv"><div class="yr">2024</div><h3>Union Lofts</h3>
-<p>Built in the 1890s across from the former Union Station, where it housed boarding rooms for railroad
-workers and patrons. Vacant for almost fifty years and positioned to be torn down — until the team saw
-what it could be again. Brought back to life in 2024.</p>
-<span class="tagpill">Adaptive reuse · Now leasing</span></div>
-<div class="pcard rv"><div class="yr">—</div><h3>The Lofts on Broad</h3>
-<p>Downtown Augusta residential conversion, on one of the city's principal streets.</p>
-<span class="tagpill">Residential · Downtown</span></div>
-</div></div></section>
+        .nav-blur-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: var(--body-weight-medium);
+            transition: color 0.3s ease;
+        }
 
-<section><div class="wrap split">
-<div class="figbox"><img src="https://static.wixstatic.com/media/21fb40_f9167520b23f453bad12a56e2fe4692a~mv2.jpg/v1/fill/w_700,h_900,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/x.jpg" alt="Davis H. Beman, Principal"><div class="cap"><b>Davis H. Beman</b><span>Principal</span></div></div>
-<div class="rv"><div class="kicker">The firm</div>
-<p class="pull">Local knowledge isn't a marketing line — it's the whole product.</p>
-<p style="color:var(--ink2)">Beman Group Real Estate is a principal-led commercial firm working across
-brokerage, investment management and development in Augusta and the greater CSRA. We underwrite our own
-deals, manage our own assets, and put our name on the buildings we bring back.</p>
-<p style="color:var(--ink2);margin-top:14px">That means when we tell you what a property is worth,
-we're telling you what we'd pay for it ourselves.</p>
-<div style="margin-top:28px"><a class="btn btn-o" href="#team">Meet the team</a></div>
-</div></div></section>
+        .nav-blur-links a:hover {
+            color: var(--accent);
+        }
 
-<section id="team" style="padding-top:0"><div class="wrap">
-<div class="shead rv"><div class="kicker">The team</div>
-<h2>Who you'll actually work with.</h2></div>
-<div class="tgrid"><div class="tm rv"><div class="ph"><img src="https://static.wixstatic.com/media/21fb40_f9167520b23f453bad12a56e2fe4692a~mv2.jpg/v1/fill/w_700,h_900,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/x.jpg" alt="Davis H. Beman"></div><b>Davis H. Beman</b><div class="role">Principal</div><p>Born and raised in Augusta. Academy of Richmond County, then Georgia Tech.</p><a href="mailto:Davis@bemangroup.com">Davis@bemangroup.com</a></div><div class="tm rv"><div class="ph"><img src="https://static.wixstatic.com/media/21fb40_a824569d630b4d53983f9b1d0614ff46~mv2.jpeg/v1/fill/w_600,h_760,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/x.jpeg" alt="Geraldin Gutierrez"></div><b>Geraldin Gutierrez</b><div class="role">Operations Manager</div><p>Augusta University graduate. Raised in the Bronx and the Dominican Republic — the CSRA is home.</p><a href="mailto:Geraldin@bemangroup.com">Geraldin@bemangroup.com</a></div><div class="tm rv"><div class="ph"><img src="https://static.wixstatic.com/media/21fb40_202e0ead644f42d5b5a4fc9d997cf2d5~mv2.jpg/v1/fill/w_600,h_760,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/x.jpg" alt="Whitt Rutland"></div><b>Whitt Rutland</b><div class="role">Commercial Associate</div><p>Auburn, 2019 — Supply Chain Management, then two and a half years in logistics.</p><a href="mailto:Whitt@bemangroup.com">Whitt@bemangroup.com</a></div><div class="tm rv"><div class="ph"><img src="https://static.wixstatic.com/media/21fb40_7d71d009a2a14fc7aefe82c75255bf39~mv2.jpg/v1/fill/w_600,h_760,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/x.jpg" alt="Ky Widener"></div><b>Ky Widener</b><div class="role">Commercial Associate</div><p>Commercial brokerage across the CSRA market.</p><a href="mailto:Ky@bemangroup.com">Ky@bemangroup.com</a></div><div class="tm rv"><div class="ph"><img src="https://static.wixstatic.com/media/21fb40_12e114ff19da4375a8950756f9d4f796~mv2.jpg/v1/fill/w_600,h_760,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/x.jpg" alt="Vicki Gould"></div><b>Vicki Gould</b><div class="role">Bookkeeper</div><p>Rooted in the South since 1979. University of South Carolina and Augusta State.</p><a href="mailto:Vicki@bemangroup.com">Vicki@bemangroup.com</a></div></div>
-</div></section>
+        .nav-blur-cta {
+            background: var(--accent);
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
 
-<section class="cta" id="contact"><div class="wrap cgrid">
-<div><div class="kicker" style="color:var(--navy-d)">Get in touch</div>
-<h2>Let's talk about the property.</h2>
-<p>Buying, leasing, selling or repositioning — start with a straight conversation about the numbers.</p>
-<a class="btn btn-f" href="tel:7065384800">Call 706-538-4800</a></div>
-<div class="cinfo">
-<p>Beman Group Real Estate</p>
-<p style="color:var(--navy-d);font-weight:600">147 Davis Road, Suite A<br>Augusta, Georgia 30907</p>
-<p style="margin-top:12px"><a href="mailto:info@bemangroup.com">info@bemangroup.com</a></p>
-<p><a href="tel:7065384800">706-538-4800</a></p>
-</div></div></section>
+        .nav-blur-cta:hover {
+            background: var(--accent-hover);
+        }
 
-<footer><div class="wrap frow">
-<img src="https://static.wixstatic.com/media/21fb40_e8bbeb97ba2b40b7b5b345d92e3aba5c~mv2.png/v1/fill/w_192,h_192,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Gold-Submark_Beman_Group-Logo.png" alt="Beman Group">
-<p>© 2026 Beman Group Real Estate &nbsp;·&nbsp; Preview redesign concept by MARNEXIQ</p>
-</div></footer>
+        .nav-blur-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            width: 24px;
+            height: 18px;
+        }
 
-<script>(function(){
- var r=document.querySelectorAll('.rv');
- var o=new IntersectionObserver(function(e){e.forEach(function(y){
-  if(y.isIntersecting){y.target.classList.add('on');o.unobserve(y.target)}})},{threshold:.1});
- r.forEach(function(y){o.observe(y)});})();</script>
-</body></html>
+        .nav-blur-toggle span {
+            display: block;
+            height: 2px;
+            width: 100%;
+            background: var(--text);
+            margin: 2px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-blur-mobile {
+            display: none;
+            background: rgba(10, 10, 10, 0.95);
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .nav-blur-mobile ul {
+            list-style: none;
+        }
+
+        .nav-blur-mobile a {
+            display: block;
+            padding: 1rem 0;
+            color: var(--text);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* Scroll Reveal Animation */
+        .anim-fade-in-up {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .anim-fade-in-up.anim-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hover Lift Cards */
+        .lift-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .lift-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .lift-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+        }
+
+        .lift-card-img img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .lift-card-body {
+            padding: 1.5rem;
+        }
+
+        .lift-card-title {
+            font-size: 1.25rem;
+            font-weight: var(--heading-weight-bold);
+            margin-bottom: 0.75rem;
+        }
+
+        .lift-card-desc {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .lift-card-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: var(--body-weight-medium);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .lift-card-link:hover {
+            color: var(--accent-hover);
+        }
+
+        /* Pill Glow Button */
+        .btn-pill-glow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            padding: 14px 48px;
+            background: var(--accent);
+            color: #ffffff;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(var(--accent-rgb), 0.3);
+            transition: transform 0.3s cubic-bezier(.25, .46, .45, .94),
+                        box-shadow 0.3s cubic-bezier(.25, .46, .45, .94);
+        }
+
+        .btn-pill-glow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(var(--accent-rgb), 0.4);
+        }
+
+        /* Diagonal Clip */
+        .section-diagonal {
+            position: relative;
+            padding: 6rem 2rem 8rem;
+            clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+            background: var(--bg-card);
+        }
+
+        /* Monospace Labels */
+        .mono-label {
+            font-family: 'JetBrains Mono', 'SF Mono', monospace;
+            font-size: 0.625rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: rgba(196, 132, 42, 0.6);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Gold Gradient Line */
+        .divider-gradient {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0.3;
+            margin: 3rem 0;
+        }
+
+        /* Marquee Ticker */
+        .marquee-ribbon {
+            overflow: hidden;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 18px 0;
+            white-space: nowrap;
+        }
+
+        .marquee-track {
+            display: inline-flex;
+            gap: 3rem;
+            animation: marquee-scroll 30s linear infinite;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 300;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: rgba(231, 235, 238, 0.6);
+        }
+
+        .marquee-track .separator {
+            color: var(--accent);
+            font-size: 0.7rem;
+        }
+
+        @keyframes marquee-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Container and Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 6rem 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(rgba(15, 20, 16, 0.6), rgba(15, 20, 16, 0.4)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect width="1200" height="800" fill="%23242a26"/><path d="M0 400 Q300 200 600 400 T1200 400 L1200 800 L0 800 Z" fill="%231a1f1c"/></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero-subtitle {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            max-width: 60ch;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Services Section */
+        .services-intro {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .contact-item h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .contact-item p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-deep);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: var(--heading-weight-bold);
+            color: var(--text-heading);
+            margin-bottom: 1rem;
+        }
+
+        .footer-address {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-contact a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .footer-contact a:hover {
+            color: var(--accent-hover);
+        }
+
+        .footer-copyright {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            opacity: 0.7;
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-blur-links,
+            .nav-blur-cta {
+                display: none;
+            }
+
+            .nav-blur-toggle {
+                display: flex;
+            }
+
+            .nav-blur-mobile.active {
+                display: block;
+            }
+
+            .hero-content {
+                padding: 1rem;
+            }
+
+            .section {
+                padding: 4rem 0;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .lift-card-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .footer-contact {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .marquee-track {
+                animation: none;
+            }
+        }
+    </style>
+<style>
+.anim-fade-in-up {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.anim-fade-in-up.anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style></head>
+<body>
+<!-- Navigation -->
+<nav class="nav-blur" id="mainNav">
+<div class="nav-blur-inner">
+<a class="nav-blur-logo" href="#">
+<span class="nav-blur-logo-text">Beman Group</span>
+</a>
+<ul class="nav-blur-links">
+<li><a href="#services">Services</a></li>
+<li><a href="#properties">Properties</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<a class="nav-blur-cta" href="#contact">Get Started</a>
+<button aria-label="Toggle menu" class="nav-blur-toggle" id="navToggle">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+<div class="nav-blur-mobile" id="navMobile">
+<ul>
+<li><a href="#services">Services</a></li>
+<li><a href="#properties">Properties</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="hero anim-fade-in-up" style="transition-delay: 0.0s; ">
+<div class="hero-content">
+<div class="anim-fade-in-up">
+<div class="hero-subtitle">Commercial Real Estate Experts</div>
+<h1>Serving the CSRA, Atlanta, and Columbia, South Carolina</h1>
+<p class="hero-description">The Beman Group is a team of experienced Commercial Real Estate professionals dedicated to utilizing data and research to best suit your needs. Our team of Commercial Agents and Investment Professionals have a proven track record of success in all asset classes including Industrial, Office, Retail, and Multifamily.</p>
+<a class="btn-pill-glow" href="#contact">Start Your Project</a>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="section anim-fade-in-up" id="services" style="transition-delay: 0.1s; ">
+<div class="container">
+<div class="services-intro anim-fade-in-up">
+<span class="mono-label">Our Expertise</span>
+<h2>Complete Commercial Real Estate Solutions</h2>
+<p>From investment and management to brokerage and leasing, we provide comprehensive commercial real estate services across all asset classes.</p>
+</div>
+<div class="lift-card-grid">
+<div class="lift-card anim-fade-in-up" style="transition-delay: 0s;">
+<div class="lift-card-img">
+<img alt="Investment services" loading="lazy" src="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'&gt;&lt;rect width='400' height='250' fill='%23242a26'/&gt;&lt;rect x='50' y='60' width='80' height='100' fill='%23c4842a' opacity='0.3'/&gt;&lt;rect x='150' y='40' width='80' height='120' fill='%23c4842a' opacity='0.5'/&gt;&lt;rect x='250' y='70' width='80' height='90' fill='%23c4842a' opacity='0.4'/&gt;&lt;/svg&gt;"/>
+</div>
+<div class="lift-card-body">
+<h3 class="lift-card-title">Investment</h3>
+<p class="lift-card-desc">Strategic commercial real estate investment opportunities across Industrial, Office, Retail, and Multifamily asset classes.</p>
+<a class="lift-card-link" href="#contact">Learn more <span>→</span></a>
+</div>
+</div>
+<div class="lift-card anim-fade-in-up" style="transition-delay: 0.1s;">
+<div class="lift-card-img">
+<img alt="Management services" loading="lazy" src="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'&gt;&lt;rect width='400' height='250' fill='%23242a26'/&gt;&lt;circle cx='200' cy='125' r='60' fill='none' stroke='%23c4842a' stroke-width='3' opacity='0.6'/&gt;&lt;path d='M160 125 L180 145 L240 85' fill='none' stroke='%23c4842a' stroke-width='4'/&gt;&lt;/svg&gt;"/>
+</div>
+<div class="lift-card-body">
+<h3 class="lift-card-title">Management</h3>
+<p class="lift-card-desc">Professional property management services to optimize your commercial real estate investments and operations.</p>
+<a class="lift-card-link" href="#contact">Explore <span>→</span></a>
+</div>
+</div>
+<div class="lift-card anim-fade-in-up" style="transition-delay: 0.2s;">
+<div class="lift-card-img">
+<img alt="Brokerage services" loading="lazy" src="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'&gt;&lt;rect width='400' height='250' fill='%23242a26'/&gt;&lt;path d='M80 180 L120 120 L160 140 L200 100 L240 120 L280 80 L320 100' fill='none' stroke='%23c4842a' stroke-width='3'/&gt;&lt;circle cx='320' cy='100' r='4' fill='%23c4842a'/&gt;&lt;/svg&gt;"/>
+</div>
+<div class="lift-card-body">
+<h3 class="lift-card-title">Brokerage</h3>
+<p class="lift-card-desc">Expert brokerage services for commercial property transactions, utilizing market data and research to achieve optimal outcomes.</p>
+<a class="lift-card-link" href="#contact">Get started <span>→</span></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="divider-gradient"></div>
+<!-- Properties Section -->
+<section class="section-diagonal anim-fade-in-up" id="properties" style="transition-delay: 0.2s; ">
+<div class="container">
+<div class="anim-fade-in-up">
+<span class="mono-label">Featured Properties</span>
+<h2>Union Lofts &amp; The Lofts on Broad</h2>
+<p>Built in the 1890's and brought back to life in 2024, Union Lofts is a historic property that was once positioned to be torn down just a few years ago. The property was located across the street from the former Union Station to provide amenities and boarding rooms to the workers and patrons of the railroad. Vacant for almost 50 years, the team had the vision and expertise to reimagine what the future of this property could be.</p>
+<div class="lift-card-grid">
+<div class="lift-card anim-fade-in-up" style="transition-delay: 0s;">
+<div class="lift-card-img">
+<img alt="Union Lofts historic building" loading="lazy" src="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'&gt;&lt;rect width='400' height='250' fill='%23242a26'/&gt;&lt;rect x='50' y='50' width='300' height='120' fill='%23c4842a' opacity='0.2'/&gt;&lt;rect x='60' y='60' width='40' height='60' fill='%23c4842a' opacity='0.4'/&gt;&lt;rect x='110' y='60' width='40' height='60' fill='%23c4842a' opacity='0.4'/&gt;&lt;rect x='160' y='60' width='40' height='60' fill='%23c4842a' opacity='0.4'/&gt;&lt;rect x='210' y='60' width='40' height='60' fill='%23c4842a' opacity='0.4'/&gt;&lt;rect x='260' y='60' width='40' height='60' fill='%23c4842a' opacity='0.4'/&gt;&lt;rect x='310' y='60' width='40' height='60' fill='%23c4842a' opacity='0.4'/&gt;&lt;/svg&gt;"/>
+</div>
+<div class="lift-card-body">
+<h3 class="lift-card-title">Union Lofts</h3>
+<p class="lift-card-desc">Historic 1890s property transformed into modern apartments, located across from the former Union Station. Now is your chance to be a part of history.</p>
+<a class="lift-card-link" href="#contact">Learn more <span>→</span></a>
+</div>
+</div>
+<div class="lift-card anim-fade-in-up" style="transition-delay: 0.1s;">
+<div class="lift-card-img">
+<img alt="The Lofts on Broad Street" loading="lazy" src="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'&gt;&lt;rect width='400' height='250' fill='%23242a26'/&gt;&lt;rect x='40' y='40' width='320' height='140' fill='%23c4842a' opacity='0.2'/&gt;&lt;rect x='60' y='60' width='80' height='80' fill='%23c4842a' opacity='0.3'/&gt;&lt;rect x='160' y='60' width='80' height='80' fill='%23c4842a' opacity='0.3'/&gt;&lt;rect x='260' y='60' width='80' height='80' fill='%23c4842a' opacity='0.3'/&gt;&lt;/svg&gt;"/>
+</div>
+<div class="lift-card-body">
+<h3 class="lift-card-title">The Lofts on Broad</h3>
+<p class="lift-card-desc">Modern loft apartments offering contemporary living spaces in a prime Augusta location.</p>
+<a class="lift-card-link" href="#contact">View apartments <span>→</span></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Marquee Section -->
+<div class="marquee-ribbon">
+<div class="marquee-track">
+<span>Industrial</span>
+<span class="separator">✦</span>
+<span>Office</span>
+<span class="separator">✦</span>
+<span>Retail</span>
+<span class="separator">✦</span>
+<span>Multifamily</span>
+<span class="separator">✦</span>
+<span>Investment</span>
+<span class="separator">✦</span>
+<span>Management</span>
+<span class="separator">✦</span>
+<span>Brokerage</span>
+<span class="separator">✦</span>
+<span>Commercial Leasing</span>
+<span class="separator">✦</span>
+<!-- Duplicate for seamless loop -->
+<span>Industrial</span>
+<span class="separator">✦</span>
+<span>Office</span>
+<span class="separator">✦</span>
+<span>Retail</span>
+<span class="separator">✦</span>
+<span>Multifamily</span>
+<span class="separator">✦</span>
+<span>Investment</span>
+<span class="separator">✦</span>
+<span>Management</span>
+<span class="separator">✦</span>
+<span>Brokerage</span>
+<span class="separator">✦</span>
+<span>Commercial Leasing</span>
+<span class="separator">✦</span>
+</div>
+</div>
+<!-- About Section -->
+<section class="section anim-fade-in-up" id="about" style="transition-delay: 0.3s; ">
+<div class="container">
+<div class="anim-fade-in-up">
+<span class="mono-label">About Beman Group</span>
+<h2>Commercial Real Estate Professionals</h2>
+<p>Located in Augusta, Georgia, Beman Group Real Estate specializes in commercial real estate across the CSRA, Atlanta, and Columbia, South Carolina. Our experienced team focuses on maximizing investments through comprehensive data analysis and market research.</p>
+<p>We serve all major asset classes in commercial real estate, providing expertise across Industrial, Office, Retail, and Multifamily properties. Our approach combines local market knowledge with professional investment and management strategies.</p>
+<p>Our services encompass the full spectrum of commercial real estate needs: strategic investment opportunities, professional property management, expert brokerage services, and commercial leasing solutions. Whether you're looking to invest, manage existing properties, or need representation in commercial transactions, our team brings the experience and market insight to support your objectives.</p>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="section anim-fade-in-up" id="contact" style="transition-delay: 0.4s; ">
+<div class="container">
+<div class="anim-fade-in-up">
+<span class="mono-label">Get In Touch</span>
+<h2>Ready to Start Your Commercial Real Estate Project?</h2>
+<p>Contact us to discuss your investment, management, or brokerage needs. Our team is ready to provide the expertise and market knowledge to support your commercial real estate objectives.</p>
+<div class="contact-info">
+<div class="contact-item">
+<h3>Office</h3>
+<p>706-538-4800</p>
+</div>
+<div class="contact-item">
+<h3>Email</h3>
+<p>info@bemangroup.com</p>
+</div>
+<div class="contact-item">
+<h3>Location</h3>
+<p>147 Davis Road Suite A<br/>Augusta, Georgia 30907</p>
+</div>
+</div>
+<div style="text-align: center; margin-top: 3rem;">
+<a class="btn-pill-glow" href="tel:706-538-4800">Call Today</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<h3 class="footer-logo">Beman Group Real Estate</h3>
+<div class="footer-address">
+                    147 Davis Road Suite A<br/>
+                    Augusta, Georgia 30907
+                </div>
+<div class="footer-contact">
+<a href="tel:706-538-4800">706-538-4800</a>
+<a href="mailto:info@bemangroup.com">info@bemangroup.com</a>
+</div>
+<div class="footer-copyright">
+                    © 2024 Beman Group Real Estate. All rights reserved.
+                </div>
+</div>
+</div>
+</footer>
+<script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        document.getElementById('navToggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('navMobile');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Scroll reveal animation
+        (function(){
+            var obs = new IntersectionObserver(function(entries){
+                entries.forEach(function(e){
+                    if(e.isIntersecting) e.target.classList.add('anim-visible');
+                });
+            }, {threshold: 0.1});
+            document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+        })();
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+<script>
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) e.target.classList.add('anim-visible');
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+})();
+</script></body>
+</html>
