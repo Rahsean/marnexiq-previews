@@ -4,17 +4,37 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Logic Point Consulting - Strategic Business Solutions</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&amp;family=Inter:wght@300;400;500&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<title>Logic Point Consulting - Small Business Consulting</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&amp;family=Inter:wght@300;400;500&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
 <style>
         :root {
-            --paper: #F7F5EF;
-            --white: #FFFFFF;
-            --panel: #EFEBE1;
-            --ink: #141A16;
-            --ink-muted: #6B6F69;
-            --brand-green: #007640;
-            --brand-deep: #04502C;
+            /* Core colors */
+            --bg-deep: #0a0f1a;
+            --bg-card: #111827;
+            --bg-elevated: #1a2236;
+            --accent: #7456f1;
+            --accent-hover: #8b6ff5;
+            --gold: #d4af37;
+            --gold-muted: rgba(212, 175, 55, 0.15);
+            --text: #E7EBEE;
+            --text-muted: #9ca3af;
+            --text-heading: #ffffff;
+            --border: rgba(116, 86, 241, 0.15);
+            --border-gold: rgba(212, 175, 55, 0.25);
+
+            /* Typography */
+            --font-heading: 'Cormorant Garamond', 'Georgia', serif;
+            --font-body: 'Inter', 'Helvetica Neue', sans-serif;
+            --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
+            --heading-weight: 300;
+            --heading-weight-bold: 400;
+            --body-weight: 300;
+            --body-weight-medium: 400;
+
+            /* Photo overlay */
+            --overlay-opacity: 0.55;
         }
 
         * {
@@ -24,53 +44,43 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--paper);
-            color: var(--ink);
+            background: var(--bg-deep);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-weight: var(--body-weight);
             line-height: 1.7;
             font-size: 16px;
-            font-weight: 400;
         }
 
         h1, h2, h3 {
-            font-family: 'Cormorant Garamond', serif;
-            color: var(--ink);
-            line-height: 1.1;
-            font-weight: 400;
+            font-family: var(--font-heading);
+            font-weight: var(--heading-weight);
+            color: var(--text-heading);
+            letter-spacing: 0.02em;
         }
 
-        h1 {
-            font-size: clamp(2.75rem, 6vw, 5rem);
+        h1 { 
+            font-size: clamp(2.75rem, 6vw, 5rem); 
+            line-height: 1.1; 
+        }
+        
+        h2 { 
+            font-size: clamp(2rem, 4vw, 3.25rem); 
+            line-height: 1.1; 
+        }
+        
+        h3 { 
+            font-size: clamp(1.15rem, 2vw, 1.5rem); 
+            font-weight: var(--heading-weight-bold); 
+            line-height: 1.2;
         }
 
-        h2 {
-            font-size: clamp(2rem, 4vw, 3.25rem);
-        }
-
-        h3 {
-            font-size: clamp(1.15rem, 2vw, 1.5rem);
-        }
-
-        .mono {
-            font-family: 'JetBrains Mono', ui-monospace, monospace;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--ink-muted);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .text-constrained {
+        p {
             max-width: 65ch;
         }
 
         /* Navigation */
-        .nav {
+        .nav-blur {
             position: fixed;
             top: 0;
             left: 0;
@@ -78,380 +88,414 @@
             z-index: 50;
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            background: rgba(247, 245, 239, 0.9);
-            border-bottom: 1px solid rgba(20, 26, 22, 0.06);
+            background: transparent;
+            border-bottom: 1px solid transparent;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .nav-blur.scrolled {
+            background: rgba(10, 15, 26, 0.85);
+            border-bottom-color: rgba(255, 255, 255, 0.06);
+        }
+
+        .nav-blur-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-blur-logo-text {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--text-heading);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-blur-links {
+            display: none;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-blur-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .nav-blur-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-blur-cta {
+            background: var(--accent);
+            color: #ffffff;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.85rem;
+            text-decoration: none;
+            cursor: pointer;
             transition: background 0.3s ease;
         }
 
-        .nav-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 0;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-left: 2rem;
-            padding-right: 2rem;
+        .nav-blur-cta:hover {
+            background: var(--accent-hover);
         }
 
-        .nav-logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem;
-            font-weight: 500;
-            color: var(--ink);
-            text-decoration: none;
-        }
-
-        .nav-cta {
-            background: var(--brand-green);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 2rem;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .nav-cta:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(0, 118, 64, 0.2);
-        }
-
-        /* Hero Section */
-        .hero {
+        .nav-blur-toggle {
+            display: block;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            width: 24px;
+            height: 18px;
             position: relative;
-            padding: 9rem 0 6rem;
-            min-height: auto;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
         }
 
-        .hero-contours {
-            position: absolute;
-            inset: 0;
-            opacity: 0.08;
-            pointer-events: none;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-special {
-            display: inline-block;
-            background: var(--brand-green);
-            color: white;
-            padding: 0.5rem 1rem;
-            font-size: 0.75rem;
-            border-radius: 0.25rem;
-            margin-bottom: 2rem;
-            transform: rotate(-1deg);
-        }
-
-        .hero-title {
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-subtitle {
-            font-size: 1.125rem;
-            color: var(--ink-muted);
-            margin-bottom: 3rem;
-            max-width: 55ch;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-        }
-
-        .btn-primary {
-            background: var(--brand-green);
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 3rem;
-            text-decoration: none;
-            font-weight: 500;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 118, 64, 0.3);
-        }
-
-        .btn-ghost {
-            border: 1px solid var(--ink);
-            color: var(--ink);
-            padding: 1rem 2.5rem;
-            border-radius: 3rem;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background 0.2s ease, color 0.2s ease;
-        }
-
-        .btn-ghost:hover {
-            background: var(--ink);
-            color: var(--paper);
-        }
-
-        .hero-point {
-            position: absolute;
-            bottom: 20%;
-            right: 15%;
-            z-index: 1;
-        }
-
-        /* Quote Section */
-        .quote-section {
-            padding: 6rem 0;
-            text-align: center;
-        }
-
-        .quote-rule {
-            width: 80px;
+        .nav-blur-toggle span {
+            display: block;
+            background: var(--text);
             height: 2px;
-            background: var(--brand-green);
-            margin: 0 auto 2rem;
+            width: 100%;
+            margin-bottom: 4px;
+            transition: all 0.3s ease;
         }
 
-        .quote-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(1.5rem, 3vw, 2.25rem);
-            font-style: italic;
-            color: var(--ink);
-            max-width: 50ch;
-            margin: 0 auto;
+        .nav-blur-toggle span:last-child {
+            margin-bottom: 0;
         }
 
-        /* Services Section */
-        .services {
-            padding: 8rem 0;
-            position: relative;
+        .nav-blur-mobile {
+            display: none;
+            background: rgba(10, 15, 26, 0.95);
+            backdrop-filter: blur(16px);
+            border-top: 1px solid var(--border);
+            padding: 2rem;
         }
 
-        .services-route {
-            position: absolute;
-            left: 50%;
-            top: 0;
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(to bottom, transparent, var(--brand-green), transparent);
-            transform: translateX(-50%);
+        .nav-blur-mobile ul {
+            list-style: none;
         }
 
-        .service-cards {
-            display: flex;
-            flex-direction: column;
-            gap: 6rem;
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .service-card {
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 0.5rem;
-            border: 1px solid rgba(20, 26, 22, 0.06);
-            position: relative;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 36px rgba(20, 26, 22, 0.1);
-        }
-
-        .service-number {
-            position: absolute;
-            left: -4rem;
-            top: 2rem;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 4rem;
-            font-weight: 300;
-            color: var(--brand-green);
-            opacity: 0.3;
-        }
-
-        .service-icon {
-            margin-bottom: 1.5rem;
-        }
-
-        .service-title {
+        .nav-blur-mobile li {
             margin-bottom: 1rem;
         }
 
-        .service-description {
-            color: var(--ink-muted);
-            margin-bottom: 2rem;
-        }
-
-        .service-link {
-            display: inline-flex;
-            align-items: center;
-            color: var(--brand-green);
+        .nav-blur-mobile a {
+            color: var(--text);
             text-decoration: none;
-            font-weight: 500;
-            transition: transform 0.2s ease;
+            font-size: 1.1rem;
+            font-weight: 400;
         }
 
-        .service-link:hover {
-            transform: translateX(4px);
-        }
-
-        /* Community Section */
-        .community {
-            background: var(--panel);
-            padding: 8rem 0;
-            position: relative;
-        }
-
-        .community-grid {
-            position: absolute;
-            inset: 0;
-            opacity: 0.03;
-            pointer-events: none;
-        }
-
-        .community-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .community-text h2 {
-            margin-bottom: 2rem;
-        }
-
-        .community-text p {
-            color: var(--ink-muted);
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: var(--brand-deep);
-            color: white;
-            padding: 6rem 0;
-            text-align: center;
-        }
-
-        .cta-content h2 {
-            color: white;
-            margin-bottom: 1rem;
-        }
-
-        .cta-content p {
-            font-size: 1.125rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-        }
-
-        .cta-phone {
-            display: inline-flex;
-            align-items: center;
-            font-size: 1.25rem;
-            font-weight: 500;
-            color: white;
-            text-decoration: none;
-            border: 2px solid white;
-            padding: 1rem 2rem;
-            border-radius: 0.5rem;
-            transition: background 0.2s ease;
-        }
-
-        .cta-phone:hover {
-            background: white;
-            color: var(--brand-deep);
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--ink);
-            color: white;
-            padding: 4rem 0 2rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-brand {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .footer-hours h4 {
-            font-size: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .footer-hours p {
-            opacity: 0.8;
-            font-size: 0.9rem;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 2rem;
-            text-align: center;
-            font-size: 0.85rem;
-            opacity: 0.6;
-        }
-
-        /* Animations */
-        .fade-in-up {
+        /* Scroll reveal animation */
+        .anim-fade-in-up {
             opacity: 0;
             transform: translateY(25px);
             transition: opacity 0.8s ease, transform 0.8s ease;
         }
 
-        .fade-in-up.visible {
+        .anim-fade-in-up.anim-visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero {
-                padding: 8rem 0 6rem;
-                min-height: 80vh;
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #fff 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Monospace labels */
+        .mono-label {
+            font-family: var(--font-mono);
+            font-size: 0.625rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: rgba(212, 175, 55, 0.6);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Gold gradient line */
+        .divider-gradient {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0.3;
+            margin: 3rem 0;
+        }
+
+        /* Glass cards */
+        .glass-card {
+            background: rgba(17, 24, 39, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 8px 40px rgba(116, 86, 241, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .glass-card-icon {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .glass-card-title {
+            margin-bottom: 1rem;
+            color: var(--text-heading);
+        }
+
+        .glass-card-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Arrow expand links */
+        .link-arrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--gold);
+            text-decoration: none;
+            transition: gap 0.3s ease, color 0.3s ease;
+        }
+
+        .link-arrow:hover {
+            gap: 14px;
+        }
+
+        .link-arrow-icon {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .link-arrow:hover .link-arrow-icon {
+            transform: translateX(4px);
+        }
+
+        /* Ghost outline buttons */
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            padding: 14px 48px;
+            background: transparent;
+            color: #ffffff;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+        }
+
+        .btn-ghost:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Numbered features */
+        .numbered-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .numbered-item {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 2rem;
+            align-items: start;
+            margin-bottom: 4rem;
+        }
+
+        .numbered-num {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            font-weight: 300;
+            color: rgba(212, 175, 55, 0.2);
+            line-height: 1;
+        }
+
+        .numbered-content h3 {
+            margin-bottom: 1rem;
+        }
+
+        .numbered-content p {
+            color: var(--text-muted);
+        }
+
+        /* Sections */
+        .section {
+            padding: 6rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding: 8rem 2rem 6rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(10,15,26,0.95) 0%, rgba(10,15,26,0.75) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 640px;
+        }
+
+        .hero .gold-line {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+            margin: 0 0 1.5rem 0;
+        }
+
+        .hero-subtitle {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            margin: 1.5rem 0 2rem;
+            max-width: 50ch;
+        }
+
+        /* Grid layouts */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .text-center { text-align: center; }
+
+        /* CTA section */
+        .cta-section {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--text-heading);
+            margin-bottom: 1rem;
+        }
+
+        .footer-contact {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-copy {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Mobile responsive */
+        @media (min-width: 768px) {
+            .nav-blur-links {
+                display: flex;
             }
 
-            .hero-actions {
-                flex-direction: column;
-                align-items: stretch;
+            .nav-blur-toggle {
+                display: none;
+            }
+
+            .numbered-item {
+                grid-template-columns: 150px 1fr;
+                gap: 3rem;
+            }
+
+            .numbered-num {
+                font-size: 5rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .numbered-item {
+                grid-template-columns: 1fr;
+                gap: 1rem;
                 text-align: center;
             }
 
-            .community-content {
+            .numbered-num {
+                font-size: 3rem;
+            }
+
+            .grid-2 {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
 
-            .service-number {
-                position: static;
-                margin-bottom: 1rem;
-                font-size: 3rem;
-            }
-
-            .services-route {
-                display: none;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
+            .section {
+                padding: 4rem 1rem;
             }
         }
     </style>
@@ -468,201 +512,218 @@
 </style></head>
 <body>
 <!-- Navigation -->
-<nav class="nav">
-<div class="nav-inner">
-<a class="nav-logo" href="#">Logic Point Consulting</a>
-<a class="nav-cta" href="#contact">Free Consultation</a>
+<nav class="nav-blur" id="mainNav">
+<div class="nav-blur-inner">
+<a class="nav-blur-logo" href="#">
+<span class="nav-blur-logo-text">Logic Point Consulting</span>
+</a>
+<ul class="nav-blur-links">
+<li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<a class="nav-blur-cta" href="#contact">Get Started</a>
+<button aria-label="Toggle menu" class="nav-blur-toggle" id="navToggle">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+<div class="nav-blur-mobile" id="navMobile">
+<ul>
+<li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
 </div>
 </nav>
-<!-- Hero Section -->
+<!-- Hero -->
 <section class="hero anim-fade-in-up" style="transition-delay: 0.0s; ">
-<svg class="hero-contours" viewbox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
-<path d="M200 200 Q300 150 400 200 Q500 250 600 200 Q700 150 800 200 Q900 250 1000 200" fill="none" stroke="currentColor" stroke-width="1"></path>
-<path d="M150 300 Q250 250 350 300 Q450 350 550 300 Q650 250 750 300 Q850 350 950 300" fill="none" stroke="currentColor" stroke-width="1"></path>
-<path d="M100 400 Q200 350 300 400 Q400 450 500 400 Q600 350 700 400 Q800 450 900 400" fill="none" stroke="currentColor" stroke-width="1"></path>
-<path d="M250 500 Q350 450 450 500 Q550 550 650 500 Q750 450 850 500" fill="none" stroke="currentColor" stroke-width="1"></path>
-</svg>
-<div class="container">
-<div class="hero-content">
-<div class="hero-special fade-in-up">Contact us today for our 90 day introductory special!</div>
-<h1 class="hero-title fade-in-up">Helping you map success!</h1>
-<p class="hero-subtitle fade-in-up">Following 30 years in the defense and technology industry, we're dedicating our resources and knowledge to building our communities.</p>
-<div class="hero-actions fade-in-up">
-<a class="btn-primary" href="#contact">Schedule your free consultation</a>
-<a class="btn-ghost" href="#services">Find out more</a>
-</div>
-</div>
-</div>
-<svg class="hero-point" height="60" viewbox="0 0 60 60" width="60" xmlns="http://www.w3.org/2000/svg">
-<circle cx="30" cy="30" fill="var(--brand-green)" r="4"></circle>
-<path d="M20 30 L40 30 M30 20 L30 40" stroke="var(--brand-green)" stroke-width="1.5"></path>
-</svg>
-</section>
-<!-- Quote Section -->
-<section class="quote-section anim-fade-in-up" style="transition-delay: 0.1s; ">
-<div class="container">
-<div class="quote-rule fade-in-up"></div>
-<blockquote class="quote-text fade-in-up">
-                Business mentors are key—that's why when it comes to client selection, we're choosy. We want to give each of you the time and guidance you deserve.
-            </blockquote>
+<div class="hero-content anim-fade-in-up">
+<div class="gold-line"></div>
+<span class="mono-label">Small Business Consulting</span>
+<h1 class="gradient-text">Helping you map success!</h1>
+<p class="hero-subtitle">Following 30 years in the defense and technology industry, we're dedicating our resources and knowledge to building our communities. We are committed to assisting and growing small and minority businesses.</p>
+<a class="btn-ghost" href="#contact">Contact us today for our 90 day introductory special</a>
 </div>
 </section>
-<!-- Services Section -->
-<section class="services anim-fade-in-up" id="services" style="transition-delay: 0.2s; ">
-<div class="services-route"></div>
+<div class="divider-gradient"></div>
+<!-- Services -->
+<section class="section anim-fade-in-up" id="services" style="transition-delay: 0.1s; ">
 <div class="container">
-<div class="service-cards">
-<article class="service-card fade-in-up anim-fade-in-up" style="transition-delay: 0.3s; ">
-<div class="service-number">01</div>
-<div class="service-icon">
-<svg fill="none" height="48" stroke="var(--brand-green)" stroke-width="1.5" viewbox="0 0 48 48" width="48">
-<circle cx="24" cy="24" r="20"></circle>
-<path d="M12 24 L20 32 L36 16"></path>
-<path d="M24 8 L24 40 M8 24 L40 24"></path>
+<div class="anim-fade-in-up text-center" style="margin-bottom: 4rem;">
+<span class="mono-label">Our Services</span>
+<h2>Empowering Your Business Growth</h2>
+</div>
+<div class="grid-3">
+<div class="glass-card anim-fade-in-up" style="transition-delay: 0s;">
+<div class="glass-card-icon">
+<svg fill="none" height="32" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" width="32">
+<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
 </svg>
 </div>
-<h3 class="service-title">Strategic planning made simple</h3>
-<p class="service-description">We can help you build a road map to your success with strategic planning, dedicated support, affordable service, and a tailored plan to meet your specific needs.</p>
-<a class="service-link" href="#contact">
-                        Learn more →
+<h3 class="glass-card-title">Business Consulting</h3>
+<p class="glass-card-desc">Logic Point Consulting can assist you in reaching your destination of being a business owner. We can help you build a road map to your success with strategic planning, dedicated support, affordable service, and a tailored plan to meet your specific needs.</p>
+</div>
+<div class="glass-card anim-fade-in-up" style="transition-delay: 0.1s;">
+<div class="glass-card-icon">
+<svg fill="none" height="32" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" width="32">
+<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+</svg>
+</div>
+<h3 class="glass-card-title">Certification Assistance</h3>
+<p class="glass-card-desc">There's no need to face the daunting tasks of achieving certifications for your business. Logic Point Consulting's team of professionals have assisted scores of businesses to receive state, local, and federal certifications.</p>
+</div>
+<div class="glass-card anim-fade-in-up" style="transition-delay: 0.2s;">
+<div class="glass-card-icon">
+<svg fill="none" height="32" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" width="32">
+<path d="M9 17H7A5 5 0 017 7h2m0 10v3a3 3 0 003 3h4a3 3 0 003-3v-3m0-4h2a5 5 0 000-10h-2m0 4v6"></path>
+</svg>
+</div>
+<h3 class="glass-card-title">Business Products</h3>
+<p class="glass-card-desc">Logic Point Consulting can assist you with developing capabilities statements, business plans, mission statements, proposals, statements of work, responses to request for information and a host of other documents. Our services are tailored to your needs.</p>
+</div>
+</div>
+</div>
+</section>
+<div class="divider-gradient"></div>
+<!-- About -->
+<section class="section anim-fade-in-up" id="about" style="transition-delay: 0.2s; ">
+<div class="container">
+<div class="grid-2">
+<div class="anim-fade-in-up">
+<span class="mono-label">About Us</span>
+<h2>Experience You Can Count On</h2>
+<p style="margin-bottom: 2rem;">At Logic Point Consulting, we specialize in providing strategic insights and tailored solutions to help your business thrive in a competitive landscape. Our team of experienced consultants works closely with you to identify challenges and opportunities, ensuring that you achieve your goals efficiently.</p>
+<p>We believe in a collaborative approach, fostering strong partnerships that drive innovation and growth. Whether you are a startup or an established enterprise, Logic Point Consulting is here to guide you on your journey to success.</p>
+</div>
+<div class="anim-fade-in-up" style="transition-delay: 0.1s;">
+<div class="glass-card">
+<h3 class="glass-card-title">Our Experience</h3>
+<p class="glass-card-desc">Following 30 years in the defense and technology industry, we're dedicating our resources and knowledge to building our communities. We are committed to assisting and growing small and minority businesses. Our processes and programs are designed to empower your team.</p>
+</div>
+<div class="glass-card" style="margin-top: 2rem;">
+<h3 class="glass-card-title">Why Us?</h3>
+<p class="glass-card-desc">Business mentors are key—that's why when it comes to client selection, we're choosy. We want to give each of you the time and guidance you deserve.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="divider-gradient"></div>
+<!-- Process -->
+<section class="section anim-fade-in-up" style="transition-delay: 0.3s; ">
+<div class="container">
+<div class="anim-fade-in-up text-center" style="margin-bottom: 4rem;">
+<span class="mono-label">Our Approach</span>
+<h2>How We Work With You</h2>
+</div>
+<div class="numbered-container">
+<div class="numbered-item anim-fade-in-up">
+<div class="numbered-num">01</div>
+<div class="numbered-content">
+<h3>Strategic Planning</h3>
+<p>We work with you to develop comprehensive roadmaps tailored to your specific business needs and goals, ensuring every step is purposeful and measurable.</p>
+</div>
+</div>
+<div class="numbered-item anim-fade-in-up" style="transition-delay: 0.1s;">
+<div class="numbered-num">02</div>
+<div class="numbered-content">
+<h3>Dedicated Support</h3>
+<p>Our team provides ongoing guidance and assistance throughout your business journey, ensuring you have the resources and knowledge needed to succeed.</p>
+</div>
+</div>
+<div class="numbered-item anim-fade-in-up" style="transition-delay: 0.2s;">
+<div class="numbered-num">03</div>
+<div class="numbered-content">
+<h3>Tailored Solutions</h3>
+<p>Every business is unique, which is why we customize our services and programs to meet your specific requirements and empower your team for long-term success.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="divider-gradient"></div>
+<!-- CTA -->
+<section class="section anim-fade-in-up" id="contact" style="transition-delay: 0.4s; ">
+<div class="container">
+<div class="cta-section anim-fade-in-up">
+<span class="mono-label">Get Started</span>
+<h2 style="margin-bottom: 1.5rem;">Ready to Map Your Success?</h2>
+<p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2rem; max-width: 60ch; margin-left: auto; margin-right: auto;">
+                    Contact us today for our 90 day introductory special! We're here to help you build a roadmap to success with strategic planning and dedicated support.
+                </p>
+<div style="margin-bottom: 2rem;">
+<a href="tel:240.304.8447" style="color: var(--gold); text-decoration: none; font-size: 1.25rem; font-weight: 500; font-family: var(--font-mono);">
+                        240.304.8447
                     </a>
-</article>
-<article class="service-card fade-in-up anim-fade-in-up" style="transition-delay: 0.4s; ">
-<div class="service-number">02</div>
-<div class="service-icon">
-<svg fill="none" height="48" stroke="var(--brand-green)" stroke-width="1.5" viewbox="0 0 48 48" width="48">
-<circle cx="24" cy="24" r="20"></circle>
-<path d="M16 24 L20 28 L32 16"></path>
-<circle cx="24" cy="12" r="3"></circle>
-</svg>
 </div>
-<h3 class="service-title">Navigate certifications with confidence</h3>
-<p class="service-description">There's no need to face the daunting tasks of achieving certifications for your business. Our team of professionals have assisted scores of business to receive state, local, and federal certifications.</p>
-<a class="service-link" href="#contact">
-                        Learn more →
-                    </a>
-</article>
-<article class="service-card fade-in-up anim-fade-in-up" style="transition-delay: 0.5s; ">
-<div class="service-number">03</div>
-<div class="service-icon">
-<svg fill="none" height="48" stroke="var(--brand-green)" stroke-width="1.5" viewbox="0 0 48 48" width="48">
-<rect height="28" rx="2" width="36" x="6" y="8"></rect>
-<path d="M6 16 L42 16"></path>
-<path d="M12 24 L20 24 M24 24 L32 24"></path>
-</svg>
-</div>
-<h3 class="service-title">Documents that deliver results</h3>
-<p class="service-description">We can assist you with developing capabilities statements, business plans, mission statements, proposals, statements of work, responses to request for information and a host of other documents tailored to your needs.</p>
-<a class="service-link" href="#contact">
-                        Learn more →
-                    </a>
-</article>
-</div>
-</div>
-</section>
-<!-- Community Section -->
-<section class="community anim-fade-in-up" id="about" style="transition-delay: 0.0s; ">
-<svg class="community-grid" viewbox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<pattern height="40" id="grid" patternunits="userSpaceOnUse" width="40">
-<circle cx="20" cy="20" fill="currentColor" r="1"></circle>
-</pattern>
-</defs>
-<rect fill="url(#grid)" height="100%" width="100%"></rect>
-</svg>
-<div class="container">
-<div class="community-content">
-<div class="community-text fade-in-up">
-<h2>Building stronger communities</h2>
-<p>We are committed to assisting and growing small and minority businesses. Our processes and programs are designed to empower your team, providing strategic insights and tailored solutions to help your business thrive in a competitive landscape.</p>
-</div>
-<div class="community-visual fade-in-up">
-<svg height="200" viewbox="0 0 300 200" width="300" xmlns="http://www.w3.org/2000/svg">
-<path d="M50 150 Q100 100 150 120 Q200 140 250 100" fill="none" stroke="var(--brand-green)" stroke-width="2"></path>
-<circle cx="75" cy="135" fill="var(--brand-green)" r="4"></circle>
-<circle cx="150" cy="120" fill="var(--brand-green)" r="4"></circle>
-<circle cx="225" cy="110" fill="var(--brand-green)" r="4"></circle>
-</svg>
-</div>
-</div>
-</div>
-</section>
-<!-- CTA Section -->
-<section class="cta-section anim-fade-in-up" id="contact" style="transition-delay: 0.1s; ">
-<div class="container">
-<div class="cta-content">
-<h2 class="fade-in-up">Ready to map your route to success?</h2>
-<p class="fade-in-up">Call today to schedule your free consultation</p>
-<a class="cta-phone fade-in-up" href="tel:240-304-8447">
-<svg fill="none" height="20" stroke="currentColor" stroke-width="2" style="margin-right: 0.5rem;" viewbox="0 0 24 24" width="20">
-<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-</svg>
-                    240.304.8447
-                </a>
+<p style="font-size: 0.9rem; color: var(--text-muted);">
+                    Open today 09:00 am – 05:00 pm
+                </p>
 </div>
 </div>
 </section>
 <!-- Footer -->
 <footer class="footer">
-<div class="container">
 <div class="footer-content">
-<div>
-<h3 class="footer-brand">Logic Point Consulting</h3>
-<p style="opacity: 0.8;">Helping you map success through strategic business consulting.</p>
-</div>
-<div class="footer-hours">
-<h4>Business Hours</h4>
-<p>Open today: 09:00 am – 05:00 pm</p>
-<p style="margin-top: 1rem;">Phone: 240.304.8447</p>
-</div>
-</div>
-<div class="footer-bottom">
-<p>Copyright © 2026 Logic Point Consulting - All Rights Reserved.</p>
-</div>
+<div class="footer-brand">Logic Point Consulting</div>
+<div class="footer-contact">
+                Small Business Consulting<br/>
+                Phone: 240.304.8447
+            </div>
+<div class="footer-copy">
+                Copyright © 2026 Logic Point Consulting - All Rights Reserved.
+            </div>
 </div>
 </footer>
 <script>
+        // Sticky nav scroll effect
+        (function(){
+            var nav = document.getElementById('mainNav');
+            var lastScroll = 0;
+            
+            window.addEventListener('scroll', function() {
+                var currentScroll = window.pageYOffset;
+                
+                if (currentScroll > 100) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+                
+                lastScroll = currentScroll;
+            });
+        })();
+
+        // Mobile menu toggle
+        (function(){
+            var toggle = document.getElementById('navToggle');
+            var menu = document.getElementById('navMobile');
+            
+            toggle.addEventListener('click', function() {
+                if (menu.style.display === 'block') {
+                    menu.style.display = 'none';
+                } else {
+                    menu.style.display = 'block';
+                }
+            });
+        })();
+
         // Scroll reveal animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+        (function(){
+            var observer = new IntersectionObserver(function(entries){
+                entries.forEach(function(entry){
+                    if(entry.isIntersecting) {
+                        entry.target.classList.add('anim-visible');
+                    }
+                });
+            }, {threshold: 0.1});
+            
+            document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ 
+                observer.observe(el); 
             });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in-up').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Nav background on scroll
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('.nav');
-            if (window.scrollY > 50) {
-                nav.style.background = 'rgba(247, 245, 239, 0.95)';
-            } else {
-                nav.style.background = 'rgba(247, 245, 239, 0.9)';
-            }
-        });
+        })();
     </script>
 <script>
 (function(){
