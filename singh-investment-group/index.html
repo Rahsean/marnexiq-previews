@@ -4,797 +4,714 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>SIG Management - Premium Hotel Development &amp; Management</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<title>Singh Investment Group - Hotel Management &amp; Investment</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;family=Source+Sans+3:wght@300;400;500&amp;family=Cormorant+Garamond:ital,wght@1,400&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
 <style>
         :root {
-            --paper: #FAF7F1;
-            --panel: #FFFFFF;
-            --panel-alt: #F1EBE0;
-            --ink: #16181B;
-            --muted: #6E6A63;
-            --brass: #B08A3E;
-            --brass-dark: #7A5C21;
-            
-            --font-display: 'Cormorant Garamond', serif;
-            --font-body: 'Inter', sans-serif;
-            --font-mono: 'JetBrains Mono', monospace;
+            --bg-deep: #1a1410;
+            --bg-card: #23201a;
+            --bg-elevated: #2c2820;
+            --bg-warm: #faf5ef;
+            --accent: #8b3a3a;
+            --accent-hover: #a04545;
+            --accent-rgb: 139, 58, 58;
+            --copper: #b87333;
+            --copper-muted: rgba(184, 115, 51, 0.15);
+            --text: #3d3028;
+            --text-light: #f5efe8;
+            --text-muted: #8a7e72;
+            --text-heading: #2c2018;
+            --border: rgba(139, 58, 58, 0.15);
+            --border-copper: rgba(184, 115, 51, 0.25);
+            --font-heading: 'Playfair Display', 'Georgia', serif;
+            --font-body: 'Source Sans 3', 'Helvetica Neue', sans-serif;
+            --font-accent: 'Cormorant Garamond', 'Georgia', serif;
+            --heading-weight: 400;
+            --heading-weight-bold: 700;
+            --body-weight: 300;
+            --body-weight-medium: 400;
+            --overlay-opacity: 0.45;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
         body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg-warm);
+            color: var(--text);
             font-family: var(--font-body);
-            font-size: 16px;
-            line-height: 1.7;
-            color: var(--ink);
-            background: var(--paper);
+            font-weight: var(--body-weight);
+            line-height: 1.75;
+            font-size: 17px;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: var(--heading-weight);
+            color: var(--text-heading);
+            letter-spacing: -0.01em;
+            margin: 0 0 1rem;
         }
 
         h1 {
-            font-family: var(--font-display);
             font-size: clamp(2.75rem, 6vw, 5rem);
-            font-weight: 700;
             line-height: 1.1;
-            color: var(--ink);
         }
 
         h2 {
-            font-family: var(--font-display);
             font-size: clamp(2rem, 4vw, 3.25rem);
-            font-weight: 500;
             line-height: 1.2;
-            color: var(--ink);
         }
 
         h3 {
-            font-family: var(--font-display);
             font-size: clamp(1.15rem, 2vw, 1.5rem);
-            font-weight: 500;
-            line-height: 1.3;
-            color: var(--ink);
+            font-weight: var(--heading-weight-bold);
+        }
+
+        p {
+            margin: 0 0 1.5rem;
+            max-width: 65ch;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 0 2rem;
         }
 
-        .measure {
-            max-width: 66ch;
-        }
-
-        /* Navigation */
-        .nav {
+        .nav-blur {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(250, 247, 241, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
+            z-index: 50;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: transparent;
+            border-bottom: 1px solid transparent;
+            transition: background 0.3s ease, border-color 0.3s ease;
         }
 
-        .nav-inner {
+        .nav-blur.scrolled {
+            background: rgba(26, 20, 16, 0.9);
+            border-bottom-color: rgba(245, 239, 232, 0.1);
+        }
+
+        .nav-blur-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            align-items: center;
+            height: 80px;
         }
 
-        .nav-logo {
-            font-family: var(--font-display);
+        .nav-blur-logo-text {
+            font-family: var(--font-heading);
             font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--ink);
+            font-weight: var(--heading-weight-bold);
+            color: var(--text-light);
             text-decoration: none;
         }
 
-        .nav-cta {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.75rem 1.5rem;
-            background: var(--brass);
-            color: var(--paper);
+        .nav-blur-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 2.5rem;
+        }
+
+        .nav-blur-links a {
+            color: rgba(245, 239, 232, 0.8);
             text-decoration: none;
-            font-size: 0.875rem;
+            font-size: 0.9rem;
+            font-weight: var(--body-weight-medium);
+            transition: color 0.3s ease;
+        }
+
+        .nav-blur-links a:hover {
+            color: var(--copper);
+        }
+
+        .nav-blur-cta {
+            background: var(--accent);
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.85rem;
             font-weight: 500;
-            border-radius: 50px;
-            transition: all 0.3s ease;
+            transition: background 0.3s ease;
         }
 
-        .nav-cta:hover {
-            background: var(--brass-dark);
-            transform: translateY(-1px);
+        .nav-blur-cta:hover {
+            background: var(--accent-hover);
         }
 
-        /* Hero Section */
-        .hero {
-            padding: 12rem 0 8rem;
+        .nav-blur-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            gap: 4px;
+        }
+
+        .nav-blur-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--text-light);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-blur-mobile {
+            display: none;
+            padding: 2rem;
+            background: var(--bg-deep);
+            border-top: 1px solid rgba(245, 239, 232, 0.1);
+        }
+
+        .nav-blur-mobile ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-blur-mobile li {
+            margin-bottom: 1rem;
+        }
+
+        .nav-blur-mobile a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        @keyframes animKenBurns {
+            0% { transform: scale(1) translate(0, 0); }
+            25% { transform: scale(1.12) translate(-1.5%, -1%); }
+            50% { transform: scale(1.18) translate(-2.5%, 0.5%); }
+            75% { transform: scale(1.1) translate(0.5%, -1.5%); }
+            100% { transform: scale(1.06) translate(1%, -0.5%); }
+        }
+
+        .anim-image-hero img {
+            transition: opacity 0.5s;
+        }
+
+        .anim-fade-in-up {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .anim-fade-in-up.anim-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mono-label {
+            font-family: 'JetBrains Mono', 'SF Mono', monospace;
+            font-size: 0.625rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: rgba(184, 115, 51, 0.7);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .wave-divider {
+            width: 100%;
+            height: 60px;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .wave-divider svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .env-bleed-section {
             position: relative;
+            padding: 8rem 2rem;
             overflow: hidden;
         }
 
-        .hero-bg {
+        .env-bleed-bg {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            opacity: 0.03;
             z-index: 0;
+            pointer-events: none;
+            opacity: 0.04;
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+            mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+        }
+
+        .env-bleed-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .env-bleed-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .lift-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .lift-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .lift-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(184, 115, 51, 0.15);
+        }
+
+        .lift-card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .lift-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .lift-card:hover .lift-card-img img {
+            transform: scale(1.05);
+        }
+
+        .lift-card-body {
+            padding: 2rem;
+        }
+
+        .lift-card-title {
+            font-size: 1.25rem;
+            color: var(--text-heading);
+            margin-bottom: 1rem;
+        }
+
+        .lift-card-desc {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .lift-card-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .lift-card-link:hover {
+            gap: 0.75rem;
+        }
+
+        .divider-gradient {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--copper), transparent);
+            opacity: 0.3;
+            margin: 4rem 0;
+        }
+
+        .btn-pill-glow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            padding: 16px 48px;
+            background: var(--accent);
+            color: #ffffff;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(139, 58, 58, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-pill-glow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(139, 58, 58, 0.35);
+        }
+
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
         }
 
         .hero-content {
             position: relative;
-            z-index: 1;
-        }
-
-        .hero-standfirst {
-            font-size: 1.125rem;
-            color: var(--muted);
-            margin: 1.5rem 0 2rem;
-            max-width: 60ch;
-        }
-
-        .hero-rule {
-            width: 60px;
-            height: 1px;
-            background: var(--brass);
-            margin: 2rem 0 3rem;
-        }
-
-        .hero-ctas {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            padding: 1rem 2rem;
-            background: var(--brass);
-            color: var(--paper);
-            text-decoration: none;
-            font-weight: 500;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            background: var(--brass-dark);
-            transform: translateY(-2px);
-        }
-
-        .btn-ghost {
-            display: inline-flex;
-            align-items: center;
-            padding: 1rem 2rem;
-            border: 1px solid var(--brass);
-            color: var(--brass);
-            text-decoration: none;
-            font-weight: 500;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-ghost:hover {
-            background: var(--brass);
-            color: var(--paper);
-        }
-
-        /* Figures Band */
-        .figures {
-            background: var(--panel);
-            padding: 4rem 0;
-            border-top: 1px solid var(--brass);
-            border-bottom: 1px solid var(--brass);
-        }
-
-        .figures-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-            text-align: center;
-        }
-
-        .figure-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .figure-number {
-            font-family: var(--font-display);
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--brass);
-            line-height: 1;
-        }
-
-        .figure-caption {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--muted);
-            margin-top: 0.5rem;
-        }
-
-        /* Timeline */
-        .timeline-section {
-            padding: 8rem 0;
-        }
-
-        .timeline {
-            position: relative;
+            z-index: 2;
             max-width: 800px;
-            margin: 0 auto;
-            padding-left: 4rem;
+            padding: 4rem 2rem;
         }
 
-        .timeline-spine {
-            position: absolute;
-            left: 1.5rem;
-            top: 0;
-            bottom: 0;
-            width: 1px;
-            background: var(--brass);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 3rem;
-            padding-left: 1rem;
-        }
-
-        .timeline-node {
-            position: absolute;
-            left: -2rem;
-            top: 0.25rem;
-            width: 8px;
-            height: 8px;
-            background: var(--brass);
-            border-radius: 50%;
-        }
-
-        .timeline-year {
-            font-family: var(--font-display);
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--brass);
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-content {
-            color: var(--muted);
-            max-width: 50ch;
-        }
-
-        /* Awards */
-        .awards {
-            padding: 6rem 0;
-            background: var(--panel-alt);
-        }
-
-        .awards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .award-card {
-            background: var(--panel);
-            padding: 2.5rem;
-            border: 1px solid var(--brass);
-            border-radius: 4px;
-        }
-
-        .award-year {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--brass);
-            margin-bottom: 1rem;
-        }
-
-        .award-title {
-            font-family: var(--font-display);
-            font-size: 1.25rem;
-            font-weight: 500;
-            color: var(--ink);
-            margin-bottom: 0.5rem;
-        }
-
-        .award-scope {
-            color: var(--muted);
-            font-size: 0.875rem;
-        }
-
-        /* Services */
-        .services {
-            padding: 8rem 0;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 4rem;
-            margin-top: 4rem;
-        }
-
-        .service-column h3 {
-            margin-bottom: 1.5rem;
-        }
-
-        .service-list {
-            list-style: none;
-            margin-top: 1.5rem;
-        }
-
-        .service-list li {
-            padding: 0.5rem 0;
-            color: var(--muted);
-            position: relative;
-            padding-left: 1rem;
-        }
-
-        .service-list li::before {
-            content: "·";
-            color: var(--brass);
-            position: absolute;
-            left: 0;
-        }
-
-        /* Case Studies */
-        .case-studies {
-            padding: 6rem 0;
-            background: var(--panel-alt);
-        }
-
-        .cases-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .case-card {
-            background: var(--panel);
-            padding: 2rem;
-            border-radius: 4px;
-        }
-
-        .case-title {
-            font-family: var(--font-display);
-            font-size: 1.125rem;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        .case-location {
-            color: var(--muted);
-            font-size: 0.875rem;
-        }
-
-        /* Mission */
-        .mission {
-            padding: 8rem 0;
-        }
-
-        .mission-content {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .mission-pillars {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .pillar {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .pillar-title {
-            font-family: var(--font-display);
-            font-size: 1.125rem;
-            font-weight: 500;
-            color: var(--brass);
-        }
-
-        /* CTA Band */
-        .cta-band {
-            background: var(--ink);
-            color: var(--paper);
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-        .cta-band h2 {
-            color: var(--paper);
-            margin-bottom: 1.5rem;
-        }
-
-        .cta-band .btn-primary {
-            background: var(--brass);
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--panel);
-            padding: 3rem 0 2rem;
-            border-top: 1px solid var(--brass);
-        }
-
-        .footer-content {
-            text-align: center;
-        }
-
-        .footer-contact {
+        .hero-content h1 {
+            color: var(--text-light);
             margin-bottom: 2rem;
         }
 
-        .footer-address {
-            color: var(--muted);
-            margin-bottom: 0.5rem;
+        .hero-content p {
+            color: rgba(245, 239, 232, 0.8);
+            font-size: 1.2rem;
+            margin: 0 auto 3rem;
+            max-width: 600px;
         }
 
-        .footer-phone {
-            color: var(--brass);
-            text-decoration: none;
+        .section {
+            padding: 8rem 0;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .mission-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .mission-item h4 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: var(--bg-deep);
+            color: var(--text-light);
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        footer h3 {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            color: rgba(245, 239, 232, 0.7);
+            margin: 0.5rem 0;
+        }
+
+        footer .contact-info {
             font-weight: 500;
-            font-size: 1.125rem;
+            color: var(--copper);
         }
 
-        .footer-copyright {
-            color: var(--muted);
-            font-size: 0.875rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(176, 138, 62, 0.2);
-        }
-
-        /* Architectural SVG */
-        .hero-bg svg {
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
+            .nav-blur-links,
+            .nav-blur-cta {
+                display: none;
+            }
+
+            .nav-blur-toggle {
+                display: flex;
+            }
+
+            .nav-blur-mobile.active {
+                display: block;
+            }
+
             .container {
                 padding: 0 1rem;
             }
 
-            .hero {
-                padding: 8rem 0 6rem;
+            .section {
+                padding: 6rem 0;
             }
 
-            .hero-ctas {
-                flex-direction: column;
-            }
-
-            .timeline {
-                padding-left: 2rem;
-            }
-
-            .timeline-spine {
-                left: 0.75rem;
-            }
-
-            .timeline-node {
-                left: -1.25rem;
-            }
-
-            .services-grid,
-            .awards-grid,
-            .cases-grid {
+            .lift-card-grid {
                 grid-template-columns: 1fr;
             }
-        }
 
-        /* Animation */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+            .env-bleed-section {
+                padding: 6rem 1rem;
+            }
         }
     </style>
 <style>
-.anim-fade-in-up {
-  opacity: 0;
-  transform: translateY(25px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-}
-.anim-fade-in-up.anim-visible {
-  opacity: 1;
-  transform: translateY(0);
+@keyframes animKenBurns {
+  0%   { transform: scale(1) translate(0, 0); }
+  50%  { transform: scale(1.12) translate(-2%, 1%); }
+  100% { transform: scale(1.18) translate(1%, -1%); }
 }
 </style></head>
-<body>
-<!-- Navigation -->
-<nav class="nav">
-<div class="container">
-<div class="nav-inner">
-<a class="nav-logo" href="#">SIG Management</a>
-<a class="nav-cta" href="#contact">Connect</a>
+<body><svg aria-hidden="true" style="position:absolute;width:0;height:0;">
+<filter id="anim-brand-tint">
+<fecolormatrix type="matrix" values="0.72 0 0 0 0.28 0.45 0 0 0 0.55 0.20 0 0 0 0.80 0 0 0 1 0"></fecolormatrix>
+</filter>
+</svg>
+<nav class="nav-blur" id="mainNav">
+<div class="nav-blur-inner">
+<a class="nav-blur-logo" href="#">
+<span class="nav-blur-logo-text">Singh Investment Group</span>
+</a>
+<ul class="nav-blur-links">
+<li><a href="#services">What We Do</a></li>
+<li><a href="#about">Who We Are</a></li>
+<li><a href="#portfolio">Portfolio</a></li>
+<li><a href="#contact">Connect</a></li>
+</ul>
+<a class="nav-blur-cta" href="#contact">Contact Us</a>
+<button aria-label="Toggle menu" class="nav-blur-toggle" id="navToggle">
+<span></span>
+<span></span>
+<span></span>
+</button>
 </div>
+<div class="nav-blur-mobile" id="navMobile">
+<ul>
+<li><a href="#services">What We Do</a></li>
+<li><a href="#about">Who We Are</a></li>
+<li><a href="#portfolio">Portfolio</a></li>
+<li><a href="#contact">Connect</a></li>
+</ul>
 </div>
 </nav>
-<!-- Hero Section -->
-<section class="hero anim-fade-in-up" style="transition-delay: 0.0s; ">
-<div class="hero-bg">
-<svg viewbox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
-<g fill="none" opacity="0.08" stroke="currentColor" stroke-width="1">
-<rect height="300" width="200" x="100" y="150"></rect>
-<rect height="350" width="180" x="320" y="100"></rect>
-<rect height="270" width="160" x="520" y="180"></rect>
-<rect height="330" width="220" x="700" y="120"></rect>
-<line x1="100" x2="300" y1="200" y2="200"></line>
-<line x1="100" x2="300" y1="250" y2="250"></line>
-<line x1="100" x2="300" y1="300" y2="300"></line>
-<line x1="320" x2="500" y1="150" y2="150"></line>
-<line x1="320" x2="500" y1="200" y2="200"></line>
-<line x1="320" x2="500" y1="250" y2="250"></line>
-<line x1="520" x2="680" y1="230" y2="230"></line>
-<line x1="520" x2="680" y1="280" y2="280"></line>
-<line x1="700" x2="920" y1="170" y2="170"></line>
-<line x1="700" x2="920" y1="220" y2="220"></line>
-<line x1="700" x2="920" y1="270" y2="270"></line>
-</g>
+<section class="hero-section" style="position: relative; overflow: hidden; "><div style="position:absolute;inset:0;z-index:0;overflow:hidden;">
+<img alt="" src="http://www.singhinvestment.com/Resources/46.jpg" style="width:100%;height:100%;object-fit:cover;animation:animKenBurns 25s infinite alternate ease-in-out;filter:url(#anim-brand-tint) saturate(0.8) brightness(0.6);"/>
+<div style="position:absolute;inset:0;background:rgba(0,0,0,0.55);"></div>
+<div style="position:absolute;inset:0;background:radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.6) 100%);"></div>
+<div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);pointer-events:none;"></div>
+</div>
+<div class="anim-image-hero" style="position:absolute;inset:0;z-index:0;overflow:hidden;">
+<img alt="" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1920&amp;q=80" style="width:100%;height:100%;object-fit:cover;animation:animKenBurns 25s ease-in-out infinite alternate;will-change:transform;"/>
+<div style="position:absolute;inset:0;background:rgba(26,20,16,0.6);"></div>
+<div style="position:absolute;inset:0;background:radial-gradient(ellipse at center, transparent 30%, rgba(26,20,16,0.4) 100%);"></div>
+</div>
+<div class="hero-content" style="position: relative; z-index: 1; ">
+<span class="mono-label">Hotel Management &amp; Investment</span>
+<h1>Proven Leaders in Hotel Management</h1>
+<p>SIG is a privately held real estate management firm specializing in hotel properties operating under Hilton, Marriott, IHG, and Choice flags. With over 1,700 managed guest rooms, we implement efficient operational strategies that maximize financial performance.</p>
+<a class="btn-pill-glow" href="#contact">Learn More</a>
+</div>
+</section>
+<div class="wave-divider">
+<svg preserveaspectratio="none" viewbox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,30 C240,55 480,5 720,30 C960,55 1200,5 1440,30 L1440,60 L0,60 Z" fill="var(--copper)" fill-opacity="0.06"></path>
 </svg>
 </div>
+<section class="section" id="services">
 <div class="container">
-<div class="hero-content">
-<h1 class="fade-in">Over 1,700 Managed Guest Rooms Across Premium Hotel Brands</h1>
-<p class="hero-standfirst fade-in">A privately held real estate management firm based in Augusta, Georgia. A proven leader in hotel management with properties operating under Hilton, Marriott, IHG, and Choice flags.</p>
-<div class="hero-rule fade-in"></div>
-<div class="hero-ctas fade-in">
-<a class="btn-primary" href="#services">Our Services</a>
-<a class="btn-ghost" href="#contact">Connect With Us</a>
+<div class="anim-fade-in-up" style="text-align: center; margin-bottom: 4rem;">
+<span class="mono-label">What We Do</span>
+<h2>Hotel Management</h2>
+<p style="margin: 0 auto;">Our mission is to implement efficient operational strategies that maximize financial performance in order to subsequently result in company growth.</p>
+</div>
+<div class="lift-card-grid">
+<div class="lift-card anim-fade-in-up" style="transition-delay: 0.1s;">
+<div class="lift-card-img">
+<img alt="Team development" loading="lazy" src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80"/>
+</div>
+<div class="lift-card-body">
+<h3 class="lift-card-title">Team Member Development</h3>
+<p class="lift-card-desc">We invest in our team members through training programs and career development opportunities, ensuring exceptional service delivery across all properties.</p>
+<a class="lift-card-link" href="#contact">Learn more <span>→</span></a>
 </div>
 </div>
+<div class="lift-card anim-fade-in-up" style="transition-delay: 0.2s;">
+<div class="lift-card-img">
+<img alt="Customer satisfaction" loading="lazy" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80"/>
 </div>
-</section>
-<!-- Figures Band -->
-<section class="figures anim-fade-in-up" style="transition-delay: 0.1s; ">
-<div class="container">
-<div class="figures-grid">
-<div class="figure-item fade-in">
-<div class="figure-number">1,700+</div>
-<div class="figure-caption">Managed Guest Rooms</div>
-</div>
-<div class="figure-item fade-in">
-<div class="figure-number">750</div>
-<div class="figure-caption">Team Members</div>
-</div>
-<div class="figure-item fade-in">
-<div class="figure-number">Augusta</div>
-<div class="figure-caption">Largest Employers</div>
-</div>
-<div class="figure-item fade-in">
-<div class="figure-number">4</div>
-<div class="figure-caption">Hotel Flags</div>
+<div class="lift-card-body">
+<h3 class="lift-card-title">Customer Satisfaction</h3>
+<p class="lift-card-desc">Our focus on exceptional customer satisfaction drives guest loyalty and positive reviews, directly contributing to improved property performance and revenue growth.</p>
+<a class="lift-card-link" href="#contact">Discover more <span>→</span></a>
 </div>
 </div>
+<div class="lift-card anim-fade-in-up" style="transition-delay: 0.3s;">
+<div class="lift-card-img">
+<img alt="Financial management" loading="lazy" src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80"/>
 </div>
-</section>
-<!-- Timeline Section -->
-<section class="timeline-section anim-fade-in-up" style="transition-delay: 0.2s; ">
-<div class="container">
-<h2 class="fade-in" style="text-align: center; margin-bottom: 4rem;">Our Growth Story</h2>
-<div class="timeline">
-<div class="timeline-spine"></div>
-<div class="timeline-item fade-in">
-<div class="timeline-node"></div>
-<div class="timeline-year">1997</div>
-<div class="timeline-content">SIG builds its first hotel, Wingate Inn.</div>
-</div>
-<div class="timeline-item fade-in">
-<div class="timeline-node"></div>
-<div class="timeline-year">2002</div>
-<div class="timeline-content">SIG begins new partnership with Hilton Worldwide, opening a Hampton Inn &amp; Suites.</div>
-</div>
-<div class="timeline-item fade-in">
-<div class="timeline-node"></div>
-<div class="timeline-year">2005</div>
-<div class="timeline-content">SIG opens its first full-service hotel at entrance of Fort Gordon.</div>
-</div>
-<div class="timeline-item fade-in">
-<div class="timeline-node"></div>
-<div class="timeline-year">2007</div>
-<div class="timeline-content">A corporate restructuring establishes new hotel management and development divisions.</div>
-</div>
-<div class="timeline-item fade-in">
-<div class="timeline-node"></div>
-<div class="timeline-year">2008</div>
-<div class="timeline-content">Hilton Garden Inn opens and becomes RevPAR market leader within one month.</div>
-</div>
-<div class="timeline-item fade-in">
-<div class="timeline-node"></div>
-<div class="timeline-year">2009</div>
-<div class="timeline-content">SIG becomes a franchisee of Starwood.</div>
-</div>
-<div class="timeline-item fade-in">
-<div class="timeline-node"></div>
-<div class="timeline-year">2010</div>
-<div class="timeline-content">SIG begins three-hotel redevelopment near entrance of Augusta National Golf Club.</div>
-</div>
-<div class="timeline-item fade-in">
-<div class="timeline-node"></div>
-<div class="timeline-year">2011</div>
-<div class="timeline-content">SIG hires its 500th Employee; repositions the DoubleTree Riverfront in New Bern, NC.</div>
-</div>
-<div class="timeline-item fade-in">
-<div class="timeline-node"></div>
-<div class="timeline-year">2013</div>
-<div class="timeline-content">Sheraton Augusta wins Starwood Hotel of the Year Award (worldwide).</div>
-</div>
-<div class="timeline-item fade-in">
-<div class="timeline-node"></div>
-<div class="timeline-year">2014</div>
-<div class="timeline-content">SIG repositions foreclosed Atlantic Beach, NC oceanfront resort into DoubleTree and wins Conversion of the Year (worldwide); employs approximately 750 team members.</div>
-</div>
-<div class="timeline-item fade-in">
-<div class="timeline-node"></div>
-<div class="timeline-year">2018</div>
-<div class="timeline-content">SIG opens two Hilton branded hotels – Homewood Suites and Home2 Suites.</div>
-</div>
-<div class="timeline-item fade-in">
-<div class="timeline-node"></div>
-<div class="timeline-year">2020</div>
-<div class="timeline-content">SIG opens SpringHill Suites by Marriott Hilton Head Island.</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Awards -->
-<section class="awards anim-fade-in-up" style="transition-delay: 0.3s; ">
-<div class="container">
-<h2 class="fade-in" style="text-align: center;">Industry Recognition</h2>
-<div class="awards-grid">
-<div class="award-card fade-in">
-<div class="award-year">2013</div>
-<div class="award-title">Starwood Hotel of the Year Award</div>
-<div class="award-scope">Worldwide</div>
-</div>
-<div class="award-card fade-in">
-<div class="award-year">2014</div>
-<div class="award-title">Conversion of the Year</div>
-<div class="award-scope">Worldwide</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Services -->
-<section class="services anim-fade-in-up" id="services" style="transition-delay: 0.4s; ">
-<div class="container">
-<h2 class="fade-in" style="text-align: center;">What We Do</h2>
-<div class="services-grid">
-<div class="service-column fade-in">
-<h3>Real Estate Operations</h3>
-<p class="measure">SIG Management features an experienced management team with lifelong careers in the real estate and hospitality industries. All managers understand the importance of efficient day-to-day operations to increase properties' operational and financial performance.</p>
-<ul class="service-list">
-<li>Revenue Management</li>
-<li>Sales and Marketing</li>
-<li>Quality Assurance</li>
-<li>Human Resources Management</li>
-<li>Accounting and Payroll</li>
-<li>Customer Support</li>
-<li>Asset Management</li>
-</ul>
-</div>
-<div class="service-column fade-in">
-<h3>Hospitality Advisory</h3>
-<p class="measure">SIG Management offers consulting services that cater towards the specific needs of its clients. Our objective is to understand the client's current state of operations and formulate the necessary strategic plan that will maximize operational efficiency and overall financial performance.</p>
-<ul class="service-list">
-<li>Market Analysis and Impact Study</li>
-<li>Value Add Opportunities</li>
-<li>Cost-Benefit Analysis</li>
-<li>Project Management</li>
-<li>Purchasing</li>
-<li>Pre-Opening Support</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<!-- Case Studies -->
-<section class="case-studies anim-fade-in-up" style="transition-delay: 0.5s; ">
-<div class="container">
-<h2 class="fade-in" style="text-align: center;">Case Studies</h2>
-<p class="fade-in" style="text-align: center; color: var(--muted); margin-top: 1rem; max-width: 60ch; margin-left: auto; margin-right: auto;">SIG has a proven track record of developing and acquiring properties under many different circumstances, from traditional new build opportunities to acquisitions of distressed assets with significant upside potential.</p>
-<div class="cases-grid">
-<div class="case-card fade-in">
-<div class="case-title">DoubleTree by Hilton</div>
-<div class="case-location">Augusta, GA</div>
-</div>
-<div class="case-card fade-in">
-<div class="case-title">DoubleTree by Hilton</div>
-<div class="case-location">Atlantic Beach, NC</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Mission -->
-<section class="mission anim-fade-in-up" style="transition-delay: 0.0s; ">
-<div class="container">
-<div class="mission-content">
-<h2 class="fade-in">Mission Statement</h2>
-<p class="fade-in" style="font-size: 1.125rem; margin-top: 1.5rem;">SIG's mission is to implement efficient operational strategies that maximize financial performance in order to subsequently result in company growth.</p>
-<div class="mission-pillars">
-<div class="pillar fade-in">
-<div class="pillar-title">Team Member Development</div>
-</div>
-<div class="pillar fade-in">
-<div class="pillar-title">Exceptional Customer Satisfaction</div>
-</div>
-<div class="pillar fade-in">
-<div class="pillar-title">Disciplined Financial Management</div>
+<div class="lift-card-body">
+<h3 class="lift-card-title">Disciplined Financial Management</h3>
+<p class="lift-card-desc">Through rigorous financial oversight and strategic planning, we ensure optimal asset performance while maintaining the highest standards of efficient operations.</p>
+<a class="lift-card-link" href="#contact">Explore <span>→</span></a>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- CTA Band -->
-<section class="cta-band anim-fade-in-up" id="contact" style="transition-delay: 0.1s; ">
-<div class="container">
-<h2 class="fade-in">Ready to Work Together?</h2>
-<p class="fade-in" style="margin-bottom: 2rem; color: rgba(250, 247, 241, 0.8);">Let's discuss how SIG Management can optimize your hospitality investments.</p>
-<a class="btn-primary fade-in" href="tel:7063965700">Call (706) 396-5700</a>
+<div class="wave-divider">
+<svg preserveaspectratio="none" viewbox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,30 C240,55 480,5 720,30 C960,55 1200,5 1440,30 L1440,60 L0,60 Z" fill="var(--copper)" fill-opacity="0.06"></path>
+</svg>
+</div>
+<section class="env-bleed-section" id="about">
+<div aria-hidden="true" class="env-bleed-bg">
+<img alt="" loading="lazy" src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1920&amp;q=80"/>
+</div>
+<div class="env-bleed-content">
+<div class="anim-fade-in-up">
+<span class="mono-label" style="color: rgba(184, 115, 51, 0.8);">Who We Are</span>
+<h2>Hotel Management Expertise</h2>
+<p>SIG is a privately held real estate management firm based in Augusta, Georgia. Our company's portfolio includes hotels ranging from limited service to full service properties operating under major hospitality brands including Hilton, Marriott, IHG, and Choice flags.</p>
+<p>With over 1,700 managed guest rooms, SIG has established itself as a proven leader in hotel management. Our experienced management team brings decades of combined expertise in hotel operations, development, and strategic planning.</p>
+</div>
+<div class="divider-gradient"></div>
+<div class="anim-fade-in-up" style="transition-delay: 0.2s;">
+<h3>Our Mission</h3>
+<p>SIG's mission is to implement efficient operational strategies that maximize financial performance in order to subsequently result in company growth. This objective is achieved through three key areas of focus that drive success across our entire portfolio.</p>
+</div>
+<div class="mission-grid">
+<div class="mission-item anim-fade-in-up" style="transition-delay: 0.3s;">
+<h4>Team Member Development</h4>
+<p>Investing in our people through training and career advancement opportunities.</p>
+</div>
+<div class="mission-item anim-fade-in-up" style="transition-delay: 0.4s;">
+<h4>Exceptional Customer Satisfaction</h4>
+<p>Delivering outstanding guest experiences that drive loyalty and positive outcomes.</p>
+</div>
+<div class="mission-item anim-fade-in-up" style="transition-delay: 0.5s;">
+<h4>Disciplined Financial Management</h4>
+<p>Maintaining rigorous oversight to ensure optimal performance and sustainable growth.</p>
+</div>
+</div>
 </div>
 </section>
-<!-- Footer -->
-<footer class="footer">
-<div class="container">
-<div class="footer-content">
-<div class="footer-contact">
-<div class="footer-address">523 Pleasant Home Road<br/>Augusta GA 30907</div>
-<a class="footer-phone" href="tel:7063965700">(706) 396-5700</a>
+<div class="wave-divider">
+<svg preserveaspectratio="none" viewbox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,30 C240,55 480,5 720,30 C960,55 1200,5 1440,30 L1440,60 L0,60 Z" fill="var(--copper)" fill-opacity="0.06"></path>
+</svg>
 </div>
-<div class="footer-copyright">
-                    © 2026 SIG Management. All rights reserved.
-                </div>
+<section class="section" id="portfolio">
+<div class="container">
+<div class="anim-fade-in-up" style="text-align: center; margin-bottom: 4rem;">
+<span class="mono-label">Our Portfolio</span>
+<h2>Lodging Experience</h2>
+<p style="margin: 0 auto;">Our diverse portfolio spans multiple hospitality segments, from limited service to full service properties, all managed with the same commitment to efficient operations and financial performance.</p>
+</div>
+<div class="lift-card-grid">
+<div class="lift-card anim-fade-in-up" style="transition-delay: 0.1s;">
+<div class="lift-card-img">
+<img alt="Limited service hotels" loading="lazy" src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80"/>
+</div>
+<div class="lift-card-body">
+<h3 class="lift-card-title">Limited Service Properties</h3>
+<p class="lift-card-desc">Efficiently managed limited service hotels that maximize occupancy and revenue through streamlined operations and strategic positioning in key markets.</p>
+<a class="lift-card-link" href="#contact">Learn more <span>→</span></a>
+</div>
+</div>
+<div class="lift-card anim-fade-in-up" style="transition-delay: 0.2s;">
+<div class="lift-card-img">
+<img alt="Full service hotels" loading="lazy" src="https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80"/>
+</div>
+<div class="lift-card-body">
+<h3 class="lift-card-title">Full Service Hotels</h3>
+<p class="lift-card-desc">Complete hospitality experiences featuring amenities and services, managed to deliver exceptional guest satisfaction and strong financial returns.</p>
+<a class="lift-card-link" href="#contact">Explore <span>→</span></a>
+</div>
+</div>
+<div class="lift-card anim-fade-in-up" style="transition-delay: 0.3s;">
+<div class="lift-card-img">
+<img alt="Brand partnerships" loading="lazy" src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80"/>
+</div>
+<div class="lift-card-body">
+<h3 class="lift-card-title">Major Brand Partnerships</h3>
+<p class="lift-card-desc">Strategic partnerships with leading hospitality brands including Hilton, Marriott, IHG, and Choice, leveraging their systems and market presence for optimal performance.</p>
+<a class="lift-card-link" href="#contact">Discover <span>→</span></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="wave-divider">
+<svg preserveaspectratio="none" viewbox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,30 C240,55 480,5 720,30 C960,55 1200,5 1440,30 L1440,60 L0,60 Z" fill="var(--copper)" fill-opacity="0.06"></path>
+</svg>
+</div>
+<section class="section" id="contact" style="background: var(--bg-warm); text-align: center;">
+<div class="container">
+<div class="anim-fade-in-up">
+<span class="mono-label">Connect</span>
+<h2>Partner With Us</h2>
+<p style="margin: 0 auto 3rem; max-width: 600px;">Ready to discuss hotel management opportunities or learn more about our approach to maximizing property performance? Contact our team to explore how we can help achieve your investment objectives.</p>
+<a class="btn-pill-glow" href="tel:(706) 396-5700">Call (706) 396-5700</a>
+</div>
+</div>
+</section>
+<footer>
+<div class="container">
+<div class="anim-fade-in-up">
+<h3>SIG Management</h3>
+<p>523 Pleasant Home Road</p>
+<p>Augusta GA 30907</p>
+<p class="contact-info">(706) 396-5700</p>
+<div class="divider-gradient" style="margin: 2rem auto; max-width: 200px;"></div>
+<p style="font-size: 0.85rem; color: rgba(245, 239, 232, 0.5);">© 2026 SIG Management. All rights reserved.</p>
 </div>
 </div>
 </footer>
 <script>
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
         });
+
+        // Mobile menu toggle
+        document.getElementById('navToggle').addEventListener('click', function() {
+            const mobile = document.getElementById('navMobile');
+            mobile.classList.toggle('active');
+        });
+
+        // Scroll reveal animation
+        (function(){
+            var obs = new IntersectionObserver(function(entries){
+                entries.forEach(function(e){
+                    if(e.isIntersecting) e.target.classList.add('anim-visible');
+                });
+            }, {threshold: 0.1});
+            document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+        })();
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -810,14 +727,5 @@
             });
         });
     </script>
-<script>
-(function(){
-  var obs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting) e.target.classList.add('anim-visible');
-    });
-  }, {threshold: 0.1});
-  document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
-})();
-</script></body>
+</body>
 </html>
