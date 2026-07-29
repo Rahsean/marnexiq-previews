@@ -1,202 +1,704 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
-<title>Hoston Helps Insurance Group — Augusta, GA</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hoston Helps Insurance Group - Health Insurance Without Confusion</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&amp;family=Inter:wght@300;400;500&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-img{max-width:100%;display:block}a{text-decoration:none;color:inherit}
-:root{--bg:#FBF9F6;--ink:#12141C;--ink2:#5a5f6e;--blue:#4D65FF;--blue-d:#2B3FD9;
- --sand:#F0EBE3;--line:#E3DED4;--gold:#E0A93B}
-body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.7}
-h1,h2,h3{font-family:'Fraunces','Georgia',serif;font-weight:600;letter-spacing:-.02em;line-height:1.04}
-.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
-.eyebrow{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);font-weight:600}
+        :root {
+            /* Core colors */
+            --bg-deep: #0a0f1a;
+            --bg-card: #111827;
+            --bg-elevated: #1a2236;
+            --accent: #7456f1;
+            --accent-hover: #8b6ff5;
+            --gold: #d4af37;
+            --gold-muted: rgba(212, 175, 55, 0.15);
+            --text: #E7EBEE;
+            --text-muted: #9ca3af;
+            --text-heading: #ffffff;
+            --border: rgba(116, 86, 241, 0.15);
+            --border-gold: rgba(212, 175, 55, 0.25);
 
-#nav{position:fixed;inset:0 0 auto;z-index:80;background:rgba(251,249,246,.92);
- backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-#nav .bar{display:flex;align-items:center;justify-content:space-between;padding:13px 0}
-#nav img{height:46px;width:auto;border-radius:10px}
-.nl{display:flex;gap:30px;align-items:center}
-.nl a{font-size:.86rem;font-weight:500;color:var(--ink)}
-.nl a:hover{color:var(--blue)}
-.btn{display:inline-block;padding:15px 30px;border-radius:100px;font-weight:600;font-size:.92rem;transition:.25s}
-.btn-b{background:var(--blue);color:#fff}.btn-b:hover{background:var(--blue-d);transform:translateY(-2px)}
-.btn-o{border:1.5px solid var(--ink);color:var(--ink)}.btn-o:hover{background:var(--ink);color:var(--bg)}
+            /* Typography */
+            --font-heading: 'Cormorant Garamond', 'Georgia', serif;
+            --font-body: 'Inter', 'Helvetica Neue', sans-serif;
+            --heading-weight: 300;
+            --heading-weight-bold: 400;
+            --body-weight: 300;
+            --body-weight-medium: 400;
 
-/* HERO — copy left, portrait right on a soft blue field */
-.hero{padding:132px 0 0}
-.hgrid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:end}
-.hero h1{font-size:clamp(2.6rem,5.6vw,4.6rem);margin:18px 0 22px}
-.hero h1 em{font-style:italic;color:var(--blue)}
-.hero .lede{font-size:1.14rem;color:var(--ink2);max-width:520px;margin-bottom:26px}
-.pills{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
-.pill{border:1px solid var(--line);background:#fff;border-radius:100px;padding:8px 16px;font-size:.82rem;font-weight:500}
-.hact{display:flex;gap:12px;flex-wrap:wrap;padding-bottom:16px}
-.trust{display:flex;align-items:center;gap:12px;margin-top:26px;padding-bottom:44px}
-.stars{color:var(--gold);letter-spacing:2px}
-.trust b{font-size:.95rem}.trust span{color:var(--ink2);font-size:.9rem}
-.hfig{position:relative}
-.hfig .blob{position:absolute;left:4%;right:4%;bottom:0;height:82%;border-radius:220px 220px 28px 28px;
- background:linear-gradient(170deg,var(--blue),#7d8dff);z-index:0}
-.hfig img{position:relative;z-index:1;width:100%;height:auto}
+            /* Photo overlay */
+            --overlay-opacity: 0.55;
+        }
 
-/* PRESS */
-.press{border-block:1px solid var(--line);background:var(--sand);padding:20px 0;margin-top:6px}
-.press .wrap{display:flex;align-items:center;gap:26px;flex-wrap:wrap;justify-content:center}
-.press span{font-size:.82rem;color:var(--ink2)}
-.press b{font-family:'Fraunces',serif;font-size:1rem}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-section{padding:104px 0}
-.shead{max-width:640px;margin-bottom:52px}
-.shead h2{font-size:clamp(2rem,4vw,3.1rem);margin:14px 0 16px}
-.shead p{color:var(--ink2);font-size:1.06rem}
+        body {
+            background: var(--bg-deep);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-weight: var(--body-weight);
+            line-height: 1.7;
+        }
 
-/* WHO WE HELP */
-.who{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.wcard{background:#fff;border:1px solid var(--line);border-radius:22px;padding:34px 30px;transition:.3s}
-.wcard:hover{transform:translateY(-6px);border-color:var(--blue);box-shadow:0 20px 50px rgba(77,101,255,.12)}
-.wcard .n{width:42px;height:42px;border-radius:12px;background:var(--sand);display:grid;place-items:center;
- font-family:'Fraunces',serif;color:var(--blue);margin-bottom:18px}
-.wcard h3{font-size:1.22rem;margin-bottom:10px}
-.wcard p{color:var(--ink2);font-size:.96rem}
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: var(--heading-weight);
+            color: var(--text-heading);
+            letter-spacing: 0.02em;
+        }
 
-/* STORY — pull quote on sand */
-.story{background:var(--sand)}
-.sgrid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
-.sgrid img{width:100%;height:auto;border-radius:22px}
-.pull{font-family:'Fraunces',serif;font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.28;margin-bottom:22px}
-.story p{color:var(--ink2)}
-.sig{margin-top:24px;font-family:'Fraunces',serif;font-size:1.05rem}
-.sig span{display:block;font-family:'Inter',sans-serif;font-size:.82rem;color:var(--ink2);margin-top:3px}
+        h1 { 
+            font-size: clamp(2.75rem, 6vw, 5rem); 
+            line-height: 1.1; 
+        }
+        h2 { 
+            font-size: clamp(2rem, 4vw, 3.25rem); 
+            line-height: 1.1; 
+        }
+        h3 { 
+            font-size: clamp(1.15rem, 2vw, 1.5rem); 
+            font-weight: var(--heading-weight-bold); 
+        }
 
-/* REVIEWS — masonry-ish wall */
-.rgrid{columns:3;column-gap:22px}
-.rev{break-inside:avoid;background:#fff;border:1px solid var(--line);border-radius:20px;
- padding:26px 24px;margin-bottom:22px}
-.rev .stars{margin-bottom:12px;display:block}
-.rev p{font-size:.96rem;margin-bottom:16px}
-.rev b{font-size:.92rem}
-.rev span{display:block;font-size:.8rem;color:var(--ink2)}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
 
-/* CREDENTIALS */
-.cred{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);
- border-radius:20px;overflow:hidden;background:#fff}
-.cred div{padding:26px 24px;border-right:1px solid var(--line)}
-.cred div:last-child{border-right:0}
-.cred b{display:block;font-family:'Fraunces',serif;font-size:1.05rem;margin-bottom:4px}
-.cred span{font-size:.84rem;color:var(--ink2)}
+        .nav-blur {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: transparent;
+            border-bottom: 1px solid transparent;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
 
-/* CTA */
-.cta{background:var(--ink);color:var(--bg);border-radius:0}
-.cta h2{color:#fff;font-size:clamp(2.1rem,4.6vw,3.4rem);margin-bottom:16px}
-.cta p{color:#a9adba;max-width:560px;margin-bottom:30px}
-.cgrid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:end}
-.cinfo p{color:#a9adba;font-size:.92rem;margin-bottom:6px}
-.cinfo a{color:#fff;border-bottom:1px solid var(--blue)}
+        .nav-blur.scrolled {
+            background: rgba(10, 15, 26, 0.85);
+            border-bottom-color: rgba(255, 255, 255, 0.06);
+        }
 
-footer{padding:40px 0;border-top:1px solid var(--line)}
-.frow{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
-footer img{height:40px;width:auto;border-radius:8px}
-footer p{font-size:.8rem;color:var(--ink2)}
+        .nav-blur-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
 
-.rv{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}
-.rv.on{opacity:1;transform:none}
-@media(max-width:1000px){.nl{display:none}
- .hgrid,.sgrid,.cgrid{grid-template-columns:1fr;gap:34px}
- .who{grid-template-columns:1fr}.rgrid{columns:1}
- .cred{grid-template-columns:1fr}.cred div{border-right:0;border-bottom:1px solid var(--line)}
- section{padding:70px 0}.hero{padding-top:110px}.wrap{padding:0 20px}}
-</style></head><body>
+        .nav-blur-logo-text {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--text-heading);
+            text-decoration: none;
+        }
 
-<header id="nav"><div class="wrap"><div class="bar">
-<a href="#"><img src="https://cdn.prod.website-files.com/699e7ec1c89f452ebb8e92c7/69ab8eae3baad94ea05e5792_0306.png" alt="Hoston Helps Insurance Group"></a>
-<nav class="nl"><a href="#who">Who we help</a><a href="#story">About Hoston</a><a href="#reviews">Reviews</a>
-<a class="btn btn-b" href="#contact" style="padding:11px 22px">Enroll free</a></nav>
-</div></div></header>
+        .nav-blur-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
 
-<section class="hero"><div class="wrap hgrid">
-<div>
-<div class="eyebrow">Augusta, Georgia · Independent broker</div>
-<h1>Health insurance,<br><em>without the confusion.</em></h1>
-<p class="lede">We compare every major carrier, explain your options in plain English,
-and help you enroll — completely free.</p>
-<div class="pills"><span class="pill">ACA Marketplace</span><span class="pill">Medicare</span>
-<span class="pill">Employee Benefits</span><span class="pill">Dental &amp; Vision</span></div>
-<div class="hact"><a class="btn btn-b" href="tel:7067509220">Call (706) 750-9220</a>
-<a class="btn btn-o" href="#who">See who we help</a></div>
-<div class="trust"><span class="stars">★★★★★</span>
-<b>87 reviews</b><span>from neighbours across the CSRA</span></div>
+        .nav-blur-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .nav-blur-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-blur-cta {
+            background: var(--accent);
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .nav-blur-cta:hover {
+            background: var(--accent-hover);
+        }
+
+        .nav-blur-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .nav-blur-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            transition: all 0.3s ease;
+        }
+
+        .nav-blur-mobile {
+            display: none;
+            background: var(--bg-elevated);
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .nav-blur-mobile ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .nav-blur-mobile a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 0.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-blur-links, .nav-blur-cta {
+                display: none;
+            }
+
+            .nav-blur-toggle {
+                display: flex;
+            }
+
+            .nav-blur-mobile.open {
+                display: block;
+            }
+        }
+
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--bg-deep) 0%, #1a2236 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            text-align: center;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .gold-line {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+            margin: 1.5rem auto;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--gold);
+            border: 1px solid var(--border-gold);
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: var(--gold-muted);
+        }
+
+        .btn-finance {
+            background: var(--accent);
+            color: #ffffff;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.03em;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-finance:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        .section {
+            padding: 6rem 0;
+        }
+
+        .anim-fade-in-up {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .anim-fade-in-up.anim-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card-finance {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .card-finance:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 30px rgba(116, 86, 241, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .mono-label {
+            font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.625rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: rgba(212, 175, 55, 0.6);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .testimonials {
+            background: var(--bg-elevated);
+            padding: 6rem 0;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            font-weight: 500;
+            color: var(--text-heading);
+        }
+
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        .marquee-ribbon {
+            overflow: hidden;
+            background: #102136;
+            border-top: 1px solid rgba(116, 86, 241, 0.3);
+            border-bottom: 1px solid rgba(116, 86, 241, 0.3);
+            padding: 18px 0;
+            white-space: nowrap;
+        }
+
+        .marquee-track {
+            display: inline-flex;
+            gap: 3rem;
+            animation: marquee-scroll 30s linear infinite;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 300;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: rgba(231, 235, 238, 0.6);
+        }
+
+        .marquee-track .separator {
+            color: #7456f1;
+            font-size: 0.7rem;
+        }
+
+        @keyframes marquee-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .cta-section {
+            background: var(--bg-elevated);
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .footer {
+            background: var(--bg-deep);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--text-heading);
+        }
+
+        .footer-section p, .footer-section a {
+            color: var(--text-muted);
+            text-decoration: none;
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .measure {
+            max-width: 65ch;
+        }
+
+        .center-text {
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                padding: 2rem 1rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+<style>
+.anim-fade-in-up {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.anim-fade-in-up.anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style></head>
+<body>
+<nav class="nav-blur" id="mainNav">
+<div class="nav-blur-inner">
+<a class="nav-blur-logo" href="#">
+<span class="nav-blur-logo-text">Hoston Helps Insurance Group</span>
+</a>
+<ul class="nav-blur-links">
+<li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<a class="nav-blur-cta" href="tel:(706)750-9220">Call Now</a>
+<button aria-label="Toggle menu" class="nav-blur-toggle" id="navToggle">
+<span></span>
+<span></span>
+<span></span>
+</button>
 </div>
-<div class="hfig"><div class="blob"></div><img src="https://cdn.prod.website-files.com/699e7ec1c89f452ebb8e92c7/6a23bf6399e19a404a317371_Hoston%20Fannings.png" alt="Hoston Fannings, licensed health insurance broker"></div>
-</div></section>
+<div class="nav-blur-mobile" id="navMobile">
+<ul>
+<li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+</nav>
+<section class="hero-section anim-fade-in-up" style="transition-delay: 0.0s; ">
+<div class="hero-content">
+<div class="gold-line"></div>
+<h1 class="anim-fade-in-up">Health Insurance Without Confusion</h1>
+<p class="anim-fade-in-up measure center-text" style="font-size: 1.15rem; margin: 2rem auto; color: var(--text-muted); transition-delay: 0.1s;">
+                We compare every major carrier, explain your options clearly, and help you enroll for free.
+            </p>
+<div class="hero-badges anim-fade-in-up" style="transition-delay: 0.2s;">
+<span class="badge">ACA</span>
+<span class="badge">Medicare</span>
+<span class="badge">Employee Benefits</span>
+</div>
+<a class="btn-finance anim-fade-in-up" href="tel:(706)750-9220" style="transition-delay: 0.3s;">Call Now</a>
+</div>
+</section>
+<section class="section anim-fade-in-up" id="services" style="transition-delay: 0.1s; ">
+<div class="container">
+<span class="mono-label anim-fade-in-up">Coverage Options</span>
+<h2 class="anim-fade-in-up" style="transition-delay: 0.1s;">Find the Right Coverage</h2>
+<div class="gold-line anim-fade-in-up" style="transition-delay: 0.2s;"></div>
+<p class="anim-fade-in-up measure" style="font-size: 1.1rem; margin-bottom: 3rem; transition-delay: 0.3s;">
+                One conversation. Every major carrier. Clear answers.
+            </p>
+<div class="services-grid">
+<div class="card-finance anim-fade-in-up" style="transition-delay: 0.1s;">
+<span class="mono-label">Marketplace</span>
+<h3>ACA marketplace</h3>
+<p style="margin: 1rem 0;">Lost employer coverage? Self employed? Just shopping around for a better deal? We handle enrollments, answer questions, and guide you through every step to getting marketplace health insurance.</p>
+<ul style="color: var(--text-muted); margin: 1rem 0; padding-left: 1rem;">
+<li>Apply subsidies and check savings</li>
+<li>Check your doctors and prescriptions</li>
+<li>Find plans that fit your usage</li>
+</ul>
+</div>
+<div class="card-finance anim-fade-in-up" style="transition-delay: 0.2s;">
+<span class="mono-label">Medicare</span>
+<h3>Medicare made easy</h3>
+<p style="margin: 1rem 0;">Turning 65? Already on Medicare? Everyone has one plan that's the best fit for them. We decided to cut through the confusion and deception to help you find yours.</p>
+<ul style="color: var(--text-muted); margin: 1rem 0; padding-left: 1rem;">
+<li>Medicare Advantage &amp; supplements</li>
+<li>Prescription drug plan guidance</li>
+<li>Help with issues after enrollment</li>
+</ul>
+</div>
+<div class="card-finance anim-fade-in-up" style="transition-delay: 0.3s;">
+<span class="mono-label">Life Insurance</span>
+<h3>Life insurance</h3>
+<p style="margin: 1rem 0;">New baby? Recent homeowner? Life insurance is about protecting your family's future. We'll help you shop carriers for the best deal.</p>
+</div>
+<div class="card-finance anim-fade-in-up" style="transition-delay: 0.4s;">
+<span class="mono-label">Supplemental</span>
+<h3>Accident, critical illness, &amp; hospital</h3>
+<p style="margin: 1rem 0;">This pays you cash when life hits. It's not for everyone, but it can cover the gaps and save you from getting cooked by surprise costs.</p>
+</div>
+<div class="card-finance anim-fade-in-up" style="transition-delay: 0.5s;">
+<span class="mono-label">Vision &amp; Dental</span>
+<h3>Dental &amp; vision</h3>
+<p style="margin: 1rem 0;">Dental and vision coverage shouldn't drain your wallet. We help you find plans that cover everything you need, even that one thing.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="testimonials anim-fade-in-up" style="transition-delay: 0.2s; ">
+<div class="container">
+<span class="mono-label anim-fade-in-up">Trusted in Augusta</span>
+<h2 class="anim-fade-in-up" style="transition-delay: 0.1s;">What Our Clients Say</h2>
+<div class="gold-line anim-fade-in-up" style="transition-delay: 0.2s;"></div>
+<p class="anim-fade-in-up" style="text-align: center; margin-bottom: 1rem; transition-delay: 0.3s;">
+<a href="#" style="color: var(--accent); text-decoration: none;">Read All 87 Reviews</a>
+</p>
+<div class="testimonial-grid">
+<div class="testimonial-card anim-fade-in-up" style="transition-delay: 0.1s;">
+<p class="testimonial-text">"Hoston was very pleasant! I decided to wait at the last minute to add additional coverage to my insurance plan and he literally listened to me as I told him what I was looking for. He had me off the phone within 10 minutes and got me a great rate! Thanks again"</p>
+<div class="testimonial-author">Jasmine Walker</div>
+<div class="testimonial-role">Mother, Augusta</div>
+</div>
+<div class="testimonial-card anim-fade-in-up" style="transition-delay: 0.2s;">
+<p class="testimonial-text">"Hoston is the best! He was very thorough and patient and extremely knowledgeable. If you need help navigating the mess of medical insurance he's your man."</p>
+<div class="testimonial-author">Ryan Nair</div>
+<div class="testimonial-role">Local Guide, Augusta</div>
+</div>
+<div class="testimonial-card anim-fade-in-up" style="transition-delay: 0.3s;">
+<p class="testimonial-text">"Thanks to your help, I now have a health care policy that fits both my budget and my lifestyle. I highly recommend Hoston Fannings to anyone looking for reliable and trustworthy insurance guidance."</p>
+<div class="testimonial-author">April Hamilton</div>
+<div class="testimonial-role">Patient coordinator, Augusta</div>
+</div>
+</div>
+</div>
+</section>
+<div class="marquee-ribbon">
+<div class="marquee-track">
+<span>Save Time</span>
+<span class="separator">✦</span>
+<span>Understand Your Options</span>
+<span class="separator">✦</span>
+<span>Help After Enrollment</span>
+<span class="separator">✦</span>
+<span>Free Consultation</span>
+<span class="separator">✦</span>
+<span>Save Time</span>
+<span class="separator">✦</span>
+<span>Understand Your Options</span>
+<span class="separator">✦</span>
+<span>Help After Enrollment</span>
+<span class="separator">✦</span>
+<span>Free Consultation</span>
+<span class="separator">✦</span>
+</div>
+</div>
+<section class="section anim-fade-in-up" id="about" style="transition-delay: 0.3s; ">
+<div class="container">
+<span class="mono-label anim-fade-in-up">Our Approach</span>
+<h2 class="anim-fade-in-up" style="transition-delay: 0.1s;">Why People Choose Us</h2>
+<div class="gold-line anim-fade-in-up" style="transition-delay: 0.2s;"></div>
+<p class="anim-fade-in-up measure" style="font-size: 1.1rem; margin-bottom: 3rem; transition-delay: 0.3s;">
+                We handle the details so you don't have to.
+            </p>
+<div class="services-grid">
+<div class="card-finance anim-fade-in-up" style="transition-delay: 0.1s;">
+<h3>Save time</h3>
+<p style="margin-top: 1rem;">We get you covered sooner than later. No endless forms or confusing language.</p>
+</div>
+<div class="card-finance anim-fade-in-up" style="transition-delay: 0.2s;">
+<h3>Understand your options</h3>
+<p style="margin-top: 1rem;">Transparent guidance about your options and costs. Deductibles, copays, and networks explained.</p>
+</div>
+<div class="card-finance anim-fade-in-up" style="transition-delay: 0.3s;">
+<h3>Help after enrollment</h3>
+<p style="margin-top: 1rem;">We're here after enrollment to help you use your coverage.</p>
+</div>
+</div>
+<div class="anim-fade-in-up" style="margin-top: 4rem; transition-delay: 0.4s;">
+<p class="measure" style="font-size: 1.1rem;">
+                    I started Hoston Helps after seeing too many people get finessed, ignored, or overcharged when they needed help. Insurance felt like call centers and sales quotas instead of real guidance.
+                </p>
+<p class="measure" style="font-size: 1.1rem; margin-top: 1.5rem;">
+                    Here, you can talk to the same person, get honest advice, and actually understand their coverage. If a plan isn't right for you, I'll tell you. If there's a better option, we'll find it.
+                </p>
+<p class="measure" style="font-size: 1.1rem; margin-top: 1.5rem;">
+                    You're not looking for another insurance website. You're looking for someone you can trust. The plans may be the same. The advice, support, and relationship aren't.
+                </p>
+</div>
+</div>
+</section>
+<section class="cta-section anim-fade-in-up" style="transition-delay: 0.4s; ">
+<div class="container">
+<span class="mono-label anim-fade-in-up">Get Started</span>
+<h2 class="anim-fade-in-up" style="transition-delay: 0.1s;">Ready to get covered today?</h2>
+<div class="gold-line anim-fade-in-up" style="transition-delay: 0.2s;"></div>
+<p class="anim-fade-in-up measure center-text" style="font-size: 1.1rem; margin: 2rem auto; transition-delay: 0.3s;">
+                A free consultation takes around 20 minutes. No obligation, no sales pitch.
+            </p>
+<a class="btn-finance anim-fade-in-up" href="tel:(706)750-9220" style="transition-delay: 0.4s;">Call Now</a>
+</div>
+</section>
+<footer class="footer" id="contact">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h4>Contact</h4>
+<p>(706) 750-9220</p>
+<p><a href="mailto:insurance@hostonhelps.com">insurance@hostonhelps.com</a></p>
+</div>
+<div class="footer-section">
+<h4>Office (Appointment Only)</h4>
+<p>3152 Perimeter Pkwy<br/>Augusta, GA 30909</p>
+</div>
+<div class="footer-section">
+<h4>Licensing</h4>
+<p>Life &amp; Health License: 3491936</p>
+<p>NPN: 20254710</p>
+<p>Marketplace &amp; Medicare Certified</p>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 Hoston Helps Insurance Group, LLC. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script>
+        // Sticky nav
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
 
-<div class="press"><div class="wrap">
-<span>As featured on</span><b>WRDW News 12</b><span>·</span><b>VoyageATL</b>
-<span>·</span><span>"Fastest growing health insurance agency in the CSRA"</span>
-</div></div>
+        // Mobile nav toggle
+        document.getElementById('navToggle').addEventListener('click', function() {
+            const mobileNav = document.getElementById('navMobile');
+            mobileNav.classList.toggle('open');
+        });
 
-<section id="who"><div class="wrap">
-<div class="shead rv"><div class="eyebrow">Who we help</div>
-<h2>Three kinds of people call me.</h2>
-<p>The plans may be the same everywhere. The advice, the support and the relationship aren't.</p></div>
-<div class="who">
-<div class="wcard rv"><div class="n">01</div><h3>Individuals &amp; families</h3>
-<p>I'll tell you what's up — even if it's not what you hoped to hear. If a plan isn't right for you,
-you'll hear that from me first.</p></div>
-<div class="wcard rv"><div class="n">02</div><h3>Small business owners</h3>
-<p>The power of Fortune 500 healthcare companies with the personality of a real person —
-boots on the ground, with you.</p></div>
-<div class="wcard rv"><div class="n">03</div><h3>Clinics &amp; organisations</h3>
-<p>Refer your patients and we handle the rest. Help me help you help your people.</p></div>
-</div></div></section>
-
-<section class="story" id="story"><div class="wrap sgrid">
-<img src="https://cdn.prod.website-files.com/699e7ec1c89f452ebb8e92c7/69c1a22cac45ddb8bba6d694_wmremove-transformed%20(1)_Original.jpg" alt="Hoston Fannings featured on WRDW News">
-<div class="rv"><div class="eyebrow">The story</div>
-<p class="pull">"I started Hoston Helps after seeing too many people get finessed, ignored,
-or overcharged when they needed help."</p>
-<p>Insurance felt like call centres and sales quotas instead of real guidance. Here, you talk to the
-same person every time, get honest advice, and actually understand your coverage. If there's a better
-option out there, we'll find it.</p>
-<p style="margin-top:14px">You're not looking for another insurance website. You're looking for
-someone you can trust.</p>
-<div class="sig">Hoston Fannings<span>Founder · Licensed Life &amp; Health Broker</span></div>
-</div></div></section>
-
-<section id="reviews"><div class="wrap">
-<div class="shead rv"><div class="eyebrow">Trusted in Augusta</div>
-<h2>87 reviews, and counting.</h2>
-<p>Real neighbours, real coverage, real conversations.</p></div>
-<div class="rgrid"><div class="rev"><span class="stars">★★★★★</span><p>Customer service was great and quick. I would definitely recommend Hoston to anyone that wants insurance.</p><b>Stacey Black</b><span>Self-employed · Atlanta</span></div><div class="rev"><span class="stars">★★★★★</span><p>I decided at the last minute to add coverage and he literally listened as I told him what I was looking for. He had me off the phone within 10 minutes and got me a great rate.</p><b>Jasmine Walker</b><span>Mother · Augusta</span></div><div class="rev"><span class="stars">★★★★★</span><p>Hoston has been very helpful and just a pleasure to work with. He is there and walks through the process with you.</p><b>Samantha Hoeller</b><span>Mother · Georgia</span></div><div class="rev"><span class="stars">★★★★★</span><p>Professional, helpful and supportive. He is knowledgeable in Medicare and helped me tremendously.</p><b>Joyce R. Travis</b><span>Medicare beneficiary · South Carolina</span></div><div class="rev"><span class="stars">★★★★★</span><p>Very thorough, patient and extremely knowledgeable. If you need help navigating the mess of medical insurance, he's your man.</p><b>Ryan Nair</b><span>Local Guide · Augusta</span></div><div class="rev"><span class="stars">★★★★★</span><p>He answered every question I had with patience and made sure I understood what was going on. I will be referring others.</p><b>Verified client</b><span>Augusta, GA</span></div></div></div></section>
-
-<section style="padding-top:0"><div class="wrap">
-<div class="cred">
-<div><b>Licensed</b><span>Life &amp; Health · 3491936</span></div>
-<div><b>NPN 20254710</b><span>National Producer Number</span></div>
-<div><b>Certified</b><span>Marketplace &amp; Medicare</span></div>
-<div><b>Specialist</b><span>Group Benefits</span></div>
-</div></div></section>
-
-<section class="cta" id="contact"><div class="wrap cgrid">
-<div><div class="eyebrow">Get started</div>
-<h2>Let's find the right plan — free.</h2>
-<p>No call centre, no quota, no pressure. Just a straight conversation about what you actually need.</p>
-<a class="btn btn-b" href="tel:7067509220">Call (706) 750-9220</a></div>
-<div class="cinfo">
-<p>Office (by appointment)</p>
-<p style="color:#fff">3152 Perimeter Pkwy, Augusta, GA 30909</p>
-<p style="margin-top:14px"><a href="mailto:insurance@hostonhelps.com">insurance@hostonhelps.com</a></p>
-<p><a href="tel:7067509220">(706) 750-9220</a></p>
-</div></div></section>
-
-<footer><div class="wrap frow">
-<img src="https://cdn.prod.website-files.com/699e7ec1c89f452ebb8e92c7/69ab8eae3baad94ea05e5792_0306.png" alt="Hoston Helps Insurance Group">
-<p>© 2026 Hoston Helps Insurance Group, LLC &nbsp;·&nbsp; Preview redesign concept by MARNEXIQ</p>
-</div></footer>
-
-<script>(function(){
- var r=document.querySelectorAll('.rv');
- var o=new IntersectionObserver(function(e){e.forEach(function(y){
-  if(y.isIntersecting){y.target.classList.add('on');o.unobserve(y.target)}})},{threshold:.12});
- r.forEach(function(y){o.observe(y)});})();</script>
-</body></html>
+        // Scroll reveal animation
+        (function(){
+            var obs = new IntersectionObserver(function(entries){
+                entries.forEach(function(e){
+                    if(e.isIntersecting) e.target.classList.add('anim-visible');
+                });
+            }, {threshold: 0.1});
+            document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+        })();
+    </script>
+<script>
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) e.target.classList.add('anim-visible');
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+})();
+</script></body>
+</html>
