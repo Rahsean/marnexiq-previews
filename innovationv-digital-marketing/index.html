@@ -4,621 +4,487 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>InnoVationV - Marketing Agency in Augusta, Georgia</title>
+<title>InnoVationV - Turn Ideas Into Impact | Digital Marketing in Augusta, Georgia</title>
+<meta content="We're your champions for success in Augusta, Georgia. Rise above your competition through strategic Web Development, Google Advertising, and powerful Digital &amp; Print Marketing Solutions." name="description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Cormorant+Garamond:wght@300;400&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden;">
+<defs>
+<filter color-interpolation-filters="sRGB" id="brandTint">
+<fecolormatrix type="saturate" values="0"></fecolormatrix>
+<fecolormatrix type="matrix" values="0.04 0 0 0 0.96 0.14 0 0 0 0.86 0.06 0 0 0 0.94 0 0 0 1 0"></fecolormatrix>
+</filter>
+</defs>
+</svg>
 <style>
-        :root {
-            --bg-primary: #FAF8F2;
-            --bg-paper: #FFFFFF;
-            --text-ink: #15181A;
-            --text-muted: #6B6F72;
-            --accent-indigo: #5B3FD6;
-            --accent-teal: #12D2B0;
-            --border-light: rgba(107, 111, 114, 0.15);
-            
-            --font-serif: 'Cormorant Garamond', serif;
-            --font-sans: 'Inter', sans-serif;
-            --font-mono: 'JetBrains Mono', monospace;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: var(--font-sans);
-            font-size: 17px;
-            line-height: 1.7;
-            color: var(--text-ink);
-            background: var(--bg-primary);
-            overflow-x: hidden;
-        }
-        
-        h1 {
-            font-family: var(--font-serif);
-            font-size: clamp(2.75rem, 6vw, 5rem);
-            line-height: 1.1;
-            font-weight: 500;
-            color: var(--text-ink);
-        }
-        
-        h2 {
-            font-family: var(--font-serif);
-            font-size: clamp(2rem, 4vw, 3.25rem);
-            line-height: 1.15;
-            font-weight: 500;
-            color: var(--text-ink);
-        }
-        
-        h3 {
-            font-family: var(--font-serif);
-            font-size: clamp(1.15rem, 2vw, 1.5rem);
-            line-height: 1.2;
-            font-weight: 500;
-            color: var(--text-ink);
-        }
-        
-        .mono-label {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        .measure {
-            max-width: 66ch;
-        }
-        
-        /* Scroll Progress */
-        .scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            background: var(--accent-indigo);
-            z-index: 100;
-            transition: width 0.1s ease-out;
-        }
-        
-        /* Navigation */
-        .nav-blur {
-            position: fixed;
-            top: 3px;
-            left: 0;
-            right: 0;
-            z-index: 50;
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            background: rgba(250, 248, 242, 0.85);
-            border-bottom: 1px solid var(--border-light);
-            transition: all 0.3s ease;
-        }
-        
-        .nav-blur-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 70px;
-        }
-        
-        .nav-blur-logo {
-            font-family: var(--font-serif);
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--text-ink);
-            text-decoration: none;
-        }
-        
-        .nav-blur-links {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-        }
-        
-        .nav-blur-links a {
-            color: var(--text-ink);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
-        
-        .nav-blur-links a:hover {
-            color: var(--accent-indigo);
-        }
-        
-        .nav-blur-cta {
-            background: var(--accent-indigo);
-            color: white;
-            padding: 10px 24px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: background 0.2s ease;
-        }
-        
-        .nav-blur-cta:hover {
-            background: #4A2FB5;
-        }
-        
-        .nav-blur-toggle {
-            display: none;
-            flex-direction: column;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 4px;
-        }
-        
-        .nav-blur-toggle span {
-            width: 20px;
-            height: 2px;
-            background: var(--text-ink);
-            margin: 2px 0;
-            transition: 0.3s;
-        }
-        
-        .nav-blur-mobile {
-            display: none;
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding: 10rem 0 8rem;
-            background: var(--bg-primary);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        
-        .hero-content h1 {
-            margin-bottom: 1.5rem;
-        }
-        
-        .hero-standfirst {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            margin-bottom: 3rem;
-            line-height: 1.5;
-        }
-        
-        .hero-ctas {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-        
-        .btn-primary {
-            background: var(--accent-indigo);
-            color: white;
-            padding: 16px 32px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.2s ease;
-        }
-        
-        .btn-primary:hover {
-            background: #4A2FB5;
-            transform: translateY(-2px);
-        }
-        
-        .btn-secondary {
-            color: var(--text-ink);
-            padding: 16px 32px;
-            border: 2px solid var(--border-light);
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.2s ease;
-        }
-        
-        .btn-secondary:hover {
-            border-color: var(--accent-indigo);
-            color: var(--accent-indigo);
-        }
-        
-        .hero-visual {
-            position: relative;
-            height: 400px;
-        }
-        
-        /* Blueprint Grid Effect */
-        .blueprint-grid {
-            position: absolute;
-            inset: 0;
-            opacity: 0.1;
-            background-image: 
-                linear-gradient(var(--accent-indigo) 1px, transparent 1px),
-                linear-gradient(90deg, var(--accent-indigo) 1px, transparent 1px);
-            background-size: 40px 40px;
-        }
-        
-        /* Services Index */
-        .services {
-            padding: 8rem 0;
-            background: var(--bg-paper);
-        }
-        
-        .services-header {
-            text-align: center;
-            margin-bottom: 6rem;
-        }
-        
-        .services-list {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .service-item {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 3rem;
-            padding: 3rem 0;
-            border-bottom: 1px solid var(--border-light);
-            align-items: center;
-        }
-        
-        .service-item:last-child {
-            border-bottom: none;
-        }
-        
-        .service-number {
-            font-family: var(--font-serif);
-            font-size: 4rem;
-            font-weight: 300;
-            color: var(--accent-indigo);
-            line-height: 1;
-        }
-        
-        .service-content h3 {
-            margin-bottom: 1rem;
-        }
-        
-        .service-content p {
-            color: var(--text-muted);
-        }
-        
-        /* Case Studies */
-        .case-studies {
-            padding: 8rem 0;
-            background: var(--bg-primary);
-        }
-        
-        .case-studies-header {
-            text-align: center;
-            margin-bottom: 6rem;
-        }
-        
-        .case-study {
-            max-width: 900px;
-            margin: 0 auto 6rem;
-            background: var(--bg-paper);
-            padding: 4rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-light);
-        }
-        
-        .case-study:last-child {
-            margin-bottom: 0;
-        }
-        
-        .case-study-meta {
-            margin-bottom: 2rem;
-        }
-        
-        .case-study h3 {
-            margin-bottom: 2rem;
-        }
-        
-        .case-study-section {
-            margin-bottom: 2rem;
-        }
-        
-        .case-study-section:last-child {
-            margin-bottom: 0;
-        }
-        
-        .case-study-section h4 {
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--accent-indigo);
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Stats Section */
-        .stats {
-            padding: 6rem 0;
-            background: var(--bg-paper);
-        }
-        
-        .stats-content {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 4rem;
-            align-items: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .stats-number {
-            font-family: var(--font-serif);
-            font-size: 8rem;
-            font-weight: 300;
-            color: var(--accent-indigo);
-            line-height: 1;
-        }
-        
-        .stats-text {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-        }
-        
-        /* Philosophy */
-        .philosophy {
-            padding: 8rem 0;
-            background: var(--bg-primary);
-        }
-        
-        .philosophy-content {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .philosophy-quote {
-            font-family: var(--font-serif);
-            font-size: clamp(1.5rem, 3vw, 2.25rem);
-            line-height: 1.4;
-            color: var(--text-ink);
-            margin-bottom: 2rem;
-        }
-        
-        /* Reviews */
-        .reviews {
-            padding: 8rem 0;
-            background: var(--bg-paper);
-        }
-        
-        .reviews-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-        
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .review {
-            background: var(--bg-primary);
-            padding: 2rem;
-            border-radius: 8px;
-            border: 1px solid var(--border-light);
-        }
-        
-        .review-quote {
-            font-style: italic;
-            margin-bottom: 1rem;
-            color: var(--text-muted);
-        }
-        
-        .review-stars {
-            color: #FFB800;
-            margin-bottom: 1rem;
-        }
-        
-        /* CTA Section */
-        .cta {
-            padding: 8rem 0;
-            background: var(--accent-indigo);
-            color: white;
-            text-align: center;
-        }
-        
-        .cta h2 {
-            color: white;
-            margin-bottom: 1.5rem;
-        }
-        
-        .cta p {
-            font-size: 1.25rem;
-            margin-bottom: 3rem;
-            opacity: 0.9;
-        }
-        
-        .cta .btn-primary {
-            background: white;
-            color: var(--accent-indigo);
-        }
-        
-        .cta .btn-primary:hover {
-            background: #f8f8f8;
-        }
-        
-        /* Footer */
-        .footer {
-            padding: 4rem 0 2rem;
-            background: var(--text-ink);
-            color: white;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-        
-        .footer-section h4 {
-            margin-bottom: 1rem;
-            color: white;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-        }
-        
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .footer-section a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-        
-        .footer-section a:hover {
-            color: white;
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.5);
-        }
-        
-        /* Contact Form */
-        .contact-form {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid var(--border-light);
-            border-radius: 6px;
-            font-family: inherit;
-            font-size: 16px;
-            transition: border-color 0.2s ease;
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent-indigo);
-        }
-        
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-        
-        /* Animations */
-        .anim-fade-in-up {
-            opacity: 0;
-            transform: translateY(25px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        
-        .anim-fade-in-up.anim-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .nav-blur-links {
-                display: none;
-            }
-            
-            .nav-blur-toggle {
-                display: flex;
-            }
-            
-            .hero-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                text-align: center;
-            }
-            
-            .hero {
-                padding: 8rem 0 6rem;
-            }
-            
-            .service-item {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-                text-align: center;
-            }
-            
-            .stats-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                text-align: center;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .hero-ctas {
-                justify-content: center;
-            }
-            
-            .case-study {
-                padding: 2rem;
-                margin: 0 1rem 4rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 1rem;
-            }
-            
-            .services,
-            .case-studies,
-            .philosophy,
-            .reviews {
-                padding: 6rem 0;
-            }
-        }
-    </style>
+    :root {
+      --bg-deep: #0a0f1a;
+      --bg-card: #111827;
+      --bg-elevated: #1e293b;
+      --accent: #06b6d4;
+      --accent-hover: #22d3ee;
+      --accent-glow: rgba(6, 182, 212, 0.15);
+      --gold: #c0c0c0;
+      --text: #E7EBEE;
+      --text-muted: #94a3b8;
+      --text-heading: #ffffff;
+      --border: rgba(6, 182, 212, 0.12);
+      --font-heading: 'Inter', 'Overpass', 'Helvetica Neue', sans-serif;
+      --font-body: 'Inter', 'Helvetica Neue', sans-serif;
+      --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+      --heading-weight: 600;
+      --heading-weight-bold: 700;
+      --body-weight: 400;
+      --overlay-opacity: 0.70;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      cursor: none !important;
+    }
+
+    body {
+      background: var(--bg-deep);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-weight: var(--body-weight);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font-heading);
+      font-weight: var(--heading-weight);
+      color: var(--text-heading);
+      line-height: 1.1;
+    }
+
+    h1 {
+      font-size: clamp(2.75rem, 6vw, 5rem);
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      line-height: 1.2;
+    }
+
+    h3 {
+      font-size: clamp(1.15rem, 2vw, 1.5rem);
+      font-weight: var(--heading-weight-bold);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--accent), #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .card-glass {
+      background: rgba(17, 24, 39, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-glass:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 40px var(--accent-glow);
+    }
+
+    .btn-tech {
+      background: var(--accent);
+      color: #0a0f1a;
+      padding: 14px 32px;
+      border: none;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn-tech:hover {
+      background: var(--accent-hover);
+      box-shadow: 0 0 24px var(--accent-glow);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      padding: 14px 32px;
+      background: transparent;
+      color: var(--accent);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid var(--accent);
+      transition: background 0.3s ease;
+    }
+
+    .btn-ghost:hover {
+      background: var(--accent-glow);
+    }
+
+    .preloader-container {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .preloader-curtain {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+      background: #0b0f1a;
+      transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .preloader-curtain.left { left: 0; }
+    .preloader-curtain.right { right: 0; }
+    .preloader-curtain.done.left { transform: translateX(-100%); }
+    .preloader-curtain.done.right { transform: translateX(100%); }
+
+    .preloader-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      transition: opacity 0.3s;
+    }
+
+    .preloader-content.done { opacity: 0; }
+
+    .preloader-percentage {
+      display: block;
+      font-family: 'Inter', monospace;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+    }
+
+    .preloader-status {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6rem;
+      color: rgba(255, 255, 255, 0.4);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-top: 0.5rem;
+    }
+
+    .nav-blur {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: transparent;
+      border-bottom: 1px solid transparent;
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .nav-blur.scrolled {
+      background: rgba(10, 15, 26, 0.85);
+      border-bottom-color: var(--border);
+    }
+
+    .nav-blur-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-blur-logo-text {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      text-decoration: none;
+    }
+
+    .nav-blur-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-blur-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-blur-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-blur-toggle {
+      display: none;
+      flex-direction: column;
+      background: none;
+      border: none;
+      padding: 0.5rem;
+      gap: 3px;
+    }
+
+    .nav-blur-toggle span {
+      width: 20px;
+      height: 2px;
+      background: var(--text);
+      transition: all 0.3s ease;
+    }
+
+    .nav-blur-mobile {
+      display: none;
+    }
+
+    .cursor-crosshair {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 99999;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      will-change: transform;
+    }
+
+    .cursor-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #e63946;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .cursor-line {
+      position: absolute;
+      background: #e63946;
+      opacity: 0.7;
+    }
+
+    .cursor-line-top {
+      width: 1px;
+      height: 10px;
+      left: 50%;
+      bottom: calc(50% + 5px);
+      transform: translateX(-50%);
+    }
+
+    .cursor-line-bottom {
+      width: 1px;
+      height: 10px;
+      left: 50%;
+      top: calc(50% + 5px);
+      transform: translateX(-50%);
+    }
+
+    .cursor-line-left {
+      width: 10px;
+      height: 1px;
+      top: 50%;
+      right: calc(50% + 5px);
+      transform: translateY(-50%);
+    }
+
+    .cursor-line-right {
+      width: 10px;
+      height: 1px;
+      top: 50%;
+      left: calc(50% + 5px);
+      transform: translateY(-50%);
+    }
+
+    .mono-label {
+      font-family: var(--font-mono);
+      font-size: 0.625rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: rgba(6, 182, 212, 0.6);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0.035;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+    }
+
+    .anim-fade-in-up {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .anim-fade-in-up.anim-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .marquee-ribbon {
+      overflow: hidden;
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0;
+      white-space: nowrap;
+    }
+
+    .marquee-track {
+      display: inline-flex;
+      gap: 3rem;
+      animation: marquee-scroll 30s linear infinite;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 300;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgba(231, 235, 238, 0.6);
+    }
+
+    .marquee-track .separator {
+      color: var(--accent);
+      font-size: 0.7rem;
+    }
+
+    @keyframes marquee-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    section {
+      padding: 6rem 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .text-measure {
+      max-width: 65ch;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .testimonial-card {
+      background: var(--bg-card);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .stars {
+      color: #fbbf24;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-blur-links {
+        display: none;
+      }
+      
+      .nav-blur-toggle {
+        display: flex;
+      }
+
+      section {
+        padding: 4rem 0;
+      }
+
+      .container {
+        padding: 0 1rem;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 8vw, 3rem);
+      }
+
+      .grid-2, .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonials {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .marquee-track {
+        animation: none;
+      }
+      
+      .anim-fade-in-up {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
 <style>
 .anim-fade-in-up {
   opacity: 0;
@@ -629,339 +495,458 @@
   opacity: 1;
   transform: translateY(0);
 }
-</style></head>
-<body>
-<!-- Scroll Progress Bar -->
-<div class="scroll-progress" id="scrollProgress"></div>
-<!-- Navigation -->
+</style><link href="https://fonts.googleapis.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/></head>
+<body><svg aria-hidden="true" style="position:absolute;width:0;height:0;">
+<filter id="anim-brand-tint">
+<fecolormatrix type="matrix" values="0.02 0 0 0 0.98 0.71 0 0 0 0.29 0.83 0 0 0 0.17 0 0 0 1 0"></fecolormatrix>
+</filter>
+</svg>
+<div class="preloader-container" id="preloader">
+<div class="preloader-curtain left"></div>
+<div class="preloader-curtain right"></div>
+<div class="preloader-content">
+<span class="preloader-percentage" id="preloaderPercentage">0%</span>
+<span class="preloader-status">System Online</span>
+</div>
+</div>
 <nav class="nav-blur" id="mainNav">
 <div class="nav-blur-inner">
-<a class="nav-blur-logo" href="#">InnoVationV</a>
+<a class="nav-blur-logo" href="#">
+<span class="nav-blur-logo-text">InnoVationV</span>
+</a>
 <ul class="nav-blur-links">
 <li><a href="#services">Services</a></li>
-<li><a href="#work">Work</a></li>
 <li><a href="#about">About</a></li>
+<li><a href="#portfolio">Portfolio</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
-<a class="nav-blur-cta" href="tel:706-817-4220">(706) 817-4220</a>
-<button class="nav-blur-toggle" id="navToggle">
+<a class="btn-tech" href="#contact">Get Started</a>
+<button aria-label="Toggle menu" class="nav-blur-toggle" id="navToggle">
 <span></span>
 <span></span>
 <span></span>
 </button>
 </div>
 </nav>
-<!-- Hero Section -->
-<section class="hero anim-fade-in-up" style="transition-delay: 0.0s; ">
-<div class="container">
-<div class="hero-grid">
-<div class="hero-content">
-<div class="anim-fade-in-up">
-<h1>Come Innovate With Us</h1>
+<section class="hero anim-fade-in-up" style="transition-delay: 0.0s; position: relative; overflow: hidden; "><div style="position:absolute;inset:0;z-index:0;overflow:hidden;">
+<video autoplay="" loop="" muted="" playsinline="" poster="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1920" style="width:100%;height:100%;object-fit:cover;filter:url(#anim-brand-tint) saturate(0.8) brightness(0.6);">
+<source src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_25fps.mp4" type="video/mp4"/>
+</video>
+<div style="position:absolute;inset:0;background:rgba(0,0,0,0.55);"></div>
+<div style="position:absolute;inset:0;background:radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.6) 100%);"></div>
+<div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);pointer-events:none;"></div>
 </div>
-<div class="anim-fade-in-up" style="transition-delay: 0.1s;">
-<p class="hero-standfirst">We aren't just another marketing agency in Augusta, Georgia. At InnoVationV, we're your champions for success. Turn ideas into impact through strategic web development, Google advertising, and powerful digital marketing solutions.</p>
+<div class="anim-video-bg" style="position: relative; z-index: 1; ">
+<video autoplay="" loop="" muted="" playsinline="" poster="https://images.pexels.com/photos/1561020/pexels-photo-1561020.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1920" preload="auto" style="width:100%;height:100%;object-fit:cover;filter:url(#brandTint);">
+<source src="https://videos.pexels.com/video-files/2169880/2169880-uhd_2560_1440_30fps.mp4" type="video/mp4"/>
+</video>
+<div style="position:absolute;inset:0;background:rgba(0,0,0,0.55);"></div>
+<div style="position:absolute;inset:0;background:radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.7) 100%);"></div>
+<div style="position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);"></div>
 </div>
-<div class="anim-fade-in-up" style="transition-delay: 0.2s;">
-<div class="hero-ctas">
-<a class="btn-primary" href="#contact">Start Your Project</a>
-<a class="btn-secondary" href="#work">View Our Work</a>
+<div class="container" style="position:relative;z-index:1;">
+<span class="mono-label">Status: Active</span>
+<h1>Come <span class="gradient-text">Innovate</span> With Us!</h1>
+<h2 style="margin: 1.5rem 0; font-weight: 400; opacity: 0.9;">Turn Ideas Into Impact</h2>
+<div class="text-measure" style="margin: 2rem auto;">
+<p style="font-size: 1.15rem; color: var(--text-muted);">
+          We aren't just another marketing agency in Augusta, Georgia. At InnoVationV, we're your champions for success. Its time you rise above your competition through strategic Web Development, Google Advertising, and powerful Digital &amp; Print Marketing Solutions.
+        </p>
 </div>
-</div>
-</div>
-<div class="hero-visual">
-<div class="blueprint-grid"></div>
-</div>
-</div>
-</div>
-</section>
-<!-- Services Section -->
-<section class="services anim-fade-in-up" id="services" style="transition-delay: 0.1s; ">
-<div class="container">
-<div class="services-header anim-fade-in-up">
-<h2>We build it, then we make it findable</h2>
-</div>
-<div class="services-list">
-<div class="service-item anim-fade-in-up" style="transition-delay: 0.1s;">
-<div class="service-number">01</div>
-<div class="service-content">
-<h3>Web Development</h3>
-<p>Blending aesthetics and user experience creates visually appealing, well-functioning websites. We can create brochure sites, e-commerce sites, or whatever you need.</p>
+<div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;">
+<a class="btn-tech" href="#contact">(706) 817-4220</a>
+<a class="btn-ghost" href="#services">Our Services</a>
 </div>
 </div>
-<div class="service-item anim-fade-in-up" style="transition-delay: 0.2s;">
-<div class="service-number">02</div>
-<div class="service-content">
+<div style="position:absolute;top:16px;left:16px;z-index:50;font-family:'JetBrains Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.25em;color:rgba(255,255,255,0.4);">
+<div>SYSTEM ONLINE</div>
+</div>
+<div style="position:absolute;top:16px;right:16px;z-index:50;font-family:'JetBrains Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.25em;color:rgba(255,255,255,0.4);text-align:right;">
+<div>Status: <span style="color:#22c55e;">ACTIVE</span></div>
+</div>
+<div style="position:absolute;bottom:16px;right:16px;z-index:50;display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
+<span style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.25em;color:rgba(255,255,255,0.3);">[SCROLL]</span>
+<div style="width:1px;height:32px;background:linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);animation:pulse 2s infinite;"></div>
+</div></section>
+<div class="marquee-ribbon">
+<div class="marquee-track">
+<span>Web Design &amp; Development</span>
+<span class="separator">✦</span>
+<span>SEO &amp; Content Marketing</span>
+<span class="separator">✦</span>
+<span>Branding &amp; Graphic Design</span>
+<span class="separator">✦</span>
+<span>Reputation &amp; Listing Management</span>
+<span class="separator">✦</span>
+<span>Web Design &amp; Development</span>
+<span class="separator">✦</span>
+<span>SEO &amp; Content Marketing</span>
+<span class="separator">✦</span>
+<span>Branding &amp; Graphic Design</span>
+<span class="separator">✦</span>
+<span>Reputation &amp; Listing Management</span>
+</div>
+</div>
+<section class="anim-fade-in-up" id="services" style="transition-delay: 0.1s; position:relative;overflow:hidden;"><canvas id="anim-dots-rhombus" style="position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0.15;"></canvas>
+<canvas id="anim-dots-rhombus" style="position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0.15;"></canvas>
+<div class="container" style="position:relative;z-index:1;">
+<div class="anim-fade-in-up" style="text-align:center;margin-bottom:4rem;">
+<span class="mono-label">What We Provide</span>
+<h2>A system proven to excel in every industry</h2>
+</div>
+<div class="grid-2">
+<div class="anim-fade-in-up card-glass" style="transition-delay:0.1s;">
 <h3>SEO &amp; Content Marketing</h3>
-<p>Amplify your Search Engine Optimization score with fresh, relevant, and revolving content. Show the algorithms that you're worthy of the top spot on their SERPs.</p>
+<p style="margin-top:1rem;">Amplify your Search Engine Optimization score with fresh, relevant, and revolving content. Show the algorithms that you're worthy of the top spot on their SERPs!</p>
+<p style="margin-top:1rem;font-weight:600;color:var(--accent);">Boost Your Rankings &amp; Visibility</p>
 </div>
-</div>
-<div class="service-item anim-fade-in-up" style="transition-delay: 0.3s;">
-<div class="service-number">03</div>
-<div class="service-content">
-<h3>Google Advertising</h3>
-<p>Google advertising, run with the systems and research to reach the right audience.</p>
-</div>
-</div>
-<div class="service-item anim-fade-in-up" style="transition-delay: 0.4s;">
-<div class="service-number">04</div>
-<div class="service-content">
-<h3>Branding &amp; Graphic Design</h3>
-<p>Don't let your logo and custom graphics be plain, stock, or copied from someone else. Tell a story through color, styles, textures, and visuals.</p>
-</div>
-</div>
-<div class="service-item anim-fade-in-up" style="transition-delay: 0.5s;">
-<div class="service-number">05</div>
-<div class="service-content">
+<div class="anim-fade-in-up card-glass" style="transition-delay:0.2s;">
 <h3>Reputation &amp; Listing Management</h3>
-<p>You need unique, engaging social media content and a swift reputation management system. Your online presence shapes how leads perceive you.</p>
+<p style="margin-top:1rem;">You need unique, engaging social media content and a swift reputation management system. Your online presence shapes how leads perceive you!</p>
+<p style="margin-top:1rem;font-weight:600;color:var(--accent);">Strengthen Your Online Credibility</p>
+</div>
+<div class="anim-fade-in-up card-glass" style="transition-delay:0.3s;">
+<h3>Branding &amp; Graphic Design</h3>
+<p style="margin-top:1rem;">Don't let your logo and custom graphics be plain, stock, or copied from someone else! Tell a story through color, styles, textures, and visuals.</p>
+<p style="margin-top:1rem;font-weight:600;color:var(--accent);">Bring Your Visual Ideas to Life</p>
+</div>
+<div class="anim-fade-in-up card-glass" style="transition-delay:0.4s;">
+<h3>Web Design &amp; Development</h3>
+<p style="margin-top:1rem;">Blending aesthetics and user experience creates a visually appealing, well functioning website. We can create brochure sites, e-commerce sites, or whatever you need!</p>
+<p style="margin-top:1rem;font-weight:600;color:var(--accent);">Build a Responsive, User-Friendly Website</p>
+</div>
+</div>
+<div class="anim-fade-in-up" style="margin-top:4rem;text-align:center;">
+<h3 style="margin-bottom:2rem;">Additional Services</h3>
+<div class="grid-3">
+<div style="background:var(--bg-card);padding:1.5rem;border-radius:8px;border:1px solid var(--border);">
+<h4 style="font-size:1rem;margin-bottom:0.5rem;color:var(--text-heading);">Pay Per Click</h4>
+<p style="font-size:0.9rem;color:var(--text-muted);">Google Advertising solutions</p>
+</div>
+<div style="background:var(--bg-card);padding:1.5rem;border-radius:8px;border:1px solid var(--border);">
+<h4 style="font-size:1rem;margin-bottom:0.5rem;color:var(--text-heading);">Managed Hosting Solutions</h4>
+<p style="font-size:0.9rem;color:var(--text-muted);">Reliable website hosting</p>
+</div>
+<div style="background:var(--bg-card);padding:1.5rem;border-radius:8px;border:1px solid var(--border);">
+<h4 style="font-size:1rem;margin-bottom:0.5rem;color:var(--text-heading);">Print Marketing</h4>
+<p style="font-size:0.9rem;color:var(--text-muted);">Brochures, flyers, business cards, and more</p>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- Case Studies -->
-<section class="case-studies anim-fade-in-up" id="work" style="transition-delay: 0.2s; ">
+<section class="anim-fade-in-up" id="about" style="transition-delay: 0.2s; ">
 <div class="container">
-<div class="case-studies-header anim-fade-in-up">
-<div class="mono-label">Case Studies</div>
-<h2>Selected work</h2>
-</div>
-<!-- ShoreShade Case Study -->
-<div class="case-study anim-fade-in-up" style="transition-delay: 0.1s;">
-<div class="case-study-meta">
-<div class="mono-label">E-commerce &amp; SEO Strategy</div>
-</div>
-<h3>ShoreShade</h3>
-<div class="case-study-section">
-<h4>The Challenge</h4>
-<p>ShoreShade came to us wanting an e-commerce website plus Google Ads management. They needed a complete online presence to showcase and sell their products in an increasingly competitive market.</p>
-</div>
-<div class="case-study-section">
-<h4>What We Did</h4>
-<p>Over months, this grew into a full SEO package involving back link building and listings management. As more competition entered the CSRA, we implemented extra safety precautions through managed hosting for their expanding e-commerce site.</p>
-</div>
-<div class="case-study-section">
-<h4>The Outcome</h4>
-<p>Eventually they saw similar—if not better—results from the same ad campaigns, while cutting the budget by two thirds. Work continued as ShoreShade grew and added new products to their expanding catalog.</p>
-</div>
-</div>
-<!-- Worthouse Case Study -->
-<div class="case-study anim-fade-in-up" style="transition-delay: 0.2s;">
-<div class="case-study-meta">
-<div class="mono-label">Web Development</div>
-</div>
-<h3>Worthouse</h3>
-<div class="case-study-section">
-<h4>The Challenge</h4>
-<p>A metal roof manufacturing company whose old site was managed by a team in Poland. It got the job done but they wanted something that told a visual story and worked seamlessly on mobile devices.</p>
-</div>
-<div class="case-study-section">
-<h4>What We Did</h4>
-<p>As a roofing manufacturer, they needed visually stunning assets to showcase flagship metal roofing products. We took a bare-boned 65+ page website, refreshed the template and built an easily navigable, fully optimized site with a custom mobile menu.</p>
-</div>
-<div class="case-study-section">
-<h4>The Outcome</h4>
-<p>A completely transformed digital presence that effectively showcases their products across all devices, with improved navigation and mobile usability.</p>
-</div>
-</div>
-<!-- The Augusta Press Case Study -->
-<div class="case-study anim-fade-in-up" style="transition-delay: 0.3s;">
-<div class="case-study-meta">
-<div class="mono-label">Web Development &amp; Infrastructure</div>
-</div>
-<h3>The Augusta Press</h3>
-<div class="case-study-section">
-<h4>The Challenge</h4>
-<p>A local online newspaper that needed a team on call in case something catastrophic happened to their website. With a large number of subscribers, there is no room for downtime.</p>
-</div>
-<div class="case-study-section">
-<h4>What We Did</h4>
-<p>They needed a web designer who also understood payment processors and larger digital infrastructure. The work involved migrating between two different hosts, redesigning the site into a more dynamic approach, and creating a comprehensive support system.</p>
-</div>
-<div class="case-study-section">
-<h4>The Outcome</h4>
-<p>Support for a large subscriber platform where downtime mattered, removing the burden of a dedicated in-house person.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Stats Section -->
-<section class="stats anim-fade-in-up" style="transition-delay: 0.3s; ">
-<div class="container">
-<div class="stats-content anim-fade-in-up">
-<div class="stats-number">10+</div>
-<div class="stats-text">
-<p>Years building the agency, from a one-man show to a large network of relationships with a foundation that remains solid.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Philosophy Section -->
-<section class="philosophy anim-fade-in-up" id="about" style="transition-delay: 0.4s; ">
-<div class="container">
-<div class="philosophy-content anim-fade-in-up">
-<div class="mono-label">Your vision, not our idea of it</div>
-<p class="philosophy-quote">"Thorough communication with each client guarantees that you will receive an end result that is still YOURS, not just our idea of your vision."</p>
-<p class="measure" style="margin: 0 auto;">We promote local and small businesses rather than commercialized ones. No matter where you are, we will be there for you. We have the systems, technology, and resources to research the ever-changing algorithms all around the world.</p>
-</div>
-</div>
-</section>
-<!-- Reviews Section -->
-<section class="reviews anim-fade-in-up" style="transition-delay: 0.5s; ">
-<div class="container">
-<div class="reviews-header anim-fade-in-up">
-<h2>What clients say about working with us</h2>
-</div>
-<div class="reviews-grid">
-<div class="review anim-fade-in-up" style="transition-delay: 0.1s;">
-<div class="review-stars">★★★★★</div>
-<p class="review-quote">"This group is the absolute best. I highly recommend for any web related work you need done. Super professional and easy to work with."</p>
-</div>
-<div class="review anim-fade-in-up" style="transition-delay: 0.2s;">
-<div class="review-stars">★★★★★</div>
-<p class="review-quote">"They work fast and know what they are doing. I've also been very pleased with their customer service. After being a customer for a few years, it's easy for me to give a 5-star rating."</p>
-</div>
-<div class="review anim-fade-in-up" style="transition-delay: 0.3s;">
-<div class="review-stars">★★★★★</div>
-<p class="review-quote">"InnoVationV took all of my thoughts, and turned them into more than I imagined, delivering an amazing product for my business."</p>
-</div>
-</div>
-</div>
-</section>
-<!-- CTA Section -->
-<section class="cta anim-fade-in-up" id="contact" style="transition-delay: 0.0s; ">
-<div class="container">
+<div class="grid-2" style="align-items:center;gap:4rem;">
 <div class="anim-fade-in-up">
-<h2>Let's get you found.</h2>
-<p>Give us a call or book now with our admin team to get started.</p>
-<div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
-<a class="btn-primary" href="tel:706-817-4220">(706) 817-4220</a>
-<a class="btn-primary" href="mailto:operations@innovationv.com">Email Our Team</a>
+<span class="mono-label">We Know What Works</span>
+<h2>Have your site be More than just a landing page…</h2>
+<div class="text-measure">
+<p style="margin-top:2rem;">You need a website that is going to efficiently communicate your message that turns those ghost users into active, loyal customers. To do this, you need to have an entirely built-in system that collects qualified leads.</p>
+<p style="margin-top:1.5rem;">Our strategies take the stress off of your back and easily provide solutions to otherwise time-consuming issues.</p>
+</div>
+</div>
+<div class="anim-fade-in-up" style="transition-delay:0.2s;">
+<span class="mono-label">What You Need</span>
+<h3>Feel like your business has hit a plateau?</h3>
+<div class="text-measure">
+<p style="margin-top:1.5rem;">If you don't have data driven strategies, a sitewide cohesive message, or a lead generation system, you aren't reaching the full potential for your business.</p>
+<p style="margin-top:1.5rem;">Your website can be as visually appealing as you want it to be. However, if you aren't able to target the right audience, you're missing out on sales and networking opportunities.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="anim-fade-in-up" id="portfolio" style="transition-delay: 0.3s; ">
+<div class="container">
+<div class="anim-fade-in-up" style="text-align:center;margin-bottom:4rem;">
+<span class="mono-label">Projects we love</span>
+<h2>Recent Client Work</h2>
+</div>
+<div class="grid-3">
+<div class="anim-fade-in-up card-glass" style="transition-delay:0.1s;">
+<h3>Worthouse</h3>
+<p style="margin-top:1rem;color:var(--text-muted);">Web Development</p>
+</div>
+<div class="anim-fade-in-up card-glass" style="transition-delay:0.2s;">
+<h3>The Augusta Press</h3>
+<p style="margin-top:1rem;color:var(--text-muted);">Web Development</p>
+</div>
+<div class="anim-fade-in-up card-glass" style="transition-delay:0.3s;">
+<h3>ShoreShade</h3>
+<p style="margin-top:1rem;color:var(--text-muted);">SEO Strategy, Web Development</p>
 </div>
 </div>
 </div>
 </section>
-<!-- Contact Form Section -->
-<section class="anim-fade-in-up" style="transition-delay: 0.1s; padding: 6rem 0; background: var(--bg-paper);">
+<section class="anim-fade-in-up" style="transition-delay: 0.4s; ">
 <div class="container">
-<div class="contact-form anim-fade-in-up">
-<h3 style="text-align: center; margin-bottom: 2rem;">Start Your Project</h3>
-<form>
-<div class="form-group">
-<label for="name">Name</label>
-<input id="name" name="name" required="" type="text"/>
+<div class="anim-fade-in-up" style="text-align:center;margin-bottom:3rem;">
+<span class="mono-label">What our clients say about us</span>
+<h2>Client Testimonials</h2>
 </div>
-<div class="form-group">
-<label for="email">Email</label>
-<input id="email" name="email" required="" type="email"/>
+<div class="testimonials">
+<div class="anim-fade-in-up testimonial-card" style="transition-delay:0.1s;">
+<div class="stars">★★★★★</div>
+<p>"Been working with Reed and his team for years. They have seen and guided me through several transitions. Extremely responsive and highly recommended!"</p>
+<div style="margin-top:1.5rem;font-weight:600;">
+<div>Charism Life</div>
+<div style="color:var(--text-muted);font-weight:400;font-size:0.9rem;">Charism Enterprise</div>
 </div>
-<div class="form-group">
-<label for="phone">Phone</label>
-<input id="phone" name="phone" type="tel"/>
 </div>
-<div class="form-group">
-<label for="project">Tell us about your project</label>
-<textarea id="project" name="project" placeholder="Describe your goals, timeline, and what you're looking to achieve..."></textarea>
+<div class="anim-fade-in-up testimonial-card" style="transition-delay:0.2s;">
+<div class="stars">★★★★★</div>
+<p>"InnoVationV took all of my thoughts, and turned them into more than I imagined, delivering an amazing product for my business!"</p>
+<div style="margin-top:1.5rem;font-weight:600;">
+<div>Holland Kida</div>
+<div style="color:var(--text-muted);font-weight:400;font-size:0.9rem;">To Your Door Services</div>
 </div>
-<button class="btn-primary" style="width: 100%; justify-content: center;" type="submit">Send Message</button>
-</form>
+</div>
+<div class="anim-fade-in-up testimonial-card" style="transition-delay:0.3s;">
+<div class="stars">★★★★★</div>
+<p>"They work fast and know what they are doing. I've also been very pleased with their customer service. After being a customer for a few years, it's easy for me to give a 5-star rating"</p>
+<div style="margin-top:1.5rem;font-weight:600;">
+<div>Kyle Califf</div>
+<div style="color:var(--text-muted);font-weight:400;font-size:0.9rem;">Califf Law Firm</div>
+</div>
+</div>
+<div class="anim-fade-in-up testimonial-card" style="transition-delay:0.4s;">
+<div class="stars">★★★★★</div>
+<p>"This group is the absolute best. I highly recommend for any web related work you need done. Super professional and easy to work with"</p>
+<div style="margin-top:1.5rem;font-weight:600;">
+<div>Joe Edge</div>
+<div style="color:var(--text-muted);font-weight:400;font-size:0.9rem;">Sherman &amp; Hemstreet / The Augusta Press</div>
+</div>
+</div>
+<div class="anim-fade-in-up testimonial-card" style="transition-delay:0.5s;">
+<div class="stars">★★★★★</div>
+<p>"Awesome service!!! I couldn't be happier."</p>
+<div style="margin-top:1.5rem;font-weight:600;">
+<div>Jeremy Cully</div>
+<div style="color:var(--text-muted);font-weight:400;font-size:0.9rem;">Muscle Anthropology</div>
+</div>
+</div>
+<div class="anim-fade-in-up testimonial-card" style="transition-delay:0.6s;">
+<div class="stars">★★★★★</div>
+<p>"Love this company!"</p>
+<div style="margin-top:1.5rem;font-weight:600;">
+<div>Josh McDaniel</div>
+<div style="color:var(--text-muted);font-weight:400;font-size:0.9rem;">Junk in the Box Augusta</div>
+</div>
+</div>
 </div>
 </div>
 </section>
-<!-- Footer -->
-<footer class="footer">
+<section class="anim-fade-in-up" id="contact" style="transition-delay: 0.5s; background:var(--bg-card);">
 <div class="container">
-<div class="footer-content">
-<div class="footer-section">
-<h4>Services</h4>
-<ul>
-<li><a href="#services">Web Development &amp; Design</a></li>
-<li><a href="#services">SEO &amp; Content Marketing</a></li>
-<li><a href="#services">Google Advertising</a></li>
-<li><a href="#services">Branding &amp; Graphic Design</a></li>
-<li><a href="#services">Reputation Management</a></li>
+<div class="anim-fade-in-up" style="text-align:center;margin-bottom:3rem;">
+<span class="mono-label">What are you waiting for?</span>
+<h2>Give us a call or book now with our admin team to get started.</h2>
+</div>
+<div class="grid-3">
+<div class="anim-fade-in-up" style="text-align:center;transition-delay:0.1s;">
+<h3>Give Us a Call</h3>
+<p style="margin:1rem 0;font-size:1.25rem;font-weight:600;color:var(--accent);">(706) 817-4220</p>
+<a class="btn-tech" href="tel:7068174220">Call Now</a>
+</div>
+<div class="anim-fade-in-up" style="text-align:center;transition-delay:0.2s;">
+<h3>Email Our Team</h3>
+<p style="margin:1rem 0;font-size:1.25rem;font-weight:600;color:var(--accent);">operations@innovationv.com</p>
+<a class="btn-tech" href="mailto:operations@innovationv.com">Email Now</a>
+</div>
+<div class="anim-fade-in-up" style="text-align:center;transition-delay:0.3s;">
+<h3>Read Our Blog</h3>
+<p style="margin:1rem 0;">See if we've answered your questions already here. Learn about marketing, web design, online safety, and more.</p>
+<a class="btn-ghost" href="#blog">Visit Our Blog</a>
+</div>
+</div>
+<div class="anim-fade-in-up text-measure" style="margin:4rem auto 0;text-align:center;">
+<p>No matter where you are, we will be there for you. We have the systems, technology, and resources to be able to research the everchanging algorithms all around the world. It's time to experience innovation with your brand – while still conveying the message that you want to display.</p>
+</div>
+</div>
+</section>
+<footer style="background:var(--bg-deep);border-top:1px solid var(--border);">
+<div class="container">
+<div style="text-align:center;padding:3rem 0;">
+<h3 style="margin-bottom:2rem;">Stay five steps ahead with InnoVationV!</h3>
+<div class="grid-3" style="margin:2rem 0;text-align:left;">
+<div>
+<h4 style="color:var(--accent);margin-bottom:1rem;">Quick Links</h4>
+<ul style="list-style:none;line-height:2;">
+<li><a href="#" style="color:var(--text-muted);text-decoration:none;">Home</a></li>
+<li><a href="#services" style="color:var(--text-muted);text-decoration:none;">Digital Marketing</a></li>
+<li><a href="#services" style="color:var(--text-muted);text-decoration:none;">Print Marketing</a></li>
+<li><a href="#about" style="color:var(--text-muted);text-decoration:none;">Our Team</a></li>
+<li><a href="#portfolio" style="color:var(--text-muted);text-decoration:none;">Portfolio</a></li>
+<li><a href="#contact" style="color:var(--text-muted);text-decoration:none;">Contact Us</a></li>
 </ul>
 </div>
-<div class="footer-section">
-<h4>Company</h4>
-<ul>
-<li><a href="#work">Portfolio</a></li>
-<li><a href="#about">About Us</a></li>
-<li><a href="/blog">Blog</a></li>
-<li><a href="#contact">Contact</a></li>
+<div>
+<h4 style="color:var(--accent);margin-bottom:1rem;">Digital Services</h4>
+<ul style="list-style:none;line-height:2;font-size:0.9rem;">
+<li style="color:var(--text-muted);">SEO</li>
+<li style="color:var(--text-muted);">Web Development &amp; Design</li>
+<li style="color:var(--text-muted);">Graphic Design</li>
+<li style="color:var(--text-muted);">Managed Hosting Solutions</li>
+<li style="color:var(--text-muted);">Content Marketing</li>
+<li style="color:var(--text-muted);">Pay Per Click</li>
+<li style="color:var(--text-muted);">Reputation &amp; Listing Management</li>
 </ul>
 </div>
-<div class="footer-section">
-<h4>Contact</h4>
-<ul>
-<li><a href="tel:706-817-4220">(706) 817-4220</a></li>
-<li><a href="mailto:operations@innovationv.com">operations@innovationv.com</a></li>
-<li>Augusta, Georgia</li>
+<div>
+<h4 style="color:var(--accent);margin-bottom:1rem;">Print Services</h4>
+<ul style="list-style:none;line-height:2;font-size:0.9rem;">
+<li style="color:var(--text-muted);">Brochures &amp; Flyers</li>
+<li style="color:var(--text-muted);">Menus</li>
+<li style="color:var(--text-muted);">Business Cards</li>
+<li style="color:var(--text-muted);">Gift Certificates</li>
+<li style="color:var(--text-muted);">EDDM &amp; Post Cards</li>
 </ul>
 </div>
 </div>
-<div class="footer-bottom">
-<p>© 2026 InnoVationV. Stay five steps ahead.</p>
+<div style="margin:3rem 0 1rem;padding-top:2rem;border-top:1px solid var(--border);">
+<p style="color:var(--text-muted);font-size:0.9rem;">(706) 817-4220 | operations@innovationv.com</p>
+</div>
 </div>
 </div>
 </footer>
+<div aria-hidden="true" class="cursor-crosshair" id="cursorCrosshair">
+<div class="cursor-dot"></div>
+<div class="cursor-line cursor-line-top"></div>
+<div class="cursor-line cursor-line-bottom"></div>
+<div class="cursor-line cursor-line-left"></div>
+<div class="cursor-line cursor-line-right"></div>
+</div>
 <script>
-        // Scroll Progress Bar
-        function updateScrollProgress() {
-            const scrollProgress = document.getElementById('scrollProgress');
-            const scrollTop = window.pageYOffset;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollPercent = (scrollTop / docHeight) * 100;
-            scrollProgress.style.width = scrollPercent + '%';
+    // Preloader
+    (function() {
+      let progress = 0;
+      const preloader = document.getElementById('preloader');
+      const percentage = document.getElementById('preloaderPercentage');
+      const content = document.querySelector('.preloader-content');
+      const curtains = document.querySelectorAll('.preloader-curtain');
+
+      const interval = setInterval(() => {
+        progress += Math.random() * 15;
+        if (progress > 100) progress = 100;
+        percentage.textContent = Math.floor(progress) + '%';
+        
+        if (progress === 100) {
+          clearInterval(interval);
+          setTimeout(() => {
+            content.classList.add('done');
+            curtains.forEach(curtain => curtain.classList.add('done'));
+            setTimeout(() => {
+              preloader.style.display = 'none';
+              document.body.style.overflow = '';
+            }, 800);
+          }, 500);
         }
-        
-        window.addEventListener('scroll', updateScrollProgress);
-        
-        // Scroll Reveal Animation
-        (function(){
-            var obs = new IntersectionObserver(function(entries){
-                entries.forEach(function(e){
-                    if(e.isIntersecting) e.target.classList.add('anim-visible');
-                });
-            }, {threshold: 0.1});
-            document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
-        })();
-        
-        // Mobile Menu Toggle
-        const navToggle = document.getElementById('navToggle');
-        const navMobile = document.getElementById('navMobile');
-        
-        if (navToggle) {
-            navToggle.addEventListener('click', function() {
-                navMobile.style.display = navMobile.style.display === 'block' ? 'none' : 'block';
-            });
-        }
-        
-        // Smooth Scrolling for Anchor Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
+      }, 100);
+
+      document.body.style.overflow = 'hidden';
+    })();
+
+    // Navigation scroll effect
+    window.addEventListener('scroll', function() {
+      const nav = document.getElementById('mainNav');
+      if (window.scrollY > 100) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // Custom cursor
+    (function() {
+      const cursor = document.getElementById('cursorCrosshair');
+      
+      document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+      });
+    })();
+
+    // Scroll reveal animation
+    (function() {
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('anim-visible');
+          }
         });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.anim-fade-in-up').forEach(function(el) {
+        observer.observe(el);
+      });
+    })();
+
+    // Dot rhombus canvas animation
+    (function() {
+      const canvas = document.getElementById('anim-dots-rhombus');
+      if (!canvas) return;
+      
+      const ctx = canvas.getContext('2d');
+      const spacing = 18;
+      let dots = [];
+
+      function resize() {
+        canvas.width = canvas.parentElement.offsetWidth;
+        canvas.height = canvas.parentElement.offsetHeight;
+        dots = [];
+        const cx = canvas.width / 2;
+        const cy = canvas.height / 2;
+        const rhombusSize = Math.min(canvas.width, canvas.height) * 0.45;
         
-        // Form Submission
-        const form = document.querySelector('form');
-        if (form) {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Thank you for your message! We\'ll be in touch soon.');
-                form.reset();
-            });
+        for (let x = 0; x < canvas.width; x += spacing) {
+          for (let y = 0; y < canvas.height; y += spacing) {
+            const relX = x - cx;
+            const relY = y - cy;
+            if (Math.abs(relX) + Math.abs(relY) < rhombusSize) {
+              dots.push({ x: x, y: y });
+            }
+          }
         }
-    </script>
+      }
+
+      resize();
+      window.addEventListener('resize', resize);
+
+      function animate(time) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < dots.length; i++) {
+          const dot = dots[i];
+          const dist = dot.x + dot.y;
+          const wave = Math.sin(dist * 0.008 - time / 600);
+          const size = 1 + (wave + 1) * 1.5;
+          const opacity = 0.3 + (wave + 1) * 0.35;
+          
+          ctx.fillStyle = `rgba(255,255,255,${opacity})`;
+          ctx.beginPath();
+          ctx.arc(dot.x, dot.y, size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        requestAnimationFrame(animate);
+      }
+
+      requestAnimationFrame(animate);
+    })();
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
 <script>
 (function(){
   var obs = new IntersectionObserver(function(entries){
@@ -970,6 +955,50 @@
     });
   }, {threshold: 0.1});
   document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+})();
+</script><script>
+(function(){
+  var c = document.getElementById('anim-dots-rhombus');
+  if(!c) return;
+  var ctx = c.getContext('2d');
+  var spacing = 18;
+  var dots = [];
+
+  function resize(){
+    c.width = c.parentElement.offsetWidth;
+    c.height = c.parentElement.offsetHeight;
+    dots = [];
+    var cx = c.width/2, cy = c.height/2;
+    var rhombusSize = Math.min(c.width, c.height) * 0.45;
+    var arrowW = c.width * 0.6, arrowH = c.height * 0.8;
+    for(var x=0; x<c.width; x+=spacing){
+      for(var y=0; y<c.height; y+=spacing){
+        var relX = x - cx, relY = y - cy;
+        if(Math.abs(relX) + Math.abs(relY) < rhombusSize){
+          dots.push({x:x, y:y});
+        }
+      }
+    }
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function animate(time){
+    ctx.clearRect(0,0,c.width,c.height);
+    for(var i=0;i<dots.length;i++){
+      var d = dots[i];
+      var dist = d.x + d.y;
+      var wave = Math.sin(dist * 0.008 - time / 600);
+      var size = 1 + (wave + 1) * 1.5;
+      var opacity = 0.3 + (wave + 1) * 0.35;
+      ctx.fillStyle = 'rgba(255,255,255,' + opacity + ')';
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, size, 0, Math.PI*2);
+      ctx.fill();
+    }
+    requestAnimationFrame(animate);
+  }
+  requestAnimationFrame(animate);
 })();
 </script></body>
 </html>
