@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Catholic Stewardship Consultants | Transform Your Parish Through Stewardship</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&amp;family=Inter:wght@300;400;500&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            /* Finance & Law Palette Colors */
+            --bg-deep: #0a0f1a;
+            --bg-card: #111827;
+            --bg-elevated: #1a2236;
+            --accent: #7456f1;
+            --accent-hover: #8b6ff5;
+            --accent-rgb: 116, 86, 241;
+            --gold: #d4af37;
+            --gold-muted: rgba(212, 175, 55, 0.15);
+            --text: #E7EBEE;
+            --text-muted: #9ca3af;
+            --text-heading: #ffffff;
+            --border: rgba(116, 86, 241, 0.15);
+            --border-gold: rgba(212, 175, 55, 0.25);
+
+            /* Typography */
+            --font-heading: 'Cormorant Garamond', 'Georgia', serif;
+            --font-body: 'Inter', 'Helvetica Neue', sans-serif;
+            --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
+            --heading-weight: 300;
+            --heading-weight-bold: 400;
+            --body-weight: 300;
+            --body-weight-medium: 400;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg-deep);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-weight: var(--body-weight);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: var(--heading-weight);
+            color: var(--text-heading);
+            letter-spacing: 0.02em;
+        }
+
+        h1 { 
+            font-size: clamp(2.75rem, 6vw, 5rem); 
+            line-height: 1.1; 
+        }
+        
+        h2 { 
+            font-size: clamp(2rem, 4vw, 3.25rem); 
+            line-height: 1.1; 
+        }
+        
+        h3 { 
+            font-size: clamp(1.15rem, 2vw, 1.5rem); 
+            font-weight: var(--heading-weight-bold); 
+            line-height: 1.3;
+        }
+
+        /* Navigation */
+        .nav-blur {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: transparent;
+            border-bottom: 1px solid transparent;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .nav-blur.scrolled {
+            background: rgba(10, 15, 26, 0.9);
+            border-bottom-color: rgba(116, 86, 241, 0.15);
+        }
+
+        .nav-blur-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-blur-logo-text {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--text-heading);
+            text-decoration: none;
+        }
+
+        .nav-blur-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-blur-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .nav-blur-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-blur-cta {
+            background: var(--accent);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .nav-blur-cta:hover {
+            background: var(--accent-hover);
+        }
+
+        .nav-blur-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            gap: 3px;
+        }
+
+        .nav-blur-toggle span {
+            width: 20px;
+            height: 2px;
+            background: var(--text);
+            transition: 0.3s ease;
+        }
+
+        .nav-blur-mobile {
+            display: none;
+            padding: 2rem;
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-blur-mobile ul {
+            list-style: none;
+        }
+
+        .nav-blur-mobile a {
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.75rem 0;
+            display: block;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* Ken Burns Hero Animation */
+        @keyframes animKenBurns {
+            0%   { transform: scale(1) translate(0, 0); }
+            25%  { transform: scale(1.12) translate(-1.5%, -1%); }
+            50%  { transform: scale(1.18) translate(-2.5%, 0.5%); }
+            75%  { transform: scale(1.1) translate(0.5%, -1.5%); }
+            100% { transform: scale(1.06) translate(1%, -0.5%); }
+        }
+
+        /* Scroll Reveal Animation */
+        .anim-fade-in-up {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .anim-fade-in-up.anim-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Monospace Labels */
+        .mono-label {
+            font-family: var(--font-mono);
+            font-size: 0.625rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: rgba(212, 175, 55, 0.6);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Wave Divider */
+        .wave-divider {
+            width: 100%;
+            height: 60px;
+            overflow: hidden;
+        }
+
+        .wave-divider svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Environmental Bleed Background */
+        .env-bleed-section {
+            position: relative;
+            padding: 8rem 2rem;
+            overflow: hidden;
+        }
+
+        .env-bleed-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.04;
+        }
+
+        .env-bleed-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .env-bleed-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Hover Lift Cards */
+        .lift-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .lift-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .lift-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .lift-card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .lift-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .lift-card-body {
+            padding: 1.5rem;
+        }
+
+        .lift-card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-heading);
+        }
+
+        .lift-card-desc {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Gold Gradient Line */
+        .divider-gradient {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0.3;
+            margin: 3rem 0;
+        }
+
+        /* Pill Glow Button */
+        .btn-pill-glow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            padding: 14px 48px;
+            background: var(--accent);
+            color: white;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(var(--accent-rgb), 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-pill-glow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(var(--accent-rgb), 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .anim-image-hero {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .anim-image-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: animKenBurns 25s ease-in-out infinite alternate;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            padding: 4rem 2rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .text-container {
+            max-width: 65ch;
+            margin: 0 auto;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Results Grid */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .result-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .result-number {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 2rem auto 0;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-heading);
+            font-weight: 400;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--bg-card);
+            color: var(--text);
+            font-family: var(--font-body);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem 1.5rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--text-heading);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: var(--text-muted);
+            text-decoration: none;
+            display: block;
+            padding: 0.25rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-blur-links,
+            .nav-blur-cta {
+                display: none;
+            }
+
+            .nav-blur-toggle {
+                display: flex;
+            }
+
+            .nav-blur-mobile.active {
+                display: block;
+            }
+
+            .hero-content {
+                padding: 2rem 1rem;
+            }
+
+            section {
+                padding: 4rem 1rem;
+            }
+
+            .lift-card-grid {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+        }
+    </style>
+<style>
+.anim-fade-in-up {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.anim-fade-in-up.anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style></head>
+<body>
+<!-- Navigation -->
+<nav class="nav-blur" id="mainNav">
+<div class="nav-blur-inner">
+<a class="nav-blur-logo" href="#">
+<span class="nav-blur-logo-text">Catholic Stewardship Consultants</span>
+</a>
+<ul class="nav-blur-links">
+<li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#results">Results</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<a class="nav-blur-cta" href="tel:888-822-1847">Call 888-822-1847</a>
+<button aria-label="Toggle menu" class="nav-blur-toggle" id="navToggle">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+<div class="nav-blur-mobile" id="navMobile">
+<ul>
+<li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#results">Results</a></li>
+<li><a href="#contact">Contact</a></li>
+<li><a href="tel:888-822-1847">Call 888-822-1847</a></li>
+</ul>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="hero anim-fade-in-up" style="transition-delay: 0.0s; ">
+<div class="anim-image-hero">
+<img alt="" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&amp;h=1080&amp;fit=crop&amp;crop=center"/>
+</div>
+<div class="hero-overlay"></div>
+<div class="hero-content">
+<span class="mono-label">Parish Stewardship</span>
+<h1 class="anim-fade-in-up">Transform Your Parish Through Stewardship</h1>
+<p class="anim-fade-in-up" style="transition-delay: 0.1s;">For over 25 years, Catholic Stewardship Consultants has been the trusted partner for hundreds of parishes across the country, helping strengthen prayer life, grow ministries, and increase offertory.</p>
+<a class="btn-pill-glow anim-fade-in-up" href="#contact" style="transition-delay: 0.2s;">Get Started Today</a>
+</div>
+</section>
+<!-- Wave Divider -->
+<div class="wave-divider">
+<svg preserveaspectratio="none" viewbox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,30 C240,55 480,5 720,30 C960,55 1200,5 1440,30 L1440,60 L0,60 Z" fill="#7456f1" fill-opacity="0.06"></path>
+</svg>
+</div>
+<!-- Services Section -->
+<section class="anim-fade-in-up" id="services" style="transition-delay: 0.1s; ">
+<div class="container">
+<div class="text-center text-container anim-fade-in-up">
+<span class="mono-label">Our Services</span>
+<h2>Comprehensive Stewardship Solutions</h2>
+<p>We customize a service package to fit your parish's needs. Most parishes take advantage of our comprehensive offerings designed to foster vibrant communities of faith.</p>
+</div>
+<div class="lift-card-grid anim-fade-in-up" style="transition-delay: 0.2s;">
+<div class="lift-card">
+<div class="lift-card-img">
+<img alt="Monthly newsletters" src="https://images.unsplash.com/photo-1544377193-33dcf4d68fb5?w=400&amp;h=250&amp;fit=crop"/>
+</div>
+<div class="lift-card-body">
+<h3 class="lift-card-title">Monthly Newsletters</h3>
+<p class="lift-card-desc">Engaging communication materials that educate and inspire parishioners about stewardship throughout the year.</p>
+</div>
+</div>
+<div class="lift-card">
+<div class="lift-card-img">
+<img alt="Leadership retreats" src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&amp;h=250&amp;fit=crop"/>
+</div>
+<div class="lift-card-body">
+<h3 class="lift-card-title">Leadership Retreats</h3>
+<p class="lift-card-desc">Comprehensive training programs for parish leadership to develop effective stewardship strategies and implementation.</p>
+</div>
+</div>
+<div class="lift-card">
+<div class="lift-card-img">
+<img alt="Parish surveys" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&amp;h=250&amp;fit=crop"/>
+</div>
+<div class="lift-card-body">
+<h3 class="lift-card-title">Surveys &amp; Assessment</h3>
+<p class="lift-card-desc">Detailed parish assessments to understand current engagement levels and identify opportunities for growth.</p>
+</div>
+</div>
+<div class="lift-card">
+<div class="lift-card-img">
+<img alt="Stewardship renewal" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&amp;h=250&amp;fit=crop"/>
+</div>
+<div class="lift-card-body">
+<h3 class="lift-card-title">Stewardship Renewal</h3>
+<p class="lift-card-desc">Annual renewal processes that deepen parishioner commitment to time, talent, and treasure offerings.</p>
+</div>
+</div>
+<div class="lift-card">
+<div class="lift-card-img">
+<img alt="Committee development" src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=400&amp;h=250&amp;fit=crop"/>
+</div>
+<div class="lift-card-body">
+<h3 class="lift-card-title">Committee Development</h3>
+<p class="lift-card-desc">Guidance in establishing and training effective stewardship committees within your parish community.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section with Environmental Bleed -->
+<section class="env-bleed-section anim-fade-in-up" id="about" style="transition-delay: 0.2s; ">
+<div aria-hidden="true" class="env-bleed-bg">
+<img alt="" loading="lazy" src="https://images.unsplash.com/photo-1520637836862-4d197d17c63a?w=1920&amp;h=1080&amp;fit=crop"/>
+</div>
+<div class="env-bleed-content">
+<div class="text-center text-container anim-fade-in-up">
+<span class="mono-label">About Us</span>
+<h2>How We Learned to Strengthen Prayer Life, Grow Ministries, and Increase Financial Giving</h2>
+</div>
+<div class="anim-fade-in-up" style="transition-delay: 0.1s;">
+<p>In 1996, CSC Co-founders Eric and Lisa McArdle attended the National Catholic Stewardship Council Conference, where they spoke with pastors who recognized the importance of stewardship for growing disciples. Inspired by their commitment to their parishes, they left the conference resolved to help.</p>
+<p>At the request of their pastor and alongside co-founder Deacon Don McArdle, they began spreading the message of stewardship in our home parish—Church of the Most Holy Trinity in Augusta, GA. Through communication, education, and evangelization, the McArdles facilitated their parish's first Stewardship Renewal and conducted a capital campaign.</p>
+<p>In that first year, parishioners generated an offertory increase of over $100,000 in their small, inner-city parish and raised funds to restore their 150-year-old church. More importantly, ministries flourished, Mass attendance grew, and the overall spiritual energy soared.</p>
+<p>Over almost three decades, the McArdles and CSC have helped hundreds of diverse Catholic parishes across the country in over 70 dioceses. At CSC, we provide services to strengthen prayer life, engage parishioners, and increase financial giving. We also train parish leaders to meet the needs of parishioners while helping them grow as disciples of Christ.</p>
+</div>
+<div class="divider-gradient"></div>
+<div class="text-center anim-fade-in-up" style="transition-delay: 0.3s;">
+<h3 style="margin-bottom: 1rem;">Understanding Stewardship</h3>
+<p style="font-style: italic; font-size: 1.125rem; color: var(--gold);">"Stewardship is the practice of returning a portion of one's time, talent, and treasure back to God in gratitude for the gifts He has given us."</p>
+</div>
+</div>
+</section>
+<!-- Wave Divider -->
+<div class="wave-divider">
+<svg preserveaspectratio="none" viewbox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,30 C240,55 480,5 720,30 C960,55 1200,5 1440,30 L1440,60 L0,60 Z" fill="#7456f1" fill-opacity="0.06"></path>
+</svg>
+</div>
+<!-- Results Section -->
+<section class="anim-fade-in-up" id="results" style="transition-delay: 0.3s; ">
+<div class="container">
+<div class="text-center text-container anim-fade-in-up">
+<span class="mono-label">Results</span>
+<h2>Tangible Efforts for Remarkable Results</h2>
+<p>At CSC, we witness firsthand how stewardship transforms lives every day in the parishes we serve. The results are nothing short of remarkable. With our support, parishes can thrive, fostering vibrant communities of faith that engage and inspire parishioners.</p>
+</div>
+<div class="results-grid anim-fade-in-up" style="transition-delay: 0.2s;">
+<div class="result-item">
+<span class="result-number">25+</span>
+<span class="result-desc">Years as a Trusted Partner</span>
+</div>
+<div class="result-item">
+<span class="result-number">70+</span>
+<span class="result-desc">Dioceses Enriched</span>
+</div>
+<div class="result-item">
+<span class="result-number">Hundreds</span>
+<span class="result-desc">of Parishes Across the Country</span>
+</div>
+</div>
+<div class="text-center anim-fade-in-up" style="transition-delay: 0.4s;">
+<p style="margin: 2rem 0;">Every parish we partner with sees results within the first year of implementation. We know how important it is for you to see progress, and we're committed to helping you achieve your goals.</p>
+<a class="btn-pill-glow" href="#contact">See How We Can Help</a>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="anim-fade-in-up" id="contact" style="transition-delay: 0.4s; background: var(--bg-elevated);">
+<div class="container">
+<div class="text-center text-container anim-fade-in-up">
+<span class="mono-label">Contact</span>
+<h2>Your Stewardship Journey Starts Here</h2>
+<p>Contact us to discover how we can guide your parish in enhancing stewardship practices that drive community engagement and promote spiritual growth. Together, we can transform your parish into a thriving community of stewardship.</p>
+</div>
+<div class="anim-fade-in-up" style="transition-delay: 0.2s;">
+<p style="font-size: 1.125rem; margin-bottom: 0.5rem;">Phone: <a href="tel:888-822-1847" style="color: var(--gold); text-decoration: none;">888-822-1847</a></p>
+<p style="font-size: 1.125rem;">Email: <a href="mailto:info@catholicsteward.com" style="color: var(--gold); text-decoration: none;">info@catholicsteward.com</a></p>
+</div>
+<form class="contact-form anim-fade-in-up" style="transition-delay: 0.3s;">
+<div class="form-group">
+<label for="name">Name *</label>
+<input id="name" name="name" required="" type="text"/>
+</div>
+<div class="form-group">
+<label for="email">Email *</label>
+<input id="email" name="email" required="" type="email"/>
+</div>
+<div class="form-group">
+<label for="parish">Parish Name</label>
+<input id="parish" name="parish" type="text"/>
+</div>
+<div class="form-group">
+<label for="message">Message *</label>
+<textarea id="message" name="message" placeholder="Tell us about your parish's needs and how we can help..." required="" rows="5"></textarea>
+</div>
+<div style="text-align: center;">
+<button class="btn-pill-glow" type="submit">Send Message</button>
+</div>
+</form>
+<div class="text-center anim-fade-in-up" style="transition-delay: 0.4s; margin-top: 3rem;">
+<h3>Reach out today for your FREE 30-minute consultation!</h3>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer>
+<div class="footer-content">
+<div class="footer-section">
+<h4>Quick Links</h4>
+<ul>
+<li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#results">Results</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>Resources</h4>
+<ul>
+<li><a href="#">FAQ</a></li>
+<li><a href="#">Blog &amp; Reflections</a></li>
+<li><a href="#">Success Stories</a></li>
+<li><a href="#">Books</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>Connect</h4>
+<ul>
+<li><a href="tel:888-822-1847">888-822-1847</a></li>
+<li><a href="mailto:info@catholicsteward.com">info@catholicsteward.com</a></li>
+<li><a href="#">StewardshipPro</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 Catholic Stewardship Consultants, Inc. | Privacy Policy | Terms of Service</p>
+</div>
+</footer>
+<script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        document.getElementById('navToggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('navMobile');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('anim-visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.anim-fade-in-up').forEach(function(el) {
+            observer.observe(el);
+        });
+
+        // Contact form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will contact you within 24 hours to schedule your FREE consultation.');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+<script>
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) e.target.classList.add('anim-visible');
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+})();
+</script></body>
+</html>
