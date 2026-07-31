@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Core One Solutions - National Security Solutions</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<!-- Hidden SVG filter -->
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden;">
+<defs>
+<filter color-interpolation-filters="sRGB" id="brandTint">
+<fecolormatrix type="saturate" values="0"></fecolormatrix>
+<fecolormatrix type="matrix" values="0.04 0 0 0 0.96 0.14 0 0 0 0.86 0.06 0 0 0 0.94 0 0 0 1 0"></fecolormatrix>
+</filter>
+</defs>
+</svg>
+<style>
+    /* Tech/SaaS Palette - CSS Custom Properties */
+    :root {
+      --bg-deep: #0a0f1a;
+      --bg-card: #111827;
+      --bg-elevated: #1e293b;
+      --accent: #06b6d4;
+      --accent-hover: #22d3ee;
+      --accent-glow: rgba(6, 182, 212, 0.15);
+      --gold: #c0c0c0;
+      --text: #E7EBEE;
+      --text-muted: #94a3b8;
+      --text-heading: #ffffff;
+      --border: rgba(6, 182, 212, 0.12);
+
+      --font-heading: 'Cormorant Garamond', serif;
+      --font-body: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --heading-weight: 400;
+      --heading-weight-bold: 600;
+      --body-weight: 400;
+
+      --overlay-opacity: 0.70;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      cursor: none !important;
+    }
+
+    body {
+      background: var(--bg-deep);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-weight: var(--body-weight);
+      font-size: 1.125rem;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font-heading);
+      font-weight: var(--heading-weight);
+      color: var(--text-heading);
+      line-height: 1.1;
+    }
+
+    h1 { font-size: clamp(2.75rem, 6vw, 5rem); }
+    h2 { font-size: clamp(2rem, 4vw, 3.25rem); }
+    h3 { font-size: clamp(1.15rem, 2vw, 1.5rem); font-weight: var(--heading-weight-bold); }
+
+    section {
+      padding: 6rem 5% 6rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* Preloader */
+    .preloader-container {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+    .preloader-curtain {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+      background: #0a0f1a;
+      transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+    .preloader-curtain.left { left: 0; }
+    .preloader-curtain.right { right: 0; }
+    .preloader-curtain.done.left { transform: translateX(-100%); }
+    .preloader-curtain.done.right { transform: translateX(100%); }
+
+    .preloader-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      transition: opacity 0.3s;
+    }
+    .preloader-content.done { opacity: 0; }
+
+    .preloader-percentage {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+    }
+    .preloader-status {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.6rem;
+      color: rgba(255, 255, 255, 0.4);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-top: 0.5rem;
+    }
+
+    /* Navigation */
+    .nav-blur {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: transparent;
+      border-bottom: 1px solid transparent;
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .nav-blur.scrolled {
+      background: rgba(10, 15, 26, 0.85);
+      border-bottom-color: var(--border);
+    }
+
+    .nav-blur-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-blur-logo-text {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text-heading);
+      text-decoration: none;
+    }
+
+    .nav-blur-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-blur-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-blur-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-blur-cta {
+      background: var(--accent);
+      color: var(--bg-deep);
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+    }
+
+    .nav-blur-cta:hover {
+      background: var(--accent-hover);
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    .nav-blur-toggle {
+      display: none;
+      flex-direction: column;
+      background: none;
+      border: none;
+      cursor: pointer;
+      gap: 3px;
+    }
+
+    .nav-blur-toggle span {
+      width: 25px;
+      height: 2px;
+      background: var(--text);
+      transition: all 0.3s;
+    }
+
+    /* Hide default cursor */
+    .cursor-crosshair {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 99999;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      will-change: transform;
+    }
+
+    .cursor-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--accent);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .cursor-line {
+      position: absolute;
+      background: var(--accent);
+      opacity: 0.7;
+    }
+
+    .cursor-line-top {
+      width: 1px;
+      height: 10px;
+      left: 50%;
+      bottom: calc(50% + 5px);
+      transform: translateX(-50%);
+    }
+
+    .cursor-line-bottom {
+      width: 1px;
+      height: 10px;
+      left: 50%;
+      top: calc(50% + 5px);
+      transform: translateX(-50%);
+    }
+
+    .cursor-line-left {
+      width: 10px;
+      height: 1px;
+      top: 50%;
+      right: calc(50% + 5px);
+      transform: translateY(-50%);
+    }
+
+    .cursor-line-right {
+      width: 10px;
+      height: 1px;
+      top: 50%;
+      left: calc(50% + 5px);
+      transform: translateY(-50%);
+    }
+
+    /* Film grain */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0.035;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .anim-video-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .hero-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: url(#brandTint);
+    }
+
+    .scanlines-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.03) 2px,
+        rgba(0, 0, 0, 0.03) 4px
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 1000px;
+      padding: 4rem 6%;
+    }
+
+    .mono-label {
+      font-family: var(--font-mono);
+      font-size: 0.625rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: rgba(6, 182, 212, 0.7);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--accent), #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-tagline {
+      color: var(--text-muted);
+      font-size: 1.25rem;
+      margin: 2rem 0 3rem;
+      max-width: 70ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-tech {
+      background: var(--accent);
+      color: var(--bg-deep);
+      padding: 14px 32px;
+      border: none;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s;
+      margin-right: 1rem;
+    }
+
+    .btn-tech:hover {
+      background: var(--accent-hover);
+      box-shadow: 0 0 24px var(--accent-glow);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      padding: 14px 32px;
+      background: transparent;
+      color: var(--accent);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid var(--accent);
+      transition: all 0.3s;
+    }
+
+    .btn-ghost:hover {
+      background: var(--accent-glow);
+    }
+
+    /* Marquee */
+    .marquee-ribbon {
+      overflow: hidden;
+      background: var(--bg-elevated);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0;
+      white-space: nowrap;
+    }
+    
+    .marquee-track {
+      display: inline-flex;
+      gap: 3rem;
+      animation: marquee-scroll 30s linear infinite;
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 300;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgba(231, 235, 238, 0.6);
+    }
+    
+    .marquee-track .separator {
+      color: var(--accent);
+      font-size: 0.7rem;
+    }
+    
+    @keyframes marquee-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Services Section */
+    .services {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .service-card {
+      background: rgba(17, 24, 39, 0.6);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+
+    .service-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 40px var(--accent-glow);
+    }
+
+    .service-card h3 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    /* Stats Section */
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+      padding: 4rem 2rem;
+      background: var(--bg-elevated);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin: 6rem 0;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number, .stat-prefix, .stat-suffix {
+      font-family: var(--font-heading);
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: var(--text-heading);
+      line-height: 1;
+    }
+
+    .stat-suffix {
+      font-size: 1.5rem;
+      color: var(--accent);
+      margin-left: 2px;
+    }
+
+    .stat-prefix {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-right: 2px;
+    }
+
+    .stat-label {
+      display: block;
+      margin-top: 0.75rem;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .stat-divider {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, transparent, var(--border), transparent);
+    }
+
+    /* About Section */
+    .about-content {
+      max-width: 70ch;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      margin-top: 4rem;
+    }
+
+    .about-card {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .about-card h3 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    /* CTA Section */
+    .cta {
+      background: var(--bg-elevated);
+      border-radius: 16px;
+      padding: 4rem 2rem;
+      text-align: center;
+      margin: 6rem 0;
+    }
+
+    .cta h2 {
+      margin-bottom: 1rem;
+    }
+
+    .cta p {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      max-width: 60ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      padding: 3rem 5% 2rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+    }
+
+    .footer-section h3 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .footer-section p, .footer-section a {
+      color: var(--text-muted);
+      text-decoration: none;
+      line-height: 1.8;
+    }
+
+    .footer-section a:hover {
+      color: var(--accent);
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 2rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Scroll reveal animation */
+    .anim-fade-in-up {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .anim-fade-in-up.anim-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-blur-links, .nav-blur-cta {
+        display: none;
+      }
+
+      .nav-blur-toggle {
+        display: flex;
+      }
+
+      .hero-content {
+        padding: 2rem 5%;
+      }
+
+      .stats-bar {
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+
+      .stat-divider {
+        display: none;
+      }
+
+      .stat {
+        flex: 0 0 45%;
+      }
+
+      .stat-number, .stat-prefix, .stat-suffix {
+        font-size: 2.5rem;
+      }
+
+      section {
+        padding: 4rem 5%;
+      }
+    }
+  </style>
+<style>
+.anim-fade-in-up {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.anim-fade-in-up.anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style><link href="https://fonts.googleapis.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/></head>
+<body><svg aria-hidden="true" style="position:absolute;width:0;height:0;">
+<filter id="anim-brand-tint">
+<fecolormatrix type="matrix" values="0.02 0 0 0 0.98 0.71 0 0 0 0.29 0.83 0 0 0 0.17 0 0 0 1 0"></fecolormatrix>
+</filter>
+</svg>
+<!-- Preloader -->
+<div class="preloader-container" id="preloader">
+<div class="preloader-curtain left"></div>
+<div class="preloader-curtain right"></div>
+<div class="preloader-content">
+<span class="preloader-percentage" id="preloaderPercentage">0%</span>
+<span class="preloader-status">Initializing System</span>
+</div>
+</div>
+<!-- Custom Crosshair Cursor -->
+<div aria-hidden="true" class="cursor-crosshair" id="cursorCrosshair">
+<div class="cursor-dot"></div>
+<div class="cursor-line cursor-line-top"></div>
+<div class="cursor-line cursor-line-bottom"></div>
+<div class="cursor-line cursor-line-left"></div>
+<div class="cursor-line cursor-line-right"></div>
+</div>
+<!-- Navigation -->
+<nav class="nav-blur" id="mainNav">
+<div class="nav-blur-inner">
+<a class="nav-blur-logo" href="#">
+<span class="nav-blur-logo-text">Core One</span>
+</a>
+<ul class="nav-blur-links">
+<li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#impact">Impact</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<a class="nav-blur-cta" href="#contact">Get Started</a>
+<button aria-label="Toggle menu" class="nav-blur-toggle" id="navToggle">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="hero anim-fade-in-up" id="hero" style="transition-delay: 0.0s; position: relative; overflow: hidden; "><div style="position:absolute;inset:0;z-index:0;overflow:hidden;">
+<video autoplay="" loop="" muted="" playsinline="" poster="https://images.pexels.com/photos/1561020/pexels-photo-1561020.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1920" style="width:100%;height:100%;object-fit:cover;filter:url(#anim-brand-tint) saturate(0.8) brightness(0.6);">
+<source src="https://videos.pexels.com/video-files/2169880/2169880-uhd_2560_1440_30fps.mp4" type="video/mp4"/>
+</video>
+<div style="position:absolute;inset:0;background:rgba(0,0,0,0.55);"></div>
+<div style="position:absolute;inset:0;background:radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.6) 100%);"></div>
+<div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);pointer-events:none;"></div>
+</div>
+<div class="anim-video-bg" style="position: relative; z-index: 1; ">
+<video autoplay="" class="hero-video" loop="" muted="" playsinline="" poster="https://images.pexels.com/photos/1561020/pexels-photo-1561020.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1920" preload="auto">
+<source src="https://videos.pexels.com/video-files/2169880/2169880-uhd_2560_1440_30fps.mp4" type="video/mp4"/>
+</video>
+<div style="position:absolute;inset:0;background:rgba(0,0,0,0.55);"></div>
+<div style="position:absolute;inset:0;background:radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.7) 100%);"></div>
+<div aria-hidden="true" class="scanlines-overlay"></div>
+</div>
+<div class="hero-content" style="position: relative; z-index: 1; ">
+<span class="mono-label">System Online</span>
+<h1><span class="gradient-text">Singular Mission.</span><br/>Enduring Impact.</h1>
+<p class="hero-tagline">We design and deliver forward-thinking solutions to support the U.S. national security community in countering advanced and evolving threats.</p>
+<div>
+<a class="btn-tech" href="#contact">Get Started</a>
+<a class="btn-ghost" href="#services">Learn More</a>
+</div>
+</div>
+<div style="position:absolute;top:16px;left:16px;z-index:50;font-family:'JetBrains Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.25em;color:rgba(255,255,255,0.4);">
+<div>SYSTEM ONLINE</div>
+</div>
+<div style="position:absolute;top:16px;right:16px;z-index:50;font-family:'JetBrains Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.25em;color:rgba(255,255,255,0.4);text-align:right;">
+<div>Status: <span style="color:#22c55e;">ACTIVE</span></div>
+</div>
+<div style="position:absolute;bottom:16px;right:16px;z-index:50;display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
+<span style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.25em;color:rgba(255,255,255,0.3);">[SCROLL]</span>
+<div style="width:1px;height:32px;background:linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);animation:pulse 2s infinite;"></div>
+</div></section>
+<!-- Marquee Ticker -->
+<div class="marquee-ribbon">
+<div class="marquee-track">
+<span>Intelligence Analysis</span>
+<span class="separator">●</span>
+<span>Operational Support</span>
+<span class="separator">●</span>
+<span>Training &amp; Logistics</span>
+<span class="separator">●</span>
+<span>Strategic Services</span>
+<span class="separator">●</span>
+<span>Intelligence Analysis</span>
+<span class="separator">●</span>
+<span>Operational Support</span>
+<span class="separator">●</span>
+<span>Training &amp; Logistics</span>
+<span class="separator">●</span>
+<span>Strategic Services</span>
+</div>
+</div>
+<!-- Services Section -->
+<section class="services anim-fade-in-up" id="services" style="position: relative; overflow: hidden; transition-delay: 0.1s; "><canvas id="anim-dots-rhombus" style="position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0.15;"></canvas>
+<canvas id="anim-dots-rhombus" style="position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0.15;"></canvas>
+<div style="position:relative;z-index:1;">
+<div class="anim-fade-in-up">
+<span class="mono-label">What We Do</span>
+<h2>Mission-Critical Solutions</h2>
+<p style="max-width: 70ch; margin: 2rem auto; text-align: center; color: var(--text-muted);">
+          We work at the intersection of intelligence and defense to deliver solutions that anticipate and address the most complex challenges facing the U.S. national security community.
+        </p>
+</div>
+<div class="services-grid">
+<div class="service-card anim-fade-in-up" style="transition-delay: 0.1s;">
+<h3>Intelligence Analysis</h3>
+<p>We enable the intelligence community to deliver actionable intelligence that informs decisions, mitigates threats, and supports critical operations to safeguard the United States.</p>
+</div>
+<div class="service-card anim-fade-in-up" style="transition-delay: 0.2s;">
+<h3>Operational Support</h3>
+<p>We partner with the Department of Defense to deliver capabilities that defend the United States, deter aggression, and ensure peace and stability globally.</p>
+</div>
+<div class="service-card anim-fade-in-up" style="transition-delay: 0.3s;">
+<h3>Training &amp; Logistics</h3>
+<p>We prepare elite personnel to succeed against the toughest threats through comprehensive training programs and logistical support.</p>
+</div>
+<div class="service-card anim-fade-in-up" style="transition-delay: 0.4s;">
+<h3>Strategic Services</h3>
+<p>We provide advisory to the highest levels of the U.S. national security and defense apparatus, ensuring strategic dominance in an evolving threat landscape.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Section -->
+<section class="stats-bar anim-fade-in-up" style="transition-delay: 0.2s; ">
+<div class="stat anim-fade-in-up">
+<span class="stat-number" data-target="5000">5000</span>
+<span class="stat-suffix">+</span>
+<span class="stat-label">Exercises, Red Cells &amp; Test Environments</span>
+</div>
+<div class="stat-divider"></div>
+<div class="stat anim-fade-in-up" style="transition-delay: 0.1s;">
+<span class="stat-number" data-target="30">30</span>
+<span class="stat-suffix">+</span>
+<span class="stat-label">Unique Technical Solutions</span>
+</div>
+<div class="stat-divider"></div>
+<div class="stat anim-fade-in-up" style="transition-delay: 0.2s;">
+<span class="stat-number" data-target="117">117</span>
+<span class="stat-label">CONUS/OCONUS Locations</span>
+</div>
+</section>
+<!-- About Section -->
+<section class="anim-fade-in-up" id="about" style="transition-delay: 0.3s; ">
+<div class="about-content anim-fade-in-up">
+<span class="mono-label">Beyond the Mission</span>
+<h2>Mission Integration</h2>
+<p>Since our inception, Core One has led in integrating intelligence and defense expertise, bridging mission sets as their boundaries blur. We fuse the knowledge and capabilities of these communities to craft solutions for the nation's complex security challenges.</p>
+</div>
+<div class="about-grid">
+<div class="about-card anim-fade-in-up" style="transition-delay: 0.1s;">
+<h3>Anticipate</h3>
+<p>We invest in intelligence, analysis, and strategic foresight to protect our interests before threats fully materialize.</p>
+</div>
+<div class="about-card anim-fade-in-up" style="transition-delay: 0.2s;">
+<h3>Innovate</h3>
+<p>We design and build scalable technical solutions in close partnership with our Government clients to meet evolving mission requirements.</p>
+</div>
+<div class="about-card anim-fade-in-up" style="transition-delay: 0.3s;">
+<h3>Prevail</h3>
+<p>We deliver capabilities that enable rapid establishment, scaling, and stand down of operations, training, and infrastructure worldwide.</p>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="cta anim-fade-in-up" id="contact" style="transition-delay: 0.4s; ">
+<div class="anim-fade-in-up">
+<h2>Ready to Secure Strategic Advantage?</h2>
+<p>Partner with Core One to deliver solutions that address your most complex national security challenges.</p>
+<div>
+<a class="btn-tech" href="mailto:info@coreone.com">Contact Us</a>
+<a class="btn-ghost" href="tel:(703) 879-4153">Call (703) 879-4153</a>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer>
+<div class="footer-content">
+<div class="footer-section">
+<h3>Core One Solutions</h3>
+<p>Delivering solutions to the most complex national security challenges, ensuring our clients have the strategic advantage against our Nation's adversaries.</p>
+</div>
+<div class="footer-section">
+<h3>Contact Information</h3>
+<p>22365 Broderick Drive<br/>Suite 400<br/>Sterling, VA 20166</p>
+<p><a href="tel:(703) 879-4153">(703) 879-4153</a></p>
+<p><a href="mailto:info@coreone.com">info@coreone.com</a></p>
+</div>
+<div class="footer-section">
+<h3>Quick Links</h3>
+<p><a href="#services">Services</a></p>
+<p><a href="#about">About</a></p>
+<p><a href="#contact">Contact</a></p>
+<p><a href="https://www.linkedin.com/company/core-one-solutions" rel="noopener" target="_blank">LinkedIn</a></p>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 Core One Solutions, LLC. All rights reserved.</p>
+</div>
+</footer>
+<script>
+    // Preloader
+    (function() {
+      let progress = 0;
+      const preloader = document.getElementById('preloader');
+      const percentage = document.getElementById('preloaderPercentage');
+      const curtains = preloader.querySelectorAll('.preloader-curtain');
+      const content = preloader.querySelector('.preloader-content');
+
+      function updateProgress() {
+        progress += Math.random() * 15 + 5;
+        if (progress >= 100) {
+          progress = 100;
+          percentage.textContent = '100%';
+          setTimeout(() => {
+            content.classList.add('done');
+            curtains.forEach(c => c.classList.add('done'));
+            setTimeout(() => {
+              preloader.style.display = 'none';
+            }, 800);
+          }, 500);
+        } else {
+          percentage.textContent = Math.floor(progress) + '%';
+          setTimeout(updateProgress, 50 + Math.random() * 100);
+        }
+      }
+      updateProgress();
+    })();
+
+    // Custom cursor
+    (function() {
+      const cursor = document.getElementById('cursorCrosshair');
+      let mouseX = 0, mouseY = 0;
+      let cursorX = 0, cursorY = 0;
+
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+
+      function updateCursor() {
+        cursorX += (mouseX - cursorX) * 0.1;
+        cursorY += (mouseY - cursorY) * 0.1;
+        cursor.style.left = cursorX + 'px';
+        cursor.style.top = cursorY + 'px';
+        requestAnimationFrame(updateCursor);
+      }
+      updateCursor();
+    })();
+
+    // Sticky nav
+    (function() {
+      const nav = document.getElementById('mainNav');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      });
+    })();
+
+    // Dot rhombus canvas
+    (function() {
+      const c = document.getElementById('anim-dots-rhombus');
+      if (!c) return;
+      const ctx = c.getContext('2d');
+      let spacing = 18;
+      let dots = [];
+
+      function resize() {
+        c.width = c.parentElement.offsetWidth;
+        c.height = c.parentElement.offsetHeight;
+        dots = [];
+        const cx = c.width / 2, cy = c.height / 2;
+        const rhombusSize = Math.min(c.width, c.height) * 0.45;
+        for (let x = 0; x < c.width; x += spacing) {
+          for (let y = 0; y < c.height; y += spacing) {
+            const relX = x - cx, relY = y - cy;
+            if (Math.abs(relX) + Math.abs(relY) < rhombusSize) {
+              dots.push({ x: x, y: y });
+            }
+          }
+        }
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      function animate(time) {
+        ctx.clearRect(0, 0, c.width, c.height);
+        for (let i = 0; i < dots.length; i++) {
+          const d = dots[i];
+          const dist = d.x + d.y;
+          const wave = Math.sin(dist * 0.008 - time / 600);
+          const size = 1 + (wave + 1) * 1.5;
+          const opacity = 0.3 + (wave + 1) * 0.35;
+          ctx.fillStyle = 'rgba(6, 182, 212,' + opacity + ')';
+          ctx.beginPath();
+          ctx.arc(d.x, d.y, size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        requestAnimationFrame(animate);
+      }
+      requestAnimationFrame(animate);
+    })();
+
+    // Scroll reveal
+    (function() {
+      const obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) e.target.classList.add('anim-visible');
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.anim-fade-in-up').forEach(function(el) { obs.observe(el); });
+    })();
+
+    // Counter animation
+    (function() {
+      const counters = document.querySelectorAll('.stat-number');
+      const obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            const target = parseInt(e.target.getAttribute('data-target'));
+            const current = parseInt(e.target.textContent);
+            if (current < target) {
+              const increment = target / 50;
+              const timer = setInterval(() => {
+                const newValue = parseInt(e.target.textContent) + increment;
+                if (newValue >= target) {
+                  e.target.textContent = target;
+                  clearInterval(timer);
+                } else {
+                  e.target.textContent = Math.floor(newValue);
+                }
+              }, 30);
+            }
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      counters.forEach(counter => obs.observe(counter));
+    })();
+  </script>
+<script>
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) e.target.classList.add('anim-visible');
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+})();
+</script><script>
+(function(){
+  var c = document.getElementById('anim-dots-rhombus');
+  if(!c) return;
+  var ctx = c.getContext('2d');
+  var spacing = 18;
+  var dots = [];
+
+  function resize(){
+    c.width = c.parentElement.offsetWidth;
+    c.height = c.parentElement.offsetHeight;
+    dots = [];
+    var cx = c.width/2, cy = c.height/2;
+    var rhombusSize = Math.min(c.width, c.height) * 0.45;
+    var arrowW = c.width * 0.6, arrowH = c.height * 0.8;
+    for(var x=0; x<c.width; x+=spacing){
+      for(var y=0; y<c.height; y+=spacing){
+        var relX = x - cx, relY = y - cy;
+        if(Math.abs(relX) + Math.abs(relY) < rhombusSize){
+          dots.push({x:x, y:y});
+        }
+      }
+    }
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function animate(time){
+    ctx.clearRect(0,0,c.width,c.height);
+    for(var i=0;i<dots.length;i++){
+      var d = dots[i];
+      var dist = d.x + d.y;
+      var wave = Math.sin(dist * 0.008 - time / 600);
+      var size = 1 + (wave + 1) * 1.5;
+      var opacity = 0.3 + (wave + 1) * 0.35;
+      ctx.fillStyle = 'rgba(255,255,255,' + opacity + ')';
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, size, 0, Math.PI*2);
+      ctx.fill();
+    }
+    requestAnimationFrame(animate);
+  }
+  requestAnimationFrame(animate);
+})();
+</script></body>
+</html>
