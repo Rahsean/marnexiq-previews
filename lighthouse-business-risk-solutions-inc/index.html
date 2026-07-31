@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lighthouse Business &amp; Risk Solutions - CFO Services for Small Business</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&amp;family=Inter:wght@300;400;500&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg-deep: #0a0f1a;
+            --bg-card: #111827;
+            --bg-elevated: #1a2236;
+            --accent: #7456f1;
+            --accent-hover: #8b6ff5;
+            --gold: #d4af37;
+            --gold-muted: rgba(212, 175, 55, 0.15);
+            --text: #E7EBEE;
+            --text-muted: #9ca3af;
+            --text-heading: #ffffff;
+            --border: rgba(116, 86, 241, 0.15);
+            --border-gold: rgba(212, 175, 55, 0.25);
+
+            --font-heading: 'Cormorant Garamond', 'Georgia', serif;
+            --font-body: 'Inter', 'Helvetica Neue', sans-serif;
+            --heading-weight: 300;
+            --heading-weight-bold: 400;
+            --body-weight: 300;
+            --body-weight-medium: 400;
+
+            --overlay-opacity: 0.55;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg-deep);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-weight: var(--body-weight);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: var(--heading-weight);
+            color: var(--text-heading);
+            letter-spacing: 0.02em;
+        }
+
+        h1 { 
+            font-size: clamp(2.75rem, 6vw, 5rem); 
+            line-height: 1.1; 
+        }
+        h2 { 
+            font-size: clamp(2rem, 4vw, 3.25rem); 
+            line-height: 1.2; 
+        }
+        h3 { 
+            font-size: clamp(1.15rem, 2vw, 1.5rem); 
+            font-weight: var(--heading-weight-bold); 
+        }
+
+        /* Navigation */
+        .nav-blur {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: transparent;
+            border-bottom: 1px solid transparent;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .nav-blur.scrolled {
+            background: rgba(10, 15, 26, 0.85);
+            border-bottom-color: rgba(255, 255, 255, 0.06);
+        }
+
+        .nav-blur-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-blur-logo-text {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--text-heading);
+            text-decoration: none;
+        }
+
+        .nav-blur-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-blur-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .nav-blur-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-blur-cta {
+            background: var(--accent);
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .nav-blur-cta:hover {
+            background: var(--accent-hover);
+        }
+
+        .nav-blur-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 3px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .nav-blur-toggle span {
+            width: 20px;
+            height: 2px;
+            background: var(--text);
+            transition: all 0.3s ease;
+        }
+
+        .nav-blur-mobile {
+            display: none;
+            padding: 2rem;
+            background: rgba(10, 15, 26, 0.95);
+        }
+
+        .nav-blur-mobile ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .nav-blur-mobile a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 0.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-blur-links,
+            .nav-blur-cta {
+                display: none;
+            }
+
+            .nav-blur-toggle {
+                display: flex;
+            }
+
+            .nav-blur-mobile.active {
+                display: block;
+            }
+        }
+
+        /* Scroll reveal animation */
+        .anim-fade-in-up {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .anim-fade-in-up.anim-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Gold gradient line */
+        .divider-gradient {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0.3;
+            margin: 3rem 0;
+        }
+
+        .divider-gradient--spacious {
+            margin: 5rem 0;
+        }
+
+        /* Gradient text */
+        .dp-gradient-text {
+            background: linear-gradient(135deg, #fff 0%, var(--gold) 50%, #fff 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: dp-gradient-shift 6s ease infinite;
+        }
+
+        @keyframes dp-gradient-shift {
+            0% { background-position: 0% center; }
+            50% { background-position: 100% center; }
+            100% { background-position: 0% center; }
+        }
+
+        /* Monospace labels */
+        .mono-label {
+            font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.625rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: rgba(212, 175, 55, 0.6);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Hero section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--bg-deep) 0%, #0c1321 50%, var(--bg-deep) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 640px;
+            padding: 4rem 6% 4rem 2rem;
+        }
+
+        .hero h1 {
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            margin: 1.5rem 0 2rem;
+            max-width: 62ch;
+        }
+
+        .btn-finance {
+            background: var(--accent);
+            color: #ffffff;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.03em;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-finance:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        /* Services section with sticky cards */
+        .services-section {
+            padding: 6rem 2rem;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services-intro {
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 70ch;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stack-section {
+            padding: 0 2rem;
+        }
+
+        .stack-card {
+            position: sticky;
+            min-height: 70vh;
+            padding: 4rem 3rem;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: box-shadow 0.4s ease;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .stack-card:hover {
+            box-shadow: 0 8px 40px rgba(116, 86, 241, 0.1);
+        }
+
+        .stack-card:nth-child(1) {
+            top: 12vh;
+            z-index: 1;
+            background: rgba(17, 24, 39, 0.4);
+        }
+        .stack-card:nth-child(2) {
+            top: 15vh;
+            z-index: 2;
+            background: rgba(17, 26, 45, 0.4);
+        }
+        .stack-card:nth-child(3) {
+            top: 18vh;
+            z-index: 3;
+            background: rgba(20, 30, 53, 0.4);
+        }
+
+        .card-number {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            font-weight: 300;
+            color: rgba(116, 86, 241, 0.12);
+            line-height: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .stack-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .stack-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            max-width: 60ch;
+            margin-bottom: 2rem;
+        }
+
+        /* Arrow expand links */
+        .link-arrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--accent);
+            text-decoration: none;
+            transition: gap 0.3s ease, color 0.3s ease;
+        }
+
+        .link-arrow:hover {
+            gap: 14px;
+        }
+
+        .link-arrow-icon {
+            display: inline-block;
+            transition: transform 0.3s ease;
+            font-size: 1.05em;
+        }
+
+        .link-arrow:hover .link-arrow-icon {
+            transform: translateX(4px);
+        }
+
+        /* About section */
+        .about-section {
+            padding: 6rem 2rem;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            max-width: 62ch;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .stroke-text {
+            -webkit-text-stroke: 1px rgba(212, 175, 55, 0.1);
+            -webkit-text-fill-color: transparent;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            line-height: 1.1;
+        }
+
+        /* Industries section */
+        .industries-section {
+            padding: 6rem 2rem;
+        }
+
+        .industries-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .numbered-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .numbered-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .numbered-num {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 300;
+            color: var(--gold);
+            opacity: 0.6;
+            min-width: 80px;
+            line-height: 1;
+        }
+
+        .numbered-content {
+            flex: 1;
+        }
+
+        .numbered-title {
+            margin-bottom: 1rem;
+        }
+
+        .numbered-desc {
+            color: var(--text-muted);
+            max-width: 60ch;
+        }
+
+        /* CTA section */
+        .cta-section {
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            padding: 14px 48px;
+            background: transparent;
+            color: var(--text-heading);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: background 0.3s ease, border-color 0.3s ease;
+            margin-left: 1rem;
+        }
+
+        .btn-ghost:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            background: var(--bg-card);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-contact {
+            margin-bottom: 2rem;
+        }
+
+        .footer-contact h3 {
+            margin-bottom: 1rem;
+        }
+
+        .footer-contact p {
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-contact a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .footer-contact a:hover {
+            color: var(--accent-hover);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .hero-content {
+                padding: 2rem 1rem;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .numbered-item {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .numbered-num {
+                min-width: auto;
+            }
+
+            .stack-card {
+                padding: 2rem 1.5rem;
+                min-height: auto;
+            }
+        }
+    </style>
+<style>
+.anim-fade-in-up {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.anim-fade-in-up.anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style></head>
+<body>
+<!-- Navigation -->
+<nav class="nav-blur" id="mainNav">
+<div class="nav-blur-inner">
+<a class="nav-blur-logo" href="#">
+<span class="nav-blur-logo-text">Lighthouse Business &amp; Risk Solutions</span>
+</a>
+<ul class="nav-blur-links">
+<li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#industries">Industries</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<a class="nav-blur-cta" href="tel:706-495-2107">(706) 495-2107</a>
+<button aria-label="Toggle menu" class="nav-blur-toggle" id="navToggle">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+<div class="nav-blur-mobile" id="navMobile">
+<ul>
+<li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#industries">Industries</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="hero anim-fade-in-up" style="transition-delay: 0.0s; ">
+<div class="hero-content">
+<div class="anim-fade-in-up" style="transition-delay: 0s;">
+<span class="mono-label">CFO Services for Small Business</span>
+<h1 class="dp-gradient-text">A Beacon for Small Business Owners</h1>
+</div>
+<div class="anim-fade-in-up" style="transition-delay: 0.1s;">
+<p>More than accounting. Real financial leadership. We combine accurate accounting with forward-looking planning so you can make confident decisions about your business future.</p>
+</div>
+<div class="anim-fade-in-up" style="transition-delay: 0.2s;">
+<a class="btn-finance" href="tel:706-495-2107">Schedule A Consultation</a>
+<a class="btn-ghost" href="#about">Learn More</a>
+</div>
+</div>
+</section>
+<!-- Divider -->
+<div class="divider-gradient"></div>
+<!-- Services Section -->
+<section class="services-section anim-fade-in-up" id="services" style="transition-delay: 0.1s; ">
+<div class="services-container">
+<div class="services-intro anim-fade-in-up">
+<span class="mono-label">Our Services</span>
+<h2>Financial strategy is complex—but your plan shouldn't be reactive</h2>
+<p>Even "simple" financial statements can hide cash flow leaks, pricing problems, and missed opportunities that impact profitability. Software can track transactions, but it can't think like a CFO.</p>
+</div>
+<div class="stack-section">
+<div class="stack-card anim-fade-in-up" style="transition-delay: 0.1s;">
+<div class="card-number">01</div>
+<h3>Business Advisory &amp; CFO Services</h3>
+<p>We support small business owners, executives, and independent professionals with a CFO-minded approach to their finances. Our part-time CFO services include clear monthly financial reporting, cash flow visibility and planning, and pricing and profitability analysis—plus ongoing decision support built around your goals, not generic reports.</p>
+<a class="link-arrow" href="#contact">
+<span class="link-arrow-text">Learn more</span>
+<span class="link-arrow-icon">→</span>
+</a>
+</div>
+<div class="stack-card anim-fade-in-up" style="transition-delay: 0.2s;">
+<div class="card-number">02</div>
+<h3>Accounting &amp; Bookkeeping Services</h3>
+<p>Complete small business accounting services including bookkeeping, payroll processing, internal controls, and QuickBooks setup and training. We go beyond clean books to provide the financial clarity you need to run your business with confidence.</p>
+<a class="link-arrow" href="#contact">
+<span class="link-arrow-text">Explore services</span>
+<span class="link-arrow-icon">→</span>
+</a>
+</div>
+<div class="stack-card anim-fade-in-up" style="transition-delay: 0.3s;">
+<div class="card-number">03</div>
+<h3>Tax Services &amp; Planning</h3>
+<p>Business owner tax preparation, tax preparation for businesses, comprehensive tax planning, and tax relief services including non-filed tax returns, payroll tax problems, and IRS payment plans. Our best work happens in an ongoing monthly relationship so we can help you reduce surprises and plan ahead.</p>
+<a class="link-arrow" href="#contact">
+<span class="link-arrow-text">Get started</span>
+<span class="link-arrow-icon">→</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Divider -->
+<div class="divider-gradient divider-gradient--spacious"></div>
+<!-- About Section -->
+<section class="about-section anim-fade-in-up" id="about" style="transition-delay: 0.2s; ">
+<div class="about-container">
+<div class="about-text anim-fade-in-up">
+<span class="mono-label">About Us</span>
+<h2>Much like how ships in the ocean would depend on lighthouses to guide them through rough waters</h2>
+<p>We're here to guide you through the craziness of the business world. Lighthouse Business &amp; Risk Solutions supports small business owners with a CFO-minded approach to their finances.</p>
+<p>That's why our best work happens in an ongoing monthly relationship—so we can stay close to your numbers year-round, connect the dots to your goals, and help you reduce surprises, improve cash flow, and make confident decisions in every season of business.</p>
+<p>We're here to help you get clarity and control over your business finances—so you can feel confident about what's happening today and prepared for what's next.</p>
+</div>
+<div class="anim-fade-in-up" style="transition-delay: 0.2s;">
+<div class="stroke-text" style="font-family: var(--font-heading);">
+                    LIGHTHOUSE
+                </div>
+</div>
+</div>
+</section>
+<!-- Industries Section -->
+<section class="industries-section anim-fade-in-up" id="industries" style="transition-delay: 0.3s; ">
+<div class="industries-container">
+<div class="anim-fade-in-up">
+<span class="mono-label">Industries We Serve</span>
+<h2>Specialized Knowledge Across Key Sectors</h2>
+</div>
+<div class="numbered-item anim-fade-in-up" style="transition-delay: 0.1s;">
+<div class="numbered-num">01</div>
+<div class="numbered-content">
+<h3 class="numbered-title">Real Estate</h3>
+<p class="numbered-desc">Comprehensive support for real estate investors and professionals, including property management accounting, rental income optimization, and specialized tax planning for real estate portfolios.</p>
+</div>
+</div>
+<div class="numbered-item anim-fade-in-up" style="transition-delay: 0.2s;">
+<div class="numbered-num">02</div>
+<div class="numbered-content">
+<h3 class="numbered-title">Construction</h3>
+<p class="numbered-desc">Job costing, progress billing, and cash flow management tailored to the unique challenges of construction businesses and contractors.</p>
+</div>
+</div>
+<div class="numbered-item anim-fade-in-up" style="transition-delay: 0.3s;">
+<div class="numbered-num">03</div>
+<div class="numbered-content">
+<h3 class="numbered-title">Healthcare &amp; Dental</h3>
+<p class="numbered-desc">Practice management accounting, insurance billing oversight, and financial planning designed specifically for healthcare providers and dental practices.</p>
+</div>
+</div>
+<div class="numbered-item anim-fade-in-up" style="transition-delay: 0.4s;">
+<div class="numbered-num">04</div>
+<div class="numbered-content">
+<h3 class="numbered-title">Professional Services</h3>
+<p class="numbered-desc">Financial management for law firms, hospitality businesses, and other professional service providers, including client billing optimization and profitability analysis.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="cta-section anim-fade-in-up" id="contact" style="transition-delay: 0.4s; ">
+<div class="cta-container anim-fade-in-up">
+<span class="mono-label">Get Started</span>
+<h2>Ready to Transform Your Business Finances?</h2>
+<p>Fill out the form and let us know how we can support you. We're happy to offer a free consultation to see what you need and whether we're the right fit.</p>
+<div style="margin-top: 2rem;">
+<a class="btn-finance" href="tel:706-495-2107">Schedule A Consultation</a>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="footer">
+<div class="footer-container">
+<div class="footer-contact">
+<h3>Lighthouse Business &amp; Risk Solutions</h3>
+<p>3540 Wheeler Road, Suite 312-A</p>
+<p>Augusta, GA 30909</p>
+<p><a href="tel:706-495-2107">(706) 495-2107</a></p>
+</div>
+<div class="footer-bottom">
+<p>© 2024 Lighthouse Business &amp; Risk Solutions Inc. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        document.getElementById('navToggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('navMobile');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Scroll reveal animation
+        (function(){
+            var obs = new IntersectionObserver(function(entries){
+                entries.forEach(function(e){
+                    if(e.isIntersecting) e.target.classList.add('anim-visible');
+                });
+            }, {threshold: 0.1});
+            document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+        })();
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+<script>
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) e.target.classList.add('anim-visible');
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+})();
+</script></body>
+</html>
