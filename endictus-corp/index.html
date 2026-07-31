@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ENDICTUS - Cybersecurity &amp; Technology Solutions</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<!-- Three.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+        :root {
+            /* Core colors */
+            --bg-deep: #0a0f1a;
+            --bg-card: #111827;
+            --bg-elevated: #1e293b;
+            --accent: #06b6d4;
+            --accent-hover: #22d3ee;
+            --accent-glow: rgba(6, 182, 212, 0.15);
+            --gold: #c0c0c0;
+            --text: #E7EBEE;
+            --text-muted: #94a3b8;
+            --text-heading: #ffffff;
+            --border: rgba(6, 182, 212, 0.12);
+
+            /* Typography */
+            --font-heading: 'Inter', 'Overpass', 'Helvetica Neue', sans-serif;
+            --font-body: 'Inter', 'Helvetica Neue', sans-serif;
+            --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+            --heading-weight: 600;
+            --heading-weight-bold: 700;
+            --body-weight: 400;
+
+            /* Photo overlay - high, abstract backgrounds */
+            --overlay-opacity: 0.70;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg-deep);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-weight: var(--body-weight);
+            font-size: 17px;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: var(--heading-weight);
+            color: var(--text-heading);
+        }
+
+        h1 { 
+            font-size: clamp(2.75rem, 6vw, 5rem); 
+            line-height: 1.1; 
+            letter-spacing: -0.02em; 
+        }
+        h2 { 
+            font-size: clamp(2rem, 4vw, 3.25rem); 
+            line-height: 1.2; 
+        }
+        h3 { 
+            font-size: clamp(1.15rem, 2vw, 1.5rem); 
+            font-weight: var(--heading-weight-bold); 
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .text-measure {
+            max-width: 65ch;
+        }
+
+        /* Navigation */
+        .nav-blur {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: transparent;
+            border-bottom: 1px solid transparent;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .nav-blur.scrolled {
+            background: rgba(10, 15, 26, 0.85);
+            border-bottom-color: rgba(6, 182, 212, 0.12);
+        }
+
+        .nav-blur-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-blur-logo-text {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: var(--heading-weight-bold);
+            color: var(--text-heading);
+            text-decoration: none;
+        }
+
+        .nav-blur-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-blur-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-blur-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-blur-cta {
+            background: var(--accent);
+            color: var(--bg-deep);
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .nav-blur-cta:hover {
+            background: var(--accent-hover);
+            box-shadow: 0 0 24px var(--accent-glow);
+        }
+
+        .nav-blur-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .nav-blur-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            transition: all 0.3s ease;
+        }
+
+        .nav-blur-mobile {
+            display: none;
+            background: var(--bg-card);
+            padding: 2rem;
+        }
+
+        .nav-blur-mobile ul {
+            list-style: none;
+        }
+
+        .nav-blur-mobile li {
+            margin-bottom: 1rem;
+        }
+
+        .nav-blur-mobile a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .nav-blur-links,
+            .nav-blur-cta {
+                display: none;
+            }
+            
+            .nav-blur-toggle {
+                display: flex;
+            }
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, var(--accent), #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Monospace Labels */
+        .mono-label {
+            font-family: var(--font-mono);
+            font-size: 0.625rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: rgba(6, 182, 212, 0.7);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Buttons */
+        .btn-tech {
+            background: var(--accent);
+            color: var(--bg-deep);
+            padding: 14px 32px;
+            border: none;
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-tech:hover {
+            background: var(--accent-hover);
+            box-shadow: 0 0 24px var(--accent-glow);
+        }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            padding: 14px 32px;
+            background: transparent;
+            color: var(--text);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            border: 1px solid rgba(6, 182, 212, 0.4);
+            cursor: pointer;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .btn-ghost:hover {
+            background: rgba(6, 182, 212, 0.08);
+            border-color: rgba(6, 182, 212, 0.6);
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 0;
+        }
+
+        .glass-card {
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 40px var(--accent-glow);
+        }
+
+        .glass-card-icon {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .glass-card-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--text-heading);
+        }
+
+        .glass-card-desc {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .glass-card-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .glass-card-list li {
+            color: var(--text-muted);
+            padding: 0.25rem 0;
+            font-size: 0.95rem;
+        }
+
+        /* Marquee Ticker */
+        .marquee-ribbon {
+            overflow: hidden;
+            background: var(--bg-elevated);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 18px 0;
+            white-space: nowrap;
+        }
+
+        .marquee-track {
+            display: inline-flex;
+            gap: 3rem;
+            animation: marquee-scroll 30s linear infinite;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(231, 235, 238, 0.6);
+        }
+
+        .marquee-track .separator {
+            color: var(--accent);
+            font-size: 0.7rem;
+        }
+
+        @keyframes marquee-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Scroll Reveal Animation */
+        .anim-fade-in-up {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .anim-fade-in-up.anim-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Sections */
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-item h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .contact-item p {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .contact-item a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border);
+            padding: 3rem 0 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            margin-top: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .glass-card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section {
+                padding: 4rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Hidden SVG Filter -->
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden;">
+<defs>
+<filter color-interpolation-filters="sRGB" id="brandTint">
+<fecolormatrix type="saturate" values="0"></fecolormatrix>
+<fecolormatrix type="matrix" values="0.04 0 0 0 0.96 0.14 0 0 0 0.86 0.06 0 0 0 0.94 0 0 0 1 0"></fecolormatrix>
+</filter>
+</defs>
+</svg>
+<!-- Navigation -->
+<nav class="nav-blur" id="mainNav">
+<div class="nav-blur-inner">
+<a class="nav-blur-logo" href="#">
+<span class="nav-blur-logo-text">ENDICTUS</span>
+</a>
+<ul class="nav-blur-links">
+<li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<a class="nav-blur-cta" href="#contact">Get Started</a>
+<button aria-label="Toggle menu" class="nav-blur-toggle" id="navToggle">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+<div class="nav-blur-mobile" id="navMobile">
+<ul>
+<li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="hero" id="hero">
+<!-- Video Background -->
+<div class="anim-video-bg" style="position:absolute;inset:0;z-index:0;overflow:hidden;">
+<video autoplay="" loop="" muted="" playsinline="" poster="https://images.pexels.com/photos/1561020/pexels-photo-1561020.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1920" preload="auto" style="width:100%;height:100%;object-fit:cover;filter:url(#brandTint);">
+<source src="https://videos.pexels.com/video-files/2169880/2169880-uhd_2560_1440_30fps.mp4" type="video/mp4"/>
+</video>
+<div style="position:absolute;inset:0;background:rgba(0,0,0,0.55);"></div>
+<div style="position:absolute;inset:0;background:radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.7) 100%);"></div>
+</div>
+<!-- Particle Torus Background -->
+<div id="anim-torus-container" style="position:absolute;inset:0;z-index:1;"></div>
+<div class="hero-content">
+<span class="mono-label">Est. 2017</span>
+<h1>We Are <span class="gradient-text">Innovators</span>, Problem Solvers, and Technologists</h1>
+<p class="hero-subtitle">Bringing capable, yet highly nimble and responsive cybersecurity and technology services to the Department of Defense, Intelligence Community, and other government customers.</p>
+<div class="hero-cta">
+<a class="btn-tech" href="#contact">Contact Us</a>
+<a class="btn-ghost" href="#services">Learn More</a>
+</div>
+</div>
+</section>
+<!-- Marquee Strip -->
+<div class="marquee-ribbon">
+<div class="marquee-track">
+<span>OSINT / Privacy</span>
+<span class="separator">●</span>
+<span>Cybersecurity</span>
+<span class="separator">●</span>
+<span>IT Modernization</span>
+<span class="separator">●</span>
+<span>Professional Services</span>
+<span class="separator">●</span>
+<span>OSINT / Privacy</span>
+<span class="separator">●</span>
+<span>Cybersecurity</span>
+<span class="separator">●</span>
+<span>IT Modernization</span>
+<span class="separator">●</span>
+<span>Professional Services</span>
+</div>
+</div>
+<!-- Services Section -->
+<section class="section" id="services" style="position: relative; overflow: hidden; overflow:hidden;"><canvas id="anim-dots-rhombus" style="position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0.15;"></canvas>
+<!-- Dot Rhombus Background -->
+<canvas id="anim-dots-rhombus" style="position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0.15;"></canvas>
+<div class="container" style="position: relative; z-index: 1; ">
+<div class="anim-fade-in-up" style="text-align:center;margin-bottom:4rem;">
+<span class="mono-label">Core Competencies</span>
+<h2>Our Services</h2>
+<p class="text-measure" style="margin:1.5rem auto 0;color:var(--text-muted);font-size:1.1rem;">Customers seek our analysis, feedback and guidance regarding cyber tool selection, integration, management, and security implications.</p>
+</div>
+<div class="glass-card-grid">
+<div class="glass-card anim-fade-in-up" style="transition-delay:0.1s;">
+<div class="glass-card-icon">
+<svg fill="none" height="32" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" width="32">
+<path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M13.8 12H3"></path>
+</svg>
+</div>
+<h3 class="glass-card-title">OSINT / Privacy</h3>
+<p class="glass-card-desc">Open-source intelligence and privacy management solutions for comprehensive threat monitoring and executive protection.</p>
+<ul class="glass-card-list">
+<li>Threat Monitoring</li>
+<li>Open-Source Intelligence (OSINT)</li>
+<li>Privacy Management</li>
+<li>Executive Protection Intelligence</li>
+<li>Law Enforcement Support</li>
+<li>Support MISO / MILDEC</li>
+</ul>
+</div>
+<div class="glass-card anim-fade-in-up" style="transition-delay:0.2s;">
+<div class="glass-card-icon">
+<svg fill="none" height="32" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" width="32">
+<rect height="11" rx="2" ry="2" width="18" x="3" y="11"></rect>
+<circle cx="12" cy="16" r="1"></circle>
+<path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+</svg>
+</div>
+<h3 class="glass-card-title">Cybersecurity</h3>
+<p class="glass-card-desc">Comprehensive cybersecurity services leveraging domain knowledge from ex-uniformed cyber operators and industry experts.</p>
+<ul class="glass-card-list">
+<li>Engineering Services</li>
+<li>Capability Development, Testing &amp; Integration</li>
+<li>Computer Network Operations (CNO)</li>
+<li>Managed Attribution</li>
+<li>Vulnerability Assessments / Pentesting</li>
+<li>Cross Domain Solutions (CDS)</li>
+<li>RMF - IA, A&amp;A, ATO</li>
+</ul>
+</div>
+<div class="glass-card anim-fade-in-up" style="transition-delay:0.3s;">
+<div class="glass-card-icon">
+<svg fill="none" height="32" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" width="32">
+<path d="M4 2v20l16-10L4 2z"></path>
+</svg>
+</div>
+<h3 class="glass-card-title">IT Modernization</h3>
+<p class="glass-card-desc">Modern technology solutions to transform and optimize your information systems and business processes.</p>
+<ul class="glass-card-list">
+<li>Cloud Services</li>
+<li>Data Analytics Automation</li>
+<li>Business Apps Development</li>
+<li>Low Code / No Code / Traditional Development</li>
+<li>API Integration</li>
+<li>Information Technology Services</li>
+</ul>
+</div>
+<div class="glass-card anim-fade-in-up" style="transition-delay:0.4s;">
+<div class="glass-card-icon">
+<svg fill="none" height="32" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" width="32">
+<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+<circle cx="9" cy="7" r="4"></circle>
+<path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path>
+</svg>
+</div>
+<h3 class="glass-card-title">Professional Services</h3>
+<p class="glass-card-desc">Strategic consulting and program management services with expertise in character and leadership development.</p>
+<ul class="glass-card-list">
+<li>Technical Consulting</li>
+<li>Business/Program/Mgmt Analysis</li>
+<li>Strategic Planning/Management</li>
+<li>Process Mapping &amp; Improvement</li>
+<li>PMO Support</li>
+<li>Character &amp; Leadership Development</li>
+<li>Acquisition &amp; Requirements</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="section" id="about">
+<div class="container">
+<div class="anim-fade-in-up" style="text-align:center;margin-bottom:4rem;">
+<span class="mono-label">Founded 2017</span>
+<h2>About <span class="gradient-text">ENDICTUS</span></h2>
+</div>
+<div class="anim-fade-in-up" style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
+<div>
+<p style="margin-bottom:2rem;">ENDICTUS Corp. was founded in 2017 out of a desire to bring capable, yet highly nimble and responsive program management services to the Department of Defense (DoD) and Intelligence Community (IC), and other government customers.</p>
+<p style="margin-bottom:2rem;">This core commitment to readiness and responsiveness resulted in continual and steady customer-driven growth to bring the ENDICTUS brand of service to other areas of support beyond program management. Today ENDICTUS offers services across 4 core competencies: OSINT / Privacy, Cybersecurity, IT Modernization, and Professional Services.</p>
+<p style="margin-bottom:2rem;">From an operational support perspective, ENDICTUS leverages the domain knowledge and technical experience of our ex-uniformed cyber operators and testers, as well as the decades of specialized experience from our cyber industry experts, to deliver mission-focused and operationally-stable solutions to the DoD and Intelligence Communities across our 4 core competencies.</p>
+</div>
+<div>
+<h3 style="margin-bottom:1rem;color:var(--accent);">Our Mission</h3>
+<p style="margin-bottom:2rem;">Our people and products provide transformation, innovation, higher performance, and trailblazing mission enabling solutions that exceed customers expectations.</p>
+<h3 style="margin-bottom:1rem;color:var(--accent);">Our Vision</h3>
+<p style="margin-bottom:2rem;">ENDICTUS, as a trusted partner, will deliver problem-solving technologies and services for the evolving needs of our customers.</p>
+<h3 style="margin-bottom:1rem;color:var(--accent);">Our Goal</h3>
+<p>To provide high-caliber, cost-effective services and solutions that result in exceptional customer satisfaction.</p>
+</div>
+</div>
+<div class="anim-fade-in-up" style="margin-top:4rem;">
+<h3 style="margin-bottom:2rem;">Certifications &amp; Partnerships</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;">
+<div>
+<h4 style="color:var(--accent);margin-bottom:0.5rem;">ISO Certified</h4>
+<p style="color:var(--text-muted);">ISO 9001:2015 and ISO 27001 certified, committed to quality as a basic business principle.</p>
+</div>
+<div>
+<h4 style="color:var(--accent);margin-bottom:0.5rem;">SBA 8(a) Certified</h4>
+<p style="color:var(--text-muted);">South Florida District Office certified until 10/31/2029.</p>
+</div>
+<div>
+<h4 style="color:var(--accent);margin-bottom:0.5rem;">EDWOSB Certified</h4>
+<p style="color:var(--text-muted);">Economically Disadvantaged Woman Owned Small Business certified until 5/31/2027.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="section" style="background:var(--bg-card);text-align:center;">
+<div class="container">
+<div class="anim-fade-in-up">
+<span class="mono-label">Ready to Optimize</span>
+<h2>Want to learn more about how we can help to optimize your technology utilization?</h2>
+<p style="color:var(--text-muted);margin:1.5rem 0 2rem;font-size:1.1rem;">Our collective and cross-cutting experience provides ENDICTUS an uncommon level of fidelity in understanding how and where DoD and IC information systems can be exploited.</p>
+<a class="btn-tech" href="#contact">Contact Us Today</a>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="section" id="contact">
+<div class="container">
+<div class="anim-fade-in-up" style="text-align:center;margin-bottom:4rem;">
+<span class="mono-label">Get In Touch</span>
+<h2>Contact Information</h2>
+</div>
+<div class="contact-info anim-fade-in-up">
+<div class="contact-item">
+<h3>Florida Headquarters</h3>
+<p>5402 W Laurel St Ste 204<br/>Tampa, FL 33607-1726</p>
+</div>
+<div class="contact-item">
+<h3>Georgia Office</h3>
+<p>100 Grace Hopper Lane Ste 3733<br/>Augusta, GA 30901</p>
+</div>
+<div class="contact-item">
+<h3>Puerto Rico Office</h3>
+<p>1250 Av. Juan Ponce de Leon<br/>San Juan, PR 00907</p>
+</div>
+<div class="contact-item">
+<h3>Contact Details</h3>
+<p>
+<a href="mailto:info@endictus.com">info@endictus.com</a><br/>
+<a href="tel:7038531630">(703) 853-1630</a>
+</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<p>© 2024 ENDICTUS® All Rights Reserved</p>
+<div class="footer-links">
+<a href="#">Website Privacy Policy</a>
+<a href="#">CCPA Notice to California Residents</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Navigation scroll effect
+        (function() {
+            var nav = document.getElementById('mainNav');
+            var navToggle = document.getElementById('navToggle');
+            var navMobile = document.getElementById('navMobile');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            });
+
+            navToggle.addEventListener('click', function() {
+                navMobile.style.display = navMobile.style.display === 'block' ? 'none' : 'block';
+            });
+        })();
+
+        // Scroll reveal animation
+        (function() {
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('anim-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.anim-fade-in-up').forEach(function(el) {
+                observer.observe(el);
+            });
+        })();
+
+        // Dot Rhombus Animation
+        (function() {
+            var canvas = document.getElementById('anim-dots-rhombus');
+            if (!canvas) return;
+            
+            var ctx = canvas.getContext('2d');
+            var spacing = 18;
+            var dots = [];
+
+            function resize() {
+                canvas.width = canvas.parentElement.offsetWidth;
+                canvas.height = canvas.parentElement.offsetHeight;
+                dots = [];
+                var cx = canvas.width / 2;
+                var cy = canvas.height / 2;
+                var rhombusSize = Math.min(canvas.width, canvas.height) * 0.45;
+                
+                for (var x = 0; x < canvas.width; x += spacing) {
+                    for (var y = 0; y < canvas.height; y += spacing) {
+                        var relX = x - cx;
+                        var relY = y - cy;
+                        if (Math.abs(relX) + Math.abs(relY) < rhombusSize) {
+                            dots.push({ x: x, y: y });
+                        }
+                    }
+                }
+            }
+            
+            resize();
+            window.addEventListener('resize', resize);
+
+            function animate(time) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (var i = 0; i < dots.length; i++) {
+                    var dot = dots[i];
+                    var dist = dot.x + dot.y;
+                    var wave = Math.sin(dist * 0.008 - time / 600);
+                    var size = 1 + (wave + 1) * 1.5;
+                    var opacity = 0.3 + (wave + 1) * 0.35;
+                    ctx.fillStyle = 'rgba(6, 182, 212, ' + opacity + ')';
+                    ctx.beginPath();
+                    ctx.arc(dot.x, dot.y, size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                requestAnimationFrame(animate);
+            }
+            
+            requestAnimationFrame(animate);
+        })();
+
+        // Particle Torus Animation
+        (function() {
+            var container = document.getElementById('anim-torus-container');
+            if (!container || typeof THREE === 'undefined') return;
+
+            var scene = new THREE.Scene();
+            scene.fog = new THREE.FogExp2(0x0a0f1a, 0.06);
+
+            var width = container.offsetWidth;
+            var height = container.offsetHeight;
+            var camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 100);
+            camera.position.z = 12;
+
+            var renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(width, height);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            renderer.setClearColor(0x000000, 0);
+            container.appendChild(renderer.domElement);
+
+            // Generate torus knot particles
+            var positions = [];
+            var count = 8000;
+            var p = 3, q = 4, radius = 5, tube = 1.5;
+            
+            for (var i = 0; i < count; i++) {
+                var u = Math.random() * Math.PI * 2;
+                var v = Math.random() * Math.PI * 2;
+                var r2 = tube * (0.5 + 0.5 * Math.cos(v));
+                var x = (radius + r2 * Math.cos(q * u)) * Math.cos(p * u);
+                var y = (radius + r2 * Math.cos(q * u)) * Math.sin(p * u);
+                var z = r2 * Math.sin(q * u);
+                var noise = 0.15;
+                positions.push(
+                    x + (Math.random() - 0.5) * noise,
+                    y + (Math.random() - 0.5) * noise,
+                    z + (Math.random() - 0.5) * noise
+                );
+            }
+
+            var geometry = new THREE.BufferGeometry();
+            geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+
+            var material = new THREE.PointsMaterial({
+                color: 0x06b6d4,
+                size: 0.02,
+                transparent: true,
+                opacity: 0.6,
+                blending: THREE.AdditiveBlending
+            });
+
+            var points = new THREE.Points(geometry, material);
+            scene.add(points);
+
+            function animate() {
+                points.rotation.x += 0.002;
+                points.rotation.y += 0.003;
+                renderer.render(scene, camera);
+                requestAnimationFrame(animate);
+            }
+
+            function onWindowResize() {
+                var newWidth = container.offsetWidth;
+                var newHeight = container.offsetHeight;
+                camera.aspect = newWidth / newHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(newWidth, newHeight);
+            }
+
+            window.addEventListener('resize', onWindowResize);
+            animate();
+        })();
+    </script>
+<script>
+(function(){
+  var c = document.getElementById('anim-dots-rhombus');
+  if(!c) return;
+  var ctx = c.getContext('2d');
+  var spacing = 18;
+  var dots = [];
+
+  function resize(){
+    c.width = c.parentElement.offsetWidth;
+    c.height = c.parentElement.offsetHeight;
+    dots = [];
+    var cx = c.width/2, cy = c.height/2;
+    var rhombusSize = Math.min(c.width, c.height) * 0.45;
+    var arrowW = c.width * 0.6, arrowH = c.height * 0.8;
+    for(var x=0; x<c.width; x+=spacing){
+      for(var y=0; y<c.height; y+=spacing){
+        var relX = x - cx, relY = y - cy;
+        if(Math.abs(relX) + Math.abs(relY) < rhombusSize){
+          dots.push({x:x, y:y});
+        }
+      }
+    }
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function animate(time){
+    ctx.clearRect(0,0,c.width,c.height);
+    for(var i=0;i<dots.length;i++){
+      var d = dots[i];
+      var dist = d.x + d.y;
+      var wave = Math.sin(dist * 0.008 - time / 600);
+      var size = 1 + (wave + 1) * 1.5;
+      var opacity = 0.3 + (wave + 1) * 0.35;
+      ctx.fillStyle = 'rgba(255,255,255,' + opacity + ')';
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, size, 0, Math.PI*2);
+      ctx.fill();
+    }
+    requestAnimationFrame(animate);
+  }
+  requestAnimationFrame(animate);
+})();
+</script></body>
+</html>
