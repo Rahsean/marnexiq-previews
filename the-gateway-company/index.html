@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Gateway Company - Grant Writing &amp; Nonprofit Development</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&amp;family=Inter:wght@300;400;500&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --bg-deep: #0a0f1a;
+            --bg-card: #111827;
+            --bg-elevated: #1a2236;
+            --accent: #7456f1;
+            --accent-hover: #8b6ff5;
+            --gold: #d4af37;
+            --gold-muted: rgba(212, 175, 55, 0.15);
+            --text: #E7EBEE;
+            --text-muted: #9ca3af;
+            --text-heading: #ffffff;
+            --border: rgba(116, 86, 241, 0.15);
+            --border-gold: rgba(212, 175, 55, 0.25);
+
+            --font-heading: 'Cormorant Garamond', 'Georgia', serif;
+            --font-body: 'Inter', 'Helvetica Neue', sans-serif;
+            --heading-weight: 300;
+            --heading-weight-bold: 400;
+            --body-weight: 300;
+            --body-weight-medium: 400;
+
+            --overlay-opacity: 0.55;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg-deep);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-weight: var(--body-weight);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: var(--heading-weight);
+            color: var(--text-heading);
+            letter-spacing: 0.02em;
+        }
+
+        h1 { 
+            font-size: clamp(2.75rem, 6vw, 5rem); 
+            line-height: 1.1; 
+        }
+        h2 { 
+            font-size: clamp(2rem, 4vw, 3.25rem); 
+            line-height: 1.2; 
+        }
+        h3 { 
+            font-size: clamp(1.15rem, 2vw, 1.5rem); 
+            font-weight: var(--heading-weight-bold); 
+        }
+
+        .gold-line {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+            margin: 1.5rem 0;
+        }
+
+        .card-finance {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-finance:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 30px rgba(116, 86, 241, 0.1);
+        }
+
+        .btn-finance {
+            background: var(--accent);
+            color: #ffffff;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.03em;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+        .btn-finance:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        .nav-blur {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: transparent;
+            border-bottom: 1px solid transparent;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .nav-blur.scrolled {
+            background: rgba(10, 10, 10, 0.85);
+            border-bottom-color: rgba(255, 255, 255, 0.06);
+        }
+
+        .nav-blur-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-blur-logo-text {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: var(--heading-weight-bold);
+            color: var(--text-heading);
+            text-decoration: none;
+        }
+
+        .nav-blur-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-blur-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: var(--body-weight-medium);
+            transition: color 0.3s ease;
+        }
+
+        .nav-blur-links a:hover {
+            color: var(--text-heading);
+        }
+
+        .nav-blur-cta {
+            background: var(--accent);
+            color: #ffffff;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .nav-blur-cta:hover {
+            background: var(--accent-hover);
+        }
+
+        .nav-blur-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .nav-blur-toggle span {
+            width: 20px;
+            height: 2px;
+            background: var(--text);
+            margin: 2px 0;
+            transition: 0.3s;
+        }
+
+        .nav-blur-mobile {
+            display: none;
+            padding: 1rem 2rem;
+            background: rgba(10, 10, 10, 0.95);
+        }
+
+        .nav-blur-mobile ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .nav-blur-mobile a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-blur-links, .nav-blur-cta {
+                display: none;
+            }
+            .nav-blur-toggle {
+                display: flex;
+            }
+        }
+
+        .metallic-gold {
+            background: linear-gradient(135deg, #2a1a3d 0%, #7456f1 25%, #c084fc 50%, #7456f1 75%, #2a1a3d 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: metalShift 6s ease-in-out infinite;
+        }
+
+        @keyframes metalShift {
+            0%   { background-position: 0% 0%; }
+            50%  { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        .anim-fade-in-up {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .anim-fade-in-up.anim-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .bento-section {
+            padding: 6rem 2rem;
+        }
+
+        .bento-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .bento-heading {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .bento-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .bento-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 30px rgba(116, 86, 241, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .bento-hero {
+            grid-column: span 2;
+        }
+
+        .bento-card-inner {
+            padding: 2.5rem;
+        }
+
+        .bento-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.625rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .bento-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .bento-card p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .bento-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .bento-link:hover {
+            color: var(--accent-hover);
+        }
+
+        .numbered-section {
+            padding: 6rem 2rem;
+        }
+
+        .numbered-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .numbered-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .numbered-num {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: var(--heading-weight);
+            color: var(--gold);
+            flex-shrink: 0;
+            line-height: 1;
+        }
+
+        .numbered-title {
+            margin-bottom: 0.75rem;
+        }
+
+        .numbered-desc {
+            color: var(--text-muted);
+        }
+
+        .numbered-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0.3;
+            margin: 2rem 0;
+        }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            padding: 14px 48px;
+            background: transparent;
+            color: #ffffff;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+        }
+
+        .btn-ghost:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .mono-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.625rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: rgba(212, 175, 55, 0.6);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .divider-gradient {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0.3;
+            margin: 3rem 0;
+        }
+
+        .env-bleed-section {
+            position: relative;
+            padding: 8rem 2rem;
+            overflow: hidden;
+        }
+
+        .env-bleed-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.05;
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+            mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+        }
+
+        .env-bleed-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .env-bleed-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero h1 {
+            margin-bottom: 2rem;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 60ch;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .section {
+            padding: 6rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: var(--body-weight-medium);
+            color: var(--text-heading);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            font-family: var(--font-body);
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .footer {
+            background: var(--bg-elevated);
+            padding: 3rem 2rem 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer h3 {
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .footer p, .footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+            line-height: 1.6;
+        }
+
+        .footer a:hover {
+            color: var(--text-heading);
+        }
+
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .bento-hero {
+                grid-column: span 1;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .numbered-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+<style>
+.anim-fade-in-up {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.anim-fade-in-up.anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style></head>
+<body>
+<nav class="nav-blur" id="mainNav">
+<div class="nav-blur-inner">
+<a class="nav-blur-logo" href="#">
+<span class="nav-blur-logo-text">The Gateway Company</span>
+</a>
+<ul class="nav-blur-links">
+<li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#process">Process</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<a class="nav-blur-cta" href="#contact">Free Consultation</a>
+<button aria-label="Toggle menu" class="nav-blur-toggle" id="navToggle">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+<div class="nav-blur-mobile" id="navMobile">
+<ul>
+<li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#process">Process</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+</nav>
+<section class="hero anim-fade-in-up" style="transition-delay: 0.0s; ">
+<div class="hero-content">
+<div class="gold-line"></div>
+<h1 class="metallic-gold">What if you had the funding you needed?</h1>
+<p>We're here to help see your mission sustained and your community changed. Whether you are building your business or serving in the community, The Gateway Company's goal is to ease your burden and help you become more sustainable.</p>
+<div class="cta-buttons">
+<a class="btn-finance" href="#contact">Free Consultation</a>
+<a class="btn-ghost" href="#services">Learn More</a>
+</div>
+</div>
+</section>
+<section class="bento-section anim-fade-in-up" id="services" style="transition-delay: 0.1s; ">
+<div class="bento-container">
+<div class="anim-fade-in-up" style="transition-delay: 0s;">
+<span class="mono-label">Our Services</span>
+<h2 class="bento-heading">We Join Your Team</h2>
+</div>
+<div class="bento-grid">
+<div class="bento-card bento-hero anim-fade-in-up" style="transition-delay: 0.1s;">
+<div class="bento-card-inner">
+<span class="bento-label">Core Focus</span>
+<h3>Nonprofit Development</h3>
+<p>We meet everyday people like you changing their world. With years of nonprofit director experience, we know firsthand the role funding plays in meeting your mission. By focusing on the big picture, we help you strategize and fill in the gaps with grants and virtual fundraising.</p>
+<a class="bento-link" href="#contact">Start Your Journey →</a>
+</div>
+</div>
+<div class="bento-card anim-fade-in-up" style="transition-delay: 0.2s;">
+<div class="bento-card-inner">
+<span class="bento-label">01</span>
+<h3>Grant Writing</h3>
+<p>Professional grant research and writing services to help secure the funding your organization needs to thrive and expand your impact.</p>
+</div>
+</div>
+<div class="bento-card anim-fade-in-up" style="transition-delay: 0.3s;">
+<div class="bento-card-inner">
+<span class="bento-label">02</span>
+<h3>Virtual Fundraising</h3>
+<p>Digital marketing and virtual fundraising strategies to increase awareness, raise funds, and engage donors in today's connected world.</p>
+</div>
+</div>
+<div class="bento-card anim-fade-in-up" style="transition-delay: 0.4s;">
+<div class="bento-card-inner">
+<span class="bento-label">03</span>
+<h3>Business Coaching</h3>
+<p>Ready to accelerate your growth? Sometimes all you need is a guide to help you spot new opportunities and give you tools for change.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="numbered-section anim-fade-in-up" id="process" style="transition-delay: 0.2s; ">
+<div class="numbered-container">
+<div class="anim-fade-in-up" style="transition-delay: 0s;">
+<span class="mono-label">Our Process</span>
+<h2 style="text-align: center; margin-bottom: 4rem;">How We Work Together</h2>
+</div>
+<div class="numbered-item anim-fade-in-up" style="transition-delay: 0.1s;">
+<div class="numbered-num">01</div>
+<div>
+<h3 class="numbered-title">Assessment &amp; Strategy</h3>
+<p class="numbered-desc">We begin by understanding your mission, current challenges, and funding needs. Our team evaluates your organizational structure to identify opportunities for strengthening your foundation and increasing competitiveness for grants.</p>
+</div>
+</div>
+<div class="numbered-divider"></div>
+<div class="numbered-item anim-fade-in-up" style="transition-delay: 0.2s;">
+<div class="numbered-num">02</div>
+<div>
+<h3 class="numbered-title">Program Development</h3>
+<p class="numbered-desc">We help develop and document your programs with clear descriptions, measurable outcomes, and structured budgets. This foundational work ensures your applications can compete effectively with more organized nonprofits.</p>
+</div>
+</div>
+<div class="numbered-divider"></div>
+<div class="numbered-item anim-fade-in-up" style="transition-delay: 0.3s;">
+<div class="numbered-num">03</div>
+<div>
+<h3 class="numbered-title">Grant Research &amp; Writing</h3>
+<p class="numbered-desc">Our experienced team conducts thorough research to identify relevant funding opportunities and crafts compelling grant applications that effectively communicate your impact and need.</p>
+</div>
+</div>
+<div class="numbered-divider"></div>
+<div class="numbered-item anim-fade-in-up" style="transition-delay: 0.4s;">
+<div class="numbered-num">04</div>
+<div>
+<h3 class="numbered-title">Ongoing Partnership</h3>
+<p class="numbered-desc">We become part of your team, providing continued support through virtual fundraising strategies, digital marketing, and adaptive coaching to help you navigate challenges and sustain your mission.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="env-bleed-section anim-fade-in-up" id="about" style="transition-delay: 0.3s; ">
+<div aria-hidden="true" class="env-bleed-bg">
+<img alt="" loading="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Crect width='1920' height='1080' fill='%23111827'/%3E%3Cpath d='M0 540l48-22.5C96 495 192 450 288 427.5S480 382.5 576 382.5s192 22.5 288 45 192 45 288 22.5 192-67.5 288-45 192 90 240 101.25L1920 540v540H0z' fill='%231a2236' opacity='0.3'/%3E%3C/svg%3E"/>
+</div>
+<div class="env-bleed-content">
+<div class="anim-fade-in-up" style="transition-delay: 0s;">
+<span class="mono-label">Our Story</span>
+<h2>Our Heart Is to Be Part of Your Team</h2>
+</div>
+<div class="about-grid">
+<div class="anim-fade-in-up" style="transition-delay: 0.1s;">
+<p>After ten years of writing grants for a nonprofit near Augusta, Georgia, that serves children with special needs, the founder brought on Ashley to increase the number of grants submitted. Our complementary backgrounds in prose and technical writing made us a strong team, and we actually enjoyed taking on all the grants.</p>
+<p>We realized our skill sets could potentially help other nonprofits. So in February of 2017, Gateway Grant Services was born.</p>
+</div>
+<div class="anim-fade-in-up" style="transition-delay: 0.2s;">
+<p>Not long after we launched, we discovered that our clients needed help with development - for their program, their budgets, their board. Coaching our clients through these foundational elements, crucial for competitive grants, gave us other tools to aid in building their sustainability.</p>
+<p>As we watched our clients face the financial impact of COVID-19, we responded to their needs by launching our Virtual Fundraising &amp; Digital Marketing services in the fall of 2020. Similarly, we watched small businesses struggle and branched into small business coaching in the summer of 2020.</p>
+</div>
+</div>
+</div>
+</section>
+<div class="divider-gradient"></div>
+<section class="section anim-fade-in-up" id="contact" style="transition-delay: 0.4s; ">
+<div class="container">
+<div class="anim-fade-in-up" style="transition-delay: 0s;">
+<span class="mono-label">Get Started</span>
+<h2 style="text-align: center; margin-bottom: 1rem;">Call Us Today and Let's Make a Plan</h2>
+<p style="text-align: center; color: var(--text-muted); margin-bottom: 3rem; max-width: 60ch; margin-left: auto; margin-right: auto;">Not sure where to start? The first step is easy. Reach out for your free consultation and discover how we can help secure the funding you need.</p>
+</div>
+<form class="contact-form anim-fade-in-up" style="transition-delay: 0.1s;">
+<div class="form-group">
+<label for="name">Name *</label>
+<input id="name" name="name" required="" type="text"/>
+</div>
+<div class="form-group">
+<label for="email">Email *</label>
+<input id="email" name="email" required="" type="email"/>
+</div>
+<div class="form-group">
+<label for="organization">Organization</label>
+<input id="organization" name="organization" type="text"/>
+</div>
+<div class="form-group">
+<label for="message">How can we help? *</label>
+<textarea id="message" name="message" placeholder="Tell us about your organization and funding goals..." required=""></textarea>
+</div>
+<button class="btn-finance" style="width: 100%;" type="submit">Request Free Consultation</button>
+</form>
+<div class="anim-fade-in-up" style="transition-delay: 0.2s;">
+<p style="color: var(--text-muted); margin-bottom: 1rem;">Prefer to call or email?</p>
+<p style="font-size: 1.25rem; margin-bottom: 0.5rem;"><a href="tel:7068339529" style="color: var(--gold); text-decoration: none;">(706) 833-9529</a></p>
+<p style="margin-bottom: 1rem;"><a href="mailto:admin@gatewaygrant.com" style="color: var(--accent); text-decoration: none;">admin@gatewaygrant.com</a></p>
+<p style="color: var(--text-muted); font-size: 0.9rem;">Monday – Friday, 9am – 5pm</p>
+</div>
+</div>
+</section>
+<footer class="footer">
+<div class="footer-content">
+<div>
+<h3>The Gateway Company</h3>
+<p>Helping nonprofits and businesses secure funding and build sustainable operations. We join your team to ease your burden and amplify your impact.</p>
+</div>
+<div>
+<h3>Services</h3>
+<p><a href="#services">Nonprofit Development</a></p>
+<p><a href="#services">Grant Writing</a></p>
+<p><a href="#services">Business Coaching</a></p>
+<p><a href="#services">Virtual Fundraising</a></p>
+</div>
+<div>
+<h3>Contact</h3>
+<p><a href="tel:7068339529">(706) 833-9529</a></p>
+<p><a href="mailto:admin@gatewaygrant.com">admin@gatewaygrant.com</a></p>
+<p>Monday – Friday<br/>9am – 5pm</p>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© Gateway Grant Services. All Rights Reserved.</p>
+</div>
+</footer>
+<script>
+        // Sticky navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        document.getElementById('navToggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('navMobile');
+            mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Scroll reveal animation
+        (function(){
+            var obs = new IntersectionObserver(function(entries){
+                entries.forEach(function(e){
+                    if(e.isIntersecting) e.target.classList.add('anim-visible');
+                });
+            }, {threshold: 0.1});
+            document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+        })();
+
+        // Form handling
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will contact you soon to schedule your free consultation.');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+<script>
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) e.target.classList.add('anim-visible');
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+})();
+</script></body>
+</html>
