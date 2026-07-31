@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ReNforce - Transforming Lives Through Second Chances</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&amp;family=Inter:wght@300;400&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            /* Core colors */
+            --bg-deep: #1a0f14;
+            --bg-card: #faf7f5;
+            --bg-elevated: #ffffff;
+            --bg-cream: #fdf9f6;
+            --accent: #b76e79;
+            --accent-hover: #c9818c;
+            --rose-gold: #d4a574;
+            --rose-gold-muted: rgba(212, 165, 116, 0.12);
+            --text: #4a3f3a;
+            --text-light: #f5efe8;
+            --text-muted: #9a8e86;
+            --text-heading: #2d2420;
+            --border: rgba(183, 110, 121, 0.12);
+            --border-rose: rgba(212, 165, 116, 0.20);
+
+            /* Typography */
+            --font-heading: 'Cormorant Garamond', 'Georgia', serif;
+            --font-body: 'Inter', 'Helvetica Neue', sans-serif;
+            --heading-weight: 300;
+            --heading-weight-bold: 400;
+            --body-weight: 300;
+            --body-weight-medium: 400;
+
+            /* Photo overlay */
+            --overlay-opacity: 0.40;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg-cream);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-weight: var(--body-weight);
+            line-height: 1.7;
+            font-size: 17px;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: var(--heading-weight);
+            color: var(--text-heading);
+            letter-spacing: 0.03em;
+        }
+
+        h1 { 
+            font-size: clamp(2.75rem, 6vw, 5rem); 
+            line-height: 1.1; 
+        }
+
+        h2 { 
+            font-size: clamp(2rem, 4vw, 3.25rem); 
+            line-height: 1.25; 
+        }
+
+        h3 { 
+            font-size: clamp(1.15rem, 2vw, 1.5rem); 
+            font-weight: var(--heading-weight-bold); 
+            line-height: 1.3;
+        }
+
+        p {
+            max-width: 65ch;
+        }
+
+        /* Navigation */
+        .nav-blur {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: transparent;
+            border-bottom: 1px solid transparent;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .nav-blur.scrolled {
+            background: rgba(253, 249, 246, 0.9);
+            border-bottom-color: var(--border);
+        }
+
+        .nav-blur-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+        }
+
+        .nav-blur-logo-text {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: var(--heading-weight-bold);
+            color: var(--text-heading);
+            text-decoration: none;
+        }
+
+        .nav-blur-links {
+            display: none;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-blur-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: var(--body-weight-medium);
+            transition: color 0.3s ease;
+        }
+
+        .nav-blur-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-blur-cta {
+            background: var(--accent);
+            color: #ffffff;
+            padding: 10px 24px;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: var(--body-weight-medium);
+            transition: background 0.3s ease;
+        }
+
+        .nav-blur-cta:hover {
+            background: var(--accent-hover);
+        }
+
+        .nav-blur-toggle {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav-blur-toggle span {
+            width: 20px;
+            height: 2px;
+            background: var(--text-heading);
+            transition: transform 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+            .nav-blur-links {
+                display: flex;
+            }
+            .nav-blur-toggle {
+                display: none;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: var(--bg-deep);
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .hero-text .metallic-rose {
+            background: linear-gradient(135deg, #8B6161 0%, #C9918A 25%, #E8B4B8 50%, #F5D5D8 75%, #C9918A 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: metalShift 6s ease-in-out infinite;
+        }
+
+        @keyframes metalShift {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        .hero-text .mono-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.625rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--rose-gold);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .hero-text p {
+            color: rgba(245, 239, 232, 0.8);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 55ch;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-medspa {
+            background: var(--accent);
+            color: #ffffff;
+            padding: 14px 36px;
+            border: none;
+            border-radius: 9999px;
+            font-family: var(--font-body);
+            font-weight: 400;
+            font-size: 0.85rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-medspa:hover {
+            background: var(--accent-hover);
+            box-shadow: 0 6px 24px rgba(183, 110, 121, 0.25);
+        }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            padding: 14px 36px;
+            background: transparent;
+            color: #ffffff;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+        }
+
+        .btn-ghost:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            max-width: 400px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (min-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr 400px;
+            }
+        }
+
+        /* Section Spacing */
+        .section {
+            padding: 6rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Bento Grid Services */
+        .bento-section {
+            padding: 6rem 2rem;
+            background: var(--bg-elevated);
+        }
+
+        .bento-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .bento-heading {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .bento-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .bento-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(183, 110, 121, 0.08);
+        }
+
+        .bento-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.625rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .bento-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .bento-card p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .bento-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: var(--body-weight-medium);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .bento-hero {
+                grid-column: span 2;
+            }
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 6rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .env-bleed-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.03;
+        }
+
+        .env-bleed-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text .mono-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.625rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .about-text h2 {
+            margin-bottom: 2rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .founder-image {
+            text-align: center;
+        }
+
+        .founder-image img {
+            width: 100%;
+            height: auto;
+            max-width: 300px;
+            border-radius: 16px;
+            box-shadow: 0 12px 40px rgba(183, 110, 121, 0.15);
+        }
+
+        @media (min-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr 300px;
+            }
+        }
+
+        /* Divider */
+        .divider-gradient {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0.3;
+            margin: 3rem 0;
+        }
+
+        /* Numbered Features */
+        .numbered-section {
+            padding: 6rem 2rem;
+            background: var(--bg-elevated);
+        }
+
+        .numbered-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .numbered-item {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            align-items: start;
+        }
+
+        .numbered-num {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: var(--heading-weight);
+            color: var(--accent);
+            opacity: 0.6;
+        }
+
+        .numbered-title {
+            margin-bottom: 1rem;
+        }
+
+        .numbered-desc {
+            color: var(--text-muted);
+        }
+
+        .numbered-divider {
+            height: 1px;
+            background: var(--border);
+            margin: 2rem 0;
+            max-width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 8rem 2rem;
+            background: var(--bg-deep);
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-content .mono-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.625rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--rose-gold);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .cta-content h2 {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .cta-content p {
+            color: rgba(245, 239, 232, 0.8);
+            margin: 0 auto 3rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-heading);
+            color: var(--text-light);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-contact {
+            margin-bottom: 2rem;
+        }
+
+        .footer-contact h3 {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .footer-contact p {
+            color: rgba(245, 239, 232, 0.7);
+            margin: 0 auto;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            font-size: 0.9rem;
+            color: rgba(245, 239, 232, 0.5);
+        }
+
+        /* Animation */
+        .anim-fade-in-up {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .anim-fade-in-up.anim-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 767px) {
+            .hero-ctas {
+                flex-direction: column;
+            }
+
+            .numbered-item {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .numbered-num {
+                font-size: 2rem;
+            }
+        }
+    </style>
+<style>
+.anim-fade-in-up {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.anim-fade-in-up.anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style></head>
+<body>
+<nav class="nav-blur" id="mainNav">
+<div class="nav-blur-inner">
+<a class="nav-blur-logo" href="#">
+<span class="nav-blur-logo-text">ReNforce</span>
+</a>
+<ul class="nav-blur-links">
+<li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#approach">Approach</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<a class="nav-blur-cta" href="#contact">Get Started</a>
+<button aria-label="Toggle menu" class="nav-blur-toggle" id="navToggle">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+</nav>
+<section class="hero anim-fade-in-up" style="transition-delay: 0.0s; ">
+<div class="hero-content">
+<div class="hero-text">
+<span class="mono-label anim-fade-in-up">Diversity &amp; Opportunity</span>
+<h1 class="anim-fade-in-up" style="transition-delay: 0.1s;">
+                    We are the <span class="metallic-rose">solution</span> for diversity and opportunity
+                </h1>
+<p class="anim-fade-in-up" style="transition-delay: 0.2s;">
+                    ReNforce provides training and coaching to businesses looking to hire justice-impacted people to meet their workforce needs, while simultaneously providing unique training and professional development to improve employment outcomes for career-seekers.
+                </p>
+<div class="hero-ctas anim-fade-in-up" style="transition-delay: 0.3s;">
+<a class="btn-medspa" href="#contact">Book Free Consultation</a>
+<a class="btn-ghost" href="#services">Learn More</a>
+</div>
+</div>
+<div class="hero-image anim-fade-in-up" style="transition-delay: 0.4s;">
+<img alt="Charlotte Garnes, Founder of ReNforce" loading="lazy" src="https://renforce.org/wp-content/uploads/2023/09/Charlotte-red-suit-sitting-1.png"/>
+</div>
+</div>
+</section>
+<section class="bento-section anim-fade-in-up" id="services" style="transition-delay: 0.1s; ">
+<div class="bento-container">
+<h2 class="bento-heading anim-fade-in-up">Services for Businesses and Career-Seekers</h2>
+<div class="bento-grid">
+<div class="bento-card bento-hero anim-fade-in-up" style="transition-delay: 0.1s;">
+<div class="bento-card-inner">
+<span class="bento-label">Featured</span>
+<h3>Custom Training &amp; Coaching for Businesses and Career-Seekers</h3>
+<p>Comprehensive programs that bridge the gap between business workforce needs and justice-impacted individuals seeking employment opportunities. Our tailored approach addresses specific challenges while building lasting partnerships.</p>
+<a class="bento-link" href="#contact">Get Started →</a>
+</div>
+</div>
+<div class="bento-card anim-fade-in-up" style="transition-delay: 0.2s;">
+<div class="bento-card-inner">
+<span class="bento-label">For Businesses</span>
+<h3>Diversifying the Workforce</h3>
+<p>Advancing Corporate Responsibility, Diversity, and Inclusion through strategic workforce development partnerships.</p>
+</div>
+</div>
+<div class="bento-card anim-fade-in-up" style="transition-delay: 0.3s;">
+<div class="bento-card-inner">
+<span class="bento-label">For Career Seekers</span>
+<h3>Ready, Willing, and Employable</h3>
+<p>Professional development and coaching services that prepare justice-impacted individuals for successful workforce reentry.</p>
+</div>
+</div>
+<div class="bento-card anim-fade-in-up" style="transition-delay: 0.4s;">
+<div class="bento-card-inner">
+<span class="bento-label">Education</span>
+<h3>Mythbusting About Licensure and Employment</h3>
+<p>Educational resources addressing common misconceptions about employment with a criminal record and professional licensing opportunities.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="about-section anim-fade-in-up" id="about" style="transition-delay: 0.2s; ">
+<div aria-hidden="true" class="env-bleed-bg">
+<img alt="" loading="lazy" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&amp;fit=crop&amp;w=1920&amp;q=80"/>
+</div>
+<div class="about-content">
+<div class="about-text">
+<span class="mono-label anim-fade-in-up">About Our Founder</span>
+<h2 class="anim-fade-in-up" style="transition-delay: 0.1s;">Advocate, Mentor, Social Change Agent, &amp; Educator</h2>
+<p class="anim-fade-in-up" style="transition-delay: 0.2s;">
+                    Welcome to the inspiring journey of Charlotte Garnes, the visionary founder behind ReNforce. Charlotte's personal experiences with workplace discrimination following her incarceration served as the catalyst for ReNforce's creation.
+                </p>
+<p class="anim-fade-in-up" style="transition-delay: 0.3s;">
+                    With a solid educational background, holding both bachelor's and master's degrees, Charlotte unexpectedly found herself jobless after her employer discovered her legal conviction. This setback led Charlotte to commit herself to making a difference, and she established ReNforce.
+                </p>
+<p class="anim-fade-in-up" style="transition-delay: 0.4s;">
+                    Charlotte is a certified Diversity, Equity, and Inclusion specialist, earning her DEI certificate from the University of South Florida. Furthermore, she is a Licensed Mental Health Clinician Associate in North Carolina. Charlotte's expertise and passion drive ReNforce's efforts to empower individuals, challenge societal norms, and create opportunities for a brighter future.
+                </p>
+</div>
+<div class="founder-image anim-fade-in-up" style="transition-delay: 0.5s;">
+<img alt="Charlotte Garnes" loading="lazy" src="https://renforce.org/wp-content/uploads/2023/09/Charlotte-red-suit-sitting-1.png"/>
+</div>
+</div>
+</section>
+<div class="divider-gradient"></div>
+<section class="numbered-section anim-fade-in-up" id="approach" style="transition-delay: 0.3s; ">
+<div class="numbered-container">
+<div class="anim-fade-in-up">
+<span class="mono-label">Our Mission and Approach</span>
+<h2 style="text-align: center; margin-bottom: 3rem;">Transforming Lives Through Comprehensive Support</h2>
+</div>
+<div class="numbered-item anim-fade-in-up" style="transition-delay: 0.1s;">
+<div class="numbered-num">01</div>
+<div>
+<h3 class="numbered-title">Comprehensive Training</h3>
+<p class="numbered-desc">Equipping individuals with the skills and knowledge they need to succeed. Our training programs are designed to be practical and relevant, ensuring participants are employment-ready.</p>
+</div>
+</div>
+<div class="numbered-divider"></div>
+<div class="numbered-item anim-fade-in-up" style="transition-delay: 0.2s;">
+<div class="numbered-num">02</div>
+<div>
+<h3 class="numbered-title">One-on-One Coaching</h3>
+<p class="numbered-desc">Understanding that every individual's journey is unique, we provide personalized coaching to address specific challenges and help participants build confidence and resilience.</p>
+</div>
+</div>
+<div class="numbered-divider"></div>
+<div class="numbered-item anim-fade-in-up" style="transition-delay: 0.3s;">
+<div class="numbered-num">03</div>
+<div>
+<h3 class="numbered-title">Fostering Professional Development</h3>
+<p class="numbered-desc">Our approach includes ongoing support for professional growth and creating opportunities for individuals to achieve their full potential, building long-lasting careers.</p>
+</div>
+</div>
+<div class="numbered-divider"></div>
+<div class="numbered-item anim-fade-in-up" style="transition-delay: 0.4s;">
+<div class="numbered-num">04</div>
+<div>
+<h3 class="numbered-title">Collaboration with Employers</h3>
+<p class="numbered-desc">Actively partnering with open-minded employers, educating them on the benefits of hiring qualified candidates who may have a conviction on their record, encouraging diversity and inclusivity.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="cta-section anim-fade-in-up" id="contact" style="transition-delay: 0.4s; ">
+<div class="cta-content">
+<span class="mono-label anim-fade-in-up">Get Started</span>
+<h2 class="anim-fade-in-up" style="transition-delay: 0.1s;">Ready to Create Positive Change?</h2>
+<p class="anim-fade-in-up" style="transition-delay: 0.2s;">
+                Whether you're a business seeking to diversify your workforce or an individual ready to transform your career prospects, ReNforce is here to support your journey.
+            </p>
+<div class="anim-fade-in-up" style="transition-delay: 0.3s;">
+<a class="btn-medspa" href="mailto:Info@renforce.org">Schedule Free Consultation</a>
+</div>
+</div>
+</section>
+<footer class="footer">
+<div class="footer-content">
+<div class="footer-contact">
+<h3>Contact</h3>
+<p>Info@renforce.org<br/>833-273-6367<br/>Georgia</p>
+</div>
+<div class="footer-bottom">
+<p>Copyright © 2024 - 2026 ReNforce<br/>All Rights Reserved</p>
+</div>
+</div>
+</footer>
+<script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll reveal animation
+        (function(){
+            var obs = new IntersectionObserver(function(entries){
+                entries.forEach(function(e){
+                    if(e.isIntersecting) e.target.classList.add('anim-visible');
+                });
+            }, {threshold: 0.1});
+            document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+        })();
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+<script>
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) e.target.classList.add('anim-visible');
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+})();
+</script></body>
+</html>
