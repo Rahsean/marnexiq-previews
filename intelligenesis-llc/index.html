@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IntelliGenesis - AI-Enabled Mission Advantage</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Cormorant+Garamond:wght@300;400;600&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            /* Core colors */
+            --bg-deep: #0a0f1a;
+            --bg-card: #111827;
+            --bg-elevated: #1e293b;
+            --accent: #06b6d4;
+            --accent-hover: #22d3ee;
+            --accent-glow: rgba(6, 182, 212, 0.15);
+            --gold: #c0c0c0;
+            --text: #E7EBEE;
+            --text-muted: #94a3b8;
+            --text-heading: #ffffff;
+            --border: rgba(6, 182, 212, 0.12);
+
+            /* Typography */
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Inter', 'Helvetica Neue', sans-serif;
+            --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+            --heading-weight: 600;
+            --heading-weight-bold: 700;
+            --body-weight: 400;
+
+            /* Photo overlay - high, abstract backgrounds */
+            --overlay-opacity: 0.70;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none !important;
+        }
+
+        body {
+            background: var(--bg-deep);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-weight: var(--body-weight);
+            line-height: 1.7;
+            font-size: 16px;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: var(--heading-weight);
+            color: var(--text-heading);
+            line-height: 1.1;
+        }
+
+        h1 { 
+            font-size: clamp(2.75rem, 6vw, 5rem); 
+            letter-spacing: -0.02em; 
+        }
+        h2 { 
+            font-size: clamp(2rem, 4vw, 3.25rem); 
+            line-height: 1.2; 
+        }
+        h3 { 
+            font-size: clamp(1.15rem, 2vw, 1.5rem); 
+            font-weight: var(--heading-weight-bold); 
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-padding {
+            padding: 6rem 0;
+        }
+
+        .prose {
+            max-width: 65ch;
+        }
+
+        /* Gradient text accent */
+        .gradient-text {
+            background: linear-gradient(135deg, var(--accent), #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Glassmorphism card */
+        .card-glass {
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-glass:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 40px var(--accent-glow);
+        }
+
+        /* Preloader */
+        .preloader-container {
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+        .preloader-curtain {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 50%;
+            background: #0b0f1a;
+            transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        .preloader-curtain.left { left: 0; }
+        .preloader-curtain.right { right: 0; }
+        .preloader-curtain.done.left { transform: translateX(-100%); }
+        .preloader-curtain.done.right { transform: translateX(100%); }
+
+        .preloader-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            transition: opacity 0.3s;
+        }
+        .preloader-content.done { opacity: 0; }
+
+        .preloader-percentage {
+            display: block;
+            font-family: var(--font-body);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+        }
+        .preloader-status {
+            display: block;
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-top: 0.5rem;
+        }
+
+        /* Navigation */
+        .nav-blur {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: transparent;
+            border-bottom: 1px solid transparent;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .nav-blur.scrolled {
+            background: rgba(10, 15, 26, 0.85);
+            border-bottom-color: rgba(255, 255, 255, 0.06);
+        }
+
+        .nav-blur-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+        }
+
+        .nav-blur-logo-text {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: var(--heading-weight);
+            color: var(--text-heading);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-blur-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-blur-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-blur-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-blur-cta {
+            background: var(--accent);
+            color: var(--bg-deep);
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .nav-blur-cta:hover {
+            background: var(--accent-hover);
+        }
+
+        /* Mobile nav */
+        .nav-blur-toggle {
+            display: none;
+            flex-direction: column;
+            width: 24px;
+            height: 18px;
+            background: none;
+            border: none;
+            gap: 4px;
+        }
+
+        .nav-blur-toggle span {
+            width: 100%;
+            height: 2px;
+            background: var(--text);
+            transition: 0.3s;
+        }
+
+        .nav-blur-mobile {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(10, 15, 26, 0.95);
+            backdrop-filter: blur(16px);
+            padding: 2rem;
+        }
+
+        .nav-blur-mobile ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        .nav-blur-mobile li {
+            margin: 1rem 0;
+        }
+
+        .nav-blur-mobile a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        /* Hide default cursor */
+        .cursor-crosshair {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 99999;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            will-change: transform;
+        }
+
+        .cursor-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #e63946;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor-line {
+            position: absolute;
+            background: #e63946;
+            opacity: 0.7;
+        }
+
+        .cursor-line-top {
+            width: 1px;
+            height: 10px;
+            left: 50%;
+            bottom: calc(50% + 5px);
+            transform: translateX(-50%);
+        }
+
+        .cursor-line-bottom {
+            width: 1px;
+            height: 10px;
+            left: 50%;
+            top: calc(50% + 5px);
+            transform: translateX(-50%);
+        }
+
+        .cursor-line-left {
+            width: 10px;
+            height: 1px;
+            top: 50%;
+            right: calc(50% + 5px);
+            transform: translateY(-50%);
+        }
+
+        .cursor-line-right {
+            width: 10px;
+            height: 1px;
+            top: 50%;
+            left: calc(50% + 5px);
+            transform: translateY(-50%);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .anim-video-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .anim-video-bg video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: url(#brandTint);
+        }
+
+        .scanlines-overlay {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 2;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0, 0, 0, 0.03) 2px,
+                rgba(0, 0, 0, 0.03) 4px
+            );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .mono-label {
+            font-family: var(--font-mono);
+            font-size: 0.625rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: rgba(6, 182, 212, 0.6);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Film grain */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0.035;
+            mix-blend-mode: overlay;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+        }
+
+        /* Marquee */
+        .marquee-ribbon {
+            overflow: hidden;
+            background: #102136;
+            border-top: 1px solid rgba(6, 182, 212, 0.3);
+            border-bottom: 1px solid rgba(6, 182, 212, 0.3);
+            padding: 18px 0;
+            white-space: nowrap;
+        }
+        .marquee-track {
+            display: inline-flex;
+            gap: 3rem;
+            animation: marquee-scroll 30s linear infinite;
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 300;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: rgba(231, 235, 238, 0.6);
+        }
+        .marquee-track .separator {
+            color: var(--accent);
+            font-size: 0.7rem;
+        }
+        @keyframes marquee-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Scroll reveal */
+        .anim-fade-in-up {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .anim-fade-in-up.anim-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Services grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .service-card {
+            position: relative;
+            padding: 2.5rem;
+            background: rgba(17, 24, 39, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 40px var(--accent-glow);
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        /* Buttons */
+        .btn-tech {
+            background: var(--accent);
+            color: var(--bg-deep);
+            padding: 14px 32px;
+            border: none;
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .btn-tech:hover {
+            background: var(--accent-hover);
+            box-shadow: 0 0 24px var(--accent-glow);
+        }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            padding: 14px 48px;
+            background: transparent;
+            color: #ffffff;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-ghost:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* About section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .features-list li {
+            padding: 0.75rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .features-list li:before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: rgba(6, 182, 212, 0.05);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cta-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--accent);
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--text-muted);
+            text-decoration: none;
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-blur-links,
+            .nav-blur-cta {
+                display: none;
+            }
+
+            .nav-blur-toggle {
+                display: flex;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            h1 {
+                font-size: clamp(2rem, 8vw, 3rem);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .marquee-track { animation: none; }
+            * { transition: none !important; }
+        }
+    </style>
+<style>
+.anim-fade-in-up {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.anim-fade-in-up.anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style><link href="https://fonts.googleapis.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/></head>
+<body><svg aria-hidden="true" style="position:absolute;width:0;height:0;">
+<filter id="anim-brand-tint">
+<fecolormatrix type="matrix" values="0.02 0 0 0 0.98 0.71 0 0 0 0.29 0.83 0 0 0 0.17 0 0 0 1 0"></fecolormatrix>
+</filter>
+</svg>
+<!-- Hidden SVG filter -->
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden;">
+<defs>
+<filter color-interpolation-filters="sRGB" id="brandTint">
+<fecolormatrix type="saturate" values="0"></fecolormatrix>
+<fecolormatrix type="matrix" values="0.04 0 0 0 0.96 0.14 0 0 0 0.86 0.06 0 0 0 0.94 0 0 0 1 0"></fecolormatrix>
+</filter>
+</defs>
+</svg>
+<!-- Preloader -->
+<div class="preloader-container" id="preloader">
+<div class="preloader-curtain left"></div>
+<div class="preloader-curtain right"></div>
+<div class="preloader-content">
+<span class="preloader-percentage" id="preloaderPercentage">0</span>
+<span class="preloader-status">SYSTEM INITIALIZING</span>
+</div>
+</div>
+<!-- Custom Cursor -->
+<div aria-hidden="true" class="cursor-crosshair" id="cursorCrosshair">
+<div class="cursor-dot"></div>
+<div class="cursor-line cursor-line-top"></div>
+<div class="cursor-line cursor-line-bottom"></div>
+<div class="cursor-line cursor-line-left"></div>
+<div class="cursor-line cursor-line-right"></div>
+</div>
+<!-- Navigation -->
+<nav class="nav-blur" id="mainNav">
+<div class="nav-blur-inner">
+<a class="nav-blur-logo" href="#">
+<span class="nav-blur-logo-text">IntelliGenesis</span>
+</a>
+<ul class="nav-blur-links">
+<li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<a class="nav-blur-cta" href="#contact">Get Started</a>
+<button aria-label="Toggle menu" class="nav-blur-toggle" id="navToggle">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="hero anim-fade-in-up" id="hero" style="transition-delay: 0.0s; position: relative; overflow: hidden; "><div style="position:absolute;inset:0;z-index:0;overflow:hidden;">
+<video autoplay="" loop="" muted="" playsinline="" poster="https://images.pexels.com/photos/1561020/pexels-photo-1561020.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1920" style="width:100%;height:100%;object-fit:cover;filter:url(#anim-brand-tint) saturate(0.8) brightness(0.6);">
+<source src="https://videos.pexels.com/video-files/2169880/2169880-uhd_2560_1440_30fps.mp4" type="video/mp4"/>
+</video>
+<div style="position:absolute;inset:0;background:rgba(0,0,0,0.55);"></div>
+<div style="position:absolute;inset:0;background:radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.6) 100%);"></div>
+<div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);pointer-events:none;"></div>
+</div>
+<div class="anim-video-bg" style="position: relative; z-index: 1; ">
+<video autoplay="" loop="" muted="" playsinline="" poster="https://images.pexels.com/photos/8566526/pexels-photo-8566526.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1920" preload="auto">
+<source src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4" type="video/mp4"/>
+</video>
+<!-- Overlay 1: flat dark wash -->
+<div style="position:absolute;inset:0;background:rgba(0,0,0,0.55);"></div>
+<!-- Overlay 2: radial vignette -->
+<div style="position:absolute;inset:0;background:radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.7) 100%);"></div>
+<!-- Overlay 3: scanline texture -->
+<div class="scanlines-overlay"></div>
+</div>
+<div class="hero-content" style="position: relative; z-index: 1; ">
+<span class="mono-label">MISSION READY SOLUTIONS</span>
+<h1>AI-Enabled <span class="gradient-text">Mission Advantage</span></h1>
+<p style="font-size: 1.2rem; margin: 2rem 0; color: var(--text-muted); max-width: 600px;">
+                IntelliGenesis turns AI and cyber innovation into mission-ready capability, moving faster from concept to operational impact for the defense, intelligence, and federal communities.
+            </p>
+<div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+<a class="btn-tech" href="#contact">Explore Careers in AI</a>
+<a class="btn-ghost" href="#services">Dive Into Our AI Expertise</a>
+</div>
+</div>
+<div style="position:absolute;top:16px;left:16px;z-index:50;font-family:'JetBrains Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.25em;color:rgba(255,255,255,0.4);">
+<div>SYSTEM ONLINE</div>
+</div>
+<div style="position:absolute;top:16px;right:16px;z-index:50;font-family:'JetBrains Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.25em;color:rgba(255,255,255,0.4);text-align:right;">
+<div>Status: <span style="color:#22c55e;">ACTIVE</span></div>
+</div>
+<div style="position:absolute;bottom:16px;right:16px;z-index:50;display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
+<span style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.25em;color:rgba(255,255,255,0.3);">[SCROLL]</span>
+<div style="width:1px;height:32px;background:linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);animation:pulse 2s infinite;"></div>
+</div></section>
+<!-- Marquee Strip -->
+<div class="marquee-ribbon">
+<div class="marquee-track">
+<span>Artificial Intelligence &amp; Machine Learning</span>
+<span class="separator">●</span>
+<span>Cybersecurity &amp; Network Operations</span>
+<span class="separator">●</span>
+<span>Data Science &amp; Analytics</span>
+<span class="separator">●</span>
+<span>Training &amp; Simulation</span>
+<span class="separator">●</span>
+<span>Mission Engineering</span>
+<span class="separator">●</span>
+<!-- Duplicate for seamless loop -->
+<span>Artificial Intelligence &amp; Machine Learning</span>
+<span class="separator">●</span>
+<span>Cybersecurity &amp; Network Operations</span>
+<span class="separator">●</span>
+<span>Data Science &amp; Analytics</span>
+<span class="separator">●</span>
+<span>Training &amp; Simulation</span>
+<span class="separator">●</span>
+<span>Mission Engineering</span>
+</div>
+</div>
+<!-- Services Section -->
+<section class="section-padding anim-fade-in-up" id="services" style="transition-delay: 0.1s; position: relative; overflow: hidden;"><canvas id="anim-dots-rhombus" style="position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0.15;"></canvas>
+<canvas id="anim-dots-rhombus" style="position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0.15;"></canvas>
+<div class="container" style="position: relative; z-index: 1;">
+<div class="anim-fade-in-up" style="text-align: center; margin-bottom: 4rem;">
+<span class="mono-label">MISSION SERVICES</span>
+<h2>Advanced Solutions for Every Mission</h2>
+</div>
+<div class="services-grid">
+<div class="service-card anim-fade-in-up" style="transition-delay: 0.1s;">
+<h3>Defense-Grade Network Protection</h3>
+<p>CYBERSPAN® brings explainable, AI-enabled anomaly detection and threat mitigation to organizations of every size.</p>
+<a class="btn-ghost" href="#contact" style="margin-top: 1.5rem; font-size: 0.8rem; padding: 10px 24px;">Explore CYBERSPAN®</a>
+</div>
+<div class="service-card anim-fade-in-up" style="transition-delay: 0.2s;">
+<h3>Build a Workforce Ready for the Mission</h3>
+<p>IntelliCademy™ delivers hands-on tool and tradecraft training to improve students' operational readiness.</p>
+<a class="btn-ghost" href="#contact" style="margin-top: 1.5rem; font-size: 0.8rem; padding: 10px 24px;">Explore IntelliCademy™</a>
+</div>
+<div class="service-card anim-fade-in-up" style="transition-delay: 0.3s;">
+<h3>Where Innovations Meet Operations</h3>
+<p>IG Labs® accelerates the path from cutting-edge, emerging technologies to mission-ready capabilities.</p>
+<a class="btn-ghost" href="#contact" style="margin-top: 1.5rem; font-size: 0.8rem; padding: 10px 24px;">Explore IG Labs®</a>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="section-padding anim-fade-in-up" id="about" style="transition-delay: 0.2s; ">
+<div class="container">
+<div class="about-content">
+<div class="anim-fade-in-up">
+<span class="mono-label">ABOUT INTELLIGENESIS</span>
+<h2>Your strategic partner in modern defense and intelligence operations</h2>
+<p class="prose">
+                        IntelliGenesis has made its name in the Intelligence Community by pioneering new technology across the AI, Big Data, and Cybersecurity domains. By maintaining a strong partnership and open communication with our customers and users, we operationalize these technologies to advance the mission and enable our allies.
+                    </p>
+<p class="prose">
+                        We were an integral member in the National Security Agency's efforts to drive capabilities throughout the Intelligence Community in their mission operations spaces, research and development and within their early Artificial Intelligence Lab.
+                    </p>
+</div>
+<div class="anim-fade-in-up" style="transition-delay: 0.2s;">
+<ul class="features-list">
+<li>Team comprised predominantly of veterans with frontline cyber and AI experience</li>
+<li>Proprietary solutions like CYBERSPAN® providing AI-powered perimeter defense</li>
+<li>Customized training and mission support to enhance cyber readiness</li>
+<li>Commitment to innovation with continuous R&amp;D in adversarial AI and cyber resilience</li>
+<li>Combination of deep operational experience with cutting-edge AI and ML to stay ahead of adversaries and secure mission success</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonial Section -->
+<section class="section-padding anim-fade-in-up" style="transition-delay: 0.3s; background: rgba(6, 182, 212, 0.02);">
+<div class="container">
+<div class="anim-fade-in-up" style="text-align: center; max-width: 800px; margin: 0 auto;">
+<span class="mono-label">CLIENT FEEDBACK</span>
+<blockquote style="font-style: italic; font-size: 1.2rem; color: var(--text-muted); margin: 2rem 0; line-height: 1.6;">
+                    "IntelliGenesis LLC's professionalism and knowledge were essential in maintaining the exercise's focus and productivity. Their efforts significantly enhanced the effectiveness of this critical event."
+                </blockquote>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="cta-section section-padding anim-fade-in-up" style="transition-delay: 0.4s; ">
+<div class="container">
+<div class="cta-content anim-fade-in-up">
+<span class="mono-label">GET STARTED</span>
+<h2>Ready to Advance Your Mission?</h2>
+<p class="prose">
+                    More than 70% of our employees are veterans so we understand the importance of providing timely, effective, and actionable intelligence and tools to the warfighter.
+                </p>
+<div class="cta-buttons">
+<a class="btn-tech" href="#contact">Contact Us Today</a>
+<a class="btn-ghost" href="#services">Learn More</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer>
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h4>Contact Information</h4>
+<p><strong>Maryland Headquarters</strong><br/>
+                    6950 Columbia Gateway Drive<br/>
+                    Suite 450<br/>
+                    Columbia, MD 21046 USA<br/>
+                    443-563-1870</p>
+</div>
+<div class="footer-section">
+<h4>Texas Office</h4>
+<p>3331 General Hudnell Dr<br/>
+                    Suite 3<br/>
+                    San Antonio, TX 78226 USA</p>
+<p style="margin-top: 1rem;">
+                        Email: <a href="mailto:info@intelligenesisllc.com">info@intelligenesisllc.com</a><br/>
+                        Fax: 866-511-1193
+                    </p>
+</div>
+<div class="footer-section">
+<h4>Identifiers</h4>
+<p>DUNS: 793224366<br/>
+                    CAGE Code: 4QLA5<br/>
+                    NAICS (Primary): 541715</p>
+<h4 style="margin-top: 2rem;">Locations</h4>
+<p>Maryland • Georgia • Texas • Hawaii • Utah • Colorado</p>
+</div>
+</div>
+<div class="footer-bottom">
+<p>©2026 IntelliGenesis LLC. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script>
+        // Preloader
+        (function(){
+            let percent = 0;
+            const percentEl = document.getElementById('preloaderPercentage');
+            const preloader = document.getElementById('preloader');
+            
+            const interval = setInterval(() => {
+                percent += Math.random() * 15;
+                if (percent >= 100) {
+                    percent = 100;
+                    percentEl.textContent = percent.toFixed(0);
+                    
+                    setTimeout(() => {
+                        document.querySelector('.preloader-content').classList.add('done');
+                        document.querySelectorAll('.preloader-curtain').forEach(el => el.classList.add('done'));
+                        
+                        setTimeout(() => {
+                            preloader.style.display = 'none';
+                        }, 800);
+                    }, 500);
+                    
+                    clearInterval(interval);
+                } else {
+                    percentEl.textContent = percent.toFixed(0);
+                }
+            }, 50);
+        })();
+
+        // Custom cursor
+        (function(){
+            const cursor = document.getElementById('cursorCrosshair');
+            let mouseX = 0, mouseY = 0;
+            
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+            
+            function updateCursor() {
+                cursor.style.left = mouseX + 'px';
+                cursor.style.top = mouseY + 'px';
+                requestAnimationFrame(updateCursor);
+            }
+            updateCursor();
+        })();
+
+        // Sticky navigation
+        (function(){
+            const nav = document.getElementById('mainNav');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            });
+        })();
+
+        // Scroll reveal
+        (function(){
+            const obs = new IntersectionObserver((entries) => {
+                entries.forEach((e) => {
+                    if (e.isIntersecting) e.target.classList.add('anim-visible');
+                });
+            }, {threshold: 0.1});
+            
+            document.querySelectorAll('.anim-fade-in-up').forEach((el) => {
+                obs.observe(el);
+            });
+        })();
+
+        // Dot rhombus canvas
+        (function(){
+            const c = document.getElementById('anim-dots-rhombus');
+            if (!c) return;
+            
+            const ctx = c.getContext('2d');
+            const spacing = 18;
+            let dots = [];
+
+            function resize() {
+                c.width = c.parentElement.offsetWidth;
+                c.height = c.parentElement.offsetHeight;
+                dots = [];
+                const cx = c.width / 2;
+                const cy = c.height / 2;
+                const rhombusSize = Math.min(c.width, c.height) * 0.45;
+                
+                for (let x = 0; x < c.width; x += spacing) {
+                    for (let y = 0; y < c.height; y += spacing) {
+                        const relX = x - cx;
+                        const relY = y - cy;
+                        if (Math.abs(relX) + Math.abs(relY) < rhombusSize) {
+                            dots.push({x: x, y: y});
+                        }
+                    }
+                }
+            }
+            
+            resize();
+            window.addEventListener('resize', resize);
+
+            function animate(time) {
+                ctx.clearRect(0, 0, c.width, c.height);
+                for (let i = 0; i < dots.length; i++) {
+                    const d = dots[i];
+                    const dist = d.x + d.y;
+                    const wave = Math.sin(dist * 0.008 - time / 600);
+                    const size = 1 + (wave + 1) * 1.5;
+                    const opacity = 0.3 + (wave + 1) * 0.35;
+                    ctx.fillStyle = `rgba(6, 182, 212, ${opacity})`;
+                    ctx.beginPath();
+                    ctx.arc(d.x, d.y, size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                requestAnimationFrame(animate);
+            }
+            
+            requestAnimationFrame(animate);
+        })();
+
+        // Mobile navigation
+        document.getElementById('navToggle').addEventListener('click', function() {
+            const mobileNav = document.querySelector('.nav-blur-mobile');
+            mobileNav.style.display = mobileNav.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+<script>
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) e.target.classList.add('anim-visible');
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+})();
+</script><script>
+(function(){
+  var c = document.getElementById('anim-dots-rhombus');
+  if(!c) return;
+  var ctx = c.getContext('2d');
+  var spacing = 18;
+  var dots = [];
+
+  function resize(){
+    c.width = c.parentElement.offsetWidth;
+    c.height = c.parentElement.offsetHeight;
+    dots = [];
+    var cx = c.width/2, cy = c.height/2;
+    var rhombusSize = Math.min(c.width, c.height) * 0.45;
+    var arrowW = c.width * 0.6, arrowH = c.height * 0.8;
+    for(var x=0; x<c.width; x+=spacing){
+      for(var y=0; y<c.height; y+=spacing){
+        var relX = x - cx, relY = y - cy;
+        if(Math.abs(relX) + Math.abs(relY) < rhombusSize){
+          dots.push({x:x, y:y});
+        }
+      }
+    }
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function animate(time){
+    ctx.clearRect(0,0,c.width,c.height);
+    for(var i=0;i<dots.length;i++){
+      var d = dots[i];
+      var dist = d.x + d.y;
+      var wave = Math.sin(dist * 0.008 - time / 600);
+      var size = 1 + (wave + 1) * 1.5;
+      var opacity = 0.3 + (wave + 1) * 0.35;
+      ctx.fillStyle = 'rgba(255,255,255,' + opacity + ')';
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, size, 0, Math.PI*2);
+      ctx.fill();
+    }
+    requestAnimationFrame(animate);
+  }
+  requestAnimationFrame(animate);
+})();
+</script></body>
+</html>
