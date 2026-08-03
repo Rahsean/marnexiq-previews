@@ -16,7 +16,7 @@
             --bg-card: #111827;
             --bg-elevated: #1a2236;
             --accent: #7456f1;
-            --accent-hover: #8b6ff5;
+            --accent-hover: #9a85f4;
             --gold: #d4af37;
             --gold-muted: rgba(212, 175, 55, 0.15);
             --text: #E7EBEE;
@@ -545,17 +545,7 @@
             }
         }
     </style>
-<style>
-.anim-fade-in-up {
-  opacity: 0;
-  transform: translateY(25px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-}
-.anim-fade-in-up.anim-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-</style></head>
+</head>
 <body>
 <!-- Navigation -->
 <nav class="nav-blur" id="mainNav">
@@ -586,7 +576,7 @@
 </div>
 </nav>
 <!-- Hero Section -->
-<section class="hero anim-fade-in-up" style="transition-delay: 0.0s; ">
+<section class="hero">
 <div class="hero-bg anim-image-hero">
 <img alt="" src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=2070&amp;q=80"/>
 <div class="hero-overlay"></div>
@@ -609,8 +599,8 @@
 </svg>
 </div>
 <!-- Services Section -->
-<section class="section anim-fade-in-up" id="services" style="transition-delay: 0.1s; ">
-<div class="container">
+<section class="section" id="services" style="position: relative; overflow: hidden; "><canvas id="anim-dots-rhombus" style="position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0.15;"></canvas>
+<div class="container" style="position: relative; z-index: 1; ">
 <div class="anim-fade-in-up" style="transition-delay: 0s;">
 <span class="mono-label">Our Services</span>
 <h2>Protecting What Matters Most</h2>
@@ -651,7 +641,7 @@
 </div>
 </section>
 <!-- Environmental Bleed Background Section -->
-<section class="env-bleed-section anim-fade-in-up" id="about" style="transition-delay: 0.2s; ">
+<section class="env-bleed-section" id="about">
 <div aria-hidden="true" class="env-bleed-bg">
 <img alt="" loading="lazy" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1920&amp;q=80"/>
 </div>
@@ -683,7 +673,7 @@
 </svg>
 </div>
 <!-- Team Section -->
-<section class="section anim-fade-in-up" id="team" style="transition-delay: 0.3s; ">
+<section class="section" id="team">
 <div class="container">
 <div class="anim-fade-in-up" style="transition-delay: 0s;">
 <span class="mono-label">Our Team</span>
@@ -781,7 +771,7 @@
 </div>
 </section>
 <!-- CTA Section -->
-<section class="section anim-fade-in-up" id="contact" style="transition-delay: 0.4s; background: var(--bg-card);">
+<section class="section" id="contact" style="background: var(--bg-card);">
 <div class="container" style="text-align: center;">
 <div class="anim-fade-in-up" style="transition-delay: 0s;">
 <span class="mono-label">Get in Touch</span>
@@ -883,12 +873,47 @@
     </script>
 <script>
 (function(){
-  var obs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting) e.target.classList.add('anim-visible');
-    });
-  }, {threshold: 0.1});
-  document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+  var c = document.getElementById('anim-dots-rhombus');
+  if(!c) return;
+  var ctx = c.getContext('2d');
+  var spacing = 18;
+  var dots = [];
+
+  function resize(){
+    c.width = c.parentElement.offsetWidth;
+    c.height = c.parentElement.offsetHeight;
+    dots = [];
+    var cx = c.width/2, cy = c.height/2;
+    var rhombusSize = Math.min(c.width, c.height) * 0.45;
+    var arrowW = c.width * 0.6, arrowH = c.height * 0.8;
+    for(var x=0; x<c.width; x+=spacing){
+      for(var y=0; y<c.height; y+=spacing){
+        var relX = x - cx, relY = y - cy;
+        if(Math.abs(relX) + Math.abs(relY) < rhombusSize){
+          dots.push({x:x, y:y});
+        }
+      }
+    }
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function animate(time){
+    ctx.clearRect(0,0,c.width,c.height);
+    for(var i=0;i<dots.length;i++){
+      var d = dots[i];
+      var dist = d.x + d.y;
+      var wave = Math.sin(dist * 0.008 - time / 600);
+      var size = 1 + (wave + 1) * 1.5;
+      var opacity = 0.3 + (wave + 1) * 0.35;
+      ctx.fillStyle = 'rgba(255,255,255,' + opacity + ')';
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, size, 0, Math.PI*2);
+      ctx.fill();
+    }
+    requestAnimationFrame(animate);
+  }
+  requestAnimationFrame(animate);
 })();
 </script></body>
 </html>

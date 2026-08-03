@@ -15,9 +15,9 @@
             --bg-deep: #0a0f1a;
             --bg-card: #111827;
             --bg-elevated: #1e293b;
-            --accent: #06b6d4;
-            --accent-hover: #22d3ee;
-            --accent-glow: rgba(6, 182, 212, 0.15);
+            --accent: #0c6cb4;
+            --accent-hover: #5095c9;
+            --accent-glow: rgba(12, 108, 180, 0.15);
             --gold: #c0c0c0;
             --text: #E7EBEE;
             --text-muted: #94a3b8;
@@ -503,7 +503,11 @@
         }
     </style>
 </head>
-<body>
+<body><svg aria-hidden="true" style="position:absolute;width:0;height:0;">
+<filter id="anim-brand-tint">
+<fecolormatrix type="matrix" values="0.05 0 0 0 0.95 0.42 0 0 0 0.58 0.71 0 0 0 0.29 0 0 0 1 0"></fecolormatrix>
+</filter>
+</svg>
 <!-- SVG Filter -->
 <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden;">
 <defs>
@@ -542,15 +546,22 @@
 </div>
 </nav>
 <!-- Hero Section -->
-<section class="hero">
-<div class="anim-video-bg">
+<section class="hero" style="position: relative; overflow: hidden; "><div style="position:absolute;inset:0;z-index:0;overflow:hidden;">
+<video autoplay="" loop="" muted="" playsinline="" poster="https://images.pexels.com/photos/1561020/pexels-photo-1561020.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1920" style="width:100%;height:100%;object-fit:cover;filter:url(#anim-brand-tint) saturate(0.8) brightness(0.6);">
+<source src="https://videos.pexels.com/video-files/2169880/2169880-uhd_2560_1440_30fps.mp4" type="video/mp4"/>
+</video>
+<div style="position:absolute;inset:0;background:rgba(0,0,0,0.55);"></div>
+<div style="position:absolute;inset:0;background:radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.6) 100%);"></div>
+<div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);pointer-events:none;"></div>
+</div>
+<div class="anim-video-bg" style="position: relative; z-index: 1; ">
 <video autoplay="" loop="" muted="" playsinline="" poster="https://images.pexels.com/photos/1561020/pexels-photo-1561020.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1920" preload="auto">
 <source src="https://videos.pexels.com/video-files/2169880/2169880-uhd_2560_1440_30fps.mp4" type="video/mp4"/>
 </video>
 <div style="position:absolute;inset:0;background:rgba(0,0,0,0.55);"></div>
 <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.7) 100%);"></div>
 </div>
-<div class="hero-content">
+<div class="hero-content" style="position: relative; z-index: 1; ">
 <span class="mono-label">Motorola Solutions Channel Partner</span>
 <h1>Serving Commercial and Public Safety Customers <span class="dp-gradient-text">Nationwide Since 1991</span></h1>
 <p class="hero-description">
@@ -591,9 +602,9 @@
 </div>
 </div>
 <!-- Services Section -->
-<section class="services-section" id="services" style="position: relative; overflow: hidden; "><canvas id="anim-dots-rhombus" style="position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0.15;"></canvas>
+<section class="services-section" id="services">
 <canvas id="anim-dots-rhombus" style="position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0.15;"></canvas>
-<div class="container" style="position: relative; z-index: 1; ">
+<div class="container">
 <div class="anim-fade-in-up" style="transition-delay: 0s;">
 <span class="mono-label">Our Solutions</span>
 <h2>Communication Solutions That Keep You Connected</h2>
@@ -908,49 +919,5 @@
             window.addEventListener('resize', onResize);
         })();
     </script>
-<script>
-(function(){
-  var c = document.getElementById('anim-dots-rhombus');
-  if(!c) return;
-  var ctx = c.getContext('2d');
-  var spacing = 18;
-  var dots = [];
-
-  function resize(){
-    c.width = c.parentElement.offsetWidth;
-    c.height = c.parentElement.offsetHeight;
-    dots = [];
-    var cx = c.width/2, cy = c.height/2;
-    var rhombusSize = Math.min(c.width, c.height) * 0.45;
-    var arrowW = c.width * 0.6, arrowH = c.height * 0.8;
-    for(var x=0; x<c.width; x+=spacing){
-      for(var y=0; y<c.height; y+=spacing){
-        var relX = x - cx, relY = y - cy;
-        if(Math.abs(relX) + Math.abs(relY) < rhombusSize){
-          dots.push({x:x, y:y});
-        }
-      }
-    }
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  function animate(time){
-    ctx.clearRect(0,0,c.width,c.height);
-    for(var i=0;i<dots.length;i++){
-      var d = dots[i];
-      var dist = d.x + d.y;
-      var wave = Math.sin(dist * 0.008 - time / 600);
-      var size = 1 + (wave + 1) * 1.5;
-      var opacity = 0.3 + (wave + 1) * 0.35;
-      ctx.fillStyle = 'rgba(255,255,255,' + opacity + ')';
-      ctx.beginPath();
-      ctx.arc(d.x, d.y, size, 0, Math.PI*2);
-      ctx.fill();
-    }
-    requestAnimationFrame(animate);
-  }
-  requestAnimationFrame(animate);
-})();
-</script></body>
+</body>
 </html>

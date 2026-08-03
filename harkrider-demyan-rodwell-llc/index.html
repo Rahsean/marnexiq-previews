@@ -14,7 +14,7 @@
             --bg-card: #111827;
             --bg-elevated: #1a2236;
             --accent: #7456f1;
-            --accent-hover: #8b6ff5;
+            --accent-hover: #9a85f4;
             --gold: #d4af37;
             --gold-muted: rgba(212, 175, 55, 0.15);
             --text: #E7EBEE;
@@ -508,18 +508,12 @@
             }
         }
     </style>
-<style>
-.anim-fade-in-up {
-  opacity: 0;
-  transform: translateY(25px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-}
-.anim-fade-in-up.anim-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-</style></head>
-<body>
+</head>
+<body><svg aria-hidden="true" style="position:absolute;width:0;height:0;">
+<filter id="anim-brand-tint">
+<fecolormatrix type="matrix" values="0.45 0 0 0 0.55 0.34 0 0 0 0.66 0.95 0 0 0 0.05 0 0 0 1 0"></fecolormatrix>
+</filter>
+</svg>
 <!-- Navigation -->
 <nav class="nav-blur" id="mainNav">
 <div class="nav-blur-inner">
@@ -547,8 +541,15 @@
 </div>
 </nav>
 <!-- Hero Section -->
-<section class="hero anim-fade-in-up" style="transition-delay: 0.0s; ">
-<div class="hero-content">
+<section class="hero" style="position: relative; overflow: hidden; "><div style="position:absolute;inset:0;z-index:0;overflow:hidden;">
+<video autoplay="" loop="" muted="" playsinline="" poster="https://images.pexels.com/photos/1561020/pexels-photo-1561020.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1920" style="width:100%;height:100%;object-fit:cover;filter:url(#anim-brand-tint) saturate(0.8) brightness(0.6);">
+<source src="https://videos.pexels.com/video-files/2169880/2169880-uhd_2560_1440_30fps.mp4" type="video/mp4"/>
+</video>
+<div style="position:absolute;inset:0;background:rgba(0,0,0,0.55);"></div>
+<div style="position:absolute;inset:0;background:radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.6) 100%);"></div>
+<div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);pointer-events:none;"></div>
+</div>
+<div class="hero-content" style="position: relative; z-index: 1; ">
 <div class="gold-line anim-fade-in-up" style="transition-delay: 0.2s;"></div>
 <span class="mono-label anim-fade-in-up" style="transition-delay: 0.3s;">Since 1978</span>
 <h1 class="dp-gradient-text anim-fade-in-up" style="transition-delay: 0.4s;">
@@ -564,7 +565,7 @@
 </section>
 <div class="divider-gradient"></div>
 <!-- Services Section -->
-<section class="anim-fade-in-up" id="services" style="transition-delay: 0.1s; ">
+<section id="services">
 <div class="container">
 <div class="anim-fade-in-up">
 <span class="mono-label">Our Expertise</span>
@@ -665,7 +666,7 @@
 </section>
 <div class="divider-gradient"></div>
 <!-- About Section -->
-<section class="anim-fade-in-up" id="about" style="transition-delay: 0.2s; ">
+<section id="about">
 <div class="container">
 <div class="two-col">
 <div class="anim-fade-in-up">
@@ -696,7 +697,7 @@
 </section>
 <div class="divider-gradient"></div>
 <!-- Contact Section -->
-<section class="anim-fade-in-up" id="contact" style="transition-delay: 0.3s; ">
+<section id="contact">
 <div class="container">
 <div class="anim-fade-in-up" style="text-align: center;">
 <span class="mono-label">Get In Touch</span>
@@ -800,14 +801,5 @@
             alert('Thank you for your message. We will contact you soon to schedule your free consultation.');
         });
     </script>
-<script>
-(function(){
-  var obs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting) e.target.classList.add('anim-visible');
-    });
-  }, {threshold: 0.1});
-  document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
-})();
-</script></body>
+</body>
 </html>

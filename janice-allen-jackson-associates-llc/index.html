@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Janice Allen Jackson &amp; Associates - Organizational Effectiveness Consulting</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&amp;family=Inter:wght@300;400;500&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            /* Core colors */
+            --bg-deep: #0a0f1a;
+            --bg-card: #111827;
+            --bg-elevated: #1a2236;
+            --accent: #841800;
+            --accent-hover: #a65847;
+            --gold: #d4af37;
+            --gold-muted: rgba(212, 175, 55, 0.15);
+            --text: #E7EBEE;
+            --text-muted: #9ca3af;
+            --text-heading: #ffffff;
+            --border: rgba(116, 86, 241, 0.15);
+            --border-gold: rgba(212, 175, 55, 0.25);
+
+            /* Typography */
+            --font-heading: 'Cormorant Garamond', 'Georgia', serif;
+            --font-body: 'Inter', 'Helvetica Neue', sans-serif;
+            --heading-weight: 300;
+            --heading-weight-bold: 400;
+            --body-weight: 300;
+            --body-weight-medium: 400;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg-deep);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-weight: var(--body-weight);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: var(--heading-weight);
+            color: var(--text-heading);
+            letter-spacing: 0.02em;
+        }
+
+        h1 { 
+            font-size: clamp(2.75rem, 6vw, 5rem); 
+            line-height: 1.1; 
+        }
+        
+        h2 { 
+            font-size: clamp(2rem, 4vw, 3.25rem); 
+            line-height: 1.1; 
+        }
+        
+        h3 { 
+            font-size: clamp(1.15rem, 2vw, 1.5rem); 
+            font-weight: var(--heading-weight-bold); 
+            line-height: 1.2;
+        }
+
+        p {
+            font-size: 17px;
+            max-width: 65ch;
+        }
+
+        /* Navigation */
+        .nav-blur {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: transparent;
+            border-bottom: 1px solid transparent;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .nav-blur.scrolled {
+            background: rgba(10, 15, 26, 0.85);
+            border-bottom-color: rgba(255, 255, 255, 0.06);
+        }
+
+        .nav-blur-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .nav-blur-logo-text {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--text-heading);
+            text-decoration: none;
+        }
+
+        .nav-blur-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-blur-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .nav-blur-links a:hover {
+            color: var(--text-heading);
+        }
+
+        .nav-blur-cta {
+            background: var(--accent);
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .nav-blur-cta:hover {
+            background: var(--accent-hover);
+        }
+
+        .nav-blur-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav-blur-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            transition: all 0.3s ease;
+        }
+
+        .nav-blur-mobile {
+            display: none;
+            background: rgba(10, 15, 26, 0.95);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 2rem;
+        }
+
+        .nav-blur-mobile ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .nav-blur-mobile a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        @media (max-width: 768px) {
+            .nav-blur-links,
+            .nav-blur-cta {
+                display: none;
+            }
+            
+            .nav-blur-toggle {
+                display: flex;
+            }
+            
+            .nav-blur-mobile.active {
+                display: block;
+            }
+        }
+
+        /* Animations */
+        .anim-fade-in-up {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .anim-fade-in-up.anim-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Gradient text */
+        .dp-gradient-text {
+            background: linear-gradient(135deg, #fff 0%, #d4af37 50%, #fff 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: dp-gradient-shift 6s ease infinite;
+        }
+
+        @keyframes dp-gradient-shift {
+            0%   { background-position: 0% center; }
+            50%  { background-position: 100% center; }
+            100% { background-position: 0% center; }
+        }
+
+        /* Gold line divider */
+        .divider-gradient {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0.3;
+            margin: 5rem 0;
+        }
+
+        /* Monospace labels */
+        .mono-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.625rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: rgba(212, 175, 55, 0.6);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Glass cards */
+        .glass-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .glass-card {
+            background: rgba(17, 24, 39, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 8px 40px rgba(116, 86, 241, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .glass-card-title {
+            margin-bottom: 1rem;
+        }
+
+        .glass-card-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Arrow links */
+        .link-arrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--gold);
+            text-decoration: none;
+            transition: gap 0.3s ease, color 0.3s ease;
+        }
+
+        .link-arrow:hover {
+            gap: 14px;
+        }
+
+        .link-arrow-icon {
+            display: inline-block;
+            transition: transform 0.3s ease;
+            font-size: 1.05em;
+        }
+
+        .link-arrow:hover .link-arrow-icon {
+            transform: translateX(4px);
+        }
+
+        /* Buttons */
+        .btn-finance {
+            background: var(--accent);
+            color: #ffffff;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.03em;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-finance:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            padding: 16px 32px;
+            background: transparent;
+            color: #ffffff;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .btn-ghost:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Numbered features */
+        .numbered-section {
+            padding: 6rem 2rem;
+        }
+
+        .numbered-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .numbered-item {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2rem;
+            align-items: start;
+            margin-bottom: 3rem;
+        }
+
+        .numbered-num {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 300;
+            color: rgba(212, 175, 55, 0.3);
+            line-height: 1;
+        }
+
+        .numbered-content h3 {
+            margin-bottom: 1rem;
+        }
+
+        .numbered-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .numbered-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            margin: 2rem 0;
+        }
+
+        /* Sections */
+        .section {
+            padding: 6rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(10,15,26,0.85) 0%, rgba(10,15,26,0.55) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 640px;
+            padding: 0 2rem;
+        }
+
+        .gold-line {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+            margin: 0 0 2rem 0;
+        }
+
+        .hero-subtitle {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            margin: 1.5rem 0 2.5rem;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .belief-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .belief-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+        }
+
+        .belief-list li:last-child {
+            border-bottom: none;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .contact-info {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-item a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            max-width: none;
+        }
+
+        @media (max-width: 768px) {
+            .two-col {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .cta-group {
+                flex-direction: column;
+            }
+            
+            .numbered-item {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .section {
+                padding: 4rem 1rem;
+            }
+            
+            .hero-content {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body><svg aria-hidden="true" style="position:absolute;width:0;height:0;">
+<filter id="anim-brand-tint">
+<fecolormatrix type="matrix" values="0.52 0 0 0 0.48 0.09 0 0 0 0.91 0.00 0 0 0 1.00 0 0 0 1 0"></fecolormatrix>
+</filter>
+</svg>
+<!-- Navigation -->
+<nav class="nav-blur" id="mainNav">
+<div class="nav-blur-inner">
+<a class="nav-blur-logo" href="#">
+<span class="nav-blur-logo-text">Janice Allen Jackson &amp; Associates</span>
+</a>
+<ul class="nav-blur-links">
+<li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#beliefs">Our Beliefs</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<a class="nav-blur-cta" href="#contact">Get Started</a>
+<button aria-label="Toggle menu" class="nav-blur-toggle" id="navToggle">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+<div class="nav-blur-mobile" id="navMobile">
+<ul>
+<li><a href="#services">Services</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#beliefs">Our Beliefs</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="hero" style="position: relative; overflow: hidden; "><div style="position:absolute;inset:0;z-index:0;overflow:hidden;">
+<video autoplay="" loop="" muted="" playsinline="" poster="https://images.pexels.com/photos/1561020/pexels-photo-1561020.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1920" style="width:100%;height:100%;object-fit:cover;filter:url(#anim-brand-tint) saturate(0.8) brightness(0.6);">
+<source src="https://videos.pexels.com/video-files/2169880/2169880-uhd_2560_1440_30fps.mp4" type="video/mp4"/>
+</video>
+<div style="position:absolute;inset:0;background:rgba(0,0,0,0.55);"></div>
+<div style="position:absolute;inset:0;background:radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.6) 100%);"></div>
+<div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);pointer-events:none;"></div>
+</div>
+<div class="hero-bg" style="position: relative; z-index: 1; ">
+<img alt="" src="https://janiceallenjackson.weebly.com/uploads/1/2/0/6/120644027/10_orig.jpg"/>
+<div class="hero-overlay"></div>
+</div>
+<div class="hero-content" style="position: relative; z-index: 1; ">
+<div class="gold-line"></div>
+<h1 class="dp-gradient-text">Enhancing Organizational Effectiveness</h1>
+<p class="hero-subtitle">
+                A certified minority business enterprise equipping leaders to better serve their customers, employees, and the larger community.
+            </p>
+<div class="cta-group">
+<a class="btn-finance" href="#contact">Schedule Consultation</a>
+<a class="btn-ghost" href="#services">Learn More</a>
+</div>
+</div>
+</section>
+<div class="divider-gradient"></div>
+<!-- Services Section -->
+<section class="section" id="services">
+<div class="container">
+<div class="anim-fade-in-up" style="transition-delay: 0s;">
+<span class="mono-label">Our Services</span>
+<h2>What We Do</h2>
+<p style="margin: 2rem 0 3rem; color: var(--text-muted); font-size: 1.1rem;">
+                    We serve organizations looking for a better way to achieve their goals. We use our keen understanding of people, issues, and organizations to demonstrate that we care about our clients, your employees, and those that you serve.
+                </p>
+</div>
+<div class="glass-card-grid">
+<div class="glass-card anim-fade-in-up" style="transition-delay: 0.1s;">
+<h3 class="glass-card-title">Local Government Funding Strategies</h3>
+<p class="glass-card-desc">
+                        Successful efforts to gain public support for government initiatives, from planning stages through winning over 50% of voter support. Our expertise includes Special Purpose Local Option Sales Tax and Bond referenda.
+                    </p>
+<a class="link-arrow" href="#contact">
+<span class="link-arrow-text">Learn more</span>
+<span class="link-arrow-icon">→</span>
+</a>
+</div>
+<div class="glass-card anim-fade-in-up" style="transition-delay: 0.2s;">
+<h3 class="glass-card-title">Multi-disciplinary Problem Solving</h3>
+<p class="glass-card-desc">
+                        Augmenting your staff to tackle seemingly intractable problems with objective, thorough, and honest approaches. Services include Public Engagement, Program Development and Management, Strategic Planning, and Creating Safe Communities.
+                    </p>
+<a class="link-arrow" href="#contact">
+<span class="link-arrow-text">Learn more</span>
+<span class="link-arrow-icon">→</span>
+</a>
+</div>
+<div class="glass-card anim-fade-in-up" style="transition-delay: 0.3s;">
+<h3 class="glass-card-title">Organizational Development</h3>
+<p class="glass-card-desc">
+                        Comprehensive organizational analysis and restructuring, professional development and training, executive search, employee engagement, interim leadership, and succession planning. Certified Everything DiSC Management Facilitator.
+                    </p>
+<a class="link-arrow" href="#contact">
+<span class="link-arrow-text">Learn more</span>
+<span class="link-arrow-icon">→</span>
+</a>
+</div>
+<div class="glass-card anim-fade-in-up" style="transition-delay: 0.4s;">
+<h3 class="glass-card-title">Public Speaking &amp; Communication</h3>
+<p class="glass-card-desc">
+                        Keynote addresses, workshop planning and facilitation, lectures, and moderating panel discussions. Topics include women's leadership, Christ-centered leadership principles, civic health, redevelopment and community building.
+                    </p>
+<a class="link-arrow" href="#contact">
+<span class="link-arrow-text">Learn more</span>
+<span class="link-arrow-icon">→</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<div class="divider-gradient"></div>
+<!-- About Section -->
+<section class="section" id="about">
+<div class="container">
+<div class="two-col">
+<div class="anim-fade-in-up" style="transition-delay: 0s;">
+<span class="mono-label">Biography</span>
+<h2>Janice Allen Jackson</h2>
+<p style="margin: 1.5rem 0;">
+                        Mrs. Jackson has served as City Manager of Albany, GA, and Administrator of the consolidated Augusta, GA government. She also worked as one of four General Managers reporting to the County Manager in Mecklenburg County, NC, and Assistant City Manager in Albany.
+                    </p>
+<p style="margin: 1.5rem 0;">
+                        Throughout her career, she has always enjoyed bringing major projects to fruition, building public trust in government, and empowering staff to become their best and most productive. Her unique talents revolve around her willingness to address issues head on with honesty, sincerity, and integrity.
+                    </p>
+<p style="margin: 1.5rem 0;">
+                        She has been active in the United Way organizations in Augusta, Albany, and the Central Carolinas, the International and Georgia City-County Manager's Associations, Women's National Book Association, and the National Forum for Black Public Administrators. She is a graduate of Leadership Georgia, Leadership Albany, Leadership Charlotte, and Leadership Augusta.
+                    </p>
+<p style="margin: 1.5rem 0;">
+                        A Diamond Life member of the Delta Sigma Theta Sorority, Inc., and an active Rotarian/Paul Harris Fellow, she graduated from the Academy Of Richmond County and was the first student at the College of William and Mary to pursue the interdisciplinary major in Public Policy, completing it with a concentration in Urban Policy. She later earned a Master's Degree in Public Policy with a concentration in Management from Duke University.
+                    </p>
+</div>
+<div class="anim-fade-in-up" style="transition-delay: 0.2s;">
+<img alt="Janice Allen Jackson" class="profile-img" src="https://janiceallenjackson.weebly.com/uploads/1/2/0/6/120644027/17_orig.jpg"/>
+</div>
+</div>
+</div>
+</section>
+<div class="divider-gradient"></div>
+<!-- Beliefs Section -->
+<section class="section" id="beliefs">
+<div class="container">
+<div class="anim-fade-in-up" style="transition-delay: 0s;">
+<span class="mono-label">Our Foundation</span>
+<h2>What We Believe</h2>
+<p style="margin: 2rem 0; color: var(--text-muted); font-size: 1.1rem;">
+                    Our firm, and our work are shaped by the following principles:
+                </p>
+<ul class="belief-list">
+<li class="anim-fade-in-up" style="transition-delay: 0.1s;">
+                        There IS a better way, and we will find it! It is our job to meet you where you are, and get you to where you need to be.
+                    </li>
+<li class="anim-fade-in-up" style="transition-delay: 0.2s;">
+                        What is best for our end users/customers is our primary consideration; we do not exist without them.
+                    </li>
+<li class="anim-fade-in-up" style="transition-delay: 0.3s;">
+                        Gimmicks are no substitute for a thoughtful and sincere approach; simplicity in communication and process is desirable.
+                    </li>
+<li class="anim-fade-in-up" style="transition-delay: 0.4s;">
+                        Acting with personal and professional integrity is the best way to build confidence among people having personal and professional integrity.
+                    </li>
+</ul>
+</div>
+</div>
+</section>
+<div class="divider-gradient"></div>
+<!-- Contact Section -->
+<section class="section" id="contact">
+<div class="container">
+<div class="two-col">
+<div class="anim-fade-in-up" style="transition-delay: 0s;">
+<span class="mono-label">Get in Touch</span>
+<h2>Let's Chat</h2>
+<p style="margin: 2rem 0;">
+                        If you would like to book Janice Allen Jackson for your next event, local government consultation services, or if you have any questions, please reach out using the contact information below.
+                    </p>
+<div class="contact-info">
+<div class="contact-item">
+<strong>Phone:</strong> <a href="tel:704-707-5114">704-707-5114</a>
+</div>
+<div class="contact-item">
+<strong>Email:</strong> <a href="mailto:JaniceAllenJackson@gmail.com">JaniceAllenJackson@gmail.com</a>
+</div>
+<div class="contact-item">
+<strong>Twitter:</strong> <a href="https://twitter.com/JAJANDASSOCLLC" target="_blank">@JAJANDASSOCLLC</a>
+</div>
+</div>
+<div style="margin-top: 2rem;">
+<a class="btn-finance" href="tel:704-707-5114">Call Now</a>
+</div>
+</div>
+<div class="anim-fade-in-up" style="transition-delay: 0.2s;">
+<span class="mono-label">Our Mission</span>
+<h3 style="margin-bottom: 1.5rem;">Enhancing Organizational Effectiveness</h3>
+<p style="color: var(--text-muted); margin-bottom: 2rem;">
+                        Enhancing the effectiveness of organizations by equipping leaders to better serve their customers, employees, and the larger community.
+                    </p>
+<p style="color: var(--text-muted);">
+                        As consultants, we become a part of your organization for a short time or a longer period, depending on your needs and your budget. We integrate your past, your present, your data, industry standards and best practices, your vision, and our own expertise to build solutions tailor made for you.
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer>
+<div class="container">
+<p>© 2024 Janice Allen Jackson &amp; Associates, LLC. A Certified Minority Business Enterprise.</p>
+</div>
+</footer>
+<script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        document.getElementById('navToggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('navMobile');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Scroll reveal animation
+        (function(){
+            var obs = new IntersectionObserver(function(entries){
+                entries.forEach(function(e){
+                    if(e.isIntersecting) e.target.classList.add('anim-visible');
+                });
+            }, {threshold: 0.1});
+            document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+        })();
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
