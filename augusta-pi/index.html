@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="noindex" name="robots"/>
+<title>Augusta Private Investigation Solutions, LLC — Evans, Georgia</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+:root{--paper:#F3F1EA;--paper2:#E9E6DC;--ink:#15170F;--ink2:#5d6053;--grn:#0c8a24;--grn-d:#0a3d17;--line:#d5d2c4}
+body{background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;
+ font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:700;letter-spacing:-.025em;line-height:.98}
+.wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+.mono{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--grn)}
+section{padding:112px 0}
+
+/* NAV */
+#nav{position:fixed;inset:0 0 auto;z-index:80;background:rgba(243,241,234,.92);
+ backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+#nav .bar{display:flex;align-items:center;justify-content:space-between;padding:15px 0;gap:20px}
+.mark{font-family:'Fraunces',serif;font-weight:700;font-size:1.06rem;letter-spacing:-.02em;line-height:1.15}
+.mark span{display:block;font-family:'JetBrains Mono',monospace;font-size:.56rem;font-weight:400;
+ letter-spacing:.22em;text-transform:uppercase;color:var(--ink2);margin-top:3px}
+.nl{display:flex;gap:30px;align-items:center}
+.nl a{font-family:'JetBrains Mono',monospace;font-size:.69rem;letter-spacing:.16em;text-transform:uppercase}
+.nl a:hover{color:var(--grn)}
+.cta-sm{border:1px solid var(--ink);padding:11px 20px;transition:.25s}
+.cta-sm:hover{background:var(--ink);color:var(--paper)!important}
+
+/* HERO */
+.hero{padding:172px 0 0}
+.hero h1{font-size:clamp(2.9rem,8.8vw,7.6rem);margin:20px 0 0}
+.hero h1 em{font-style:normal;color:var(--grn)}
+.hgrid{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:end;margin-top:40px;
+ padding-bottom:52px}
+.hgrid p{color:var(--ink2);font-size:1.1rem;max-width:60ch}
+.hact{display:flex;gap:13px;margin-top:30px;flex-wrap:wrap}
+.btn{display:inline-block;padding:17px 32px;font-family:'JetBrains Mono',monospace;font-size:.71rem;
+ letter-spacing:.16em;text-transform:uppercase;transition:.25s;border:1px solid var(--ink)}
+.btn-fill{background:var(--ink);color:var(--paper)}
+.btn-fill:hover{background:var(--grn);border-color:var(--grn)}
+.btn-line:hover{background:var(--ink);color:var(--paper)}
+.hside{border-left:3px solid var(--grn);padding-left:24px}
+.hside b{display:block;font-family:'Fraunces',serif;font-size:1.18rem;margin-bottom:6px}
+.hside p{font-size:.97rem}
+
+/* TICKER */
+.tick{border-block:1px solid var(--line);overflow:hidden;padding:14px 0;background:var(--paper2)}
+.tkt{display:flex;gap:44px;white-space:nowrap;width:max-content;animation:tk 44s linear infinite}
+.tkt span{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.18em;
+ text-transform:uppercase;color:var(--ink2)}
+.tkt span::after{content:"·";color:var(--grn);margin-left:44px}
+@keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* LICENCE STRIP */
+.lic{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);
+ border-bottom:1px solid var(--line)}
+.licc{padding:44px 30px;border-right:1px solid var(--line)}
+.licc:last-child{border-right:0}
+.licn{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(1.6rem,3.3vw,2.5rem);letter-spacing:-.02em;line-height:1}
+.licc:nth-child(2) .licn{color:var(--grn)}
+.licl{margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.18em;
+ text-transform:uppercase;color:var(--ink2)}
+
+/* SECTION HEAD */
+.shead{display:grid;grid-template-columns:.3fr .7fr;gap:48px;align-items:start;margin-bottom:58px}
+.shead h2{font-size:clamp(2rem,4.6vw,3.5rem)}
+.shead p{color:var(--ink2);max-width:62ch;margin-top:16px}
+
+/* SERVICES INDEX — the disciplines, set as a typographic index.
+   Their site lists these as a bare comma-separated run of words and says nothing
+   further about any of them, so the page states them and stops. */
+.sidx{display:grid;grid-template-columns:1fr 1fr;column-gap:60px;border-top:1px solid var(--line)}
+.sitem{display:flex;align-items:baseline;gap:22px;padding:26px 4px;
+ border-bottom:1px solid var(--line);transition:.3s}
+.sitem:hover{padding-left:14px}
+.sitem:hover .snum{color:var(--grn)}
+.sitem:hover h3{color:var(--grn)}
+.snum{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.1em;color:#b3b0a2;
+ transition:.3s;flex:0 0 auto}
+.sitem h3{font-size:clamp(1.25rem,2.4vw,1.85rem);transition:.3s}
+
+/* CLIENTS */
+.who{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.whoc{padding:38px 24px;border-right:1px solid var(--line)}
+.whoc:last-child{border-right:0}
+.whoc b{display:block;font-family:'Fraunces',serif;font-size:1.28rem;line-height:1.2}
+.whoc span{display:block;margin-bottom:14px;font-family:'JetBrains Mono',monospace;font-size:.66rem;
+ letter-spacing:.18em;color:var(--grn)}
+
+/* DARK BAND */
+.dark{background:var(--ink);color:var(--paper)}
+.dark h2{color:var(--paper)}
+.dark p{color:#a8ab9c}
+.dark .mono{color:#5ad470}
+.dgrid{display:grid;grid-template-columns:1fr .82fr;gap:60px;align-items:center}
+.pull{border-left:3px solid var(--grn);padding:6px 0 6px 26px;font-family:'Fraunces',serif;
+ font-size:clamp(1.3rem,2.6vw,1.85rem);line-height:1.35;color:var(--paper)}
+
+/* CONTACT */
+.big{font-size:clamp(2.4rem,7.6vw,6rem);letter-spacing:-.035em;line-height:.97}
+.cgrid{display:grid;grid-template-columns:1fr .58fr;gap:56px;align-items:end;margin-top:40px}
+.cinfo p{font-family:'JetBrains Mono',monospace;font-size:.77rem;letter-spacing:.05em;
+ color:#a8ab9c;margin-bottom:9px;line-height:1.6}
+.cinfo a{color:var(--paper);border-bottom:1px solid var(--grn)}
+footer{border-top:1px solid var(--line);padding:40px 0}
+.frow{display:flex;justify-content:space-between;align-items:center;gap:26px;flex-wrap:wrap}
+footer p{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.12em;
+ text-transform:uppercase;color:var(--ink2)}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .75s cubic-bezier(.2,.7,.3,1),transform .75s cubic-bezier(.2,.7,.3,1)}
+.rv.on{opacity:1;transform:none}
+
+@media(max-width:1000px){
+ .nl{display:none}
+ .hgrid,.shead,.dgrid,.cgrid{grid-template-columns:1fr;gap:32px}
+ .sidx{grid-template-columns:1fr;column-gap:0}
+ .lic,.who{grid-template-columns:1fr}
+ .licc,.whoc{border-right:0;border-bottom:1px solid var(--line)}
+ section{padding:72px 0}.hero{padding-top:132px}.wrap{padding:0 22px}
+}
+</style><style>
+.anim-fade-in-up {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.anim-fade-in-up.anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style></head><body>
+<header id="nav"><div class="wrap"><div class="bar">
+<a class="mark" href="#">Augusta Private Investigation Solutions<span>Evans, Georgia</span></a>
+<nav class="nl"><a href="#services">Services</a><a href="#clients">Our clients</a>
+<a href="#method">Our approach</a><a class="cta-sm" href="#contact">Free consultation</a></nav>
+</div></div></header>
+<section class="hero anim-fade-in-up" style="transition-delay: 0.0s; "><div class="wrap">
+<div class="mono">Private Investigation · Georgia &amp; South Carolina</div>
+<h1>Discreetly.<br/><em>Professionally.</em></h1>
+<div class="hgrid">
+<div>
+<p>A veteran owned and operated private investigation agency in Evans, Georgia. Augusta PI
+offers a wide range of civil and criminal investigative services to clients throughout
+Georgia and South Carolina. Trust our expertise to handle your investigative needs
+discreetly and professionally.</p>
+<div class="hact">
+<a class="btn btn-fill" href="tel:7064692185">Call 706-469-2185</a>
+<a class="btn btn-line" href="#services">Our services</a>
+</div>
+</div>
+<div class="hside">
+<b>No case is too large or too small.</b>
+<p>Our approach is highly customizable to meet the unique needs of each client.</p>
+</div>
+</div></div></section>
+<div class="tick"><div class="tkt">
+<span>Surveillance</span><span>Criminal Defense</span><span>Digital Forensics</span><span>Insurance Claims</span>
+<span>Witness Locates</span><span>Child Custody</span><span>Background Investigation</span><span>Process Service</span>
+<span>Surveillance</span><span>Criminal Defense</span><span>Digital Forensics</span><span>Insurance Claims</span>
+<span>Witness Locates</span><span>Child Custody</span><span>Background Investigation</span><span>Process Service</span>
+</div></div>
+<div class="wrap"><div class="lic">
+<div class="licc"><div class="licn">PDC002981</div><div class="licl">Georgia license</div></div>
+<div class="licc"><div class="licn">D0004162</div><div class="licl">South Carolina license</div></div>
+<div class="licc"><div class="licn">Veteran<br/>owned</div><div class="licl">Owned &amp; operated</div></div>
+</div></div>
+<section class="anim-fade-in-up" id="services" style="transition-delay: 0.1s; "><div class="wrap">
+<div class="shead rv"><div class="mono">01 — Services</div>
+<div><h2>Civil and criminal investigative services.</h2>
+<p>Augusta PI offers a wide range of civil and criminal investigative services to clients
+throughout Georgia and South Carolina. We specialize in criminal defense investigations,
+infidelity cases, insurance investigations, background investigation, witness locates,
+interviews and process service.</p></div></div>
+<div class="sidx rv">
+<div class="sitem"><span class="snum">01</span><h3>Civil investigations</h3></div>
+<div class="sitem"><span class="snum">02</span><h3>Criminal defense investigations</h3></div>
+<div class="sitem"><span class="snum">03</span><h3>Child custody</h3></div>
+<div class="sitem"><span class="snum">04</span><h3>Infidelity investigations</h3></div>
+<div class="sitem"><span class="snum">05</span><h3>Digital forensics</h3></div>
+<div class="sitem"><span class="snum">06</span><h3>Insurance claims</h3></div>
+<div class="sitem"><span class="snum">07</span><h3>Surveillance</h3></div>
+<div class="sitem"><span class="snum">08</span><h3>Witness locates</h3></div>
+<div class="sitem"><span class="snum">09</span><h3>Witness interviews</h3></div>
+<div class="sitem"><span class="snum">10</span><h3>Background investigation</h3></div>
+<div class="sitem"><span class="snum">11</span><h3>Process service</h3></div>
+</div>
+</div></section>
+<section class="anim-fade-in-up" id="clients" style="transition-delay: 0.2s; padding-top:0"><div class="wrap">
+<div class="shead rv"><div class="mono">02 — Our clients</div>
+<div><h2>We work for a variety of clients all over Georgia.</h2>
+<p>No case is too large or too small for our Private Investigation Agency.</p></div></div>
+</div>
+<div class="wrap"><div class="who">
+<div class="whoc"><span>01</span><b>Law firms</b></div>
+<div class="whoc"><span>02</span><b>Insurance companies</b></div>
+<div class="whoc"><span>03</span><b>Businesses</b></div>
+<div class="whoc"><span>04</span><b>Private citizens</b></div>
+</div></div></section>
+<section class="dark anim-fade-in-up" id="method" style="transition-delay: 0.3s; "><div class="wrap dgrid">
+<div class="rv"><div class="mono">03 — Our approach</div>
+<h2 style="margin:18px 0 22px;font-size:clamp(2rem,4.6vw,3.5rem)">A proven hybrid<br/>approach.</h2>
+<p>We take a proven hybrid approach to private investigations. We use advanced technology and
+time tested investigative techniques to provide the most thorough results possible.</p>
+<p style="margin-top:16px">Our approach is highly customizable to meet the unique needs of
+each client.</p>
+<div style="margin-top:30px"><a class="btn btn-line" href="#contact" style="border-color:var(--paper);color:var(--paper)">Discuss your case</a></div></div>
+<div class="rv"><div class="pull">Our vision is to bring exceptional services that exceed our
+clients' expectations in accomplishing their goals.</div>
+<p style="margin-top:26px;font-size:.97rem">Experienced private investigators in Augusta, GA —
+locally owned, and serving the CSRA.</p></div>
+</div></section>
+<section class="dark anim-fade-in-up" id="contact" style="transition-delay: 0.4s; padding-top:0"><div class="wrap">
+<div class="mono">04 — Get in touch</div>
+<h2 class="big" style="margin-top:20px">Locally owned<br/>in the CSRA.</h2>
+<div class="cgrid">
+<div><p style="max-width:56ch">Contact us for a free consultation to discuss your unique case
+and the Private Investigation solutions we can offer to best meet your goals.</p>
+<div style="margin-top:28px"><a class="btn btn-fill" href="tel:7064692185" style="background:var(--grn);border-color:var(--grn)">Call 706-469-2185</a></div></div>
+<div class="cinfo">
+<p>5121 Washington Road STE 2 PMB 151<br/>Evans, Georgia 30809</p>
+<p><a href="tel:7064692185">706-469-2185</a></p>
+<p><a href="mailto:admin@augustapi.com">admin@augustapi.com</a></p>
+<p>Open today 08:00 am – 06:00 pm</p>
+</div></div></div></section>
+<footer><div class="wrap frow">
+<div class="mark">Augusta Private Investigation Solutions, LLC<span>GA PDC002981 · SC D0004162</span></div>
+<p>Preview redesign concept by MARNEXIQ</p>
+</div></footer>
+<script>
+(function(){
+ var r=document.querySelectorAll('.rv');
+ var o=new IntersectionObserver(function(e){e.forEach(function(y){
+  if(y.isIntersecting){y.target.classList.add('on');o.unobserve(y.target)}})},{threshold:.12});
+ r.forEach(function(y){o.observe(y)});
+})();
+</script>
+<script>
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) e.target.classList.add('anim-visible');
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+})();
+</script></body></html>
