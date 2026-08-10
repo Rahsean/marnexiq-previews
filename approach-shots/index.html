@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="noindex" name="robots"/>
+<title>Approach Shots Indoor Golf — Augusta, Georgia</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+:root{--bg:#0A0C0B;--bg2:#141816;--paper:#F3F5F2;--navy:#1B2A47;
+      --lime:#8CC63F;--dim:#8e948c;--line:#232825}
+body{background:var(--bg);color:var(--paper);font-family:'Inter',system-ui,sans-serif;
+ font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Archivo',sans-serif;font-weight:800;letter-spacing:-.035em;line-height:.95}
+.wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+.mono{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.22em;
+ text-transform:uppercase;color:var(--lime)}
+section{padding:108px 0}
+
+/* NAV */
+#nav{position:fixed;inset:0 0 auto;z-index:80;background:rgba(10,12,11,.93);
+ backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+#nav .bar{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:20px}
+#nav img{height:52px;width:auto}
+.nl{display:flex;gap:28px;align-items:center}
+.nl a{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.16em;
+ text-transform:uppercase;color:var(--dim)}
+.nl a:hover{color:var(--lime)}
+.cta-sm{border:1px solid var(--lime);color:var(--lime)!important;padding:11px 20px;transition:.25s}
+.cta-sm:hover{background:var(--lime);color:var(--bg)!important}
+
+/* HERO */
+.hero{padding:170px 0 0}
+.hero h1{font-size:clamp(3rem,10vw,8.4rem);margin:18px 0 0}
+.hero h1 em{font-style:normal;color:var(--lime)}
+.hgrid{display:grid;grid-template-columns:1.15fr .85fr;gap:54px;align-items:end;
+ margin-top:36px;padding-bottom:60px}
+.hgrid p{color:var(--dim);font-size:1.11rem;max-width:58ch}
+.hact{display:flex;gap:13px;margin-top:30px;flex-wrap:wrap}
+.btn{display:inline-block;padding:16px 32px;font-family:'JetBrains Mono',monospace;font-size:.7rem;
+ letter-spacing:.16em;text-transform:uppercase;transition:.25s;border:1px solid var(--paper)}
+.btn-fill{background:var(--lime);color:var(--bg);border-color:var(--lime);font-weight:500}
+.btn-fill:hover{background:var(--paper);border-color:var(--paper)}
+.btn-line{color:var(--paper)}.btn-line:hover{background:var(--paper);color:var(--bg)}
+.hside{border-left:3px solid var(--lime);padding-left:22px}
+.hside b{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:1.16rem;margin-bottom:7px}
+.hside p{font-size:.95rem;color:var(--dim)}
+
+/* TICKER */
+.tick{border-block:1px solid var(--line);overflow:hidden;padding:14px 0;background:var(--bg2)}
+.tkt{display:flex;gap:42px;white-space:nowrap;width:max-content;animation:tk 40s linear infinite}
+.tkt span{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.18em;
+ text-transform:uppercase;color:var(--dim)}
+.tkt span::after{content:"●";color:var(--lime);margin-left:42px;font-size:.5rem;vertical-align:middle}
+@keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SECTION HEAD */
+.shead{display:grid;grid-template-columns:.3fr .7fr;gap:46px;align-items:start;margin-bottom:54px}
+.shead h2{font-size:clamp(2.1rem,5vw,3.7rem)}
+.shead p{color:var(--dim);max-width:62ch;margin-top:14px}
+
+/* WAYS TO PLAY */
+.ways{display:grid;grid-template-columns:1fr 1fr;column-gap:54px;border-top:1px solid var(--line)}
+.way{padding:28px 2px;border-bottom:1px solid var(--line);transition:.28s}
+.way:hover{padding-left:12px}
+.way:hover h3{color:var(--lime)}
+.way .n{font-family:'JetBrains Mono',monospace;font-size:.63rem;letter-spacing:.16em;color:#575d55}
+.way h3{font-size:clamp(1.2rem,2.3vw,1.6rem);margin:8px 0 7px;transition:.28s}
+.way p{color:var(--dim);font-size:.97rem}
+
+/* SPLIT with photo — face is never cropped */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.split img{width:100%;height:auto}
+
+/* EVENTS */
+.ev{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.evc{padding:38px 26px;border-right:1px solid var(--line)}
+.evc:last-child{border-right:0}
+.evc b{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:1.32rem;margin-bottom:9px}
+.evc p{color:var(--dim);font-size:.96rem}
+
+/* MENU TASTER */
+.menu{display:grid;grid-template-columns:repeat(2,1fr);column-gap:56px;border-top:1px solid var(--line)}
+.mi{display:flex;justify-content:space-between;gap:18px;padding:15px 2px;
+ border-bottom:1px solid var(--line);font-size:.99rem}
+.mi span{font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--lime);flex:0 0 auto}
+
+/* CONTACT */
+.big{font-size:clamp(2.5rem,8vw,6.2rem);line-height:.96}
+.cgrid{display:grid;grid-template-columns:1fr .55fr;gap:54px;align-items:end;margin-top:38px}
+.cinfo p{font-family:'JetBrains Mono',monospace;font-size:.76rem;letter-spacing:.05em;
+ color:var(--dim);margin-bottom:10px;line-height:1.6}
+.cinfo a{color:var(--paper);border-bottom:1px solid var(--lime)}
+footer{border-top:1px solid var(--line);padding:38px 0}
+.frow{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+footer img{height:46px;width:auto}
+footer p{font-family:'JetBrains Mono',monospace;font-size:.63rem;letter-spacing:.12em;
+ text-transform:uppercase;color:var(--dim)}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .75s cubic-bezier(.2,.7,.3,1),transform .75s cubic-bezier(.2,.7,.3,1)}
+.rv.on{opacity:1;transform:none}
+
+@media(max-width:1000px){
+ .nl{display:none}
+ .hgrid,.shead,.split,.cgrid{grid-template-columns:1fr;gap:30px}
+ .ways,.menu{grid-template-columns:1fr;column-gap:0}
+ .ev{grid-template-columns:1fr}.evc{border-right:0;border-bottom:1px solid var(--line)}
+ section{padding:68px 0}.hero{padding-top:128px}.wrap{padding:0 22px}
+}
+</style><style>
+.anim-fade-in-up {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.anim-fade-in-up.anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style></head><body>
+<header id="nav"><div class="wrap"><div class="bar">
+<a href="#"><img alt="Approach Shots Indoor Golf" src="https://approach-shots.com/wp-content/uploads/2022/07/LOGO.png"/></a>
+<nav class="nl"><a href="#play">Ways to play</a><a href="#events">Events</a>
+<a href="#food">Food &amp; drink</a><a class="cta-sm" href="tel:7067999800">Book a bay</a></nav>
+</div></div></header>
+<section class="hero anim-fade-in-up" style="transition-delay: 0.0s; "><div class="wrap">
+<div class="mono">Indoor golf simulators · Augusta, Georgia</div>
+<h1>No heat. No cold.<br/>No <em>lost balls.</em></h1>
+<div class="hgrid">
+<div>
+<p>Say goodbye to scorching heat, freezing cold, slow play and lost golf balls. Our
+state-of-the-art simulators bring the game to life, offering an immersive experience
+that captures the look, feel and challenges of real-world courses.</p>
+<div class="hact">
+<a class="btn btn-fill" href="tel:7067999800">Call (706) 799-9800</a>
+<a class="btn btn-line" href="#play">Ways to play</a>
+</div>
+</div>
+<div class="hside">
+<b>Everyone's welcome.</b>
+<p>A welcoming and laid-back atmosphere makes golf enjoyable for everyone, no matter
+your skill level.</p>
+</div>
+</div></div></section>
+<div class="tick"><div class="tkt">
+<span>15,000+ Courses</span><span>Swing Metrics</span><span>Video Analysis</span><span>PGA Lessons</span>
+<span>League Play</span><span>Multisport Arcade</span><span>Full Kitchen &amp; Bar</span><span>Air Conditioned</span>
+<span>15,000+ Courses</span><span>Swing Metrics</span><span>Video Analysis</span><span>PGA Lessons</span>
+<span>League Play</span><span>Multisport Arcade</span><span>Full Kitchen &amp; Bar</span><span>Air Conditioned</span>
+</div></div>
+<section class="anim-fade-in-up" id="play" style="transition-delay: 0.1s; "><div class="wrap">
+<div class="shead rv"><div class="mono">01 — Ways to play</div>
+<div><h2>Practice it, play it,<br/>or just enjoy it.</h2>
+<p>Whether you're practicing your swing, hosting a social gathering, or just having fun.</p></div></div>
+<div class="ways">
+<div class="way rv"><div class="n">01</div><h3>Simulated golf rounds</h3>
+<p>Enjoy the comfort of our air-conditioned facility while choosing from over 15,000 of
+the nation's best courses — including many local favorites throughout the Augusta area.</p></div>
+<div class="way rv"><div class="n">02</div><h3>Simulated driving range</h3>
+<p>Take your swing to the next level with our advanced simulated driving range. Access
+swing metrics and video analysis for instant feedback and improvement.</p></div>
+<div class="way rv"><div class="n">03</div><h3>Golf lessons</h3>
+<p>Elevate your game with personalized lessons from PGA professionals.</p></div>
+<div class="way rv"><div class="n">04</div><h3>League play</h3>
+<p>Join an existing league or create your own to share the fun and competition with
+friends.</p></div>
+<div class="way rv"><div class="n">05</div><h3>Multisport arcade</h3>
+<p>Explore select bays, offering 12 arcade-style games for a guaranteed fun experience
+beyond golf.</p></div>
+<div class="way rv"><div class="n">06</div><h3>Tournaments</h3>
+<p>Plan your next fundraising or competitive event in our climate-controlled facility —
+perfect for any season.</p></div>
+</div></div></section>
+<section class="anim-fade-in-up" style="transition-delay: 0.2s; padding-top:0"><div class="wrap split">
+<div class="rv"><img alt="A guest at Approach Shots Indoor Golf" src="https://approach-shots.com/wp-content/uploads/2025/08/Gallery-1-1024x1024.jpeg"/></div>
+<div class="rv"><div class="mono">02 — The room</div>
+<h2 style="margin:16px 0 20px;font-size:clamp(2rem,4.4vw,3.2rem)">Climate-controlled,<br/>any season.</h2>
+<p style="color:var(--dim)">No worries about weather or time of day. Our welcoming and
+laid-back atmosphere makes golf enjoyable for everyone, no matter your skill level —
+whether you're sharpening your swing or enjoying a game with friends.</p></div>
+</div></section>
+<section class="anim-fade-in-up" id="events" style="transition-delay: 0.3s; padding-top:0"><div class="wrap">
+<div class="shead rv"><div class="mono">03 — Events</div>
+<div><h2>Host your next one here.</h2>
+<p>Everything you need for a memorable time — corporate team-building, a birthday, or a
+unique gathering for family and friends.</p></div></div>
+<div class="ev">
+<div class="evc rv"><b>Birthday parties</b><p>Celebrate your big day with virtual golf fun.
+Our experienced team will ensure your party runs smoothly so you can focus on having a
+blast with friends and family.</p></div>
+<div class="evc rv"><b>Corporate events</b><p>Make your next corporate outing a success in
+our climate-controlled facility. With no worries about weather or time of day, your team
+can focus on bonding and building connections.</p></div>
+<div class="evc rv"><b>Fundraising</b><p>Looking to raise money for a great cause? The
+perfect venue for hosting fun and engaging fundraising events that bring people together
+while supporting your mission.</p></div>
+</div></div></section>
+<section class="anim-fade-in-up" id="food" style="transition-delay: 0.4s; padding-top:0"><div class="wrap">
+<div class="shead rv"><div class="mono">04 — Food &amp; drink</div>
+<div><h2>Fuel your fun.</h2>
+<p>We're passionate about bringing people together over delicious, high-quality and
+affordable food and beverages. Our menu is thoughtfully crafted to complement your time
+on the virtual course.</p></div></div>
+<div class="menu">
+<div class="mi rv">Brewed coffee — free refills<span>$1.50</span></div>
+<div class="mi rv">Bottled water (Dasani)<span>$2.50</span></div>
+<div class="mi rv">Smart water<span>$3.00</span></div>
+<div class="mi rv">Juices and tea<span>$3.00</span></div>
+<div class="mi rv">Powerades<span>$3.00</span></div>
+<div class="mi rv">Gatorades<span>$3.00</span></div>
+<div class="mi rv">Coke &amp; Pepsi products<span>$3.00</span></div>
+<div class="mi rv">Black Rifle Coffee — assorted<span>$5.00</span></div>
+</div>
+<p style="color:var(--dim);margin-top:24px;font-size:.94rem">A full kitchen and bar —
+ask about the rest of the menu.</p>
+</div></section>
+<section class="anim-fade-in-up" id="contact" style="transition-delay: 0.5s; padding-top:0"><div class="wrap">
+<div class="mono">05 — Come play</div>
+<h2 class="big" style="margin-top:18px">Book a bay.</h2>
+<div class="cgrid">
+<div><p style="color:var(--dim);max-width:54ch">The ultimate indoor golf experience in
+the Augusta area — practicing, hosting, or just having fun.</p>
+<div style="margin-top:28px"><a class="btn btn-fill" href="tel:7067999800">Call (706) 799-9800</a></div></div>
+<div class="cinfo">
+<p>Augusta, Georgia</p>
+<p><a href="tel:7067999800">(706) 799-9800</a></p>
+</div></div></div></section>
+<footer><div class="wrap frow">
+<img alt="Approach Shots Indoor Golf" src="https://approach-shots.com/wp-content/uploads/2022/07/LOGO.png"/>
+<p>Preview redesign concept by MARNEXIQ</p>
+</div></footer>
+<script>
+(function(){
+ var r=document.querySelectorAll('.rv');
+ var o=new IntersectionObserver(function(e){e.forEach(function(y){
+  if(y.isIntersecting){y.target.classList.add('on');o.unobserve(y.target)}})},{threshold:.1});
+ r.forEach(function(y){o.observe(y)});
+})();
+</script>
+<script>
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) e.target.classList.add('anim-visible');
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+})();
+</script></body></html>
