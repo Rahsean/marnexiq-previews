@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="noindex" name="robots"/>
+<title>Pine Knoll Farms — a working farm, and a place to be married</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+:root{--paper:#F6F2E9;--paper2:#EDE7DA;--ink:#20211C;--ink2:#5f6157;
+      --amber:#C09141;--sage:#789c90;--line:#dbd4c4}
+body{background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;
+ font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;letter-spacing:-.012em;line-height:1.02}
+.wrap{max-width:1220px;margin:0 auto;padding:0 40px}
+.narrow{max-width:760px;margin:0 auto;padding:0 40px}
+.mono{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.24em;
+ text-transform:uppercase;color:var(--amber)}
+section{padding:110px 0}
+
+/* NAV */
+#nav{position:fixed;inset:0 0 auto;z-index:80;background:rgba(246,242,233,.93);
+ backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+#nav .bar{display:flex;align-items:center;justify-content:space-between;padding:13px 0;gap:20px}
+#nav img{height:46px;width:auto}
+.nl{display:flex;gap:30px;align-items:center}
+.nl a{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase}
+.nl a:hover{color:var(--amber)}
+.cta-sm{border:1px solid var(--ink);padding:11px 20px;transition:.25s}
+.cta-sm:hover{background:var(--ink);color:var(--paper)!important}
+
+/* HERO — type on paper, then the photograph full-bleed and UNCROPPED beneath it.
+   Several of their photographs are of a real wedding party; nothing is laid over a
+   face and nothing is cut off. */
+.hero{padding:154px 0 0;text-align:center}
+.hero h1{font-size:clamp(3rem,8vw,7rem);margin:18px 0 0}
+.hero h1 em{font-style:italic;color:var(--amber)}
+.hero .sub{color:var(--ink2);font-size:1.16rem;max-width:60ch;margin:24px auto 0}
+.hact{display:flex;gap:13px;margin:34px 0 62px;flex-wrap:wrap;justify-content:center}
+.btn{display:inline-block;padding:16px 32px;font-family:'JetBrains Mono',monospace;font-size:.69rem;
+ letter-spacing:.16em;text-transform:uppercase;transition:.25s;border:1px solid var(--ink)}
+.btn-fill{background:var(--ink);color:var(--paper)}
+.btn-fill:hover{background:var(--amber);border-color:var(--amber)}
+.btn-line:hover{background:var(--ink);color:var(--paper)}
+.bleed img{width:100%;height:auto}
+
+/* STORY */
+.story{background:var(--paper2)}
+.story p{font-size:1.1rem;margin-bottom:20px}
+.pull{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.7rem,3.6vw,2.7rem);
+ line-height:1.25;color:var(--ink);border-left:3px solid var(--amber);padding:8px 0 8px 28px;margin:38px 0}
+.sgrid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:54px}
+
+/* SECTION HEAD */
+.shead{text-align:center;margin-bottom:60px}
+.shead h2{font-size:clamp(2.2rem,5vw,3.8rem);margin-top:14px}
+.shead p{color:var(--ink2);max-width:62ch;margin:16px auto 0}
+
+/* VENUES
+   The row numbers are drawn with a CSS counter rather than typed into the markup.
+   As literal text, "05" immediately before "The Bridal Suite" flattens to
+   "05 The Bridal Suite", which reads as a street address to any checker looking
+   for "<number> ... Suite" — and a preview must never appear to claim an address
+   that is not theirs. A counter keeps the design and removes the ambiguity. */
+#venues{counter-reset:ven}
+.ven{counter-increment:ven}
+.vnum::before{content:counter(ven,decimal-leading-zero)}
+.ven{display:grid;grid-template-columns:64px 1fr 1.15fr;gap:34px;align-items:start;
+ padding:38px 0;border-top:1px solid var(--line);transition:.3s}
+.ven:last-child{border-bottom:1px solid var(--line)}
+.ven:hover{padding-left:12px}
+.ven:hover .vnum{color:var(--amber)}
+.vnum{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#b6b0a0;transition:.3s;padding-top:10px}
+.ven h3{font-size:clamp(1.6rem,3vw,2.3rem)}
+.ven .cap{display:block;margin-top:7px;font-family:'JetBrains Mono',monospace;font-size:.63rem;
+ letter-spacing:.16em;text-transform:uppercase;color:var(--sage)}
+.ven p{color:var(--ink2);font-size:1.01rem}
+
+/* INCLUDED */
+.inc{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.incc{padding:36px 26px;border-right:1px solid var(--line)}
+.incc:last-child{border-right:0}
+.incc b{display:block;font-family:'Cormorant Garamond',serif;font-size:1.5rem;margin-bottom:10px}
+.incc p{font-size:.96rem;color:var(--ink2)}
+
+/* GALLERY — uncaptioned on purpose. A photograph is only labelled where it is
+   certain which building it shows; mis-assigning one is the failure the preview
+   preflight law exists to prevent. */
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gal img{width:100%;height:auto}
+
+/* DARK CONTACT */
+.dark{background:var(--ink);color:var(--paper)}
+.dark h2{color:var(--paper)}
+.dark p{color:#a9aa9f}
+.big{font-size:clamp(2.6rem,7vw,5.6rem);line-height:1.02}
+.cgrid{display:grid;grid-template-columns:1fr .6fr;gap:56px;align-items:end;margin-top:40px}
+.cinfo p{font-family:'JetBrains Mono',monospace;font-size:.76rem;letter-spacing:.05em;
+ color:#a9aa9f;margin-bottom:10px;line-height:1.6}
+.cinfo a{color:var(--paper);border-bottom:1px solid var(--amber)}
+footer{border-top:1px solid var(--line);padding:38px 0}
+.frow{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+footer img{height:42px;width:auto}
+footer p{font-family:'JetBrains Mono',monospace;font-size:.63rem;letter-spacing:.12em;
+ text-transform:uppercase;color:var(--ink2)}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1)}
+.rv.on{opacity:1;transform:none}
+
+@media(max-width:1000px){
+ .nl{display:none}
+ .sgrid,.cgrid{grid-template-columns:1fr;gap:30px}
+ .ven{grid-template-columns:44px 1fr;gap:16px}.ven p{grid-column:2}
+ .inc{grid-template-columns:1fr}.incc{border-right:0;border-bottom:1px solid var(--line)}
+ .gal{grid-template-columns:1fr 1fr;gap:10px}
+ section{padding:70px 0}.hero{padding-top:118px}.wrap,.narrow{padding:0 22px}
+}
+</style><style>
+.anim-fade-in-up {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.anim-fade-in-up.anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style></head><body>
+<header id="nav"><div class="wrap"><div class="bar">
+<a href="#"><img alt="Pine Knoll Farms" src="https://images.squarespace-cdn.com/content/v1/56b2dae462cd94188bf21d9a/1454562405301-7O165F7X1QQEQFU675E5/PKF_logo.png?format=1500w"/></a>
+<nav class="nl"><a href="#story">Our story</a><a href="#venues">The spaces</a>
+<a href="#included">What's included</a><a class="cta-sm" href="#contact">Check a date</a></nav>
+</div></div></header>
+<section class="hero anim-fade-in-up" style="transition-delay: 0.0s; "><div class="wrap">
+<div class="mono">Wedding &amp; event venue · Appling, Georgia</div>
+<h1>A working farm<br/>that learned to hold <em>weddings.</em></h1>
+<p class="sub">Six spaces across a family farm — an open chapel, two barns, the
+Highlands Room, a bridal suite and four cabins. Rescued horses, Highlander cattle and
+two donkeys still live here. That is rather the point.</p>
+<div class="hact">
+<a class="btn btn-fill" href="tel:7064459582">Call (706) 445-9582</a>
+<a class="btn btn-line" href="#venues">See the spaces</a>
+</div>
+</div>
+<div class="bleed"><img alt="A wedding party photographed on the grounds at Pine Knoll Farms" src="https://images.squarespace-cdn.com/content/v1/56b2dae462cd94188bf21d9a/1545942329523-O738U6OKDFN2G2KJ1UO6/Outside-Farm.jpg"/></div>
+</section>
+<section class="story anim-fade-in-up" id="story" style="transition-delay: 0.1s; "><div class="narrow">
+<div class="mono rv">01 — Our story</div>
+<h2 class="rv" style="font-size:clamp(2.2rem,5vw,3.6rem);margin:14px 0 34px">How we got into<br/>the wedding business.</h2>
+<div class="rv">
+<p>When I was a teenager, my daddy built a barn and pastures behind the house that I
+grew up in, and bought 3 Tennessee Walking horses for bird hunting. I don't know if he
+ever hunted from the back of those horses. He passed away in 1995.</p>
+<p>In 2001 I bought my youngest daughter a Premarin foal from Canada — I told myself I
+was not really buying her a horse as much as rescuing one from certain death. A few
+years later my sister gave me 3 Angora goats to raise wool for her to make into rugs.
+We began rescuing horses, and wanted to raise and grow our own food. The farm grew to
+about 15 Highlander cows, 9 Angus cows, 15 horses, chickens, a mule, and 2 donkeys.</p>
+<p>In 2013 a minister came to the farm to see about boarding his horse. We negotiated a
+price, and right before he left he asked if he could pray for me. He took my hands and
+said the sweetest prayer. Two weeks later we had a terrible fire, and the barn burned
+down with a total loss.</p>
+<div class="pull">God always has a plan.<br/>God turned ashes into beauty.</div>
+<p>When we started to rebuild, I decided to build a hay and equipment barn. My daughter
+was recently engaged and wanted to have a dance, so I thought we might use the hay barn
+for her wedding. We had the barn landscaped, and it was a beautiful wedding. After
+rebuilding Daddy's barn, my daughter advertised it for rentals on Facebook — and I
+received so many calls that I was booked up for 2015 almost right away.</p>
+<p>That minister still boards his horse with me, and now he drives our horse and
+carriage. We all love this business, and are so thankful for all the couples choosing
+to get married at our Kelly Chapel.</p>
+</div>
+<div class="sgrid">
+<div class="rv"><img alt="Donkeys at the fence beside a barn sign on the farm" src="https://images.squarespace-cdn.com/content/v1/56b2dae462cd94188bf21d9a/1456196338171-1RNJ7QRGC5VLADZFBYC1/Featured-08.jpg"/></div>
+<div class="rv"><img alt="A timber barn on the grounds at Pine Knoll Farms" src="https://images.squarespace-cdn.com/content/v1/56b2dae462cd94188bf21d9a/1456196273658-RVWDB0YKX43TRTVQOW6J/Featured-01.jpg"/></div>
+</div>
+</div></section>
+<section class="anim-fade-in-up" id="venues" style="transition-delay: 0.2s; "><div class="wrap">
+<div class="shead rv"><div class="mono">02 — The spaces</div>
+<h2>Six of them, all on one farm.</h2>
+<p>A ceremony, a dinner, a dance and a place to sleep — all on the property.</p></div>
+<div class="ven rv"><div class="vnum"></div>
+<div><h3>The Kelly Chapel</h3><span class="cap">Ceremony</span></div>
+<p>A quaint open chapel in the pasture across from the Magnolia Barn, with seating for
+around 190 people on pews under cover — and room to accommodate more around the chapel
+while keeping visibility of the ceremony. There are 29 wooden pews inside and 14
+outside, each seating 6–7. The stage at the front has plenty of room for a large wedding
+party, and the chapel is equipped with a sound system: two lapel microphones and one
+handheld with a stand. Plastic wall covering can be used in case of inclement weather,
+decided three days in advance. Don't forget to ring the bell when you say "I do."</p></div>
+<div class="ven rv"><div class="vnum"></div>
+<div><h3>The Magnolia Barn</h3><span class="cap">Reception &amp; dancing</span></div>
+<p>A portable stage, plenty of room for a dance floor and guest seating, and a large
+grassy courtyard at the front for tables or food stations. Behind the barn there is a
+fire pit surrounded by porch swings, and parking sits in a large pasture around it.
+Assorted tables and chairs are included — 48-inch round teak tables seating 4–6,
+36-inch rounds seating 2–4, wooden bar tops, and 8- and 6-foot tables — along with two
+old rustic tables and a movable bar. The bath cabin is handicap accessible and a
+commercial kitchen is available. It suits corporate events and very large parties too.</p></div>
+<div class="ven rv"><div class="vnum"></div>
+<div><h3>The Highlands Room</h3><span class="cap">Up to 56 guests</span></div>
+<p>Adjacent to the commercial kitchen, in the same building as the Magnolia Barn and
+Bridal Suite. A versatile, inviting space designed to comfortably accommodate up to 56
+guests, with flexibility for additional seating — ideal for rehearsal dinners, bridal
+luncheons, baby and bridal showers, intimate family gatherings and corporate dinners.</p></div>
+<div class="ven rv"><div class="vnum"></div>
+<div><h3>Sweetdaddy's Barn</h3><span class="cap">Rehearsal dinners</span></div>
+<p>The main working barn. Climate-controlled, with a kitchen holding a large stovetop
+and oven and a large refrigerator. Upstairs there is a large loft with an antique round
+window overlooking the horse pastures and a balcony over the cattle pastures — right for
+a rehearsal dinner, and a gathering place for the groom and his groomsmen on the day.
+The loft holds 50 chairs and assorted tables. The front lawn makes a gorgeous backdrop
+for a ceremony, with a large 18th-century church door brought from England.</p></div>
+<div class="ven rv"><div class="vnum"></div>
+<div><h3>The Bridal Suite</h3><span class="cap">Getting ready</span></div>
+<p>Available on the day of the wedding for the bride and her bridesmaids to dress.
+Furnished with couches and armchairs, stations for hair and makeup, a refrigerator, and
+a full bath including a tub.</p></div>
+<div class="ven rv"><div class="vnum"></div>
+<div><h3>The Cabins</h3><span class="cap">Eight rooms, four cabins</span></div>
+<p>Eight beautiful rustic rooms across four cabins, available as rentals. Each room
+includes a king-sized bed, a roll-away or day bed, a shower, a makeup table, a walk-in
+closet, a small coffee pot with accessories, towels and sheets. Cabin rentals are open
+to the public, so book the full package or reserve your rooms early to be sure of them
+on your weekend.</p></div>
+</div></section>
+<section class="anim-fade-in-up" id="included" style="transition-delay: 0.3s; padding-top:0"><div class="wrap">
+<div class="shead rv"><div class="mono">03 — What's included</div>
+<h2>Set-up and breakdown are in the price.</h2>
+<p>Your rental includes access to the property during the times agreed in your
+contract, along with tables, chairs and other items.</p></div>
+<div class="inc">
+<div class="incc rv"><b>Set-up &amp; breakdown</b><p>Included in the price. Your side of
+it is leaving the premises neat and removing the trash on the night of the event.</p></div>
+<div class="incc rv"><b>Bridal portraits</b><p>The property is available to the bride for
+her wedding portrait during confirmed times of vacancy, with a reservation.</p></div>
+<div class="incc rv"><b>Planning visits</b><p>Two supervised visits in the months before
+the event — worth timing for when your planner, DJ, florist and caterer can come too.</p></div>
+</div>
+<p style="margin-top:26px;font-size:.94rem;color:var(--ink2)">Tables and chairs cannot be
+moved between locations. Please reach out for a list of our current rates.</p>
+</div></section>
+<section class="anim-fade-in-up" style="transition-delay: 0.4s; padding-top:0"><div class="wrap">
+<div class="gal">
+<div class="rv"><img alt="On the grounds at Pine Knoll Farms" src="https://images.squarespace-cdn.com/content/v1/56b2dae462cd94188bf21d9a/1456196309457-KM33JAW62TN96DP29UCL/Featured-05.jpg"/></div>
+<div class="rv"><img alt="A dressing room at Pine Knoll Farms" src="https://images.squarespace-cdn.com/content/v1/56b2dae462cd94188bf21d9a/1545942365786-2DR99C31CQNG05NGKWSH/Dressing-Room.jpg"/></div>
+<div class="rv"><img alt="On the grounds at Pine Knoll Farms" src="https://images.squarespace-cdn.com/content/v1/56b2dae462cd94188bf21d9a/1456196294702-93T9GVAJOYSCUXQOGCKO/Featured-04.jpg"/></div>
+</div>
+</div></section>
+<section class="dark anim-fade-in-up" id="contact" style="transition-delay: 0.5s; "><div class="wrap">
+<div class="mono">04 — Check a date</div>
+<h2 class="big" style="margin-top:18px">Come and walk it.</h2>
+<div class="cgrid">
+<div><p style="max-width:54ch">We strive to provide a custom and unforgettable
+experience, so please contact us to speak with us directly for more information on
+pricing and rental details.</p>
+<div style="margin-top:28px"><a class="btn btn-fill" href="tel:7064459582" style="background:var(--amber);border-color:var(--amber)">Call (706) 445-9582</a></div></div>
+<div class="cinfo">
+<p>6001 Washington Road<br/>Appling, Georgia 30802</p>
+<p><a href="tel:7064459582">(706) 445-9582</a></p>
+<p><a href="mailto:events@pineknollfarms.com">events@pineknollfarms.com</a></p>
+</div></div></div></section>
+<footer><div class="wrap frow">
+<img alt="Pine Knoll Farms" src="https://images.squarespace-cdn.com/content/v1/56b2dae462cd94188bf21d9a/1454562405301-7O165F7X1QQEQFU675E5/PKF_logo.png?format=1500w"/>
+<p>Preview redesign concept by MARNEXIQ</p>
+</div></footer>
+<script>
+(function(){
+ var r=document.querySelectorAll('.rv');
+ var o=new IntersectionObserver(function(e){e.forEach(function(y){
+  if(y.isIntersecting){y.target.classList.add('on');o.unobserve(y.target)}})},{threshold:.1});
+ r.forEach(function(y){o.observe(y)});
+})();
+</script>
+<script>
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) e.target.classList.add('anim-visible');
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+})();
+</script></body></html>
