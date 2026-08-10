@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="noindex" name="robots"/>
+<title>Signature Grounds — full-service landscaping across the CSRA</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+a{text-decoration:none;color:inherit}
+:root{--paper:#F4F5EF;--paper2:#E7EADD;--ink:#161A12;--ink2:#585f4f;
+      --green:#3F6B33;--line:#d7dbc9}
+body{background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;
+ font-size:17px;line-height:1.72;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:700;letter-spacing:-.02em;line-height:1.0}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+.mono{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.22em;
+ text-transform:uppercase;color:var(--green)}
+section{padding:104px 0}
+#nav{position:fixed;inset:0 0 auto;z-index:80;background:rgba(244,245,239,.94);
+ backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+#nav .bar{display:flex;align-items:center;justify-content:space-between;padding:15px 0;gap:20px}
+.mark{font-family:'Fraunces',serif;font-weight:700;font-size:1.08rem;line-height:1.15}
+.mark span{display:block;font-family:'JetBrains Mono',monospace;font-size:.55rem;font-weight:400;
+ letter-spacing:.2em;text-transform:uppercase;color:var(--ink2);margin-top:3px}
+.nl{display:flex;gap:26px;align-items:center}
+.nl a{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase}
+.nl a:hover{color:var(--green)}
+.cta-sm{border:1px solid var(--ink);padding:11px 20px;transition:.25s}
+.cta-sm:hover{background:var(--ink);color:var(--paper)!important}
+.hero{padding:172px 0 0}
+.hero h1{font-size:clamp(2.9rem,8.6vw,7.4rem);margin:20px 0 0}
+.hero h1 em{font-style:italic;color:var(--green)}
+.hgrid{display:grid;grid-template-columns:1.2fr .8fr;gap:52px;align-items:end;
+ margin-top:36px;padding-bottom:56px}
+.hgrid p{color:var(--ink2);font-size:1.11rem;max-width:58ch}
+.hact{display:flex;gap:13px;margin-top:30px;flex-wrap:wrap}
+.btn{display:inline-block;padding:16px 32px;font-family:'JetBrains Mono',monospace;font-size:.7rem;
+ letter-spacing:.16em;text-transform:uppercase;transition:.25s;border:1px solid var(--ink)}
+.btn-fill{background:var(--ink);color:var(--paper)}
+.btn-fill:hover{background:var(--green);border-color:var(--green)}
+.btn-line:hover{background:var(--ink);color:var(--paper)}
+.hside{border-left:3px solid var(--green);padding-left:22px}
+.hside b{display:block;font-family:'Fraunces',serif;font-size:1.16rem;margin-bottom:6px}
+.hside p{font-size:.96rem;color:var(--ink2)}
+.areas{display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid var(--line);background:var(--paper2)}
+.ar{padding:40px 24px;border-right:1px solid var(--line)}
+.ar:last-child{border-right:0}
+.ar b{display:block;font-family:'Fraunces',serif;font-weight:700;font-size:clamp(1.4rem,2.8vw,1.9rem);line-height:1.05}
+.ar span{display:block;margin-top:10px;font-family:'JetBrains Mono',monospace;font-size:.62rem;
+ letter-spacing:.16em;text-transform:uppercase;color:var(--ink2)}
+.shead{display:grid;grid-template-columns:.32fr .68fr;gap:46px;align-items:start;margin-bottom:44px}
+.shead h2{font-size:clamp(2rem,4.8vw,3.6rem)}
+.shead p{color:var(--ink2);max-width:62ch;margin-top:14px}
+.dark{background:var(--ink);color:var(--paper)}
+.dark h2{color:var(--paper)}.dark p{color:#9ba396}
+.quote{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.4rem,3vw,2.2rem);
+ line-height:1.32;border-left:3px solid var(--green);padding:8px 0 8px 28px;color:var(--paper)}
+.qattr{margin-top:20px;font-family:'JetBrains Mono',monospace;font-size:.66rem;
+ letter-spacing:.18em;text-transform:uppercase;color:#9ba396}
+.big{font-size:clamp(2.4rem,7.4vw,5.6rem);line-height:.98}
+.cgrid{display:grid;grid-template-columns:1fr .55fr;gap:54px;align-items:end;margin-top:38px}
+.cinfo p{font-family:'JetBrains Mono',monospace;font-size:.76rem;letter-spacing:.05em;
+ color:var(--ink2);margin-bottom:10px;line-height:1.6}
+.cinfo a{border-bottom:1px solid var(--green)}
+footer{border-top:1px solid var(--line);padding:38px 0}
+.frow{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+footer p{font-family:'JetBrains Mono',monospace;font-size:.63rem;letter-spacing:.12em;
+ text-transform:uppercase;color:var(--ink2)}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .75s cubic-bezier(.2,.7,.3,1),transform .75s cubic-bezier(.2,.7,.3,1)}
+.rv.on{opacity:1;transform:none}
+@media(max-width:1000px){
+ .nl{display:none}
+ .hgrid,.shead,.cgrid{grid-template-columns:1fr;gap:30px}
+ .areas{grid-template-columns:1fr 1fr}
+ .ar{border-right:0;border-bottom:1px solid var(--line)}
+ section{padding:66px 0}.hero{padding-top:124px}.wrap{padding:0 22px}
+}
+</style><style>
+.anim-fade-in-up {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.anim-fade-in-up.anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style></head><body>
+<header id="nav"><div class="wrap"><div class="bar">
+<a class="mark" href="#">Signature Grounds<span>Full-service landscaping · CSRA</span></a>
+<nav class="nl"><a href="#areas">Areas served</a><a href="#about">About</a>
+<a class="cta-sm" href="tel:7068337150">(706) 833-7150</a></nav>
+</div></div></header>
+<section class="hero anim-fade-in-up" style="transition-delay: 0.0s; "><div class="wrap">
+<div class="mono">Augusta · Evans · Martinez · Appling, GA</div>
+<h1>Your outdoor space,<br/><em>done right.</em></h1>
+<div class="hgrid">
+<div>
+<p>Signature Grounds handles everything from weekly lawn maintenance to full landscape
+design and installation — so your property always looks its best, without the effort.</p>
+<div class="hact">
+<a class="btn btn-fill" href="tel:7068337150">Free on-site estimate</a>
+<a class="btn btn-line" href="#about">About us</a>
+</div>
+</div>
+<div class="hside">
+<b>If you can dream it,<br/>we can make it happen.</b>
+<p>The tools, resources and expertise to take on any outdoor project.</p>
+</div>
+</div></div></section>
+<div class="areas" id="areas">
+<div class="ar"><b>Augusta</b><span>Area served</span></div>
+<div class="ar"><b>Evans</b><span>Area served</span></div>
+<div class="ar"><b>Martinez</b><span>Area served</span></div>
+<div class="ar"><b>Appling</b><span>Area served</span></div>
+</div>
+<section class="anim-fade-in-up" id="about" style="transition-delay: 0.1s; "><div class="wrap">
+<div class="shead rv"><div class="mono">01 — About</div>
+<div><h2>Everything your<br/>property needs.</h2>
+<p>Signature Grounds is a full-service landscaping company serving Augusta and the
+surrounding CSRA. We have the tools, resources and expertise to take on any outdoor
+project — from routine lawn care to complete property transformations.</p></div></div>
+<div style="max-width:72ch">
+<p style="color:var(--ink2)">We pride ourselves on attentive, respectful service that
+leaves every landscape looking beautiful and tidy. Whatever your outdoor vision is, we're
+here to bring it to life.</p>
+</div>
+</div></section>
+<section class="dark anim-fade-in-up" style="transition-delay: 0.2s; "><div class="wrap">
+<div class="mono rv" style="color:#7fb06e">02 — From a customer</div>
+<div class="quote rv" style="margin-top:22px">"You are upfront on your quotes, you come to
+do the work when you say you're coming and work for as long as it takes to finish the job.
+You clean up after doing your excellent job."</div>
+<div class="qattr rv">Soleta B. · Augusta, GA</div>
+</div></section>
+<section class="anim-fade-in-up" id="contact" style="transition-delay: 0.3s; "><div class="wrap">
+<div class="mono">03 — Get an estimate</div>
+<h2 class="big" style="margin-top:18px">Ready for a<br/>better-looking yard?</h2>
+<div class="cgrid">
+<div><p style="color:var(--ink2);max-width:56ch">Reach out for a free on-site estimate.
+We'll walk your property and put together a plan that fits your goals and budget.</p>
+<div style="margin-top:28px"><a class="btn btn-fill" href="tel:7068337150" style="background:var(--green);border-color:var(--green);color:var(--paper)">Call (706) 833-7150</a></div></div>
+<div class="cinfo">
+<p>Serving the greater Augusta area</p>
+<p><a href="tel:7068337150">(706) 833-7150</a></p>
+</div></div></div></section>
+<footer><div class="wrap frow">
+<div class="mark">Signature Grounds<span>Augusta · Evans · Martinez · Appling, GA</span></div>
+<p>Preview redesign concept by MARNEXIQ</p>
+</div></footer>
+<script>
+(function(){
+ var r=document.querySelectorAll('.rv');
+ var o=new IntersectionObserver(function(e){e.forEach(function(y){
+  if(y.isIntersecting){y.target.classList.add('on');o.unobserve(y.target)}})},{threshold:.12});
+ r.forEach(function(y){o.observe(y)});
+})();
+</script>
+<script>
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) e.target.classList.add('anim-visible');
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+})();
+</script></body></html>
