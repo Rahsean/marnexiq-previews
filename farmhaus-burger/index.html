@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="noindex" name="robots"/>
+<title>Farmhaus Burger — two locations in Augusta, GA</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+a{text-decoration:none;color:inherit}
+:root{--paper:#F6F1E7;--paper2:#EAE2D3;--ink:#171310;--ink2:#5f574d;
+      --red:#98241A;--line:#ddd3c1}
+body{background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;
+ font-size:17px;line-height:1.72;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Archivo',sans-serif;font-weight:800;letter-spacing:-.035em;
+ line-height:.95;text-transform:uppercase}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+.mono{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.22em;
+ text-transform:uppercase;color:var(--red)}
+section{padding:104px 0}
+
+#nav{position:fixed;inset:0 0 auto;z-index:80;background:rgba(246,241,231,.94);
+ backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+#nav .bar{display:flex;align-items:center;justify-content:space-between;padding:15px 0;gap:20px}
+.mark{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.08rem;text-transform:uppercase;
+ letter-spacing:-.02em;line-height:1.15}
+.mark span{display:block;font-family:'JetBrains Mono',monospace;font-size:.55rem;font-weight:400;
+ letter-spacing:.2em;color:var(--ink2);margin-top:3px;text-transform:none}
+.nl{display:flex;gap:28px;align-items:center}
+.nl a{font-family:'JetBrains Mono',monospace;font-size:.67rem;letter-spacing:.16em;text-transform:uppercase}
+.nl a:hover{color:var(--red)}
+.cta-sm{border:1px solid var(--ink);padding:11px 20px;transition:.25s}
+.cta-sm:hover{background:var(--ink);color:var(--paper)!important}
+
+.hero{padding:172px 0 0}
+.hero h1{font-size:clamp(3rem,10vw,8.6rem);margin:20px 0 0}
+.hero h1 em{font-style:normal;color:var(--red)}
+.hgrid{display:grid;grid-template-columns:1.2fr .8fr;gap:52px;align-items:end;
+ margin-top:36px;padding-bottom:56px}
+.hgrid p{color:var(--ink2);font-size:1.11rem;max-width:56ch}
+.hact{display:flex;gap:13px;margin-top:30px;flex-wrap:wrap}
+.btn{display:inline-block;padding:16px 32px;font-family:'JetBrains Mono',monospace;font-size:.7rem;
+ letter-spacing:.16em;text-transform:uppercase;transition:.25s;border:1px solid var(--ink)}
+.btn-fill{background:var(--ink);color:var(--paper)}
+.btn-fill:hover{background:var(--red);border-color:var(--red)}
+.btn-line:hover{background:var(--ink);color:var(--paper)}
+.hside{border-left:4px solid var(--red);padding-left:22px}
+.hside b{display:block;font-family:'Archivo',sans-serif;font-weight:700;text-transform:uppercase;
+ font-size:1.14rem;margin-bottom:7px}
+.hside p{font-size:.96rem;color:var(--ink2)}
+
+.tick{border-block:1px solid var(--line);overflow:hidden;padding:14px 0;background:var(--paper2)}
+.tkt{display:flex;gap:42px;white-space:nowrap;width:max-content;animation:tk 38s linear infinite}
+.tkt span{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.18em;
+ text-transform:uppercase;color:var(--ink2)}
+.tkt span::after{content:"★";color:var(--red);margin-left:42px;font-size:.6rem}
+@keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+.shead{display:grid;grid-template-columns:.32fr .68fr;gap:46px;align-items:start;margin-bottom:50px}
+.shead h2{font-size:clamp(2.1rem,5vw,3.6rem)}
+.shead p{color:var(--ink2);max-width:62ch;margin-top:14px}
+
+.grind{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.gr{padding:44px 28px;border-right:1px solid var(--line)}
+.gr:last-child{border-right:0}
+.gr b{display:block;font-family:'Archivo',sans-serif;font-weight:800;text-transform:uppercase;
+ font-size:clamp(1.5rem,3vw,2.2rem);line-height:1.05;letter-spacing:-.02em}
+.gr span{display:block;margin-top:11px;font-family:'JetBrains Mono',monospace;font-size:.63rem;
+ letter-spacing:.16em;text-transform:uppercase;color:var(--ink2)}
+
+.alts{display:grid;grid-template-columns:1fr 1fr;column-gap:52px;border-top:1px solid var(--line)}
+.alt{display:flex;gap:18px;align-items:baseline;padding:24px 2px;border-bottom:1px solid var(--line);transition:.26s}
+.alt:hover{padding-left:12px}
+.alt:hover h3{color:var(--red)}
+.alt .n{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:#b3a894;flex:0 0 auto}
+.alt h3{font-size:1.2rem;transition:.26s}
+
+/* LOCATIONS */
+.dark{background:var(--ink);color:var(--paper)}
+.dark h2{color:var(--paper)}.dark p{color:#a49a8e}
+.locs{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid #322b25}
+.loc{padding:46px 34px;border-right:1px solid #322b25}
+.loc:last-child{border-right:0}
+.loc h3{color:var(--paper);font-size:clamp(1.5rem,3vw,2.1rem);margin-bottom:16px}
+.loc p{font-family:'JetBrains Mono',monospace;font-size:.76rem;letter-spacing:.04em;
+ color:#a49a8e;margin-bottom:9px;line-height:1.6}
+.loc a{color:var(--paper);border-bottom:1px solid var(--red)}
+.big{font-size:clamp(2.4rem,7.4vw,5.6rem);line-height:.98}
+footer{border-top:1px solid var(--line);padding:38px 0}
+.frow{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+footer p{font-family:'JetBrains Mono',monospace;font-size:.63rem;letter-spacing:.12em;
+ text-transform:uppercase;color:var(--ink2)}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .75s cubic-bezier(.2,.7,.3,1),transform .75s cubic-bezier(.2,.7,.3,1)}
+.rv.on{opacity:1;transform:none}
+
+@media(max-width:1000px){
+ .nl{display:none}
+ .hgrid,.shead{grid-template-columns:1fr;gap:30px}
+ .grind,.alts,.locs{grid-template-columns:1fr;column-gap:0}
+ .gr,.loc{border-right:0;border-bottom:1px solid var(--line)}
+ section{padding:66px 0}.hero{padding-top:124px}.wrap{padding:0 22px}
+}
+</style><style>
+.anim-fade-in-up {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.anim-fade-in-up.anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style></head><body>
+<header id="nav"><div class="wrap"><div class="bar">
+<a class="mark" href="#">Farmhaus Burger<span>Augusta, Georgia</span></a>
+<nav class="nl"><a href="#grind">The grind</a><a href="#menu">Menu</a>
+<a href="#drinks">Drinks</a><a class="cta-sm" href="#locations">Two locations</a></nav>
+</div></div></header>
+<section class="hero anim-fade-in-up" style="transition-delay: 0.0s; "><div class="wrap">
+<div class="mono">Burgers · Two locations in Augusta, GA</div>
+<h1>HAUSmade.<br/>Dry-aged. <em>Double.</em></h1>
+<div class="hgrid">
+<div>
+<p>Our HAUSmade, dry-aged, double patty beef burgers are made from a custom grind of
+Chuck, Brisket and Short Rib — sourced from local Southeastern Angus Beef.</p>
+<div class="hact">
+<a class="btn btn-fill" href="#locations">Find a location</a>
+<a class="btn btn-line" href="#menu">See the menu</a>
+</div>
+</div>
+<div class="hside">
+<b>Two locations</b>
+<p>Farmhaus Burger has 2 locations to serve you in Augusta, GA.</p>
+</div>
+</div></div></section>
+<div class="tick"><div class="tkt">
+<span>Dry-Aged</span><span>Chuck · Brisket · Short Rib</span><span>Local Southeastern Angus</span>
+<span>Boozy Shakes &amp; Floats</span><span>Craft Cocktails</span><span>Beer · Wine · Spirits</span><span>Gift Cards</span>
+<span>Dry-Aged</span><span>Chuck · Brisket · Short Rib</span><span>Local Southeastern Angus</span>
+<span>Boozy Shakes &amp; Floats</span><span>Craft Cocktails</span><span>Beer · Wine · Spirits</span><span>Gift Cards</span>
+</div></div>
+<section class="anim-fade-in-up" id="grind" style="transition-delay: 0.1s; "><div class="wrap">
+<div class="shead rv"><div class="mono">01 — The grind</div>
+<div><h2>Three cuts,<br/>one patty.</h2>
+<p>A custom grind, sourced from local Southeastern Angus Beef — then dry-aged and stacked
+double.</p></div></div>
+<div class="grind">
+<div class="gr rv"><b>Chuck</b><span>In the custom grind</span></div>
+<div class="gr rv"><b>Brisket</b><span>In the custom grind</span></div>
+<div class="gr rv"><b>Short Rib</b><span>In the custom grind</span></div>
+</div></div></section>
+<section class="anim-fade-in-up" id="menu" style="transition-delay: 0.2s; padding-top:0"><div class="wrap">
+<div class="shead rv"><div class="mono">02 — The alternatives</div>
+<div><h2>The best alternatives.</h2>
+<p>Not eating beef today? These are on the menu too.</p></div></div>
+<div class="alts">
+<div class="alt rv"><div class="n">01</div><h3>Organic Sea Island Red Pea veggie patty</h3></div>
+<div class="alt rv"><div class="n">02</div><h3>Ground wild turkey patty</h3></div>
+<div class="alt rv"><div class="n">03</div><h3>Grilled chicken</h3></div>
+<div class="alt rv"><div class="n">04</div><h3>Humanely-raised beef hot dogs</h3></div>
+</div>
+<p style="color:var(--ink2);margin-top:26px;max-width:68ch">The hot dogs are humanely
+raised and free of antibiotics, hormones and preservatives.</p>
+</div></section>
+<section class="anim-fade-in-up" id="drinks" style="transition-delay: 0.3s; padding-top:0"><div class="wrap">
+<div class="shead rv"><div class="mono">03 — Drinks, shakes &amp; floats</div>
+<div><h2>Shakes &amp; floats,<br/>with booze.</h2>
+<p>I scream, you scream, we all scream for the shakes and floats with booze. Farmhaus
+Burger also serves craft cocktails, beer, wine and spirits.</p></div></div>
+</div></section>
+<section class="dark anim-fade-in-up" id="locations" style="transition-delay: 0.4s; padding-top:0"><div class="wrap" style="padding-top:92px">
+<div class="mono">04 — Locations</div>
+<h2 class="big" style="margin-top:18px">Two in Augusta.</h2>
+<div class="locs" style="margin-top:44px">
+<div class="loc rv"><h3>Downtown</h3>
+<p>1204 Broad St<br/>Augusta, GA 30901</p>
+<p><a href="tel:7064968771">(706) 496-8771</a></p>
+<p><a href="mailto:downtown@farmhausburger.com">downtown@farmhausburger.com</a></p></div>
+<div class="loc rv"><h3>Flowing Wells</h3>
+<p>466 Flowing Wells Rd<br/>Augusta, GA 30907</p>
+<p><a href="tel:7064962846">(706) 496-2846</a></p>
+<p><a href="mailto:flowingwells@farmhausburger.com">flowingwells@farmhausburger.com</a></p></div>
+</div>
+<p style="margin-top:34px;font-family:'JetBrains Mono',monospace;font-size:.68rem;
+letter-spacing:.16em;text-transform:uppercase;color:#a49a8e">Gift cards available</p>
+</div></section>
+<footer><div class="wrap frow">
+<div class="mark">Farmhaus Burger<span>Augusta, Georgia</span></div>
+<p>Preview redesign concept by MARNEXIQ</p>
+</div></footer>
+<script>
+(function(){
+ var r=document.querySelectorAll('.rv');
+ var o=new IntersectionObserver(function(e){e.forEach(function(y){
+  if(y.isIntersecting){y.target.classList.add('on');o.unobserve(y.target)}})},{threshold:.12});
+ r.forEach(function(y){o.observe(y)});
+})();
+</script>
+<script>
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) e.target.classList.add('anim-visible');
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+})();
+</script></body></html>
