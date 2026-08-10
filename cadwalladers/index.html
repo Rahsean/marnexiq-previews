@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="noindex" name="robots"/>
+<title>Cadwalladers — upscale dining in Martinez, Georgia since 1987</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+a{text-decoration:none;color:inherit}
+:root{--bg:#100E0C;--bg2:#191512;--paper:#F5F0E8;--dim:#968d80;
+      --gold:#B99457;--line:#28221d}
+body{background:var(--bg);color:var(--paper);font-family:'Inter',system-ui,sans-serif;
+ font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;letter-spacing:-.01em;line-height:1.02}
+.wrap{max-width:1160px;margin:0 auto;padding:0 40px}
+.narrow{max-width:760px;margin:0 auto;padding:0 40px}
+.mono{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.24em;
+ text-transform:uppercase;color:var(--gold)}
+section{padding:104px 0}
+#nav{position:fixed;inset:0 0 auto;z-index:80;background:rgba(16,14,12,.94);
+ backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+#nav .bar{display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:20px}
+.mark{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.3rem;line-height:1.1;
+ letter-spacing:.02em}
+.mark span{display:block;font-family:'JetBrains Mono',monospace;font-size:.54rem;font-weight:400;
+ letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin-top:4px}
+.nl{display:flex;gap:26px;align-items:center}
+.nl a{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.16em;
+ text-transform:uppercase;color:var(--dim)}
+.nl a:hover{color:var(--gold)}
+.cta-sm{border:1px solid var(--gold);color:var(--gold)!important;padding:11px 20px;transition:.25s}
+.cta-sm:hover{background:var(--gold);color:var(--bg)!important}
+.hero{padding:178px 0 0;text-align:center}
+.hero h1{font-size:clamp(3rem,9vw,7.6rem);margin:20px 0 0}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero .sub{color:var(--dim);font-size:1.14rem;max-width:56ch;margin:26px auto 0}
+.hact{display:flex;gap:13px;margin:34px 0 0;flex-wrap:wrap;justify-content:center}
+.btn{display:inline-block;padding:16px 32px;font-family:'JetBrains Mono',monospace;font-size:.69rem;
+ letter-spacing:.16em;text-transform:uppercase;transition:.25s;border:1px solid var(--paper)}
+.btn-fill{background:var(--gold);color:var(--bg);border-color:var(--gold);font-weight:500}
+.btn-fill:hover{background:var(--paper);border-color:var(--paper)}
+.btn-line{color:var(--paper)}.btn-line:hover{background:var(--paper);color:var(--bg)}
+.rule{height:1px;background:var(--line);margin:70px 0 0}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);border-block:1px solid var(--line);background:var(--bg2)}
+.fc{padding:42px 28px;border-right:1px solid var(--line);text-align:center}
+.fc:last-child{border-right:0}
+.fc b{display:block;font-family:'Cormorant Garamond',serif;font-weight:700;
+ font-size:clamp(1.7rem,3.4vw,2.6rem);line-height:1.04}
+.fc:nth-child(2) b{color:var(--gold)}
+.fc span{display:block;margin-top:10px;font-family:'JetBrains Mono',monospace;font-size:.61rem;
+ letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+.story p{font-size:1.09rem;color:var(--dim);margin-bottom:20px}
+.story h2{font-size:clamp(2rem,4.6vw,3.3rem);margin-bottom:30px;color:var(--paper)}
+.hours{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line)}
+.hr{padding:40px 32px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.hr:nth-child(2n){border-right:0}
+.hr h3{color:var(--paper);font-size:1.6rem;margin-bottom:12px}
+.hr p{color:var(--dim);font-size:.99rem}
+.big{font-size:clamp(2.4rem,7.2vw,5.4rem);line-height:1.0}
+.cgrid{display:grid;grid-template-columns:1fr .55fr;gap:52px;align-items:end;margin-top:38px}
+.cinfo p{font-family:'JetBrains Mono',monospace;font-size:.76rem;letter-spacing:.05em;
+ color:var(--dim);margin-bottom:10px;line-height:1.6}
+.cinfo a{color:var(--paper);border-bottom:1px solid var(--gold)}
+footer{border-top:1px solid var(--line);padding:38px 0}
+.frow{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+footer p{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.12em;
+ text-transform:uppercase;color:var(--dim)}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1)}
+.rv.on{opacity:1;transform:none}
+@media(max-width:1000px){
+ .nl{display:none}
+ .facts,.hours,.cgrid{grid-template-columns:1fr}
+ .fc,.hr{border-right:0;border-bottom:1px solid var(--line)}
+ section{padding:66px 0}.hero{padding-top:130px}.wrap,.narrow{padding:0 22px}
+}
+</style><style>
+.anim-fade-in-up {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.anim-fade-in-up.anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style></head><body>
+<header id="nav"><div class="wrap"><div class="bar">
+<a class="mark" href="#">Cadwalladers<span>Martinez, Georgia · Since 1987</span></a>
+<nav class="nl"><a href="#story">Our story</a><a href="#hours">Hours</a>
+<a class="cta-sm" href="tel:7068607444">Reserve</a></nav>
+</div></div></header>
+<section class="hero anim-fade-in-up" style="transition-delay: 0.0s; "><div class="wrap">
+<div class="mono">Upscale dining · Martinez, Georgia</div>
+<h1>Fine food, fine wines,<br/><em>atmosphere.</em></h1>
+<p class="sub">An upscale dining establishment since 1987 — four miles from Augusta
+National Golf Course, home of the Masters Golf Tournament.</p>
+<div class="hact">
+<a class="btn btn-fill" href="tel:7068607444">Reserve — (706) 860-7444</a>
+<a class="btn btn-line" href="#story">Our story</a>
+</div>
+<div class="rule"></div>
+</div></section>
+<div class="facts">
+<div class="fc"><b>1987</b><span>Upscale dining since</span></div>
+<div class="fc"><b>4 miles</b><span>From Augusta National</span></div>
+<div class="fc"><b>Wednesday<br/>– Saturday</b><span>5pm – 9pm</span></div>
+</div>
+<section class="story anim-fade-in-up" id="story" style="transition-delay: 0.1s; "><div class="narrow">
+<div class="mono rv">01 — Our story</div>
+<h2 class="rv" style="margin-top:14px">Carrying on<br/>the tradition.</h2>
+<div class="rv">
+<p>Located at 106-A Davis Road in Martinez, Georgia — a mere four miles from the Augusta
+National Golf Course, home of the Masters Golf Tournament — Cadwalladers has been an
+upscale dining establishment since 1987.</p>
+<p>It was owned and operated by its previous owners until the end of 2020. Cadwalladers
+is now under new ownership, honored to carry on that tradition of fine food, fine wines
+and atmosphere — by an owner who worked with Cadwalladers for over five years before
+purchasing the business.</p>
+<p>You can usually catch the owner greeting you at the door on arrival.</p>
+</div>
+</div></section>
+<section class="anim-fade-in-up" id="hours" style="transition-delay: 0.2s; padding-top:0"><div class="wrap">
+<div class="hours">
+<div class="hr rv"><h3>Dine in or take away</h3>
+<p>Wednesday – Saturday, 5pm–9pm.<br/>Last seating at 8:30pm.</p></div>
+<div class="hr rv"><h3>Reservations</h3>
+<p>Reservations are recommended but not required. Call (706) 860-7444, or book through
+OpenTable.</p></div>
+</div></div></section>
+<section class="anim-fade-in-up" id="contact" style="transition-delay: 0.3s; padding-top:0"><div class="wrap" style="padding-top:92px">
+<div class="mono">02 — Reserve a table</div>
+<h2 class="big" style="margin-top:18px">We're glad<br/>you're here.</h2>
+<div class="cgrid">
+<div><p style="color:var(--dim);max-width:52ch">Reservations recommended but not
+required — call, or book through OpenTable.</p>
+<div style="margin-top:28px"><a class="btn btn-fill" href="tel:7068607444">Call (706) 860-7444</a></div></div>
+<div class="cinfo">
+<p>106-A Davis Road<br/>Martinez, Georgia</p>
+<p><a href="tel:7068607444">(706) 860-7444</a></p>
+<p>Wednesday - Saturday 5pm-9pm</p>
+</div></div></div></section>
+<footer><div class="wrap frow">
+<div class="mark">Cadwalladers<span>Upscale dining · Martinez, Georgia</span></div>
+<p>Preview redesign concept by MARNEXIQ</p>
+</div></footer>
+<script>
+(function(){
+ var r=document.querySelectorAll('.rv');
+ var o=new IntersectionObserver(function(e){e.forEach(function(y){
+  if(y.isIntersecting){y.target.classList.add('on');o.unobserve(y.target)}})},{threshold:.12});
+ r.forEach(function(y){o.observe(y)});
+})();
+</script>
+<script>
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) e.target.classList.add('anim-visible');
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+})();
+</script></body></html>
