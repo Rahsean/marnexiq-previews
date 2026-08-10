@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="noindex" name="robots"/>
+<title>Courson Realty — Martinez, Georgia</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+:root{--paper:#F5F2EC;--paper2:#EAE5DA;--ink:#1A1815;--ink2:#5f5c55;
+      --brick:#8A4B2A;--line:#dbd4c6}
+body{background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;
+ font-size:17px;line-height:1.72;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:700;letter-spacing:-.02em;line-height:1.0}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+.mono{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.22em;
+ text-transform:uppercase;color:var(--brick)}
+section{padding:104px 0}
+
+#nav{position:fixed;inset:0 0 auto;z-index:80;background:rgba(245,242,236,.93);
+ backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+#nav .bar{display:flex;align-items:center;justify-content:space-between;padding:13px 0;gap:20px}
+#nav img{height:44px;width:auto}
+.nl{display:flex;gap:28px;align-items:center}
+.nl a{font-family:'JetBrains Mono',monospace;font-size:.67rem;letter-spacing:.16em;text-transform:uppercase}
+.nl a:hover{color:var(--brick)}
+.cta-sm{border:1px solid var(--ink);padding:11px 20px;transition:.25s}
+.cta-sm:hover{background:var(--ink);color:var(--paper)!important}
+
+.hero{padding:172px 0 0}
+.hero h1{font-size:clamp(2.9rem,8.6vw,7.4rem);margin:20px 0 0}
+.hero h1 em{font-style:italic;color:var(--brick)}
+.hgrid{display:grid;grid-template-columns:1.2fr .8fr;gap:54px;align-items:end;
+ margin-top:38px;padding-bottom:58px}
+.hgrid p{color:var(--ink2);font-size:1.11rem;max-width:56ch}
+.hact{display:flex;gap:13px;margin-top:30px;flex-wrap:wrap}
+.btn{display:inline-block;padding:16px 32px;font-family:'JetBrains Mono',monospace;font-size:.7rem;
+ letter-spacing:.16em;text-transform:uppercase;transition:.25s;border:1px solid var(--ink)}
+.btn-fill{background:var(--ink);color:var(--paper)}
+.btn-fill:hover{background:var(--brick);border-color:var(--brick)}
+.btn-line:hover{background:var(--ink);color:var(--paper)}
+.hside{border-left:3px solid var(--brick);padding-left:22px}
+.hside b{display:block;font-family:'Fraunces',serif;font-size:1.15rem;margin-bottom:6px}
+.hside p{font-size:.96rem;color:var(--ink2)}
+
+/* PROPERTY TYPES */
+.types{display:grid;grid-template-columns:repeat(5,1fr);border-block:1px solid var(--line);
+ background:var(--paper2)}
+.ty{padding:38px 22px;border-right:1px solid var(--line)}
+.ty:last-child{border-right:0}
+.ty b{display:block;font-family:'Fraunces',serif;font-weight:700;font-size:1.24rem;line-height:1.12}
+.ty span{display:block;margin-top:9px;font-family:'JetBrains Mono',monospace;font-size:.61rem;
+ letter-spacing:.16em;text-transform:uppercase;color:var(--ink2)}
+
+.shead{display:grid;grid-template-columns:.32fr .68fr;gap:46px;align-items:start;margin-bottom:48px}
+.shead h2{font-size:clamp(2rem,4.6vw,3.4rem)}
+.shead p{color:var(--ink2);max-width:62ch;margin-top:14px}
+
+.svc{display:grid;grid-template-columns:1fr 1fr;column-gap:52px;border-top:1px solid var(--line)}
+.sv{display:flex;gap:18px;align-items:baseline;padding:24px 2px;border-bottom:1px solid var(--line);transition:.26s}
+.sv:hover{padding-left:12px}
+.sv:hover h3{color:var(--brick)}
+.sv .n{font-family:'JetBrains Mono',monospace;font-size:.62rem;color:#b0aa9c;flex:0 0 auto}
+.sv h3{font-size:1.24rem;transition:.26s}
+
+.dark{background:var(--ink);color:var(--paper)}
+.dark h2{color:var(--paper)}.dark p{color:#a5a29a}
+.big{font-size:clamp(2.4rem,7.4vw,5.8rem);line-height:1.0}
+.cgrid{display:grid;grid-template-columns:1fr .55fr;gap:54px;align-items:end;margin-top:38px}
+.cinfo p{font-family:'JetBrains Mono',monospace;font-size:.76rem;letter-spacing:.05em;
+ color:#a5a29a;margin-bottom:10px;line-height:1.6}
+.cinfo a{color:var(--paper);border-bottom:1px solid var(--brick)}
+footer{border-top:1px solid var(--line);padding:38px 0}
+.frow{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+footer img{height:40px;width:auto}
+footer p{font-family:'JetBrains Mono',monospace;font-size:.63rem;letter-spacing:.12em;
+ text-transform:uppercase;color:var(--ink2)}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .75s cubic-bezier(.2,.7,.3,1),transform .75s cubic-bezier(.2,.7,.3,1)}
+.rv.on{opacity:1;transform:none}
+
+@media(max-width:1000px){
+ .nl{display:none}
+ .hgrid,.shead,.cgrid{grid-template-columns:1fr;gap:30px}
+ .types{grid-template-columns:1fr 1fr}.ty{border-right:0;border-bottom:1px solid var(--line)}
+ .svc{grid-template-columns:1fr;column-gap:0}
+ section{padding:66px 0}.hero{padding-top:124px}.wrap{padding:0 22px}
+}
+</style><style>
+.anim-fade-in-up {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.anim-fade-in-up.anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style></head><body>
+<header id="nav"><div class="wrap"><div class="bar">
+<a href="#"><img alt="Courson Realty" src="http://www.coursonrealty.com/images/headerlogo.png"/></a>
+<nav class="nl"><a href="#types">What we handle</a><a href="#services">Services</a>
+<a class="cta-sm" href="tel:7068603032">706-860-3032</a></nav>
+</div></div></header>
+<section class="hero anim-fade-in-up" style="transition-delay: 0.0s; "><div class="wrap">
+<div class="mono">Real estate · Martinez, Georgia</div>
+<h1>Buying or selling,<br/>you're in the <em>right place.</em></h1>
+<div class="hgrid">
+<div>
+<p>Whether you are in the market to buy or sell property, you have come to the right
+place. Use the site to search for your next single family home, condominium, townhouse,
+land or commercial real estate purchase.</p>
+<div class="hact">
+<a class="btn btn-fill" href="tel:7068603032">Call 706-860-3032</a>
+<a class="btn btn-line" href="#types">What we handle</a>
+</div>
+</div>
+<div class="hside">
+<b>Save what you like.</b>
+<p>Create a free account to save listings you might be interested in.</p>
+</div>
+</div></div></section>
+<div class="types" id="types">
+<div class="ty"><b>Single family homes</b><span>Residential</span></div>
+<div class="ty"><b>Condominiums</b><span>Residential</span></div>
+<div class="ty"><b>Townhouses</b><span>Residential</span></div>
+<div class="ty"><b>Land</b><span>Purchase</span></div>
+<div class="ty"><b>Commercial</b><span>Purchase</span></div>
+</div>
+<section class="anim-fade-in-up" id="services" style="transition-delay: 0.1s; "><div class="wrap">
+<div class="shead rv"><div class="mono">01 — Services</div>
+<div><h2>Search it, save it,<br/>tour it.</h2>
+<p>Whether you are in the market to buy or sell property, you have come to the right place.</p></div></div>
+<div class="svc">
+<div class="sv rv"><div class="n">01</div><h3>Property search</h3></div>
+<div class="sv rv"><div class="n">02</div><h3>Search by MLS number</h3></div>
+<div class="sv rv"><div class="n">03</div><h3>Free account — save listings</h3></div>
+<div class="sv rv"><div class="n">04</div><h3>Virtual tour listings</h3></div>
+<div class="sv rv"><div class="n">05</div><h3>Online rental application</h3></div>
+<div class="sv rv"><div class="n">06</div><h3>Buying &amp; selling</h3></div>
+</div>
+<p style="color:var(--ink2);margin-top:26px;max-width:66ch">Search by property type, or go
+straight to a listing by entering its MLS number.</p>
+</div></section>
+<section class="dark anim-fade-in-up" id="contact" style="transition-delay: 0.2s; padding-top:0;padding-bottom:100px">
+<div class="wrap" style="padding-top:92px">
+<div class="mono" style="color:#d09a72">02 — Contact</div>
+<h2 class="big" style="margin-top:18px">Let's find it.</h2>
+<div class="cgrid">
+<div><p style="max-width:52ch">Tell us what you are looking for — or what you need to
+sell — and we will take it from there.</p>
+<div style="margin-top:28px"><a class="btn btn-fill" href="tel:7068603032" style="background:var(--brick);border-color:var(--brick);color:var(--paper)">Call 706-860-3032</a></div></div>
+<div class="cinfo">
+<p>Courson Realty<br/>4063 Columbia Road<br/>Martinez, GA 30907</p>
+<p><a href="tel:7068603032">706-860-3032</a></p>
+</div></div></div></section>
+<footer><div class="wrap frow">
+<img alt="Courson Realty" src="http://www.coursonrealty.com/images/headerlogo.png"/>
+<p>Preview redesign concept by MARNEXIQ</p>
+</div></footer>
+<script>
+(function(){
+ var r=document.querySelectorAll('.rv');
+ var o=new IntersectionObserver(function(e){e.forEach(function(y){
+  if(y.isIntersecting){y.target.classList.add('on');o.unobserve(y.target)}})},{threshold:.12});
+ r.forEach(function(y){o.observe(y)});
+})();
+</script>
+<script>
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) e.target.classList.add('anim-visible');
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+})();
+</script></body></html>
