@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="noindex" name="robots"/>
+<title>Super Shine Hand Car Wash and Detail Center — Martinez, GA</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+a{text-decoration:none;color:inherit}
+:root{--bg:#0B0E12;--bg2:#141920;--paper:#F2F5F7;--dim:#88919c;
+      --cyan:#2FA9D6;--line:#212831}
+body{background:var(--bg);color:var(--paper);font-family:'Inter',system-ui,sans-serif;
+ font-size:17px;line-height:1.72;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Archivo',sans-serif;font-weight:800;letter-spacing:-.035em;line-height:.96}
+.wrap{max-width:1220px;margin:0 auto;padding:0 40px}
+.mono{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.22em;
+ text-transform:uppercase;color:var(--cyan)}
+section{padding:104px 0}
+#nav{position:fixed;inset:0 0 auto;z-index:80;background:rgba(11,14,18,.94);
+ backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+#nav .bar{display:flex;align-items:center;justify-content:space-between;padding:15px 0;gap:20px}
+.mark{font-family:'Archivo',sans-serif;font-weight:800;font-size:1.04rem;letter-spacing:-.02em;line-height:1.15}
+.mark span{display:block;font-family:'JetBrains Mono',monospace;font-size:.55rem;font-weight:400;
+ letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-top:3px}
+.nl{display:flex;gap:26px;align-items:center}
+.nl a{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.16em;
+ text-transform:uppercase;color:var(--dim)}
+.nl a:hover{color:var(--cyan)}
+.cta-sm{border:1px solid var(--cyan);color:var(--cyan)!important;padding:11px 20px;transition:.25s}
+.cta-sm:hover{background:var(--cyan);color:var(--bg)!important}
+.hero{padding:170px 0 0}
+.hero h1{font-size:clamp(3rem,10vw,8.4rem);margin:18px 0 0}
+.hero h1 em{font-style:normal;color:var(--cyan)}
+.hgrid{display:grid;grid-template-columns:1.2fr .8fr;gap:52px;align-items:end;
+ margin-top:34px;padding-bottom:56px}
+.hgrid p{color:var(--dim);font-size:1.11rem;max-width:56ch}
+.hact{display:flex;gap:13px;margin-top:30px;flex-wrap:wrap}
+.btn{display:inline-block;padding:16px 32px;font-family:'JetBrains Mono',monospace;font-size:.7rem;
+ letter-spacing:.16em;text-transform:uppercase;transition:.25s;border:1px solid var(--paper)}
+.btn-fill{background:var(--cyan);color:var(--bg);border-color:var(--cyan);font-weight:500}
+.btn-fill:hover{background:var(--paper);border-color:var(--paper)}
+.btn-line{color:var(--paper)}.btn-line:hover{background:var(--paper);color:var(--bg)}
+.hside{border-left:3px solid var(--cyan);padding-left:22px}
+.hside b{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:1.14rem;margin-bottom:7px}
+.hside p{font-size:.95rem;color:var(--dim)}
+.tick{border-block:1px solid var(--line);overflow:hidden;padding:14px 0;background:var(--bg2)}
+.tkt{display:flex;gap:42px;white-space:nowrap;width:max-content;animation:tk 38s linear infinite}
+.tkt span{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.18em;
+ text-transform:uppercase;color:var(--dim)}
+.tkt span::after{content:"◆";color:var(--cyan);margin-left:42px;font-size:.5rem;vertical-align:middle}
+@keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.shead{display:grid;grid-template-columns:.32fr .68fr;gap:46px;align-items:start;margin-bottom:48px}
+.shead h2{font-size:clamp(2.1rem,5vw,3.6rem)}
+.shead p{color:var(--dim);max-width:62ch;margin-top:14px}
+.svc{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.sc{padding:38px 30px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sc:nth-child(2n){border-right:0}
+.sc h3{font-size:clamp(1.3rem,2.6vw,1.8rem);margin-bottom:11px}
+.sc p{color:var(--dim);font-size:.99rem}
+.creds{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.cr{padding:36px 26px;border-right:1px solid var(--line)}
+.cr:last-child{border-right:0}
+.cr b{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:1.16rem;line-height:1.2}
+.cr span{display:block;margin-top:9px;font-family:'JetBrains Mono',monospace;font-size:.61rem;
+ letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.big{font-size:clamp(2.5rem,8vw,6rem);line-height:.96}
+.cgrid{display:grid;grid-template-columns:1fr .55fr;gap:54px;align-items:end;margin-top:38px}
+.cinfo p{font-family:'JetBrains Mono',monospace;font-size:.76rem;letter-spacing:.05em;
+ color:var(--dim);margin-bottom:10px;line-height:1.6}
+.cinfo a{color:var(--paper);border-bottom:1px solid var(--cyan)}
+footer{border-top:1px solid var(--line);padding:38px 0}
+.frow{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+footer p{font-family:'JetBrains Mono',monospace;font-size:.63rem;letter-spacing:.12em;
+ text-transform:uppercase;color:var(--dim)}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .75s cubic-bezier(.2,.7,.3,1),transform .75s cubic-bezier(.2,.7,.3,1)}
+.rv.on{opacity:1;transform:none}
+@media(max-width:1000px){
+ .nl{display:none}
+ .hgrid,.shead,.cgrid,.svc{grid-template-columns:1fr;gap:30px}
+ .creds{grid-template-columns:1fr}
+ .sc,.cr{border-right:0;border-bottom:1px solid var(--line)}
+ section{padding:66px 0}.hero{padding-top:124px}.wrap{padding:0 22px}
+}
+</style><style>
+.anim-fade-in-up {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.anim-fade-in-up.anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style></head><body>
+<header id="nav"><div class="wrap"><div class="bar">
+<a class="mark" href="#">Super Shine<span>Hand Car Wash &amp; Detail Center</span></a>
+<nav class="nl"><a href="#services">Services</a><a href="#extras">Also here</a>
+<a class="cta-sm" href="tel:6783258448">678-325-8448</a></nav>
+</div></div></header>
+<section class="hero anim-fade-in-up" style="transition-delay: 0.0s; "><div class="wrap">
+<div class="mono">Hand car wash &amp; detail center · 134 Davis Rd, Martinez, GA</div>
+<h1>We focus on<br/>the <em>details.</em></h1>
+<div class="hgrid">
+<div>
+<p>Super Shine Hand Car Wash and Detail Center has proudly served Augusta since 2008.
+We are a full-service car wash and detail company. We take pride in focusing on the
+details — customer satisfaction is our ultimate goal.</p>
+<div class="hact">
+<a class="btn btn-fill" href="tel:6783258448">Book — 678-325-8448</a>
+<a class="btn btn-line" href="#services">See services</a>
+</div>
+</div>
+<div class="hside">
+<b>Licensed &amp; insured.</b>
+<p>And a proud member of the International Detailing Association.</p>
+</div>
+</div></div></section>
+<div class="tick"><div class="tkt">
+<span>Since 2008</span><span>Hand Wash</span><span>Clay Bar</span><span>Hand Wax</span><span>Full Detail</span>
+<span>Paint Correction</span><span>Odor Removal</span><span>Carpet Shampoo</span>
+<span>Since 2008</span><span>Hand Wash</span><span>Clay Bar</span><span>Hand Wax</span><span>Full Detail</span>
+<span>Paint Correction</span><span>Odor Removal</span><span>Carpet Shampoo</span>
+</div></div>
+<section class="anim-fade-in-up" id="services" style="transition-delay: 0.1s; "><div class="wrap">
+<div class="shead rv"><div class="mono">01 — Services</div>
+<div><h2>By hand,<br/>every time.</h2>
+<p>A full-service car wash and detail company in Martinez, Georgia.</p></div></div>
+<div class="svc">
+<div class="sc rv"><h3>The wash</h3>
+<p>Wash, vacuum, windows, door jams, cup holders and dash dusting. Basic shine and spray
+wax.</p></div>
+<div class="sc rv"><h3>Hand shine</h3>
+<p>Basic shine and hand wax.</p></div>
+<div class="sc rv"><h3>Clay bar &amp; polish</h3>
+<p>Basic shine, clay bar, polish and hand wax.</p></div>
+<div class="sc rv"><h3>Full detail</h3>
+<p>Seats, carpets, doors and all panels cleaned and conditioned. Sunvisors, air vents and
+more.</p></div>
+</div>
+<div style="margin-top:44px">
+<div class="mono rv">Custom detail services</div>
+<p style="color:var(--dim);margin-top:14px;max-width:70ch">Carpet shampoo, odor removal,
+leather clean, wheel polish, paint correction and more.</p>
+</div>
+</div></section>
+<section class="anim-fade-in-up" id="extras" style="transition-delay: 0.2s; padding-top:0"><div class="wrap">
+<div class="shead rv"><div class="mono">02 — Also here</div>
+<div><h2>More than a wash.</h2>
+<p>A few other things you can do while you are on Davis Road.</p></div></div>
+<div class="creds">
+<div class="cr rv"><b>International Detailing Association</b><span>Proud member</span></div>
+<div class="cr rv"><b>U-Haul Neighborhood Dealer</b><span>On site</span></div>
+<div class="cr rv"><b>UPS Access Point</b><span>On site</span></div>
+</div></div></section>
+<section class="anim-fade-in-up" id="contact" style="transition-delay: 0.3s; padding-top:0"><div class="wrap" style="padding-top:92px">
+<div class="mono">03 — Book it</div>
+<h2 class="big" style="margin-top:18px">Schedule your<br/>appointment today.</h2>
+<div class="cgrid">
+<div><p style="color:var(--dim);max-width:54ch">Customer satisfaction is our ultimate
+goal — schedule your appointment today.</p>
+<div style="margin-top:28px"><a class="btn btn-fill" href="tel:6783258448">Call 678-325-8448</a></div></div>
+<div class="cinfo">
+<p>134 Davis Rd<br/>Martinez, GA</p>
+<p><a href="tel:6783258448">678-325-8448</a></p>
+</div></div></div></section>
+<footer><div class="wrap frow">
+<div class="mark">Super Shine<span>Hand Car Wash &amp; Detail Center · Martinez, GA</span></div>
+<p>Preview redesign concept by MARNEXIQ</p>
+</div></footer>
+<script>
+(function(){
+ var r=document.querySelectorAll('.rv');
+ var o=new IntersectionObserver(function(e){e.forEach(function(y){
+  if(y.isIntersecting){y.target.classList.add('on');o.unobserve(y.target)}})},{threshold:.1});
+ r.forEach(function(y){o.observe(y)});
+})();
+</script>
+<script>
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) e.target.classList.add('anim-visible');
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+})();
+</script></body></html>
