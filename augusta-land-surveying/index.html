@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="noindex" name="robots"/>
+<title>Augusta Land Surveying — residential and commercial land surveys</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+a{text-decoration:none;color:inherit}
+:root{--paper:#F3F4F1;--paper2:#E6E8E2;--ink:#14180F;--ink2:#575e51;
+      --orange:#D24A2E;--line:#d4d7cd}
+body{background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;
+ font-size:17px;line-height:1.72;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Barlow Condensed',Impact,sans-serif;font-weight:700;
+ text-transform:uppercase;line-height:.95}
+.wrap{max-width:1220px;margin:0 auto;padding:0 40px}
+.mono{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.22em;
+ text-transform:uppercase;color:var(--orange)}
+section{padding:104px 0}
+#nav{position:fixed;inset:0 0 auto;z-index:80;background:rgba(243,244,241,.94);
+ backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+#nav .bar{display:flex;align-items:center;justify-content:space-between;padding:15px 0;gap:20px}
+.mark{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.24rem;
+ text-transform:uppercase;line-height:1.1}
+.mark span{display:block;font-family:'JetBrains Mono',monospace;font-size:.55rem;font-weight:400;
+ letter-spacing:.2em;color:var(--ink2);margin-top:3px;text-transform:none}
+.nl{display:flex;gap:28px;align-items:center}
+.nl a{font-family:'JetBrains Mono',monospace;font-size:.67rem;letter-spacing:.16em;text-transform:uppercase}
+.nl a:hover{color:var(--orange)}
+.cta-sm{border:1px solid var(--ink);padding:11px 20px;transition:.25s}
+.cta-sm:hover{background:var(--ink);color:var(--paper)!important}
+.hero{padding:170px 0 0}
+.hero h1{font-size:clamp(3.2rem,10.5vw,9rem);margin:18px 0 0}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hgrid{display:grid;grid-template-columns:1.15fr .85fr;gap:52px;align-items:end;
+ margin-top:34px;padding-bottom:56px}
+.hgrid p{color:var(--ink2);font-size:1.11rem;max-width:58ch}
+.hact{display:flex;gap:13px;margin-top:30px;flex-wrap:wrap}
+.btn{display:inline-block;padding:16px 32px;font-family:'JetBrains Mono',monospace;font-size:.7rem;
+ letter-spacing:.16em;text-transform:uppercase;transition:.25s;border:1px solid var(--ink)}
+.btn-fill{background:var(--ink);color:var(--paper)}
+.btn-fill:hover{background:var(--orange);border-color:var(--orange)}
+.btn-line:hover{background:var(--ink);color:var(--paper)}
+.hside{border-left:4px solid var(--orange);padding-left:22px}
+.hside b{display:block;font-family:'Barlow Condensed',sans-serif;font-weight:700;
+ text-transform:uppercase;font-size:1.4rem;margin-bottom:6px}
+.hside p{font-size:.96rem;color:var(--ink2)}
+.who{display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid var(--line);background:var(--paper2)}
+.wc{padding:40px 24px;border-right:1px solid var(--line)}
+.wc:last-child{border-right:0}
+.wc b{display:block;font-family:'Barlow Condensed',sans-serif;font-weight:700;
+ text-transform:uppercase;font-size:clamp(1.4rem,2.8vw,1.9rem);line-height:1.05}
+.wc span{display:block;margin-top:10px;font-family:'JetBrains Mono',monospace;font-size:.62rem;
+ letter-spacing:.16em;text-transform:uppercase;color:var(--ink2)}
+.shead{display:grid;grid-template-columns:.32fr .68fr;gap:46px;align-items:start;margin-bottom:48px}
+.shead h2{font-size:clamp(2.2rem,5.4vw,4rem)}
+.shead p{color:var(--ink2);max-width:62ch;margin-top:14px}
+.scale{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line)}
+.sc{padding:44px 34px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sc:nth-child(2n){border-right:0}
+.sc h3{font-size:clamp(1.5rem,3vw,2.1rem);margin-bottom:12px}
+.sc p{color:var(--ink2);font-size:1rem}
+.dark{background:var(--ink);color:var(--paper)}
+.dark h2{color:var(--paper)}.dark p{color:#989e91}
+.ins{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #2a2f24;margin-top:40px}
+.inc{padding:34px 24px;border-right:1px solid #2a2f24}
+.inc:last-child{border-right:0}
+.inc b{display:block;font-family:'Barlow Condensed',sans-serif;font-weight:700;
+ text-transform:uppercase;font-size:1.3rem;color:var(--paper)}
+.inc span{display:block;margin-top:9px;font-family:'JetBrains Mono',monospace;font-size:.61rem;
+ letter-spacing:.16em;text-transform:uppercase;color:#989e91}
+.big{font-size:clamp(2.6rem,8vw,6rem);line-height:.96}
+.cgrid{display:grid;grid-template-columns:1fr .55fr;gap:54px;align-items:end;margin-top:38px}
+.cinfo p{font-family:'JetBrains Mono',monospace;font-size:.76rem;letter-spacing:.05em;
+ color:#989e91;margin-bottom:10px;line-height:1.6}
+.cinfo a{color:var(--paper);border-bottom:1px solid var(--orange)}
+footer{border-top:1px solid var(--line);padding:38px 0}
+.frow{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+footer p{font-family:'JetBrains Mono',monospace;font-size:.63rem;letter-spacing:.12em;
+ text-transform:uppercase;color:var(--ink2)}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .75s cubic-bezier(.2,.7,.3,1),transform .75s cubic-bezier(.2,.7,.3,1)}
+.rv.on{opacity:1;transform:none}
+@media(max-width:1000px){
+ .nl{display:none}
+ .hgrid,.shead,.cgrid,.scale{grid-template-columns:1fr;gap:30px}
+ .who,.ins{grid-template-columns:1fr}
+ .wc,.inc,.sc{border-right:0;border-bottom:1px solid var(--line)}
+ section{padding:66px 0}.hero{padding-top:124px}.wrap{padding:0 22px}
+}
+</style><style>
+.anim-fade-in-up {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.anim-fade-in-up.anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style></head><body>
+<header id="nav"><div class="wrap"><div class="bar">
+<a class="mark" href="#">Augusta Land Surveying<span>Augusta, Georgia</span></a>
+<nav class="nl"><a href="#who">Who we work for</a><a href="#scale">Scale</a>
+<a href="#insured">Insured</a><a class="cta-sm" href="tel:7062849578">706-284-9578</a></nav>
+</div></div></header>
+<section class="hero anim-fade-in-up" style="transition-delay: 0.0s; "><div class="wrap">
+<div class="mono">Residential and commercial land surveys · Augusta, Georgia</div>
+<h1>Professional.<br/>Accurate. <em>Efficient.</em></h1>
+<div class="hgrid">
+<div>
+<p>Augusta Land Surveying provides surveying services for builders, contractors, land
+developers and landowners in the Augusta, Georgia area. Our goal is to provide
+professional, cost-effective, efficient and accurate land surveying services.</p>
+<div class="hact">
+<a class="btn btn-fill" href="tel:7062849578">Call 706-284-9578</a>
+<a class="btn btn-line" href="#scale">What we survey</a>
+</div>
+</div>
+<div class="hside">
+<b>All disciplines</b>
+<p>Proficient in all disciplines of land and construction surveying.</p>
+</div>
+</div></div></section>
+<div class="who" id="who">
+<div class="wc"><b>Builders</b><span>Who we work for</span></div>
+<div class="wc"><b>Contractors</b><span>Who we work for</span></div>
+<div class="wc"><b>Land developers</b><span>Who we work for</span></div>
+<div class="wc"><b>Landowners</b><span>Who we work for</span></div>
+</div>
+<section class="anim-fade-in-up" id="scale" style="transition-delay: 0.1s; "><div class="wrap">
+<div class="shead rv"><div class="mono">01 — Scale</div>
+<div><h2>Large scale to<br/>small site.</h2>
+<p>Augusta Land Surveying offers many services that range from large scale
+municipal/utility and commercial developments to small site plans and lot surveys.</p></div></div>
+<div class="scale">
+<div class="sc rv"><h3>Municipal &amp; utility</h3>
+<p>Large scale municipal and utility developments.</p></div>
+<div class="sc rv"><h3>Commercial developments</h3>
+<p>Large scale commercial development work.</p></div>
+<div class="sc rv"><h3>Site plans</h3>
+<p>Small site plans, at the other end of the range.</p></div>
+<div class="sc rv"><h3>Lot surveys</h3>
+<p>Individual lot surveys for landowners and builders.</p></div>
+</div></div></section>
+<section class="dark anim-fade-in-up" id="insured" style="transition-delay: 0.2s; "><div class="wrap">
+<div class="shead rv"><div class="mono">02 — Fully insured</div>
+<div><h2>Certification<br/>on request.</h2>
+<p>Augusta Land Surveying is fully insured and can provide certification of the
+following coverage.</p></div></div>
+<div class="ins">
+<div class="inc rv"><b>Worker's Compensation</b><span>Certification available</span></div>
+<div class="inc rv"><b>General Liability</b><span>Certification available</span></div>
+<div class="inc rv"><b>Professional Liability</b><span>Certification available</span></div>
+</div>
+<p style="margin-top:36px;max-width:72ch">Since inception, Augusta Land Surveying has been
+providing professional surveying services for commercial, residential and municipal
+projects throughout the CSRA. We continue to serve both the public and private sector.</p>
+</div></section>
+<section class="anim-fade-in-up" id="contact" style="transition-delay: 0.3s; padding-top:0"><div class="wrap" style="padding-top:96px">
+<div class="mono">03 — Get in touch</div>
+<h2 class="big" style="margin-top:18px">Get it surveyed.</h2>
+<div class="cgrid">
+<div><p style="color:var(--ink2);max-width:54ch">We are available to answer any specific
+questions by phone or email.</p>
+<div style="margin-top:28px"><a class="btn btn-fill" href="tel:7062849578" style="background:var(--orange);border-color:var(--orange);color:var(--paper)">Call 706-284-9578</a></div></div>
+<div class="cinfo" style="color:var(--ink2)">
+<p style="color:var(--ink2)">Augusta, Georgia</p>
+<p><a href="tel:7062849578" style="color:var(--ink)">706-284-9578</a></p>
+</div></div></div></section>
+<footer><div class="wrap frow">
+<div class="mark">Augusta Land Surveying<span>Residential and commercial land surveys</span></div>
+<p>Preview redesign concept by MARNEXIQ</p>
+</div></footer>
+<script>
+(function(){
+ var r=document.querySelectorAll('.rv');
+ var o=new IntersectionObserver(function(e){e.forEach(function(y){
+  if(y.isIntersecting){y.target.classList.add('on');o.unobserve(y.target)}})},{threshold:.12});
+ r.forEach(function(y){o.observe(y)});
+})();
+</script>
+<script>
+(function(){
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) e.target.classList.add('anim-visible');
+    });
+  }, {threshold: 0.1});
+  document.querySelectorAll('.anim-fade-in-up').forEach(function(el){ obs.observe(el); });
+})();
+</script></body></html>
